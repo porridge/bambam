@@ -1,9 +1,15 @@
+#!/usr/bin/python
 import pygame, sys,os, random, string
 from pygame.locals import * 
 
+# figure out the install base to use with image and sound loading
+progInstallBase = os.path.dirname(os.path.normpath(sys.argv[0]));
+
+
 # Load image in data/, handling setting of the transparency color key
 def load_image(name, colorkey=None):
-    fullname = os.path.join('data', name)
+    fullname = os.path.join(progInstallBase, 'data', name)
+    
     try:
         image = pygame.image.load(fullname)
     except pygame.error, message:
@@ -22,11 +28,11 @@ def load_sound(name):
         def play(self): pass
     if not pygame.mixer:
         return NoneSound()
-    fullname = os.path.join('data', name)
+    fullname = os.path.join(progInstallBase, 'data', name)
     try:
         sound = pygame.mixer.Sound(fullname)
     except pygame.error, message:
-        print "Cannot load sound:", wav
+        print "Cannot load sound:", fullname
         raise SystemExit, message
     return sound
 
