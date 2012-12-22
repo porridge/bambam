@@ -1,5 +1,5 @@
 #!/usr/bin/python
-import pygame, sys,os, random, string
+import pygame, sys,os, random, string, glob
 from pygame.locals import * 
 
 global swidth, sheight
@@ -29,11 +29,10 @@ def load_sound(name):
         def play(self): pass
     if not pygame.mixer:
         return NoneSound()
-    fullname = os.path.join(progInstallBase, 'data', name)
     try:
-        sound = pygame.mixer.Sound(fullname)
+        sound = pygame.mixer.Sound(name)
     except pygame.error, message:
-        print "Cannot load sound:", fullname
+        print "Cannot load sound:", name
         raise SystemExit, message
     return sound
 
@@ -96,8 +95,8 @@ def print_letter(key):
     text = font.render(chr(key), 1, colors[random.randint(0, len(colors) -1)])
     textpos = text.get_rect()
     center = (textpos.width / 2, textpos.height / 2)
-    w = random.randint(0+center[0], swidth - center[0])
-    h = random.randint(0+center[1], sheight - center[1])
+    w = random.randint(0 + center[0], swidth - center[0])
+    h = random.randint(0 + center[1], sheight - center[1])
     textpos.centerx = w
     textpos.centery = h
     screen.blit(text, textpos) 
@@ -127,7 +126,7 @@ background.fill((250, 250, 250))
 screen.blit(background, (0, 0))
 pygame.display.flip()
 
-sounds = load_sounds(('boilingwater1a.wav','whiff.wav', 'punch.wav','boom.wav','house_lo.wav','secosmic_lo.wav','churchbell1.wav', 'hen2.wav','horse1a.wav','jet2.wav','lamb.wav','register.wav','splat2a.wav', 'splat3a.wav','zipperdn1.wav'))
+sounds = load_sounds(glob.glob(os.path.join(progInstallBase, 'data', '*.wav')))
 colors = ((0,0,255), (255,0,0), (0,255,0), (255, 0, 255),(255, 255, 0))
 images = (load_image("chimp.bmp", -1)[0],load_image('alien1.gif')[0])
 
