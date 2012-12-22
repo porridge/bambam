@@ -127,7 +127,12 @@ screen.blit(background, (0, 0))
 pygame.display.flip()
 
 sounds = load_sounds(glob.glob(os.path.join(progInstallBase, 'data', '*.wav')))
-colors = ((0,0,255), (255,0,0), (0,255,0), (255, 0, 255),(255, 255, 0))
+
+colors = ((  0,   0, 255), (255,   0,   0), (255, 255,   0), 
+          (255,   0, 128), (  0,   0, 128), (  0, 255,   0), 
+          (255, 128,   0), (255,   0, 255), (  0, 255, 255)
+)
+
 images = (load_image("chimp.bmp", -1)[0],load_image('alien1.gif')[0])
 
 quit_pos = 0   
