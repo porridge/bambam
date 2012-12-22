@@ -2,6 +2,7 @@
 import pygame, sys,os, random, string
 from pygame.locals import * 
 
+global swidth, sheight
 # figure out the install base to use with image and sound loading
 progInstallBase = os.path.dirname(os.path.normpath(sys.argv[0]));
 
@@ -81,8 +82,8 @@ def input(events, quit_pos):
 # Prints an image at a random location
 def print_image():
     img = images[random.randint(0, len(images) -1)]
-    w = random.randint(0, 800-img.get_width())
-    h = random.randint(0, 600-img.get_height())
+    w = random.randint(0, swidth - img.get_width())
+    h = random.randint(0, sheight - img.get_height())
     screen.blit(img, (w, h)) 
 
 # Is the key that was pressed alphanumeric
@@ -95,8 +96,8 @@ def print_letter(key):
     text = font.render(chr(key), 1, colors[random.randint(0, len(colors) -1)])
     textpos = text.get_rect()
     center = (textpos.width / 2, textpos.height / 2)
-    w = random.randint(0+center[0], 800-center[0])
-    h = random.randint(0+center[1], 600-center[1])
+    w = random.randint(0+center[0], swidth - center[0])
+    h = random.randint(0+center[1], sheight - center[1])
     textpos.centerx = w
     textpos.centery = h
     screen.blit(text, textpos) 
@@ -106,9 +107,16 @@ def print_letter(key):
 if not pygame.font: print 'Warning, fonts disabled'
 if not pygame.mixer: print 'Warning, sound disabled'
  
-pygame.init() 
- 
-window = pygame.display.set_mode((800,600), pygame.FULLSCREEN) 
+pygame.init()
+
+# swith to full screen at current screen resolution 
+window = pygame.display.set_mode((0,0), pygame.FULLSCREEN)
+
+# determine display resolution
+displayinfo = pygame.display.Info()
+swidth = displayinfo.current_w
+sheight = displayinfo.current_h
+
 pygame.display.set_caption('Bam Bam') 
 screen = pygame.display.get_surface() 
 
