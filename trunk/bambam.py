@@ -11,7 +11,7 @@ def draw_dot():
     pygame.draw.circle(dot, get_color(), (r, r), r, 0)
     dot.set_colorkey(0, pygame.RLEACCEL)
     
-    screen.blit(dot, (mousex - .5 * r, mousey - .5 * r))
+    screen.blit(dot, (mousex - r, mousey - r))
 
 
 # Return bright color varying over time
