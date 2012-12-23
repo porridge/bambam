@@ -18,7 +18,7 @@ def draw_dot():
 def get_color():
     col = Color('white');
     
-    hue = pygame.time.get_ticks() / 100 % 360
+    hue = pygame.time.get_ticks() / 50 % 360
     col.hsva = (hue, 100, 100, 50)
     
     return Color(col.r, col.g, col.b)
@@ -65,7 +65,7 @@ def load_sounds(lst):
 
 # Processes events
 def input(events, quit_pos):
-    global sequence, mouse_down
+    global sequence, mouse_down, sound_muted
     for event in events: 
         if event.type == QUIT: 
             sys.exit(0)
@@ -78,14 +78,23 @@ def input(events, quit_pos):
                     sequence += chr(event.key)
                     if sequence.find('quit') > -1:
                         sys.exit(0)
-
+                    elif sequence.find('unmute') > -1:
+                        sound_muted = False
+                        #pygame.mixer.unpause()
+                        sequence = ''
+                    elif sequence.find('mute') > -1:
+                        sound_muted = True
+                        pygame.mixer.fadeout(1000)
+                        sequence = ''
+            
             # Clear the background 10% of the time
             if random.randint(0, 10) == 1:
                 screen.blit(background, (0, 0))
                 pygame.display.flip()
             
             # play random sound
-            sounds[random.randint(0, len(sounds) - 1)].play()
+            if not sound_muted:
+               sounds[random.randint(0, len(sounds) - 1)].play()
             
             # show images 
             if is_alpha(event.key):
@@ -103,12 +112,12 @@ def input(events, quit_pos):
         # mouse button down
         elif event.type == MOUSEBUTTONDOWN:
             draw_dot()
-            mouse_down = 1
+            mouse_down = True
             pygame.display.flip()
 
         # mouse button up
         elif event.type == MOUSEBUTTONUP:
-            mouse_down = 0
+            mouse_down = False
         
     return quit_pos
 
@@ -165,7 +174,8 @@ sequence = ""
 screen.blit(background, (0, 0))
 pygame.display.flip()
 
-mouse_down = 0
+mouse_down = False
+sound_muted = False
 
 sounds = load_sounds(glob.glob(os.path.join(progInstallBase, 'data', '*.wav')))
 
