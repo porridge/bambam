@@ -14,6 +14,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import pygame, sys,os, random, string, glob
+import argparse
 from pygame.locals import * 
 
 # draw filled circle at mouse position
@@ -148,8 +149,13 @@ def is_alpha(key):
 
 # Prints a letter at a random location
 def print_letter(key):
+    global args
     font = pygame.font.Font(None, 256)
-    text = font.render(chr(key), 1, colors[random.randint(0, len(colors) - 1)])
+    if args.uppercase:
+        char = chr(key).upper()
+    else:
+        char = chr(key)
+    text = font.render(char, 1, colors[random.randint(0, len(colors) - 1)])
     textpos = text.get_rect()
     center = (textpos.width / 2, textpos.height / 2)
     w = random.randint(0 + center[0], swidth - center[0])
@@ -160,6 +166,10 @@ def print_letter(key):
 
 # Main application
 #
+parser = argparse.ArgumentParser(description='A keyboard mashing game for babies.')
+parser.add_argument('-u', '--uppercase', action='store_true', help='Whether to show UPPER-CASE letters.')
+args = parser.parse_args()
+
 if not pygame.font: print 'Warning, fonts disabled'
 if not pygame.mixer: print 'Warning, sound disabled'
  
