@@ -38,21 +38,19 @@ def get_color():
     return Color(col.r, col.g, col.b)
 
 
-# Load image in data/, handling setting of the transparency color key
-def load_image(name, colorkey = None):
-    fullname = os.path.join(progInstallBase, 'data', name)
-    
+# Load image/, handling setting of the transparency color key
+def load_image(fullname, colorkey = None):
     try:
         image = pygame.image.load(fullname)
     except pygame.error, message:
-        print "Cannot load image:", name
+        print "Cannot load image:", fullname
         raise SystemExit, message
     image = image.convert()
     if colorkey is not None:
         if colorkey is -1:
             colorkey = image.get_at((0, 0))
         image.set_colorkey(colorkey, RLEACCEL)
-    return image, image.get_rect()
+    return image
 
 
 # Load sound file in data/
@@ -191,14 +189,18 @@ pygame.display.flip()
 mouse_down = False
 sound_muted = False
 
-sounds = load_sounds(glob.glob(os.path.join(progInstallBase, 'data', '*.wav')))
+def glob_data(pattern):
+    return glob.glob(os.path.join(progInstallBase, 'data', pattern))
+
+sounds = load_sounds(glob_data('*.wav'))
 
 colors = ((  0,   0, 255), (255,   0,   0), (255, 255,   0), 
           (255,   0, 128), (  0,   0, 128), (  0, 255,   0), 
           (255, 128,   0), (255,   0, 255), (  0, 255, 255)
 )
 
-images = (load_image("chimp.bmp", -1)[0],load_image('alien1.gif')[0],load_image('dog.gif')[0],load_image('frog.gif')[0],load_image('tux.gif')[0],load_image('bear.gif')[0],load_image('iguana.gif')[0],load_image('kangaroo.gif')[0])
+images = [load_image(glob_data('chimp.bmp')[0], -1)]
+images.extend([load_image(name) for name in glob_data('*.gif')])
 
 quit_pos = 0
 
