@@ -1,0 +1,6 @@
+?package(bambam):needs="X11" \
+  section="Games/Toys" \
+  icon="/usr/share/pixmaps/bambam.xpm" \
+  title="BamBam" \
+  longtitle="Keyboard masher game for babies" \
+  command="/usr/games/bambam"
