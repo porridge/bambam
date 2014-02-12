@@ -15,6 +15,7 @@
 
 import pygame, sys,os, random, string, glob
 import argparse
+import fnmatch
 from pygame.locals import * 
 
 # draw filled circle at mouse position
@@ -71,8 +72,12 @@ def load_sound(name):
 # Loads a list of sounds
 def load_sounds(lst):
     result = []
+    global args
     for name in lst:
-        result.append(load_sound(name))
+        if True in [fnmatch.fnmatch(name, p) for p in args.sound_blacklist]:
+            print "Skipping blacklisted sound:", name
+        else:
+            result.append(load_sound(name))
     return result
 
 
@@ -168,6 +173,7 @@ def print_letter(key):
 #
 parser = argparse.ArgumentParser(description='A keyboard mashing game for babies.')
 parser.add_argument('-u', '--uppercase', action='store_true', help='Whether to show UPPER-CASE letters.')
+parser.add_argument('--sound_blacklist', action='append', default=[], help='List of sound filename patterns to never play.')
 args = parser.parse_args()
 
 if not pygame.font: print 'Warning, fonts disabled'
