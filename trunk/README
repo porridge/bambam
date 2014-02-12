@@ -2,10 +2,10 @@ Installation using source package (command line instructions)
 
 make sure you have pygame installed first!
 
-1. unpack bambam-0.3.1 to create the bambam-0.3.1 directory
-	tar zxvf bambam-0.3.1.tar.gz
+1. unpack bambam-0.4 to create the bambam-0.4 directory
+	tar zxvf bambam-0.4.tar.gz
 2. move into the bambam directory
-	cd bambam-0.3.1
+	cd bambam-0.4
 3. execute 
 	./bambam.py
 4. to exit, type quit
