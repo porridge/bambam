@@ -9,7 +9,7 @@ Vcs-Bzr: https://code.launchpad.net/~spikeb/bambam/trunk
 
 Package: bambam
 Architecture: all
-Depends: ${misc:Depends}
+Depends: python-pygame, ${misc:Depends}
 Description: Keyboard masher game for babies
  Bambam is a simple baby keyboard masher application that locks 
  the keyboard and mouse and instead displays bright colors, 
