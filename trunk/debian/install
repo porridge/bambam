@@ -1,3 +1,4 @@
 debian/bambam.xpm	usr/share/pixmaps
+debian/bambam.desktop	usr/share/applications
 bambam.py		usr/share/bambam
 data			usr/share/bambam
