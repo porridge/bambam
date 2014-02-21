@@ -13,7 +13,9 @@ Merged Spike's changes back to this original hosting site, included:
       * ability to blacklist some sounds
       * ability to use capital letters
 
-This version is only available [https://code.google.com/p/bambam/source/browse/#svn%2Ftags%2F0.5 from the SVN repository], as downloads are no longer available on code.google.com
+This version is available [https://code.google.com/p/bambam/source/browse/#svn%2Ftags%2F0.5 from the SVN repository], as downloads are no longer available on code.google.com. I've also temporarily uploaded it to:
+   * http://owsiany.pl/tmp/bambam-0.5.tar.gz
+   * http://owsiany.pl/tmp/bambam-0.5.zip
 
 = Versions 0.3 - 0.4 =
 
