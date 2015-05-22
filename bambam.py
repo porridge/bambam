@@ -183,11 +183,12 @@ if not pygame.mixer: print 'Warning, sound disabled'
 pygame.init()
 
 # figure out the install base to use with image and sound loading
-progHomePref = os.path.expanduser("~/.bambam")
-if os.path.isdir(progHomePref):
-    progInstallBase = progHomePref
-else:
-    progInstallBase = os.path.join(os.path.dirname(os.path.normpath(sys.argv[0])),'data');
+dataDirs = [os.path.join(os.path.dirname(os.path.normpath(sys.argv[0])),'data')];
+xdg_data_home = os.getenv('XDG_DATA_HOME', os.path.expanduser("~/.local/share"))
+extraDataDir = os.path.join(xdg_data_home, "bambam/data/")
+if os.path.isdir(extraDataDir):
+    print "Extra data dir : ", extraDataDir
+    dataDirs.append(extraDataDir)
 
 
 # swith to full screen at current screen resolution 
@@ -212,7 +213,10 @@ mouse_down = False
 sound_muted = False
 
 def glob_data(pattern):
-    return glob.glob(os.path.join(progInstallBase, pattern))
+    fileList = []
+    for dataDir in dataDirs:
+        fileList.extend(glob.glob(os.path.join(dataDir, pattern)))
+    return fileList
 
 sounds = load_items(glob_data('*.wav'), args.sound_blacklist, load_sound)
 
