@@ -89,7 +89,7 @@ def input(events, quit_pos):
             sys.exit(0)
         
         # handle keydown event     
-        elif event.type == KEYDOWN:
+        elif event.type == KEYDOWN or event.type == pygame.JOYBUTTONDOWN:
             # check for words like quit
             if event.type == KEYDOWN:
                 if is_alpha(event.key):
@@ -115,7 +115,7 @@ def input(events, quit_pos):
                sounds[random.randint(0, len(sounds) - 1)].play()
             
             # show images 
-            if is_alpha(event.key):
+            if event.type == pygame.KEYDOWN and is_alpha(event.key):
                 print_letter(event.key)
             else:
                 print_image()
@@ -230,6 +230,15 @@ images = load_items(glob_data('*.gif'), args.image_blacklist, load_image)
 quit_pos = 0
 
 clock = pygame.time.Clock()
+
+pygame.joystick.init()
+
+# Initialize all joysticks
+joystick_count = pygame.joystick.get_count()
+for i in range(joystick_count):
+    joystick = pygame.joystick.Joystick(i)
+    joystick.init()
+    
 
 while True:
     clock.tick(60)
