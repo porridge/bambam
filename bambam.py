@@ -69,15 +69,15 @@ def load_sound(name):
     return sound
 
 
-# Loads a list of sounds
-def load_sounds(lst):
+# Runs load_function on elements of lst unless they are blacklisted.
+def load_items(lst, blacklist, load_function):
     result = []
     global args
     for name in lst:
-        if True in [fnmatch.fnmatch(name, p) for p in args.sound_blacklist]:
-            print "Skipping blacklisted sound:", name
+        if True in [fnmatch.fnmatch(name, p) for p in blacklist]:
+            print "Skipping blacklisted item:", name
         else:
-            result.append(load_sound(name))
+            result.append(load_function(name))
     return result
 
 
@@ -174,6 +174,7 @@ def print_letter(key):
 parser = argparse.ArgumentParser(description='A keyboard mashing game for babies.')
 parser.add_argument('-u', '--uppercase', action='store_true', help='Whether to show UPPER-CASE letters.')
 parser.add_argument('--sound_blacklist', action='append', default=[], help='List of sound filename patterns to never play.')
+parser.add_argument('--image_blacklist', action='append', default=[], help='List of image filename patterns to never show.')
 args = parser.parse_args()
 
 if not pygame.font: print 'Warning, fonts disabled'
@@ -182,7 +183,13 @@ if not pygame.mixer: print 'Warning, sound disabled'
 pygame.init()
 
 # figure out the install base to use with image and sound loading
-progInstallBase = os.path.dirname(os.path.normpath(sys.argv[0]));
+dataDirs = [os.path.join(os.path.dirname(os.path.normpath(sys.argv[0])),'data')];
+xdg_data_home = os.getenv('XDG_DATA_HOME', os.path.expanduser("~/.local/share"))
+extraDataDir = os.path.join(xdg_data_home, "bambam/data/")
+if os.path.isdir(extraDataDir):
+    print "Extra data dir : ", extraDataDir
+    dataDirs.append(extraDataDir)
+
 
 # swith to full screen at current screen resolution 
 window = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
@@ -206,17 +213,19 @@ mouse_down = False
 sound_muted = False
 
 def glob_data(pattern):
-    return glob.glob(os.path.join(progInstallBase, 'data', pattern))
+    fileList = []
+    for dataDir in dataDirs:
+        fileList.extend(glob.glob(os.path.join(dataDir, pattern)))
+    return fileList
 
-sounds = load_sounds(glob_data('*.wav'))
+sounds = load_items(glob_data('*.wav'), args.sound_blacklist, load_sound)
 
 colors = ((  0,   0, 255), (255,   0,   0), (255, 255,   0), 
           (255,   0, 128), (  0,   0, 128), (  0, 255,   0), 
           (255, 128,   0), (255,   0, 255), (  0, 255, 255)
 )
 
-images = [load_image(glob_data('chimp.bmp')[0], -1)]
-images.extend([load_image(name) for name in glob_data('*.gif')])
+images = load_items(glob_data('*.gif'), args.image_blacklist, load_image)
 
 quit_pos = 0
 
