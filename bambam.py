@@ -215,8 +215,7 @@ colors = ((  0,   0, 255), (255,   0,   0), (255, 255,   0),
           (255, 128,   0), (255,   0, 255), (  0, 255, 255)
 )
 
-images = [load_image(glob_data('chimp.bmp')[0], -1)]
-images.extend([load_image(name) for name in glob_data('*.gif')])
+images = [load_image(name) for name in glob_data('*.gif')]
 
 quit_pos = 0
 
