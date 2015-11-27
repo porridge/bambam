@@ -112,8 +112,11 @@ def input(events, quit_pos):
             
             # play random sound
             if not sound_muted:
-               sounds[random.randint(0, len(sounds) - 1)].play()
-            
+                if event.type == KEYDOWN and args.deterministic_sounds:
+                    sounds[event.key % len(sounds)].play()
+                else:
+                    sounds[random.randint(0, len(sounds) -1)].play()
+
             # show images 
             if event.type == pygame.KEYDOWN and is_alpha(event.key):
                 print_letter(event.key)
@@ -174,6 +177,7 @@ def print_letter(key):
 parser = argparse.ArgumentParser(description='A keyboard mashing game for babies.')
 parser.add_argument('-u', '--uppercase', action='store_true', help='Whether to show UPPER-CASE letters.')
 parser.add_argument('--sound_blacklist', action='append', default=[], help='List of sound filename patterns to never play.')
+parser.add_argument('-d', '--deterministic-sounds', action='store_true', help='Whether to produce same sounds on same key presses.')
 args = parser.parse_args()
 
 if not pygame.font: print 'Warning, fonts disabled'
