@@ -178,6 +178,7 @@ parser = argparse.ArgumentParser(description='A keyboard mashing game for babies
 parser.add_argument('-u', '--uppercase', action='store_true', help='Whether to show UPPER-CASE letters.')
 parser.add_argument('--sound_blacklist', action='append', default=[], help='List of sound filename patterns to never play.')
 parser.add_argument('-d', '--deterministic-sounds', action='store_true', help='Whether to produce same sounds on same key presses.')
+parser.add_argument('-m', '--mute', action='store_true', help='No sound will be played.')
 args = parser.parse_args()
 
 if not pygame.font: print 'Warning, fonts disabled'
@@ -207,7 +208,7 @@ screen.blit(background, (0, 0))
 pygame.display.flip()
 
 mouse_down = False
-sound_muted = False
+sound_muted = args.mute
 
 def glob_data(pattern):
     return glob.glob(os.path.join(progInstallBase, 'data', pattern))
