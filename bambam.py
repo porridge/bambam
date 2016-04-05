@@ -189,7 +189,7 @@ if not pygame.mixer: print 'Warning, sound disabled'
 pygame.init()
 
 # figure out the install base to use with image and sound loading
-progInstallBase = os.path.dirname(os.path.normpath(sys.argv[0]));
+progInstallBase = os.path.dirname(os.path.realpath(sys.argv[0]));
 
 # swith to full screen at current screen resolution 
 window = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
