@@ -1,5 +1,9 @@
 #!/usr/bin/env python2
-#Copyright (C) 2007-2008 Don Brown 2010 Spike Burch <spikeb@gmail.com>
+# Copyright (C)
+#    2007-2008 Don Brown,
+#    2010 Spike Burch <spikeb@gmail.com>,
+#    2015-2016 Vasya Novikov
+#
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
 #    the Free Software Foundation, either version 3 of the License, or
@@ -88,7 +92,7 @@ def input(events, quit_pos):
         if event.type == QUIT: 
             sys.exit(0)
         
-        # handle keydown event     
+        # handle keydown event
         elif event.type == KEYDOWN or event.type == pygame.JOYBUTTONDOWN:
             # check for words like quit
             if event.type == KEYDOWN:
@@ -117,9 +121,9 @@ def input(events, quit_pos):
                 else:
                     sounds[random.randint(0, len(sounds) -1)].play()
 
-            # show images 
-            if event.type == pygame.KEYDOWN and is_alpha(event.key):
-                print_letter(event.key)
+            # show images
+            if event.type == pygame.KEYDOWN and (event.unicode.isalpha() or event.unicode.isdigit()):
+                print_letter(event.unicode)
             else:
                 print_image()
             pygame.display.flip()
@@ -156,13 +160,11 @@ def is_alpha(key):
     return key < 255 and (chr(key) in string.letters or chr(key) in string.digits)
 
 # Prints a letter at a random location
-def print_letter(key):
+def print_letter(char):
     global args
     font = pygame.font.Font(None, 256)
     if args.uppercase:
-        char = chr(key).upper()
-    else:
-        char = chr(key)
+        char = char.upper()
     text = font.render(char, 1, colors[random.randint(0, len(colors) - 1)])
     textpos = text.get_rect()
     center = (textpos.width / 2, textpos.height / 2)
@@ -187,7 +189,7 @@ if not pygame.mixer: print 'Warning, sound disabled'
 pygame.init()
 
 # figure out the install base to use with image and sound loading
-progInstallBase = os.path.dirname(os.path.normpath(sys.argv[0]));
+progInstallBase = os.path.dirname(os.path.realpath(sys.argv[0]));
 
 # swith to full screen at current screen resolution 
 window = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
