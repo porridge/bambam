@@ -205,6 +205,12 @@ screen = pygame.display.get_surface()
 background = pygame.Surface(screen.get_size())
 background = background.convert()
 background.fill((250, 250, 250))
+captionFont = pygame.font.SysFont(None, 20)
+captionLabel = captionFont.render("Commands: quit, mute, unmute", True, (210, 210, 210), (250, 250, 250))
+captionRect = captionLabel.get_rect()
+captionRect.x = 15
+captionRect.y = 10
+background.blit(captionLabel, captionRect)
 sequence = ""
 screen.blit(background, (0, 0))
 pygame.display.flip()
