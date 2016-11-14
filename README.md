@@ -9,11 +9,11 @@ Before running this application, ensure you have the following installed:
   * [Pygame](http://www.pygame.org/)
 
 ### Installation ###
-  1. [Download](https://github.com/porridge/bambam/releases) the bambam-0.5.zip or bambam-0.5.tar.gz file.
-  1. Unzip bambam-0.5.zip or "tar zxvf bambam-0.5.tar.gz" to create the bambam-0.5 directory.
-  1. Move into the 'bambam-0.5' directory
+  1. [Download](https://github.com/porridge/bambam/releases) the bambam-0.6.zip or bambam-0.6.tar.gz file.
+  1. Unzip bambam-0.6.zip or "tar zxvf bambam-0.6.tar.gz" to create the bambam-0.6 directory.
+  1. Move into the 'bambam-0.6' directory
 ```
-cd bambam-0.5
+cd bambam-0.6
 ```
   1. Execute
 ```
