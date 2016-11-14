@@ -73,15 +73,14 @@ def load_sound(name):
     return sound
 
 
-# Loads a list of sounds
-def load_sounds(lst):
+def load_items(lst, blacklist, load_function):
+    """Runs load_function on elements of lst unless they are blacklisted."""
     result = []
-    global args
     for name in lst:
-        if True in [fnmatch.fnmatch(name, p) for p in args.sound_blacklist]:
-            print "Skipping blacklisted sound:", name
+        if True in [fnmatch.fnmatch(name, p) for p in blacklist]:
+            print "Skipping blacklisted item:", name
         else:
-            result.append(load_sound(name))
+            result.append(load_function(name))
     return result
 
 
@@ -179,6 +178,7 @@ def print_letter(char):
 parser = argparse.ArgumentParser(description='A keyboard mashing game for babies.')
 parser.add_argument('-u', '--uppercase', action='store_true', help='Whether to show UPPER-CASE letters.')
 parser.add_argument('--sound_blacklist', action='append', default=[], help='List of sound filename patterns to never play.')
+parser.add_argument('--image_blacklist', action='append', default=[], help='List of image filename patterns to never show.')
 parser.add_argument('-d', '--deterministic-sounds', action='store_true', help='Whether to produce same sounds on same key presses.')
 parser.add_argument('-m', '--mute', action='store_true', help='No sound will be played.')
 args = parser.parse_args()
@@ -221,14 +221,14 @@ sound_muted = args.mute
 def glob_data(pattern):
     return glob.glob(os.path.join(progInstallBase, 'data', pattern))
 
-sounds = load_sounds(glob_data('*.wav'))
+sounds = load_items(glob_data('*.wav'), args.sound_blacklist, load_sound)
 
 colors = ((  0,   0, 255), (255,   0,   0), (255, 255,   0), 
           (255,   0, 128), (  0,   0, 128), (  0, 255,   0), 
           (255, 128,   0), (255,   0, 255), (  0, 255, 255)
 )
 
-images = [load_image(name) for name in glob_data('*.gif')]
+images = load_items(glob_data('*.gif'), args.image_blacklist, load_image)
 
 quit_pos = 0
 
