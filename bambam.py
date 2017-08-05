@@ -86,7 +86,7 @@ def load_items(lst, blacklist, load_function):
 
 # Processes events
 def input(events, quit_pos):
-    global sequence, mouse_down, sound_muted, caps_on
+    global sequence, mouse_down, sound_muted, caps_on, num_lock
     for event in events: 
         if event.type == QUIT: 
             sys.exit(0)
@@ -97,12 +97,17 @@ def input(events, quit_pos):
             if event.type == KEYDOWN:
                 if event.key == pygame.K_CAPSLOCK:
                     caps_on = True
+                if event.key == pygame.K_NUMLOCK:
+                    num_lock = True
                 if is_alpha(event.key):
                     sequence += chr(event.key)
                     if sequence.find('quit') > -1:
                         if caps_on:
                             sys.stdout.write('\nYour CAPSLOCK may have been '
                                 'reversed! Be sure to check CAPSLOCK now.\n\n')
+                        if num_lock:
+                            sys.stdout.write('\nYour NUMLOCK may have been '
+                                'reversed! Be sure to check NUMLOCK now.\n\n')
                         sys.exit(0)
                     elif sequence.find('unmute') > -1:
                         sound_muted = False
@@ -193,6 +198,7 @@ if not pygame.mixer: print 'Warning, sound disabled'
  
 pygame.init()
 caps_on = False
+num_lock = False
 
 # figure out the install base to use with image and sound loading
 progInstallBase = os.path.dirname(os.path.realpath(sys.argv[0]));
