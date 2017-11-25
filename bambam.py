@@ -23,9 +23,6 @@ import fnmatch
 from pygame.locals import * 
 try:
     import yeecli.cli as yee
-    # read config
-    # TODO move it to after we parse opts
-    yee.cli.callback(None, None, None, None, bulb='default', auto_on=True)
 except ImportError:
     yee = None
 
@@ -203,6 +200,10 @@ args = parser.parse_args()
 
 if not pygame.font: print('Warning, fonts disabled')
 if not pygame.mixer: print('Warning, sound disabled')
+
+if args.yee:
+    # read config (it might raise error if ip address is not found)
+    yee.cli.callback(None, None, None, None, bulb='default', auto_on=True)
  
 pygame.init()
 
