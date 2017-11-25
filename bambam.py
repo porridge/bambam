@@ -95,7 +95,7 @@ def input(events, quit_pos):
         elif event.type == KEYDOWN or event.type == pygame.JOYBUTTONDOWN:
             # check for words like quit
             if event.type == KEYDOWN:
-                if is_alpha(event.key):
+                if is_latin(event.key):
                     sequence += chr(event.key)
                     if sequence.find('quit') > -1:
                         sys.exit(0)
@@ -155,8 +155,8 @@ def print_image():
     screen.blit(img, (w, h))
 
 # Is the key that was pressed alphanumeric
-def is_alpha(key):
-    return key < 255 and (chr(key) in string.letters or chr(key) in string.digits)
+def is_latin(key):
+    return key < 255 and (chr(key) in string.ascii_letters or chr(key) in string.digits)
 
 # Prints a letter at a random location
 def print_letter(char):
