@@ -22,9 +22,12 @@ import argparse
 import fnmatch
 from pygame.locals import * 
 try:
-    import yeecli.cli
+    import yeecli.cli as yee
+    # read config
+    # TODO move it to after we parse opts
+    yee.cli.callback(None, None, None, None, bulb='default', auto_on=True)
 except ImportError:
-    yeecli = None
+    yee = None
 
 # draw filled circle at mouse position
 def draw_dot():
@@ -118,13 +121,13 @@ def input(events, quit_pos):
                 pygame.display.flip()
 
             # send command to yeelight
-            if yeecli and args.yee:
+            if yee and args.yee:
                 if args.deterministic_sounds:
                     color = event.key * 0xedcba % 0x1000000
                 else:
                     color = random.randint(0xffffff)
                 rgb = [(color >> (n*8)) & 0xff for n in range(3, 0, -1)]
-                for bulb in yeecli.cli.BULBS:
+                for bulb in yee.BULBS:
                     bulb.set_rgb(*rgb)
             
             # play random sound
