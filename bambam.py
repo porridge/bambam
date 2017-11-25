@@ -20,7 +20,7 @@
 import pygame, sys,os, random, string, glob
 import argparse
 import fnmatch
-from pygame.locals import * 
+from pygame.locals import *
 try:
     import yeecli.cli as yee
 except ImportError:
@@ -30,21 +30,21 @@ except ImportError:
 def draw_dot():
     r = 30
     mousex, mousey = pygame.mouse.get_pos()
-    
+
     dot = pygame.Surface((2 * r, 2 * r))
     pygame.draw.circle(dot, get_color(), (r, r), r, 0)
     dot.set_colorkey(0, pygame.RLEACCEL)
-    
+
     screen.blit(dot, (mousex - r, mousey - r))
 
 
 # Return bright color varying over time
 def get_color():
     col = Color('white');
-    
+
     hue = pygame.time.get_ticks() / 50 % 360
     col.hsva = (hue, 100, 100, 50)
-    
+
     return Color(col.r, col.g, col.b)
 
 
@@ -91,10 +91,10 @@ def load_items(lst, blacklist, load_function):
 # Processes events
 def input(events, quit_pos):
     global sequence, mouse_down, sound_muted
-    for event in events: 
-        if event.type == QUIT: 
+    for event in events:
+        if event.type == QUIT:
             sys.exit(0)
-        
+
         # handle keydown event
         elif event.type == KEYDOWN or event.type == pygame.JOYBUTTONDOWN:
             # check for words like quit
@@ -113,7 +113,7 @@ def input(events, quit_pos):
                         sound_muted = True
                         pygame.mixer.fadeout(1000)
                         sequence = ''
-            
+
             # Clear the background 10% of the time
             if random.randint(0, 10) == 1:
                 screen.blit(background, (0, 0))
@@ -126,7 +126,7 @@ def input(events, quit_pos):
                 else:
                     color = random.randint(0xffffff)
                 yee.rgb.callback(format(color, '06x'))
-            
+
             # play random sound
             if not sound_muted:
                 if event.type == KEYDOWN and args.deterministic_sounds:
@@ -140,13 +140,13 @@ def input(events, quit_pos):
             else:
                 print_image()
             pygame.display.flip()
-            
+
         # mouse motion
         elif event.type == MOUSEMOTION :
             if mouse_down:
                 draw_dot()
                 pygame.display.flip()
-        
+
         # mouse button down
         elif event.type == MOUSEBUTTONDOWN:
             draw_dot()
@@ -156,7 +156,7 @@ def input(events, quit_pos):
         # mouse button up
         elif event.type == MOUSEBUTTONUP:
             mouse_down = False
-        
+
     return quit_pos
 
 
@@ -185,7 +185,7 @@ def print_letter(char):
     h = random.randint(0 + center[1], sheight - center[1])
     textpos.centerx = w
     textpos.centery = h
-    screen.blit(text, textpos) 
+    screen.blit(text, textpos)
 
 # Main application
 #
@@ -202,15 +202,18 @@ if not pygame.font: print('Warning, fonts disabled')
 if not pygame.mixer: print('Warning, sound disabled')
 
 if args.yee:
-    # read config (it might raise error if ip address is not found)
-    yee.cli.callback(None, None, None, None, bulb='default', auto_on=True)
- 
+    if yee:
+        # read config (it might raise error if ip address is not found)
+        yee.cli.callback(None, None, None, None, bulb='default', auto_on=True)
+    else:
+        print('Warning, yeecli not found so yeelight support is disabled')
+
 pygame.init()
 
 # figure out the install base to use with image and sound loading
 progInstallBase = os.path.dirname(os.path.realpath(sys.argv[0]));
 
-# swith to full screen at current screen resolution 
+# swith to full screen at current screen resolution
 window = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 
 # determine display resolution
@@ -218,8 +221,8 @@ displayinfo = pygame.display.Info()
 swidth = displayinfo.current_w
 sheight = displayinfo.current_h
 
-pygame.display.set_caption('Bam Bam') 
-screen = pygame.display.get_surface() 
+pygame.display.set_caption('Bam Bam')
+screen = pygame.display.get_surface()
 
 background = pygame.Surface(screen.get_size())
 background = background.convert()
@@ -242,8 +245,8 @@ def glob_data(pattern):
 
 sounds = load_items(glob_data('*.wav'), args.sound_blacklist, load_sound)
 
-colors = ((  0,   0, 255), (255,   0,   0), (255, 255,   0), 
-          (255,   0, 128), (  0,   0, 128), (  0, 255,   0), 
+colors = ((  0,   0, 255), (255,   0,   0), (255, 255,   0),
+          (255,   0, 128), (  0,   0, 128), (  0, 255,   0),
           (255, 128,   0), (255,   0, 255), (  0, 255, 255)
 )
 
@@ -260,7 +263,7 @@ joystick_count = pygame.joystick.get_count()
 for i in range(joystick_count):
     joystick = pygame.joystick.Joystick(i)
     joystick.init()
-    
+
 
 while True:
     clock.tick(60)
