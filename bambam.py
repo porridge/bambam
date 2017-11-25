@@ -21,6 +21,10 @@ import pygame, sys,os, random, string, glob
 import argparse
 import fnmatch
 from pygame.locals import * 
+try:
+    import yeecli.cli
+except ImportError:
+    yeecli = None
 
 # draw filled circle at mouse position
 def draw_dot():
@@ -112,6 +116,16 @@ def input(events, quit_pos):
             if random.randint(0, 10) == 1:
                 screen.blit(background, (0, 0))
                 pygame.display.flip()
+
+            # send command to yeelight
+            if yeecli and args.yee:
+                if args.deterministic_sounds:
+                    color = event.key * 0xedcba % 0x1000000
+                else:
+                    color = random.randint(0xffffff)
+                rgb = [(color >> (n*8)) & 0xff for n in range(3, 0, -1)]
+                for bulb in yeecli.cli.BULBS:
+                    bulb.set_rgb(*rgb)
             
             # play random sound
             if not sound_muted:
@@ -181,6 +195,7 @@ parser.add_argument('--sound_blacklist', action='append', default=[], help='List
 parser.add_argument('--image_blacklist', action='append', default=[], help='List of image filename patterns to never show.')
 parser.add_argument('-d', '--deterministic-sounds', action='store_true', help='Whether to produce same sounds on same key presses.')
 parser.add_argument('-m', '--mute', action='store_true', help='No sound will be played.')
+parser.add_argument('-y', '--yee', action='store_true', help='Change yeelight bulb color.')
 args = parser.parse_args()
 
 if not pygame.font: print('Warning, fonts disabled')
