@@ -17,6 +17,7 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+from __future__ import print_function
 import pygame, sys,os, random, string, glob
 import argparse
 import fnmatch
@@ -48,9 +49,9 @@ def get_color():
 def load_image(fullname, colorkey = None):
     try:
         image = pygame.image.load(fullname)
-    except pygame.error, message:
-        print "Cannot load image:", fullname
-        raise SystemExit, message
+    except pygame.error as message:
+        print("Cannot load image:", fullname)
+        raise SystemExit(message)
     image = image.convert()
     if colorkey is not None:
         if colorkey is -1:
@@ -67,9 +68,9 @@ def load_sound(name):
         return NoneSound()
     try:
         sound = pygame.mixer.Sound(name)
-    except pygame.error, message:
-        print "Cannot load sound:", name
-        raise SystemExit, message
+    except pygame.error as message:
+        print("Cannot load sound:", name)
+        raise SystemExit(message)
     return sound
 
 
@@ -78,7 +79,7 @@ def load_items(lst, blacklist, load_function):
     result = []
     for name in lst:
         if True in [fnmatch.fnmatch(name, p) for p in blacklist]:
-            print "Skipping blacklisted item:", name
+            print("Skipping blacklisted item:", name)
         else:
             result.append(load_function(name))
     return result
@@ -95,7 +96,7 @@ def input(events, quit_pos):
         elif event.type == KEYDOWN or event.type == pygame.JOYBUTTONDOWN:
             # check for words like quit
             if event.type == KEYDOWN:
-                if is_alpha(event.key):
+                if is_latin(event.key):
                     sequence += chr(event.key)
                     if sequence.find('quit') > -1:
                         sys.exit(0)
@@ -155,8 +156,8 @@ def print_image():
     screen.blit(img, (w, h))
 
 # Is the key that was pressed alphanumeric
-def is_alpha(key):
-    return key < 255 and (chr(key) in string.letters or chr(key) in string.digits)
+def is_latin(key):
+    return key < 255 and (chr(key) in string.ascii_letters or chr(key) in string.digits)
 
 # Prints a letter at a random location
 def print_letter(char):
@@ -166,7 +167,7 @@ def print_letter(char):
         char = char.upper()
     text = font.render(char, 1, colors[random.randint(0, len(colors) - 1)])
     textpos = text.get_rect()
-    center = (textpos.width / 2, textpos.height / 2)
+    center = (textpos.width // 2, textpos.height // 2)
     w = random.randint(0 + center[0], swidth - center[0])
     h = random.randint(0 + center[1], sheight - center[1])
     textpos.centerx = w
@@ -183,8 +184,8 @@ parser.add_argument('-d', '--deterministic-sounds', action='store_true', help='W
 parser.add_argument('-m', '--mute', action='store_true', help='No sound will be played.')
 args = parser.parse_args()
 
-if not pygame.font: print 'Warning, fonts disabled'
-if not pygame.mixer: print 'Warning, sound disabled'
+if not pygame.font: print('Warning, fonts disabled')
+if not pygame.mixer: print('Warning, sound disabled')
  
 pygame.init()
 
