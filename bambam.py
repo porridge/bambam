@@ -166,7 +166,7 @@ def print_letter(char):
         char = char.upper()
     text = font.render(char, 1, colors[random.randint(0, len(colors) - 1)])
     textpos = text.get_rect()
-    center = (textpos.width / 2, textpos.height / 2)
+    center = (textpos.width // 2, textpos.height // 2)
     w = random.randint(0 + center[0], swidth - center[0])
     h = random.randint(0 + center[1], sheight - center[1])
     textpos.centerx = w
