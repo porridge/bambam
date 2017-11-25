@@ -102,6 +102,8 @@ def input(events, quit_pos):
                 if is_latin(event.key):
                     sequence += chr(event.key)
                     if sequence.find('quit') > -1:
+                        if args.yee and yee:
+                            yee.turn.callback('off')
                         sys.exit(0)
                     elif sequence.find('unmute') > -1:
                         sound_muted = False
