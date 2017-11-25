@@ -48,9 +48,9 @@ def get_color():
 def load_image(fullname, colorkey = None):
     try:
         image = pygame.image.load(fullname)
-    except pygame.error, message:
-        print "Cannot load image:", fullname
-        raise SystemExit, message
+    except pygame.error as message:
+        print("Cannot load image:", fullname)
+        raise SystemExit(message)
     image = image.convert()
     if colorkey is not None:
         if colorkey is -1:
@@ -67,9 +67,9 @@ def load_sound(name):
         return NoneSound()
     try:
         sound = pygame.mixer.Sound(name)
-    except pygame.error, message:
-        print "Cannot load sound:", name
-        raise SystemExit, message
+    except pygame.error as message:
+        print("Cannot load sound:", name)
+        raise SystemExit(message)
     return sound
 
 
@@ -78,7 +78,7 @@ def load_items(lst, blacklist, load_function):
     result = []
     for name in lst:
         if True in [fnmatch.fnmatch(name, p) for p in blacklist]:
-            print "Skipping blacklisted item:", name
+            print("Skipping blacklisted item:", name)
         else:
             result.append(load_function(name))
     return result
@@ -183,8 +183,8 @@ parser.add_argument('-d', '--deterministic-sounds', action='store_true', help='W
 parser.add_argument('-m', '--mute', action='store_true', help='No sound will be played.')
 args = parser.parse_args()
 
-if not pygame.font: print 'Warning, fonts disabled'
-if not pygame.mixer: print 'Warning, sound disabled'
+if not pygame.font: print('Warning, fonts disabled')
+if not pygame.mixer: print('Warning, sound disabled')
  
 pygame.init()
 
