@@ -123,9 +123,7 @@ def input(events, quit_pos):
                     color = event.key * 0xedcba % 0x1000000
                 else:
                     color = random.randint(0xffffff)
-                rgb = [(color >> (n*8)) & 0xff for n in range(3, 0, -1)]
-                for bulb in yee.BULBS:
-                    bulb.set_rgb(*rgb)
+                yee.rgb.callback(format(color, '06x'))
             
             # play random sound
             if not sound_muted:
