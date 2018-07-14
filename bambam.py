@@ -21,27 +21,27 @@ from __future__ import print_function
 import pygame, sys,os, random, string, glob
 import argparse
 import fnmatch
-from pygame.locals import * 
+from pygame.locals import *
 
 # draw filled circle at mouse position
 def draw_dot():
     r = 30
     mousex, mousey = pygame.mouse.get_pos()
-    
+
     dot = pygame.Surface((2 * r, 2 * r))
     pygame.draw.circle(dot, get_color(), (r, r), r, 0)
     dot.set_colorkey(0, pygame.RLEACCEL)
-    
+
     screen.blit(dot, (mousex - r, mousey - r))
 
 
 # Return bright color varying over time
 def get_color():
     col = Color('white');
-    
+
     hue = pygame.time.get_ticks() / 50 % 360
     col.hsva = (hue, 100, 100, 50)
-    
+
     return Color(col.r, col.g, col.b)
 
 
@@ -88,10 +88,10 @@ def load_items(lst, blacklist, load_function):
 # Processes events
 def input(events, quit_pos):
     global sequence, mouse_down, sound_muted
-    for event in events: 
-        if event.type == QUIT: 
+    for event in events:
+        if event.type == QUIT:
             sys.exit(0)
-        
+
         # handle keydown event
         elif event.type == KEYDOWN or event.type == pygame.JOYBUTTONDOWN:
             # check for words like quit
@@ -108,12 +108,12 @@ def input(events, quit_pos):
                         sound_muted = True
                         pygame.mixer.fadeout(1000)
                         sequence = ''
-            
+
             # Clear the background 10% of the time
             if random.randint(0, 10) == 1:
                 screen.blit(background, (0, 0))
                 pygame.display.flip()
-            
+
             # play random sound
             if not sound_muted:
                 if event.type == KEYDOWN and args.deterministic_sounds:
@@ -127,13 +127,13 @@ def input(events, quit_pos):
             else:
                 print_image()
             pygame.display.flip()
-            
+
         # mouse motion
         elif event.type == MOUSEMOTION :
             if mouse_down:
                 draw_dot()
                 pygame.display.flip()
-        
+
         # mouse button down
         elif event.type == MOUSEBUTTONDOWN:
             draw_dot()
@@ -143,7 +143,7 @@ def input(events, quit_pos):
         # mouse button up
         elif event.type == MOUSEBUTTONUP:
             mouse_down = False
-        
+
     return quit_pos
 
 
@@ -172,78 +172,98 @@ def print_letter(char):
     h = random.randint(0 + center[1], sheight - center[1])
     textpos.centerx = w
     textpos.centery = h
-    screen.blit(text, textpos) 
+    screen.blit(text, textpos)
+
+def glob_data(pattern):
+    global progInstallBase
+    return glob.glob(os.path.join(progInstallBase, 'data', pattern))
+
+# Global variables
+#
+progInstallBase = None
+mouse_down = None
+screen = None
+sequence = None
+sound_muted = None
+args = None
+sounds = None
+colors = None
+images = None
+swidth = None
+sheight = None
+background = None
 
 # Main application
 #
-parser = argparse.ArgumentParser(description='A keyboard mashing game for babies.')
-parser.add_argument('-u', '--uppercase', action='store_true', help='Whether to show UPPER-CASE letters.')
-parser.add_argument('--sound_blacklist', action='append', default=[], help='List of sound filename patterns to never play.')
-parser.add_argument('--image_blacklist', action='append', default=[], help='List of image filename patterns to never show.')
-parser.add_argument('-d', '--deterministic-sounds', action='store_true', help='Whether to produce same sounds on same key presses.')
-parser.add_argument('-m', '--mute', action='store_true', help='No sound will be played.')
-args = parser.parse_args()
+def main():
+    global progInstallBase, mouse_down, screen, sequence, sound_muted, args, sounds, colors, images, swidth, sheight, background
+    progInstallBase = os.path.dirname(os.path.realpath(sys.argv[0]));
 
-if not pygame.font: print('Warning, fonts disabled')
-if not pygame.mixer: print('Warning, sound disabled')
- 
-pygame.init()
+    parser = argparse.ArgumentParser(description='A keyboard mashing game for babies.')
+    parser.add_argument('-u', '--uppercase', action='store_true', help='Whether to show UPPER-CASE letters.')
+    parser.add_argument('--sound_blacklist', action='append', default=[], help='List of sound filename patterns to never play.')
+    parser.add_argument('--image_blacklist', action='append', default=[], help='List of image filename patterns to never show.')
+    parser.add_argument('-d', '--deterministic-sounds', action='store_true', help='Whether to produce same sounds on same key presses.')
+    parser.add_argument('-m', '--mute', action='store_true', help='No sound will be played.')
+    args = parser.parse_args()
 
-# figure out the install base to use with image and sound loading
-progInstallBase = os.path.dirname(os.path.realpath(sys.argv[0]));
+    if not pygame.font: print('Warning, fonts disabled')
+    if not pygame.mixer: print('Warning, sound disabled')
 
-# swith to full screen at current screen resolution 
-window = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
+    pygame.init()
 
-# determine display resolution
-displayinfo = pygame.display.Info()
-swidth = displayinfo.current_w
-sheight = displayinfo.current_h
+    # swith to full screen at current screen resolution
+    window = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 
-pygame.display.set_caption('Bam Bam') 
-screen = pygame.display.get_surface() 
+    # determine display resolution
+    displayinfo = pygame.display.Info()
+    swidth = displayinfo.current_w
+    sheight = displayinfo.current_h
 
-background = pygame.Surface(screen.get_size())
-background = background.convert()
-background.fill((250, 250, 250))
-captionFont = pygame.font.SysFont(None, 20)
-captionLabel = captionFont.render("Commands: quit, mute, unmute", True, (210, 210, 210), (250, 250, 250))
-captionRect = captionLabel.get_rect()
-captionRect.x = 15
-captionRect.y = 10
-background.blit(captionLabel, captionRect)
-sequence = ""
-screen.blit(background, (0, 0))
-pygame.display.flip()
+    pygame.display.set_caption('Bam Bam')
+    screen = pygame.display.get_surface()
 
-mouse_down = False
-sound_muted = args.mute
+    background = pygame.Surface(screen.get_size())
+    background = background.convert()
+    background.fill((250, 250, 250))
+    captionFont = pygame.font.SysFont(None, 20)
+    captionLabel = captionFont.render("Commands: quit, mute, unmute", True, (210, 210, 210), (250, 250, 250))
+    captionRect = captionLabel.get_rect()
+    captionRect.x = 15
+    captionRect.y = 10
+    background.blit(captionLabel, captionRect)
+    sequence = ""
+    screen.blit(background, (0, 0))
+    pygame.display.flip()
 
-def glob_data(pattern):
-    return glob.glob(os.path.join(progInstallBase, 'data', pattern))
+    mouse_down = False
+    sound_muted = args.mute
 
-sounds = load_items(glob_data('*.wav'), args.sound_blacklist, load_sound)
+    sounds = load_items(glob_data('*.wav'), args.sound_blacklist, load_sound)
 
-colors = ((  0,   0, 255), (255,   0,   0), (255, 255,   0), 
-          (255,   0, 128), (  0,   0, 128), (  0, 255,   0), 
-          (255, 128,   0), (255,   0, 255), (  0, 255, 255)
-)
+    colors = ((  0,   0, 255), (255,   0,   0), (255, 255,   0),
+              (255,   0, 128), (  0,   0, 128), (  0, 255,   0),
+              (255, 128,   0), (255,   0, 255), (  0, 255, 255)
+    )
 
-images = load_items(glob_data('*.gif'), args.image_blacklist, load_image)
+    images = load_items(glob_data('*.gif'), args.image_blacklist, load_image)
 
-quit_pos = 0
+    quit_pos = 0
 
-clock = pygame.time.Clock()
+    clock = pygame.time.Clock()
 
-pygame.joystick.init()
+    pygame.joystick.init()
 
-# Initialize all joysticks
-joystick_count = pygame.joystick.get_count()
-for i in range(joystick_count):
-    joystick = pygame.joystick.Joystick(i)
-    joystick.init()
-    
+    # Initialize all joysticks
+    joystick_count = pygame.joystick.get_count()
+    for i in range(joystick_count):
+        joystick = pygame.joystick.Joystick(i)
+        joystick.init()
 
-while True:
-    clock.tick(60)
-    quit_pos = input(pygame.event.get(), quit_pos)
+
+    while True:
+        clock.tick(60)
+        quit_pos = input(pygame.event.get(), quit_pos)
+
+if __name__ == '__main__':
+    main()
