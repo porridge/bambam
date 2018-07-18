@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 # Copyright (C)
 #    2007-2008 Don Brown,
 #    2010 Spike Burch <spikeb@gmail.com>,
@@ -40,20 +40,9 @@ class Bambam:
     sequence = None
     sound_muted = None
 
-    # draw filled circle at mouse position
-    def draw_dot(self):
-        r = 30
-        mousex, mousey = pygame.mouse.get_pos()
-
-        dot = pygame.Surface((2 * r, 2 * r))
-        pygame.draw.circle(dot, self.get_color(), (r, r), r, 0)
-        dot.set_colorkey(0, pygame.RLEACCEL)
-
-        self.screen.blit(dot, (mousex - r, mousey - r))
-
-
-    # Return bright color varying over time
-    def get_color(self):
+    @classmethod
+    def get_color(cls):
+        ''' Return bright color varying over time '''
         col = Color('white');
 
         hue = pygame.time.get_ticks() / 50 % 360
@@ -61,9 +50,9 @@ class Bambam:
 
         return Color(col.r, col.g, col.b)
 
-
-    # Load image/, handling setting of the transparency color key
-    def load_image(self, fullname, colorkey = None):
+    @classmethod
+    def load_image(cls, fullname, colorkey = None):
+        ''' Load image/, handling setting of the transparency color key '''
         try:
             image = pygame.image.load(fullname)
         except pygame.error as message:
@@ -76,9 +65,9 @@ class Bambam:
             image.set_colorkey(colorkey, RLEACCEL)
         return image
 
-
-    # Load sound file in data/
-    def load_sound(self, name):
+    @classmethod
+    def load_sound(cls, name):
+        ''' Load sound file in data/ '''
         class NoneSound:
             def play(self): pass
         if not pygame.mixer:
@@ -90,8 +79,8 @@ class Bambam:
             raise SystemExit(message)
         return sound
 
-
-    def load_items(self, lst, blacklist, load_function):
+    @classmethod
+    def load_items(cls, lst, blacklist, load_function):
         """Runs load_function on elements of lst unless they are blacklisted."""
         result = []
         for name in lst:
@@ -101,9 +90,24 @@ class Bambam:
                 result.append(load_function(name))
         return result
 
+    @classmethod
+    def is_latin(cls, key):
+        ''' Is the key that was pressed alphanumeric '''
+        return key < 255 and (chr(key) in string.ascii_letters or chr(key) in string.digits)
 
-    # Processes events
+    def draw_dot(self):
+        ''' draw filled circle at mouse position '''
+        r = 30
+        mousex, mousey = pygame.mouse.get_pos()
+
+        dot = pygame.Surface((2 * r, 2 * r))
+        pygame.draw.circle(dot, self.get_color(), (r, r), r, 0)
+        dot.set_colorkey(0, pygame.RLEACCEL)
+
+        self.screen.blit(dot, (mousex - r, mousey - r))
+
     def input(self, events, quit_pos):
+        ''' Processes events '''
         for event in events:
             if event.type == QUIT:
                 sys.exit(0)
@@ -163,19 +167,15 @@ class Bambam:
         return quit_pos
 
 
-    # Prints an image at a random location
     def print_image(self):
+        ''' Prints an image at a random location '''
         img = self.images[random.randint(0, len(self.images) - 1)]
         w = random.randint(0, self.swidth  - img.get_width())
         h = random.randint(0, self.sheight - img.get_height())
         self.screen.blit(img, (w, h))
 
-    # Is the key that was pressed alphanumeric
-    def is_latin(self, key):
-        return key < 255 and (chr(key) in string.ascii_letters or chr(key) in string.digits)
-
-    # Prints a letter at a random location
     def print_letter(self, char):
+        ''' Prints a letter at a random location '''
         font = pygame.font.Font(None, 256)
         if self.args.uppercase:
             char = char.upper()
@@ -191,9 +191,8 @@ class Bambam:
     def glob_data(self, pattern):
         return glob.glob(os.path.join(self.progInstallBase, 'data', pattern))
 
-    # Main application
-    #
     def run(self):
+        ''' Main application loop '''
         self.progInstallBase = os.path.dirname(os.path.realpath(sys.argv[0]));
 
         parser = argparse.ArgumentParser(description='A keyboard mashing game for babies.')
