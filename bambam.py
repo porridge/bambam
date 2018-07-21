@@ -19,10 +19,17 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from __future__ import print_function
-import pygame, sys,os, random, string, glob
+import pygame
+import sys
+import os
+import random
+import string
+import glob
 import argparse
 import fnmatch
-from pygame.locals import *
+from pygame.locals import Color, RLEACCEL, QUIT, KEYDOWN, \
+    MOUSEMOTION, MOUSEBUTTONDOWN, MOUSEBUTTONUP
+
 
 class Bambam:
     args = None
@@ -43,8 +50,10 @@ class Bambam:
 
     @classmethod
     def get_color(cls):
-        """ Return bright color varying over time """
-        col = Color('white');
+        """
+        Return bright color varying over time
+        """
+        col = Color('white')
 
         hue = pygame.time.get_ticks() / 50 % 360
         col.hsva = (hue, 100, 100, 50)
@@ -52,8 +61,10 @@ class Bambam:
         return Color(col.r, col.g, col.b)
 
     @classmethod
-    def load_image(cls, fullname, colorkey = None):
-        """ Load image/, handling setting of the transparency color key """
+    def load_image(cls, fullname, colorkey=None):
+        """
+        Load image/, handling setting of the transparency color key
+        """
         try:
             image = pygame.image.load(fullname)
         except pygame.error as message:
@@ -68,7 +79,9 @@ class Bambam:
 
     @classmethod
     def load_sound(cls, name):
-        """ Load sound file in data/ """
+        """
+        Load sound file in data/
+        """
         class NoneSound:
             def play(self): pass
         if not pygame.mixer:
@@ -82,7 +95,9 @@ class Bambam:
 
     @classmethod
     def load_items(cls, lst, blacklist, load_function):
-        """Runs load_function on elements of lst unless they are blacklisted."""
+        """
+        Runs load_function on elements of lst unless they are blacklisted.
+        """
         result = []
         for name in lst:
             if True in [fnmatch.fnmatch(name, p) for p in blacklist]:
@@ -93,11 +108,17 @@ class Bambam:
 
     @classmethod
     def is_latin(cls, key):
-        """ Is the key that was pressed alphanumeric """
-        return key < 255 and (chr(key) in string.ascii_letters or chr(key) in string.digits)
+        """
+        Is the key that was pressed alphanumeric
+        """
+        return (key < 255
+                and (chr(key) in string.ascii_letters
+                     or chr(key) in string.digits))
 
     def draw_dot(self):
-        """ draw filled circle at mouse position """
+        """
+        draw filled circle at mouse position
+        """
         r = 30
         mousex, mousey = pygame.mouse.get_pos()
 
@@ -108,7 +129,9 @@ class Bambam:
         self.screen.blit(dot, (mousex - r, mousey - r))
 
     def input(self, events, quit_pos):
-        """ Processes events """
+        """
+        Processes events
+        """
         for event in events:
             if event.type == QUIT:
                 sys.exit(0)
@@ -123,7 +146,7 @@ class Bambam:
                             sys.exit(0)
                         elif self.sequence.find('unmute') > -1:
                             self.sound_muted = False
-                            #pygame.mixer.unpause()
+                            # pygame.mixer.unpause()
                             self.sequence = ''
                         elif self.sequence.find('mute') > -1:
                             self.sound_muted = True
@@ -137,20 +160,24 @@ class Bambam:
 
                 # play random sound
                 if not self.sound_muted:
-                    if event.type == KEYDOWN and self.args.deterministic_sounds:
+                    if event.type == KEYDOWN \
+                            and self.args.deterministic_sounds:
                         self.sounds[event.key % len(self.sounds)].play()
                     else:
-                        self.sounds[random.randint(0, len(self.sounds) -1)].play()
+                        self.sounds[random.randint(
+                            0, len(self.sounds) - 1)].play()
 
                 # show self.images
-                if event.type == pygame.KEYDOWN and (event.unicode.isalpha() or event.unicode.isdigit()):
+                if event.type == pygame.KEYDOWN \
+                        and (event.unicode.isalpha()
+                             or event.unicode.isdigit()):
                     self.print_letter(event.unicode)
                 else:
                     self.print_image()
                 pygame.display.flip()
 
             # mouse motion
-            elif event.type == MOUSEMOTION :
+            elif event.type == MOUSEMOTION:
                 if self.mouse_down:
                     self.draw_dot()
                     pygame.display.flip()
@@ -167,20 +194,24 @@ class Bambam:
 
         return quit_pos
 
-
     def print_image(self):
-        """ Prints an image at a random location """
+        """
+        Prints an image at a random location
+        """
         img = self.images[random.randint(0, len(self.images) - 1)]
-        w = random.randint(0, self.swidth  - img.get_width())
+        w = random.randint(0, self.swidth - img.get_width())
         h = random.randint(0, self.sheight - img.get_height())
         self.screen.blit(img, (w, h))
 
     def print_letter(self, char):
-        """ Prints a letter at a random location """
+        """
+        Prints a letter at a random location
+        """
         font = pygame.font.Font(None, 256)
         if self.args.uppercase:
             char = char.upper()
-        text = font.render(char, 1, self.colors[random.randint(0, len(self.colors) - 1)])
+        text = font.render(
+            char, 1, self.colors[random.randint(0, len(self.colors) - 1)])
         textpos = text.get_rect()
         center = (textpos.width // 2, textpos.height // 2)
         w = random.randint(0 + center[0], self.swidth - center[0])
@@ -193,24 +224,34 @@ class Bambam:
         return glob.glob(os.path.join(self.progInstallBase, 'data', pattern))
 
     def run(self):
-        """ Main application entry point """
-        self.progInstallBase = os.path.dirname(os.path.realpath(sys.argv[0]));
+        """
+        Main application entry point
+        """
+        self.progInstallBase = os.path.dirname(os.path.realpath(sys.argv[0]))
 
-        parser = argparse.ArgumentParser(description='A keyboard mashing game for babies.')
-        parser.add_argument('-u', '--uppercase', action='store_true', help='Whether to show UPPER-CASE letters.')
-        parser.add_argument('--sound_blacklist', action='append', default=[], help='List of sound filename patterns to never play.')
-        parser.add_argument('--image_blacklist', action='append', default=[], help='List of image filename patterns to never show.')
-        parser.add_argument('-d', '--deterministic-sounds', action='store_true', help='Whether to produce same sounds on same key presses.')
-        parser.add_argument('-m', '--mute', action='store_true', help='No sound will be played.')
+        parser = argparse.ArgumentParser(
+            description='A keyboard mashing game for babies.')
+        parser.add_argument('-u', '--uppercase', action='store_true',
+                            help='Whether to show UPPER-CASE letters.')
+        parser.add_argument('--sound_blacklist', action='append', default=[],
+                            help='List of sound filename patterns to never play.')
+        parser.add_argument('--image_blacklist', action='append', default=[],
+                            help='List of image filename patterns to never show.')
+        parser.add_argument('-d', '--deterministic-sounds', action='store_true',
+                            help='Whether to produce same sounds on same key presses.')
+        parser.add_argument('-m', '--mute', action='store_true',
+                            help='No sound will be played.')
         self.args = parser.parse_args()
 
-        if not pygame.font: print('Warning, fonts disabled')
-        if not pygame.mixer: print('Warning, sound disabled')
+        if not pygame.font:
+            print('Warning, fonts disabled')
+        if not pygame.mixer:
+            print('Warning, sound disabled')
 
         pygame.init()
 
         # swith to full self.screen at current self.screen resolution
-        window = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
+        pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 
         # determine display resolution
         displayinfo = pygame.display.Info()
@@ -224,7 +265,11 @@ class Bambam:
         self.background = self.background.convert()
         self.background.fill((250, 250, 250))
         captionFont = pygame.font.SysFont(None, 20)
-        captionLabel = captionFont.render("Commands: quit, mute, unmute", True, (210, 210, 210), (250, 250, 250))
+        captionLabel = captionFont.render(
+            "Commands: quit, mute, unmute",
+            True,
+            (210, 210, 210),
+            (250, 250, 250))
         captionRect = captionLabel.get_rect()
         captionRect.x = 15
         captionRect.y = 10
@@ -236,14 +281,16 @@ class Bambam:
         self.mouse_down = False
         self.sound_muted = self.args.mute
 
-        self.sounds = self.load_items(self.glob_data('*.wav'), self.args.sound_blacklist, self.load_sound)
+        self.sounds = self.load_items(self.glob_data(
+            '*.wav'), self.args.sound_blacklist, self.load_sound)
 
-        self.colors = ((  0,   0, 255), (255,   0,   0), (255, 255,   0),
-                  (255,   0, 128), (  0,   0, 128), (  0, 255,   0),
-                  (255, 128,   0), (255,   0, 255), (  0, 255, 255)
-        )
+        self.colors = ((0,   0, 255), (255,   0,   0), (255, 255,   0),
+                       (255,   0, 128), (0,   0, 128), (0, 255,   0),
+                       (255, 128,   0), (255,   0, 255), (0, 255, 255)
+                       )
 
-        self.images = self.load_items(self.glob_data('*.gif'), self.args.image_blacklist, self.load_image)
+        self.images = self.load_items(self.glob_data(
+            '*.gif'), self.args.image_blacklist, self.load_image)
 
         quit_pos = 0
 
@@ -257,10 +304,10 @@ class Bambam:
             joystick = pygame.joystick.Joystick(i)
             joystick.init()
 
-
         while True:
             clock.tick(60)
             quit_pos = self.input(pygame.event.get(), quit_pos)
+
 
 if __name__ == '__main__':
     bambam = Bambam()
