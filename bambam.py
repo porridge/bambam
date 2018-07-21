@@ -3,6 +3,7 @@
 #    2007-2008 Don Brown,
 #    2010 Spike Burch <spikeb@gmail.com>,
 #    2015-2016 Vasya Novikov
+#    2018 Olivier Mehani <shtrom+bambam@ssji.net>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -42,7 +43,7 @@ class Bambam:
 
     @classmethod
     def get_color(cls):
-        ''' Return bright color varying over time '''
+        """ Return bright color varying over time """
         col = Color('white');
 
         hue = pygame.time.get_ticks() / 50 % 360
@@ -52,7 +53,7 @@ class Bambam:
 
     @classmethod
     def load_image(cls, fullname, colorkey = None):
-        ''' Load image/, handling setting of the transparency color key '''
+        """ Load image/, handling setting of the transparency color key """
         try:
             image = pygame.image.load(fullname)
         except pygame.error as message:
@@ -67,7 +68,7 @@ class Bambam:
 
     @classmethod
     def load_sound(cls, name):
-        ''' Load sound file in data/ '''
+        """ Load sound file in data/ """
         class NoneSound:
             def play(self): pass
         if not pygame.mixer:
@@ -92,11 +93,11 @@ class Bambam:
 
     @classmethod
     def is_latin(cls, key):
-        ''' Is the key that was pressed alphanumeric '''
+        """ Is the key that was pressed alphanumeric """
         return key < 255 and (chr(key) in string.ascii_letters or chr(key) in string.digits)
 
     def draw_dot(self):
-        ''' draw filled circle at mouse position '''
+        """ draw filled circle at mouse position """
         r = 30
         mousex, mousey = pygame.mouse.get_pos()
 
@@ -107,7 +108,7 @@ class Bambam:
         self.screen.blit(dot, (mousex - r, mousey - r))
 
     def input(self, events, quit_pos):
-        ''' Processes events '''
+        """ Processes events """
         for event in events:
             if event.type == QUIT:
                 sys.exit(0)
@@ -168,14 +169,14 @@ class Bambam:
 
 
     def print_image(self):
-        ''' Prints an image at a random location '''
+        """ Prints an image at a random location """
         img = self.images[random.randint(0, len(self.images) - 1)]
         w = random.randint(0, self.swidth  - img.get_width())
         h = random.randint(0, self.sheight - img.get_height())
         self.screen.blit(img, (w, h))
 
     def print_letter(self, char):
-        ''' Prints a letter at a random location '''
+        """ Prints a letter at a random location """
         font = pygame.font.Font(None, 256)
         if self.args.uppercase:
             char = char.upper()
@@ -192,7 +193,7 @@ class Bambam:
         return glob.glob(os.path.join(self.progInstallBase, 'data', pattern))
 
     def run(self):
-        ''' Main application loop '''
+        """ Main application entry point """
         self.progInstallBase = os.path.dirname(os.path.realpath(sys.argv[0]));
 
         parser = argparse.ArgumentParser(description='A keyboard mashing game for babies.')
