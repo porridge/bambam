@@ -1,0 +1,10 @@
+language: python
+python:
+- "2.7"
+- "3.5"
+install:
+- pip install -r requirements-dev.txt
+script:
+- python -c 'import bambam'
+- flake8 *.py
+- autopep8 -d *.py | awk 'BEGIN{had_data=0}{print;had_data=1}END{exit had_data}'
