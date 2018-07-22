@@ -27,8 +27,7 @@ import string
 import glob
 import argparse
 import fnmatch
-from pygame.locals import Color, RLEACCEL, QUIT, KEYDOWN, \
-    MOUSEMOTION, MOUSEBUTTONDOWN, MOUSEBUTTONUP
+from pygame.locals import Color, RLEACCEL, QUIT, KEYDOWN, MOUSEMOTION, MOUSEBUTTONDOWN, MOUSEBUTTONUP
 
 
 class Bambam:
@@ -160,17 +159,14 @@ class Bambam:
 
                 # play random sound
                 if not self.sound_muted:
-                    if event.type == KEYDOWN \
-                            and self.args.deterministic_sounds:
+                    if event.type == KEYDOWN and self.args.deterministic_sounds:
                         self.sounds[event.key % len(self.sounds)].play()
                     else:
                         self.sounds[random.randint(
                             0, len(self.sounds) - 1)].play()
 
                 # show self.images
-                if event.type == pygame.KEYDOWN \
-                        and (event.unicode.isalpha()
-                             or event.unicode.isdigit()):
+                if event.type == pygame.KEYDOWN and (event.unicode.isalpha() or event.unicode.isdigit()):
                     self.print_letter(event.unicode)
                 else:
                     self.print_image()
