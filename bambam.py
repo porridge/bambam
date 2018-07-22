@@ -50,7 +50,7 @@ class Bambam:
     @classmethod
     def get_color(cls):
         """
-        Return bright color varying over time
+        Return bright color varying over time.
         """
         col = Color('white')
 
@@ -62,7 +62,7 @@ class Bambam:
     @classmethod
     def load_image(cls, fullname, colorkey=None):
         """
-        Load image/, handling setting of the transparency color key
+        Load image/, handling setting of the transparency color key.
         """
         try:
             image = pygame.image.load(fullname)
@@ -79,7 +79,7 @@ class Bambam:
     @classmethod
     def load_sound(cls, name):
         """
-        Load sound file in data/
+        Load sound file in "data/".
         """
         class NoneSound:
             def play(self): pass
@@ -108,7 +108,7 @@ class Bambam:
     @classmethod
     def is_latin(cls, key):
         """
-        Is the key that was pressed alphanumeric
+        Is the key that was pressed alphanumeric.
         """
         return (key < 255
                 and (chr(key) in string.ascii_letters
@@ -116,7 +116,7 @@ class Bambam:
 
     def draw_dot(self):
         """
-        draw filled circle at mouse position
+        draw filled circle at mouse position.
         """
         r = 30
         mousex, mousey = pygame.mouse.get_pos()
@@ -129,7 +129,7 @@ class Bambam:
 
     def input(self, events, quit_pos):
         """
-        Processes events
+        Processes events.
         """
         for event in events:
             if event.type == QUIT:
@@ -192,7 +192,7 @@ class Bambam:
 
     def print_image(self):
         """
-        Prints an image at a random location
+        Prints an image at a random location.
         """
         img = self.images[random.randint(0, len(self.images) - 1)]
         w = random.randint(0, self.swidth - img.get_width())
@@ -201,7 +201,7 @@ class Bambam:
 
     def print_letter(self, char):
         """
-        Prints a letter at a random location
+        Prints a letter at a random location.
         """
         font = pygame.font.Font(None, 256)
         if self.args.uppercase:
@@ -221,7 +221,7 @@ class Bambam:
 
     def run(self):
         """
-        Main application entry point
+        Main application entry point.
         """
         self.progInstallBase = os.path.dirname(os.path.realpath(sys.argv[0]))
 
