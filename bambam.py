@@ -229,10 +229,10 @@ class Bambam:
         self.progInstallBase = os.path.dirname(os.path.realpath(sys.argv[0]))
 
         self.dataDirs = [os.path.join(self.progInstallBase, 'data')]
-        xdg_data_home = os.getenv('XDG_DATA_HOME', os.path.expanduser("~/.local/share"))
-        extraDataDir = os.path.join(xdg_data_home, "bambam/data")
+        xdg_data_home = os.getenv('XDG_DATA_HOME', os.path.expanduser('~/.local/share'))
+        extraDataDir = os.path.join(xdg_data_home, 'bambam/data')
         if os.path.isdir(extraDataDir):
-            print('Extra data dir : ', extraDataDir)
+            print('Extra data dir:', extraDataDir)
             self.dataDirs.append(extraDataDir)
 
         parser = argparse.ArgumentParser(
