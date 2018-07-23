@@ -217,13 +217,23 @@ class Bambam:
         self.screen.blit(text, textpos)
 
     def glob_data(self, pattern):
-        return glob.glob(os.path.join(self.progInstallBase, 'data', pattern))
+        fileList = []
+        for dataDir in self.dataDirs:
+            fileList.extend(glob.glob(os.path.join(dataDir, pattern)))
+        return fileList
 
     def run(self):
         """
         Main application entry point.
         """
         self.progInstallBase = os.path.dirname(os.path.realpath(sys.argv[0]))
+
+        self.dataDirs = [os.path.join(self.progInstallBase, 'data')]
+        xdg_data_home = os.getenv('XDG_DATA_HOME', os.path.expanduser('~/.local/share'))
+        extraDataDir = os.path.join(xdg_data_home, 'bambam/data')
+        if os.path.isdir(extraDataDir):
+            print('Extra data dir:', extraDataDir)
+            self.dataDirs.append(extraDataDir)
 
         parser = argparse.ArgumentParser(
             description='A keyboard mashing game for babies.')
