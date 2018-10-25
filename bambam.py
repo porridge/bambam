@@ -246,7 +246,7 @@ class Bambam:
         parser.add_argument('-d', '--deterministic-sounds', action='store_true',
                             help='Whether to produce same sounds on same key presses.')
         parser.add_argument('-D', '--dark', action='store_true',
-                            help='Use a dark theme instead of a light theme.')
+                            help='Use a dark background instead of a light one.')
         parser.add_argument('-m', '--mute', action='store_true',
                             help='No sound will be played.')
         self.args = parser.parse_args()
