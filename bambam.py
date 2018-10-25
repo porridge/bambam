@@ -271,9 +271,10 @@ class Bambam:
 
         self.background = pygame.Surface(self.screen.get_size())
         self.background = self.background.convert()
-        self.background.fill((250, 250, 250))
         if self.args.dark:
             self.background.fill((0, 0, 0))
+        else:
+            self.background.fill((250, 250, 250))
         captionFont = pygame.font.SysFont(None, 20)
         captionLabel = captionFont.render(
             "Commands: quit, mute, unmute",
