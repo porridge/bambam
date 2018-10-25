@@ -245,6 +245,8 @@ class Bambam:
                             help='List of image filename patterns to never show.')
         parser.add_argument('-d', '--deterministic-sounds', action='store_true',
                             help='Whether to produce same sounds on same key presses.')
+        parser.add_argument('-D', '--dark', action='store_true',
+                            help='Use a dark theme instead of a light theme.')
         parser.add_argument('-m', '--mute', action='store_true',
                             help='No sound will be played.')
         self.args = parser.parse_args()
@@ -270,6 +272,8 @@ class Bambam:
         self.background = pygame.Surface(self.screen.get_size())
         self.background = self.background.convert()
         self.background.fill((250, 250, 250))
+        if self.args.dark:
+            self.background.fill((0, 0, 0))
         captionFont = pygame.font.SysFont(None, 20)
         captionLabel = captionFont.render(
             "Commands: quit, mute, unmute",
