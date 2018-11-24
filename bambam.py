@@ -309,6 +309,7 @@ class Bambam:
                        )
 
         imgs = self.glob_data('*.gif')
+        imgs += self.glob_data('*.jpg')
         self.images = self.load_items(imgs, self.args.image_blacklist, self.load_image)
 
         quit_pos = 0
