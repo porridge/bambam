@@ -225,9 +225,17 @@ class Bambam:
         self.screen.blit(text, textpos)
 
     def glob_data(self, pattern):
+        def list_dir(path, pattern):
+            files = glob.glob(os.path.join(path, pattern))
+            dirs = [x for x in glob.glob(os.path.join(path, '*'))
+                            if os.path.isdir(x)]
+            for subdir in dirs:
+                files.extend(list_dir(subdir, pattern))
+            return files
+
         fileList = []
         for dataDir in self.dataDirs:
-            fileList.extend(glob.glob(os.path.join(dataDir, pattern)))
+            fileList.extend(list_dir(dataDir, pattern))
         return fileList
 
     def run(self):
