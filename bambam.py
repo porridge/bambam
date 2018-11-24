@@ -31,6 +31,8 @@ from pygame.locals import Color, RLEACCEL, QUIT, KEYDOWN, MOUSEMOTION, MOUSEBUTT
 
 
 class Bambam:
+    IMAGE_MAX_SIZE = 700
+
     args = None
     progInstallBase = None
 
@@ -69,6 +71,12 @@ class Bambam:
         except pygame.error as message:
             print("Cannot load image:", fullname)
             raise SystemExit(message)
+
+        sz_x,sz_y = image.get_rect().size
+        if (sz_x > cls.IMAGE_MAX_SIZE or sz_y > cls.IMAGE_MAX_SIZE):
+            new_size = (cls.IMAGE_MAX_SIZE, int(cls.IMAGE_MAX_SIZE * (float(sz_y)/sz_x)))
+            image = pygame.transform.scale(image, new_size)
+
         image = image.convert()
         if colorkey is not None:
             if colorkey is -1:
@@ -300,8 +308,8 @@ class Bambam:
                        (255, 128,   0), (255,   0, 255), (0, 255, 255)
                        )
 
-        self.images = self.load_items(self.glob_data(
-            '*.gif'), self.args.image_blacklist, self.load_image)
+        imgs = self.glob_data('*.gif')
+        self.images = self.load_items(imgs, self.args.image_blacklist, self.load_image)
 
         quit_pos = 0
 
