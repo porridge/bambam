@@ -31,7 +31,7 @@ from pygame.locals import Color, RLEACCEL, QUIT, KEYDOWN, MOUSEMOTION, MOUSEBUTT
 
 
 class Bambam:
-    IMAGE_MAX_SIZE = 700
+    IMAGE_MAX_WIDTH = 700
 
     args = None
     progInstallBase = None
@@ -72,9 +72,9 @@ class Bambam:
             print("Cannot load image:", fullname)
             raise SystemExit(message)
 
-        sz_x,sz_y = image.get_rect().size
-        if (sz_x > cls.IMAGE_MAX_SIZE or sz_y > cls.IMAGE_MAX_SIZE):
-            new_size = (cls.IMAGE_MAX_SIZE, int(cls.IMAGE_MAX_SIZE * (float(sz_y)/sz_x)))
+        sz_x, sz_y = image.get_rect().size
+        if (sz_x > cls.IMAGE_MAX_WIDTH or sz_y > cls.IMAGE_MAX_WIDTH):
+            new_size = (cls.IMAGE_MAX_WIDTH, int(cls.IMAGE_MAX_WIDTH * (float(sz_y)/sz_x)))
             image = pygame.transform.scale(image, new_size)
 
         image = image.convert()
@@ -224,18 +224,18 @@ class Bambam:
         textpos.centery = h
         self.screen.blit(text, textpos)
 
-    def glob_data(self, pattern):
-        def list_dir(path, pattern):
-            files = glob.glob(os.path.join(path, pattern))
-            dirs = [x for x in glob.glob(os.path.join(path, '*'))
-                            if os.path.isdir(x)]
-            for subdir in dirs:
-                files.extend(list_dir(subdir, pattern))
-            return files
+    def glob_dir(self, path, pattern):
+        files = glob.glob(os.path.join(path, pattern))
+        dirs = [x for x in glob.glob(os.path.join(path, '*')) if os.path.isdir(x)]
+        for subdir in dirs:
+            files.extend(self.glob_dir(subdir, pattern))
+        return files
 
+    def glob_data(self, patterns):
         fileList = []
         for dataDir in self.dataDirs:
-            fileList.extend(list_dir(dataDir, pattern))
+            for pattern in patterns:
+                fileList.extend(self.glob_dir(dataDir, pattern))
         return fileList
 
     def run(self):
@@ -309,15 +309,14 @@ class Bambam:
         self.sound_muted = self.args.mute
 
         self.sounds = self.load_items(self.glob_data(
-            '*.wav'), self.args.sound_blacklist, self.load_sound)
+            ['*.wav']), self.args.sound_blacklist, self.load_sound)
 
         self.colors = ((0,   0, 255), (255,   0,   0), (255, 255,   0),
                        (255,   0, 128), (0,   0, 128), (0, 255,   0),
                        (255, 128,   0), (255,   0, 255), (0, 255, 255)
                        )
 
-        imgs = self.glob_data('*.gif')
-        imgs += self.glob_data('*.jpg')
+        imgs = self.glob_data(['*.gif', '*.jpg'])
         self.images = self.load_items(imgs, self.args.image_blacklist, self.load_image)
 
         quit_pos = 0
