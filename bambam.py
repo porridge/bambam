@@ -68,14 +68,19 @@ class Bambam:
         """
         try:
             image = pygame.image.load(fullname)
+
+            sz_x, sz_y = image.get_rect().size
+            if (sz_x > cls.IMAGE_MAX_WIDTH or sz_y > cls.IMAGE_MAX_WIDTH):
+                new_size = (cls.IMAGE_MAX_WIDTH, int(cls.IMAGE_MAX_WIDTH * (float(sz_y)/sz_x)))
+                if new_size[1] < 1:
+                    print("Image has 0 size:", fullname)
+                    raise SystemExit(message)
+
+                image = pygame.transform.scale(image, new_size)
+
         except pygame.error as message:
             print("Cannot load image:", fullname)
             raise SystemExit(message)
-
-        sz_x, sz_y = image.get_rect().size
-        if (sz_x > cls.IMAGE_MAX_WIDTH or sz_y > cls.IMAGE_MAX_WIDTH):
-            new_size = (cls.IMAGE_MAX_WIDTH, int(cls.IMAGE_MAX_WIDTH * (float(sz_y)/sz_x)))
-            image = pygame.transform.scale(image, new_size)
 
         image = image.convert()
         if colorkey is not None:
