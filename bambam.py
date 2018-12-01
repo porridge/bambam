@@ -229,18 +229,30 @@ class Bambam:
         textpos.centery = h
         self.screen.blit(text, textpos)
 
-    def glob_dir(self, path, pattern):
-        files = glob.glob(os.path.join(path, pattern))
-        dirs = [x for x in glob.glob(os.path.join(path, '*')) if os.path.isdir(x)]
-        for subdir in dirs:
-            files.extend(self.glob_dir(subdir, pattern))
+    def glob_dir(self, path, extensions):
+        files = []
+        for fn in os.listdir(path):
+            fn = os.path.join(path, fn)
+            if os.path.islink(fn):
+                files.extend(self.glob_dir(fn, extensions))
+            else:
+                for ext in extensions:
+                    if fn.lower().endswith(ext):
+                        files.append(fn)
+                        break
+
         return files
 
-    def glob_data(self, patterns):
+    def glob_data(self, extensions):
+        """
+        Search for files ending with any of the provided extensions. Eg:
+        extensions = ['.abc'] will be similar to `ls *.abc` in the configured 
+        dataDirs. Matching will be case-insensitive.
+        """
+        extensions = [x.lower() for x in extensions]
         fileList = []
         for dataDir in self.dataDirs:
-            for pattern in patterns:
-                fileList.extend(self.glob_dir(dataDir, pattern))
+            fileList.extend(self.glob_dir(dataDir, extensions))
         return fileList
 
     def run(self):
@@ -314,14 +326,14 @@ class Bambam:
         self.sound_muted = self.args.mute
 
         self.sounds = self.load_items(self.glob_data(
-            ['*.wav']), self.args.sound_blacklist, self.load_sound)
+            ['.wav']), self.args.sound_blacklist, self.load_sound)
 
         self.colors = ((0,   0, 255), (255,   0,   0), (255, 255,   0),
                        (255,   0, 128), (0,   0, 128), (0, 255,   0),
                        (255, 128,   0), (255,   0, 255), (0, 255, 255)
                        )
 
-        imgs = self.glob_data(['*.gif', '*.jpg'])
+        imgs = self.glob_data(['.gif', '.jpg'])
         self.images = self.load_items(imgs, self.args.image_blacklist, self.load_image)
 
         quit_pos = 0
