@@ -24,7 +24,6 @@ import sys
 import os
 import random
 import string
-import glob
 import argparse
 import fnmatch
 from pygame.locals import Color, RLEACCEL, QUIT, KEYDOWN, MOUSEMOTION, MOUSEBUTTONDOWN, MOUSEBUTTONUP
