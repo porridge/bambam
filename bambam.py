@@ -68,14 +68,14 @@ class Bambam:
         try:
             image = pygame.image.load(fullname)
 
-            sz_x, sz_y = image.get_rect().size
-            if (sz_x > cls.IMAGE_MAX_WIDTH or sz_y > cls.IMAGE_MAX_WIDTH):
-                new_size = (cls.IMAGE_MAX_WIDTH, int(cls.IMAGE_MAX_WIDTH * (float(sz_y)/sz_x)))
-                if new_size[1] < 1:
-                    print("Image has 0 size:", fullname)
-                    raise SystemExit(message)
+            size_x, size_y = image.get_rect().size
+            if (size_x > cls.IMAGE_MAX_WIDTH or size_y > cls.IMAGE_MAX_WIDTH):
+                new_size_x = cls.IMAGE_MAX_WIDTH
+                new_size_y = int(cls.IMAGE_MAX_WIDTH * (float(size_y)/size_x))
+                if new_size_y < 1:
+                    raise pygame.error("Resized image has 0 height:", fullname)
 
-                image = pygame.transform.scale(image, new_size)
+                image = pygame.transform.scale(image, (new_size_x, new_size_y))
 
         except pygame.error as message:
             print("Cannot load image:", fullname)
@@ -230,14 +230,14 @@ class Bambam:
 
     def glob_dir(self, path, extensions):
         files = []
-        for fn in os.listdir(path):
-            fn = os.path.join(path, fn)
-            if os.path.islink(fn):
-                files.extend(self.glob_dir(fn, extensions))
+        for file_name in os.listdir(path):
+            path_name = os.path.join(path, file_name)
+            if os.path.isdir(path_name):
+                files.extend(self.glob_dir(path_name, extensions))
             else:
                 for ext in extensions:
-                    if fn.lower().endswith(ext):
-                        files.append(fn)
+                    if path_name.lower().endswith(ext):
+                        files.append(path_name)
                         break
 
         return files
@@ -245,7 +245,7 @@ class Bambam:
     def glob_data(self, extensions):
         """
         Search for files ending with any of the provided extensions. Eg:
-        extensions = ['.abc'] will be similar to `ls *.abc` in the configured 
+        extensions = ['.abc'] will be similar to `ls *.abc` in the configured
         dataDirs. Matching will be case-insensitive.
         """
         extensions = [x.lower() for x in extensions]
