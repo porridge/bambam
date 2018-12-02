@@ -24,13 +24,14 @@ import sys
 import os
 import random
 import string
-import glob
 import argparse
 import fnmatch
 from pygame.locals import Color, RLEACCEL, QUIT, KEYDOWN, MOUSEMOTION, MOUSEBUTTONDOWN, MOUSEBUTTONUP
 
 
 class Bambam:
+    IMAGE_MAX_WIDTH = 700
+
     args = None
     progInstallBase = None
 
@@ -66,9 +67,20 @@ class Bambam:
         """
         try:
             image = pygame.image.load(fullname)
+
+            size_x, size_y = image.get_rect().size
+            if (size_x > cls.IMAGE_MAX_WIDTH or size_y > cls.IMAGE_MAX_WIDTH):
+                new_size_x = cls.IMAGE_MAX_WIDTH
+                new_size_y = int(cls.IMAGE_MAX_WIDTH * (float(size_y)/size_x))
+                if new_size_y < 1:
+                    raise pygame.error("Resized image has 0 height:", fullname)
+
+                image = pygame.transform.scale(image, (new_size_x, new_size_y))
+
         except pygame.error as message:
             print("Cannot load image:", fullname)
             raise SystemExit(message)
+
         image = image.convert()
         if colorkey is not None:
             if colorkey is -1:
@@ -216,10 +228,30 @@ class Bambam:
         textpos.centery = h
         self.screen.blit(text, textpos)
 
-    def glob_data(self, pattern):
+    def glob_dir(self, path, extensions):
+        files = []
+        for file_name in os.listdir(path):
+            path_name = os.path.join(path, file_name)
+            if os.path.isdir(path_name):
+                files.extend(self.glob_dir(path_name, extensions))
+            else:
+                for ext in extensions:
+                    if path_name.lower().endswith(ext):
+                        files.append(path_name)
+                        break
+
+        return files
+
+    def glob_data(self, extensions):
+        """
+        Search for files ending with any of the provided extensions. Eg:
+        extensions = ['.abc'] will be similar to `ls *.abc` in the configured
+        dataDirs. Matching will be case-insensitive.
+        """
+        extensions = [x.lower() for x in extensions]
         fileList = []
         for dataDir in self.dataDirs:
-            fileList.extend(glob.glob(os.path.join(dataDir, pattern)))
+            fileList.extend(self.glob_dir(dataDir, extensions))
         return fileList
 
     def run(self):
@@ -293,15 +325,15 @@ class Bambam:
         self.sound_muted = self.args.mute
 
         self.sounds = self.load_items(self.glob_data(
-            '*.wav'), self.args.sound_blacklist, self.load_sound)
+            ['.wav']), self.args.sound_blacklist, self.load_sound)
 
         self.colors = ((0,   0, 255), (255,   0,   0), (255, 255,   0),
                        (255,   0, 128), (0,   0, 128), (0, 255,   0),
                        (255, 128,   0), (255,   0, 255), (0, 255, 255)
                        )
 
-        self.images = self.load_items(self.glob_data(
-            '*.gif'), self.args.image_blacklist, self.load_image)
+        imgs = self.glob_data(['.gif', '.jpg'])
+        self.images = self.load_items(imgs, self.args.image_blacklist, self.load_image)
 
         quit_pos = 0
 
