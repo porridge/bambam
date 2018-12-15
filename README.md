@@ -15,11 +15,11 @@ First, see if your distribution has a bambam package already, for example:
 sudo apt install bambam
 ```
 
-  1. [Download](https://github.com/porridge/bambam/releases) the bambam-0.7.zip or bambam-0.7.tar.gz file.
-  1. Unzip bambam-0.7.zip or "tar zxvf bambam-0.7.tar.gz" to create the bambam-0.7 directory.
-  1. Move into the 'bambam-0.7' directory
+  1. [Download](https://github.com/porridge/bambam/releases) the bambam-0.8.zip or bambam-0.8.tar.gz file.
+  1. Unzip bambam-0.8.zip or "tar zxvf bambam-0.8.tar.gz" to create the bambam-0.8 directory.
+  1. Move into the 'bambam-0.8' directory
 ```
-cd bambam-0.7
+cd bambam-0.8
 ```
   1. Execute
 ```
