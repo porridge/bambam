@@ -4,6 +4,7 @@
 #    2010 Spike Burch <spikeb@gmail.com>,
 #    2015-2016 Vasya Novikov
 #    2018 Olivier Mehani <shtrom+bambam@ssji.net>
+#    2018 Marcin Owsiany <marcin@owsiany.pl>
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -27,6 +28,22 @@ import string
 import argparse
 import fnmatch
 from pygame.locals import Color, RLEACCEL, QUIT, KEYDOWN, MOUSEMOTION, MOUSEBUTTONDOWN, MOUSEBUTTONUP
+
+
+class BambamException(Exception):
+    """Represents a bambam-specific exception."""
+    pass
+
+
+class ResourceLoadException(BambamException):
+    """Represents a failure to load a resource."""
+
+    def __init__(self, resource, message):
+        self._resource = resource
+        self._message = message
+
+    def __str__(self):
+        return 'Failed to load %s: %s' % (self._resource, self._message)
 
 
 class Bambam:
@@ -73,13 +90,12 @@ class Bambam:
                 new_size_x = cls.IMAGE_MAX_WIDTH
                 new_size_y = int(cls.IMAGE_MAX_WIDTH * (float(size_y)/size_x))
                 if new_size_y < 1:
-                    raise pygame.error("Resized image has 0 height:", fullname)
+                    raise ResourceLoadException(fullname, "image has 0 height after resize")
 
                 image = pygame.transform.scale(image, (new_size_x, new_size_y))
 
         except pygame.error as message:
-            print("Cannot load image:", fullname)
-            raise SystemExit(message)
+            raise ResourceLoadException(fullname, message)
 
         image = image.convert()
         if colorkey is not None:
@@ -98,23 +114,28 @@ class Bambam:
         if not pygame.mixer:
             return NoneSound()
         try:
-            sound = pygame.mixer.Sound(name)
+            return pygame.mixer.Sound(name)
         except pygame.error as message:
-            print("Cannot load sound:", name)
-            raise SystemExit(message)
-        return sound
+            raise ResourceLoadException(name, message)
 
     @classmethod
-    def load_items(cls, lst, blacklist, load_function):
+    def load_items(cls, lst, blacklist, load_function, items_type):
         """
         Runs load_function on elements of lst unless they are blacklisted.
         """
         result = []
+        errors_encountered = False
         for name in lst:
-            if True in [fnmatch.fnmatch(name, p) for p in blacklist]:
+            if any(fnmatch.fnmatch(name, p) for p in blacklist):
                 print("Skipping blacklisted item:", name)
             else:
-                result.append(load_function(name))
+                try:
+                    result.append(load_function(name))
+                except ResourceLoadException as e:
+                    print(e)
+                    errors_encountered = True
+        if not result and errors_encountered:
+            raise BambamException("All %s failed to load." % items_type)
         return result
 
     @classmethod
@@ -324,16 +345,22 @@ class Bambam:
         self.mouse_down = False
         self.sound_muted = self.args.mute
 
-        self.sounds = self.load_items(self.glob_data(
-            ['.wav']), self.args.sound_blacklist, self.load_sound)
+        self.sounds = self.load_items(
+            self.glob_data(['.wav']),
+            self.args.sound_blacklist,
+            self.load_sound,
+            "sounds")
+
+        self.images = self.load_items(
+            self.glob_data(['.gif', '.jpg']),
+            self.args.image_blacklist,
+            self.load_image,
+            "images")
 
         self.colors = ((0,   0, 255), (255,   0,   0), (255, 255,   0),
                        (255,   0, 128), (0,   0, 128), (0, 255,   0),
                        (255, 128,   0), (255,   0, 255), (0, 255, 255)
                        )
-
-        imgs = self.glob_data(['.gif', '.jpg'])
-        self.images = self.load_items(imgs, self.args.image_blacklist, self.load_image)
 
         quit_pos = 0
 
@@ -353,5 +380,9 @@ class Bambam:
 
 
 if __name__ == '__main__':
-    bambam = Bambam()
-    bambam.run()
+    try:
+        bambam = Bambam()
+        bambam.run()
+    except BambamException as e:
+        print(e)
+        sys.exit(1)
