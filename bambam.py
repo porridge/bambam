@@ -50,7 +50,6 @@ class Bambam:
     IMAGE_MAX_WIDTH = 700
 
     args = None
-    progInstallBase = None
 
     colors = None
     images = None
@@ -279,14 +278,20 @@ class Bambam:
         """
         Main application entry point.
         """
-        self.progInstallBase = os.path.dirname(os.path.realpath(sys.argv[0]))
+        program_base = os.path.dirname(os.path.realpath(sys.argv[0]))
 
-        self.dataDirs = [os.path.join(self.progInstallBase, 'data')]
+        self.dataDirs = []
+        dist_data_dir = os.path.join(program_base, 'data')
+        if os.path.isdir(dist_data_dir):
+            print('Using data dir:', dist_data_dir)
+            self.dataDirs.append(dist_data_dir)
+        installed_data_dir = os.path.join(os.path.dirname(program_base), 'share')
         xdg_data_home = os.getenv('XDG_DATA_HOME', os.path.expanduser('~/.local/share'))
-        extraDataDir = os.path.join(xdg_data_home, 'bambam/data')
-        if os.path.isdir(extraDataDir):
-            print('Extra data dir:', extraDataDir)
-            self.dataDirs.append(extraDataDir)
+        for bambam_base_dir in [installed_data_dir, xdg_data_home]:
+            extraDataDir = os.path.join(bambam_base_dir, 'bambam', 'data')
+            if os.path.isdir(extraDataDir):
+                print('Using data dir:', extraDataDir)
+                self.dataDirs.append(extraDataDir)
 
         parser = argparse.ArgumentParser(
             description='A keyboard mashing game for babies.')
