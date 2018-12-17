@@ -351,13 +351,13 @@ class Bambam:
         self.sound_muted = self.args.mute
 
         self.sounds = self.load_items(
-            self.glob_data(['.wav']),
+            self.glob_data(['.wav', '.ogg']),
             self.args.sound_blacklist,
             self.load_sound,
             "sounds")
 
         self.images = self.load_items(
-            self.glob_data(['.gif', '.jpg']),
+            self.glob_data(['.gif', '.jpg', '.jpeg', '.png', '.tif', '.tiff']),
             self.args.image_blacklist,
             self.load_image,
             "images")
