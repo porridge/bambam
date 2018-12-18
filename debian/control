@@ -1,0 +1,18 @@
+Source: bambam
+Section: games
+Priority: optional
+Maintainer: Marcin Owsiany <porridge@debian.org>
+Build-Depends: debhelper (>> 9), python, dh-python
+Standards-Version: 3.9.8
+Homepage: https://github.com/porridge/bambam
+Vcs-Git: https://github.com/porridge/bambam.git
+
+Package: bambam
+Architecture: all
+Depends: ${misc:Depends}, ${python:Depends}, python-pygame
+Description: keyboard mashing and doodling game for babies
+ Bambam is a simple baby keyboard masher application that locks
+ the keyboard and mouse and instead displays bright colors,
+ pictures, and sounds.
+ .
+ Note: type "quit" to stop the game.

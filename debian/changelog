@@ -1,0 +1,42 @@
+bambam (0.6+dfsg-1) unstable; urgency=low
+
+  * New upstream release
+  * Changed the Maintainer to myself, the old one is apparently MIA and I'm the
+    current upstream.
+  * Changed Homepage and Vcs-Git fields as well as debian/watch to match
+    current reality. Closes: #792308
+  * Removed the menu file in favour of the desktop file
+  * Added dh-python to build-depends.
+  * Bumped Standards-Version to 3.9.8
+
+ -- Marcin Owsiany <porridge@debian.org>  Mon, 14 Nov 2016 08:15:03 +0100
+
+bambam (0.5+dfsg-0.1) unstable; urgency=low
+
+  * Non-maintainer upload to DELAYED-10
+  * New upstream version. Closes: #739718
+    - supports printing upper-case letters. Closes: #708119
+    - supports blacklisting individual files. Closes: #708124
+  * Drop useless debian/patches/fix_msf_offset - it's for a different package
+    and was not mentioned in debian/patches/series
+  * Drop debian/patches/fix_sound_files - from 0.5 version on, the program
+    dynamically discovers files to load.
+  * Updated the Homepage field to point at the active site.
+  * Added a watch file and a Vcs-Svn field
+  * Small fixes to the debian/rules file, use dh python2 helper, which adds a
+    python dependency. Closes: #693091
+  * Added a desktop, menu file and a couple of icons. Closes: #737802
+
+ -- Marcin Owsiany <porridge@debian.org>  Sat, 12 Jul 2014 21:18:28 +0200
+
+bambam (0.4.dfsg-2) unstable; urgency=low
+
+  * Add instructions on quitting in README.Debian.
+
+ -- Bojana Borkovic <bojana.borkovic@ulk.rs.ba>  Sun, 11 Nov 2012 13:22:24 +0000
+
+bambam (0.4.dfsg-1) unstable; urgency=low
+
+  * Initial release. Closes: #591494.
+
+ -- Bojana Borkovic <bojana.borkovic@ulk.rs.ba>  Sun, 11 Nov 2012 13:41:00 +0100

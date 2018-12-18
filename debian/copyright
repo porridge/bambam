@@ -1,0 +1,73 @@
+This package was debianised by Bojana Borkovic
+<bojana.borkovic@ulk.rs.ba> on Tue, 18 Oct 2011 19:30:00 +0100.
+
+It was downloaded from https://launchpad.net/bambam
+
+This version has been repacked to remove some sound files for which
+there was no clear free licence.  Some other sound files have been
+added through a Debian patch.
+
+Upstream author: Spike Burch <spikeb@gmail.com>
+
+Copyright 2007-2008 Don Brown
+Copyright 2010 Spike Burch <spikeb@gmail.com>
+Copyright 2014 Marcin Owsiany <marcin@owsiany.pl>
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+On Debian GNU/Linux systems, the complete text of the GNU General
+Public License can be found in '/usr/share/common-licenses/GPL-3'.
+
+The following files in data/ were taken from tuxpaint:
+bear.gif, dog.gif, frog.gif, iguana.gif, kangaroo.gif
+as were the sound files in debian/sounds/
+
+  Copyright (c) 2002-2007 by Bill Kendrick and others
+
+  Tuxpaint is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  On Debian systems, the complete text of the GNU General Public
+  License, version 2, can be found in /usr/share/common-licenses/GPL-2.
+
+The following files in data/ were taken from pygame:
+alien1.gif, boom.wav, chimp.wmp, house_lo.wav, punch.wav, secosmic_lo.wav, whiff.wav
+
+  Copyright: 2000-2003 Pete Shinners <pete@shinners.org>
+           2006-2007 Rene Dudfield
+           2007 Richard Goedeken
+           2007-2008 Marcus von Appen
+
+  This package is free software; you can redistribute it and/or
+  modify it under the terms of the GNU Lesser General Public
+  License as published by the Free Software Foundation; either
+  version 2 of the License, or (at your option) any later version.
+ 
+  This package is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  Lesser General Public License for more details.
+ 
+  You should have received a copy of the GNU General Public License
+  along with this program. If not, see <http://www.gnu.org/licenses/>.
+ 
+  On Debian systems, the complete text of the GNU Lesser General
+  Public License can be found in "/usr/share/common-licenses/LGPL-2".
