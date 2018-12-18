@@ -1,0 +1,101 @@
+#!/usr/bin/env python3
+"""Checks whether bambam works.
+
+This is intended to be run by autopkgtest, with the environment set up to
+connect to an Xvfb server in order to take screenshots from its XWD output
+file.
+
+See the main() function for a high-level overview of what the script does.
+"""
+
+import os
+import re
+import subprocess
+import time
+
+
+_COLOR_PATTERN = re.compile(r'^\D+(\d+),(\d+),(\d+)\D+')
+_EXIT_SECONDS = 5
+
+
+def main():
+    bambam = subprocess.Popen(['/usr/games/bambam'])
+    try:
+        await_startup()
+        test_functionality()
+        shut_bambam_down()
+        exit_code = bambam.wait(timeout=_EXIT_SECONDS)
+        if exit_code != 0:
+            raise Exception('Bambam exited with unexpected code %d.' % exit_code)
+    except:
+        take_screenshot('exception')
+        raise
+
+
+def await_startup():
+    attempt_count = 40
+    for attempt in range(attempt_count):
+        current_average_color = get_average_color(symbolic_ok=True)
+        if current_average_color in ('white', [250]*3):
+            print('Found mostly white screen, looks like bambam started up OK.')
+            take_screenshot('startup')
+            return
+        print('On attempt %d the average screen color was %s.' % (attempt, current_average_color))
+        time.sleep(0.25)
+    raise Exception('Failed to see bambam start after %d attempts.' % attempt_count)
+
+
+def test_functionality():
+    attempt_count = 1000
+    for attempt in range(attempt_count):
+        send_keycodes('space', 'm')  # any letter will do, but em is nice and big
+        time.sleep(0.005)  # let the event propagate and bambam process it
+        if is_screen_colorful_enough(attempt):
+            take_screenshot('success')
+            return
+    raise Exception('Failed to see a colorful enough screen after %d attempts.' % attempt_count)
+
+
+def is_screen_colorful_enough(attempt):
+    r, g, b = get_average_color()
+    if any(color > 225 for color in (r, g, b)):
+        print('On attempt %d the average screen color was too close to white: %d,%d,%d.' % (
+            attempt, r, g, b))
+        return False
+    else:
+        print('Found colorful enough screen, colors %d, %d, %d.' % (r, g, b))
+        return True
+
+
+def shut_bambam_down():
+    send_keycodes('q', 'u', 'i', 't')
+
+
+def take_screenshot(title):
+    subprocess.call([
+        'convert',
+        'xwd:' + os.path.join(os.environ['AUTOPKGTEST_TMP'], 'Xvfb_screen0'),
+        os.path.join(os.environ['AUTOPKGTEST_ARTIFACTS'], '%s.png' % title)])
+
+
+def get_average_color(symbolic_ok=False):
+    color_str = subprocess.check_output([
+        'convert',
+        'xwd:' + os.path.join(os.environ['AUTOPKGTEST_TMP'], 'Xvfb_screen0'),
+        '-resize', '1x1!',
+        '-format', '%[pixel:u]',
+        'info:-']).decode()
+    m = _COLOR_PATTERN.match(color_str)
+    if not m:
+        if symbolic_ok:
+            return color_str.strip()
+        raise Exception('Failed to parse color ' + color_str)
+    return [int(i) for i in m.group(1, 2, 3)]
+
+
+def send_keycodes(*keycodes):
+    subprocess.check_call(['xdotool', 'key', '+'.join(keycodes)])
+
+
+if __name__ == '__main__':
+    main()

@@ -5,6 +5,7 @@ bambam (1.0.1+dfsg-1) UNRELEASED; urgency=medium
     separate branch called "debian") using git-buildpackage:
     - dropped the DFSGFY script as the orig tarball is now generated from the
       debian+dfsg branch
+  * Added an autopkgtest script
 
  -- Marcin Owsiany <porridge@debian.org>  Mon, 17 Dec 2018 11:25:59 +0100
 
