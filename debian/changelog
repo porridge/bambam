@@ -1,3 +1,13 @@
+bambam (1.0.1+dfsg-1) UNRELEASED; urgency=medium
+
+  * New upstream release
+  * Start maintaining the debian packaging in the upstream repository (in a
+    separate branch called "debian") using git-buildpackage:
+    - dropped the DFSGFY script as the orig tarball is now generated from the
+      debian+dfsg branch
+
+ -- Marcin Owsiany <porridge@debian.org>  Mon, 17 Dec 2018 11:25:59 +0100
+
 bambam (0.6+dfsg-1) unstable; urgency=low
 
   * New upstream release
