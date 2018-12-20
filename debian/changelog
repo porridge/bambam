@@ -1,10 +1,11 @@
-bambam (1.0.1+dfsg-1) UNRELEASED; urgency=medium
+bambam (1.0.1+dfsg-1) sid; urgency=medium
 
   * New upstream release
-  * Start maintaining the debian packaging in the upstream repository (in a
+  * Started maintaining the debian packaging in the upstream repository (in a
     separate branch called "debian") using git-buildpackage:
-    - dropped the DFSGFY script as the orig tarball is now generated from the
-      debian+dfsg branch
+    - dropped the DFSGFY script as the orig tarballs are now automatically
+      generated from the debian+dfsg branch with
+      `gbp buildpackage --git-component=extrasounds`
   * Added an autopkgtest script
   * Rewrote the copyright file in DEP-5 format.
   * Bumped Standards-Version to 4.2.1 (no other changes needed).
