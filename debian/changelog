@@ -11,6 +11,7 @@ bambam (1.0.1+dfsg-1) UNRELEASED; urgency=medium
   * Added keywords and another category to desktop file.
   * Improved the Vcs-* headers.
   * Added an override for a spurious lintian warning about obsolete URL.
+  * Migrated to Python 3. Closes: #912489
 
  -- Marcin Owsiany <porridge@debian.org>  Mon, 17 Dec 2018 11:25:59 +0100
 
