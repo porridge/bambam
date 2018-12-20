@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # Copyright (C)
 #    2007-2008 Don Brown,
 #    2010 Spike Burch <spikeb@gmail.com>,
