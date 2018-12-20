@@ -5,4 +5,5 @@ Exec=/usr/games/bambam
 Icon=bambam
 Terminal=false
 Type=Application
-Categories=Game;
+Categories=Game;KidsGame;
+Keywords=baby;child;game;mashing;doodling;
