@@ -5,7 +5,7 @@ Bambam is a simple baby keyboard (and gamepad) masher application that locks the
 ## Usage ##
 
 Before running this application, ensure you have the following installed:
-  * [Python](http://python.org)
+  * [Python](http://python.org) - version 3.x is recommended but version 2.7 should work too
   * [Pygame](http://www.pygame.org/)
 
 ### Installation ###
@@ -13,17 +13,20 @@ Before running this application, ensure you have the following installed:
 First, see if your distribution has a bambam package already, for example:
 ```
 sudo apt install bambam
+man bambam
+bambam
 ```
 
-  1. [Download](https://github.com/porridge/bambam/releases) the bambam-1.0.zip or bambam-1.0.tar.gz file.
-  1. Unzip bambam-1.0.zip or "tar zxvf bambam-1.0.tar.gz" to create the bambam-1.0 directory.
-  1. Move into the 'bambam-1.0' directory
+If not, you can install it manually as follows:
+  1. [Download](https://github.com/porridge/bambam/releases) the bambam-1.0.1.zip or bambam-1.0.1.tar.gz file.
+  1. Unzip bambam-1.0.1.zip or "tar zxvf bambam-1.0.1.tar.gz" to create the bambam-1.0.1 directory.
+  1. Move into the 'bambam-1.0.1' directory
 ```
-cd bambam-1.0
+cd bambam-1.0.1
 ```
   1. Execute
 ```
-python bambam.py
+./bambam.py
 ```
   1. To exit, type
 ```

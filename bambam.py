@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # Copyright (C)
 #    2007-2008 Don Brown,
 #    2010 Spike Burch <spikeb@gmail.com>,
@@ -110,7 +110,7 @@ class Bambam:
         """
         class NoneSound:
             def play(self): pass
-        if not pygame.mixer:
+        if not pygame.mixer or not pygame.mixer.get_init():
             return NoneSound()
         try:
             return pygame.mixer.Sound(name)
@@ -309,12 +309,12 @@ class Bambam:
                             help='No sound will be played.')
         self.args = parser.parse_args()
 
+        pygame.init()
+
         if not pygame.font:
             print('Warning, fonts disabled')
-        if not pygame.mixer:
+        if not pygame.mixer or not pygame.mixer.get_init():
             print('Warning, sound disabled')
-
-        pygame.init()
 
         # swith to full self.screen at current self.screen resolution
         pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
