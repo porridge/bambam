@@ -9,6 +9,7 @@ bambam (1.0.1+dfsg-1) UNRELEASED; urgency=medium
   * Rewrote the copyright file in DEP-5 format.
   * Bumped Standards-Version to 4.2.1 (no other changes needed).
   * Added keywords and another category to desktop file.
+  * Improved the Vcs-* headers.
 
  -- Marcin Owsiany <porridge@debian.org>  Mon, 17 Dec 2018 11:25:59 +0100
 
