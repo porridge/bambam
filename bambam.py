@@ -28,7 +28,7 @@ import string
 import argparse
 import fnmatch
 from pygame.locals import Color, RLEACCEL, QUIT, KEYDOWN, MOUSEMOTION, MOUSEBUTTONDOWN, MOUSEBUTTONUP
-
+import os
 
 class BambamException(Exception):
     """Represents a bambam-specific exception."""
@@ -79,7 +79,8 @@ class Bambam:
     @classmethod
     def load_image(cls, fullname, colorkey=None):
         """
-        Load image/, handling setting of the transparency color key.
+        Load image/, handling setting of the transparency colo
+        r key.
         """
         try:
             image = pygame.image.load(fullname)
@@ -122,14 +123,14 @@ class Bambam:
         """
         Runs load_function on elements of lst unless they are blacklisted.
         """
-        result = []
+        result = {}
         errors_encountered = False
         for name in lst:
             if any(fnmatch.fnmatch(name, p) for p in blacklist):
                 print("Skipping blacklisted item:", name)
             else:
                 try:
-                    result.append(load_function(name))
+                    result[os.path.splitext(os.path.basename(name))[0]]= load_function(name)
                 except ResourceLoadException as e:
                     print(e)
                     errors_encountered = True
@@ -189,20 +190,25 @@ class Bambam:
                     self.screen.blit(self.background, (0, 0))
                     pygame.display.flip()
 
-                # play random sound
-                if not self.sound_muted:
-                    if event.type == KEYDOWN and self.args.deterministic_sounds:
-                        self.sounds[event.key % len(self.sounds)].play()
+                if event.type == pygame.KEYDOWN:
+                    # show self.images
+                    if (event.unicode.isalpha() or event.unicode.isdigit()):
+                        self.print_letter(event.unicode)
+                        if not self.sound_muted: # play random sound
+                            self.sounds[random.choice(list(self.sounds))].play()
                     else:
-                        self.sounds[random.randint(
-                            0, len(self.sounds) - 1)].play()
+                        if self.args.deterministic_sounds:
+                            # get sound count
+                            name = random.choice(list(self.sounds))
+                            self.print_image(name)
+                            if not self.sound_muted:
+                                self.sounds[name].play()
+                        else:
+                            self.print_image(random.choice(list(self.sounds)))
+                            if not self.sound_muted:
+                                self.sounds[random.choice(list(self.sounds))].play()
 
-                # show self.images
-                if event.type == pygame.KEYDOWN and (event.unicode.isalpha() or event.unicode.isdigit()):
-                    self.print_letter(event.unicode)
-                else:
-                    self.print_image()
-                pygame.display.flip()
+                    pygame.display.flip()
 
             # mouse motion
             elif event.type == MOUSEMOTION:
@@ -222,11 +228,16 @@ class Bambam:
 
         return quit_pos
 
-    def print_image(self):
+    def print_image(self,name=''):
         """
         Prints an image at a random location.
         """
-        img = self.images[random.randint(0, len(self.images) - 1)]
+        if not self.args.deterministic_sounds and (not name or name not in self.images):
+            img = self.images[random.choice(list(self.images))]
+        elif self.args.deterministic_sounds and name in self.images:
+            img = self.images[name]
+        else:
+            return
         w = random.randint(0, self.swidth - img.get_width())
         h = random.randint(0, self.sheight - img.get_height())
         self.screen.blit(img, (w, h))
@@ -317,7 +328,7 @@ class Bambam:
             print('Warning, sound disabled')
 
         # swith to full self.screen at current self.screen resolution
-        pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
+        pygame.display.set_mode((0, 0), pygame.RESIZABLE)
 
         # determine display resolution
         displayinfo = pygame.display.Info()
@@ -391,3 +402,22 @@ if __name__ == '__main__':
     except BambamException as e:
         print(e)
         sys.exit(1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
