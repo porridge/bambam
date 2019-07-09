@@ -328,7 +328,7 @@ class Bambam:
             print('Warning, sound disabled')
 
         # swith to full self.screen at current self.screen resolution
-        pygame.display.set_mode((0, 0), pygame.RESIZABLE)
+        pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 
         # determine display resolution
         displayinfo = pygame.display.Info()
@@ -402,22 +402,3 @@ if __name__ == '__main__':
     except BambamException as e:
         print(e)
         sys.exit(1)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
