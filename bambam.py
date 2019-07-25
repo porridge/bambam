@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#! /usr/bin/python3
 # Copyright (C)
 #    2007-2008 Don Brown,
 #    2010 Spike Burch <spikeb@gmail.com>,
@@ -171,8 +171,8 @@ class Bambam:
             elif event.type == KEYDOWN or event.type == pygame.JOYBUTTONDOWN:
                 # check for words like quit
                 if event.type == KEYDOWN:
-                    if self.is_latin(event.key):
-                        self.sequence += chr(event.key)
+                    if event.unicode.isalpha():
+                        self.sequence += event.unicode
                         if self.sequence.find('quit') > -1:
                             sys.exit(0)
                         elif self.sequence.find('unmute') > -1:
