@@ -1,4 +1,4 @@
-#! /usr/bin/python3
+#!/usr/bin/env python3
 # Copyright (C)
 #    2007-2008 Don Brown,
 #    2010 Spike Burch <spikeb@gmail.com>,
@@ -136,15 +136,6 @@ class Bambam:
         if not result and errors_encountered:
             raise BambamException("All %s failed to load." % items_type)
         return result
-
-    @classmethod
-    def is_latin(cls, key):
-        """
-        Is the key that was pressed alphanumeric.
-        """
-        return (key < 255
-                and (chr(key) in string.ascii_letters
-                     or chr(key) in string.digits))
 
     def draw_dot(self):
         """
