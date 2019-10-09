@@ -24,7 +24,6 @@ import pygame
 import sys
 import os
 import random
-import string
 import argparse
 import fnmatch
 from pygame.locals import Color, RLEACCEL, QUIT, KEYDOWN, MOUSEMOTION, MOUSEBUTTONDOWN, MOUSEBUTTONUP
@@ -137,15 +136,6 @@ class Bambam:
             raise BambamException("All %s failed to load." % items_type)
         return result
 
-    @classmethod
-    def is_latin(cls, key):
-        """
-        Is the key that was pressed alphanumeric.
-        """
-        return (key < 255
-                and (chr(key) in string.ascii_letters
-                     or chr(key) in string.digits))
-
     def draw_dot(self):
         """
         draw filled circle at mouse position.
@@ -171,8 +161,8 @@ class Bambam:
             elif event.type == KEYDOWN or event.type == pygame.JOYBUTTONDOWN:
                 # check for words like quit
                 if event.type == KEYDOWN:
-                    if self.is_latin(event.key):
-                        self.sequence += chr(event.key)
+                    if event.unicode.isalpha():
+                        self.sequence += event.unicode
                         if self.sequence.find('quit') > -1:
                             sys.exit(0)
                         elif self.sequence.find('unmute') > -1:
