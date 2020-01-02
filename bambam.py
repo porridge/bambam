@@ -26,7 +26,7 @@ import os
 import random
 import argparse
 import fnmatch
-from pygame.locals import Color, RLEACCEL, QUIT, KEYDOWN, MOUSEMOTION, MOUSEBUTTONDOWN, MOUSEBUTTONUP
+from pygame.locals import Color, QUIT, KEYDOWN, MOUSEMOTION, MOUSEBUTTONDOWN, MOUSEBUTTONUP
 
 
 class BambamException(Exception):
@@ -76,7 +76,7 @@ class Bambam:
         return Color(col.r, col.g, col.b)
 
     @classmethod
-    def load_image(cls, fullname, colorkey=None):
+    def load_image(cls, fullname):
         """
         Load image/, handling setting of the transparency color key.
         """
@@ -95,12 +95,7 @@ class Bambam:
         except pygame.error as message:
             raise ResourceLoadException(fullname, message)
 
-        image = image.convert()
-        if colorkey is not None:
-            if colorkey is -1:
-                colorkey = image.get_at((0, 0))
-            image.set_colorkey(colorkey, RLEACCEL)
-        return image
+        return image.convert()
 
     @classmethod
     def load_sound(cls, name):
