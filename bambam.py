@@ -26,7 +26,7 @@ import os
 import random
 import argparse
 import fnmatch
-from pygame.locals import Color, RLEACCEL, QUIT, KEYDOWN, MOUSEMOTION, MOUSEBUTTONDOWN, MOUSEBUTTONUP
+from pygame.locals import Color, QUIT, KEYDOWN, MOUSEMOTION, MOUSEBUTTONDOWN, MOUSEBUTTONUP
 
 
 class BambamException(Exception):
