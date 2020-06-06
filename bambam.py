@@ -24,10 +24,9 @@ import pygame
 import sys
 import os
 import random
-import string
 import argparse
 import fnmatch
-from pygame.locals import Color, RLEACCEL, QUIT, KEYDOWN, MOUSEMOTION, MOUSEBUTTONDOWN, MOUSEBUTTONUP
+from pygame.locals import Color, QUIT, KEYDOWN, MOUSEMOTION, MOUSEBUTTONDOWN, MOUSEBUTTONUP
 
 
 class BambamException(Exception):
@@ -77,7 +76,7 @@ class Bambam:
         return Color(col.r, col.g, col.b)
 
     @classmethod
-    def load_image(cls, fullname, colorkey=None):
+    def load_image(cls, fullname):
         """
         Load image/, handling setting of the transparency color key.
         """
@@ -96,12 +95,7 @@ class Bambam:
         except pygame.error as message:
             raise ResourceLoadException(fullname, message)
 
-        image = image.convert()
-        if colorkey is not None:
-            if colorkey is -1:
-                colorkey = image.get_at((0, 0))
-            image.set_colorkey(colorkey, RLEACCEL)
-        return image
+        return image.convert()
 
     @classmethod
     def load_sound(cls, name):
@@ -137,15 +131,6 @@ class Bambam:
             raise BambamException("All %s failed to load." % items_type)
         return result
 
-    @classmethod
-    def is_latin(cls, key):
-        """
-        Is the key that was pressed alphanumeric.
-        """
-        return (key < 255
-                and (chr(key) in string.ascii_letters
-                     or chr(key) in string.digits))
-
     def draw_dot(self):
         """
         draw filled circle at mouse position.
@@ -171,8 +156,8 @@ class Bambam:
             elif event.type == KEYDOWN or event.type == pygame.JOYBUTTONDOWN:
                 # check for words like quit
                 if event.type == KEYDOWN:
-                    if self.is_latin(event.key):
-                        self.sequence += chr(event.key)
+                    if event.unicode.isalpha():
+                        self.sequence += event.unicode
                         if self.sequence.find('quit') > -1:
                             sys.exit(0)
                         elif self.sequence.find('unmute') > -1:
