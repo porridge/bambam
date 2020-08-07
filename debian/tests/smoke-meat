@@ -14,7 +14,7 @@ import subprocess
 import time
 
 
-_COLOR_PATTERN = re.compile(r'^\D+(\d+),(\d+),(\d+)\D+')
+_COLOR_PATTERN = re.compile(r'(\d+),(\d+),(\d+)')
 _EXIT_SECONDS = 5
 
 
@@ -34,15 +34,16 @@ def main():
 
 def await_startup():
     attempt_count = 40
+    sleep_delay = 0.25
     for attempt in range(attempt_count):
-        current_average_color = get_average_color(symbolic_ok=True)
-        if current_average_color in ('white', [250]*3):
+        current_average_color = get_average_color()
+        if all(color_component >= 248 for color_component in current_average_color):
             print('Found mostly white screen, looks like bambam started up OK.')
             take_screenshot('startup')
             return
         print('On attempt %d the average screen color was %s.' % (attempt, current_average_color))
-        time.sleep(0.25)
-    raise Exception('Failed to see bambam start after %d attempts.' % attempt_count)
+        time.sleep(sleep_delay)
+    raise Exception('Failed to see bambam start and display mostly-white background, after polling %d times every %f seconds.' % (attempt_count, sleep_delay))
 
 
 def test_functionality():
@@ -53,7 +54,7 @@ def test_functionality():
         if is_screen_colorful_enough(attempt):
             take_screenshot('success')
             return
-    raise Exception('Failed to see a colorful enough screen after %d attempts.' % attempt_count)
+    raise Exception('Failed to see a colorful enough screen after %d key presses.' % (attempt_count * 2))
 
 
 def is_screen_colorful_enough(attempt):
@@ -78,17 +79,15 @@ def take_screenshot(title):
         os.path.join(os.environ['AUTOPKGTEST_ARTIFACTS'], '%s.png' % title)])
 
 
-def get_average_color(symbolic_ok=False):
+def get_average_color():
     color_str = subprocess.check_output([
         'convert',
         'xwd:' + os.path.join(os.environ['AUTOPKGTEST_TMP'], 'Xvfb_screen0'),
         '-resize', '1x1!',
-        '-format', '%[pixel:u]',
+        '-format', '%[fx:int(r*255)],%[fx:int(g*255)],%[fx:int(b*255)]',
         'info:-']).decode()
     m = _COLOR_PATTERN.match(color_str)
     if not m:
-        if symbolic_ok:
-            return color_str.strip()
         raise Exception('Failed to parse color ' + color_str)
     return [int(i) for i in m.group(1, 2, 3)]
 
