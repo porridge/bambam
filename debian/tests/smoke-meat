@@ -8,6 +8,7 @@ file.
 See the main() function for a high-level overview of what the script does.
 """
 
+import logging
 import os
 import re
 import subprocess
@@ -24,29 +25,33 @@ def main():
         await_startup()
         test_functionality()
         shut_bambam_down()
+        logging.info('Waiting for game to exit cleanly.')
         exit_code = bambam.wait(timeout=_EXIT_SECONDS)
         if exit_code != 0:
             raise Exception('Bambam exited with unexpected code %d.' % exit_code)
+        logging.info('Test successful.')
     except:
         take_screenshot('exception')
         raise
 
 
 def await_startup():
+    logging.info('Polling to observe a mostly-white screen (which means that bambam has started).')
     attempt_count = 40
     sleep_delay = 0.25
     for attempt in range(attempt_count):
         current_average_color = get_average_color()
+        logging.info('On attempt %d the average screen color was %s.', attempt, current_average_color)
         if all(color_component >= 248 for color_component in current_average_color):
-            print('Found mostly white screen, looks like bambam started up OK.')
+            logging.info('Found mostly white screen, looks like bambam started up OK.')
             take_screenshot('startup')
             return
-        print('On attempt %d the average screen color was %s.' % (attempt, current_average_color))
         time.sleep(sleep_delay)
     raise Exception('Failed to see bambam start and display mostly-white background, after polling %d times every %f seconds.' % (attempt_count, sleep_delay))
 
 
 def test_functionality():
+    logging.info('Simulating space and letter keypresses and measuring average screen color, to test functionality.')
     attempt_count = 1000
     for attempt in range(attempt_count):
         send_keycodes('space', 'm')  # any letter will do, but em is nice and big
@@ -60,23 +65,25 @@ def test_functionality():
 def is_screen_colorful_enough(attempt):
     r, g, b = get_average_color()
     if any(color > 225 for color in (r, g, b)):
-        print('On attempt %d the average screen color was too close to white: %d,%d,%d.' % (
-            attempt, r, g, b))
+        logging.info('On attempt %d the average screen color was too close to white: %d,%d,%d.', attempt, r, g, b)
         return False
     else:
-        print('Found colorful enough screen, colors %d, %d, %d.' % (r, g, b))
+        logging.info('Found colorful enough screen, colors %d, %d, %d.', r, g, b)
         return True
 
 
 def shut_bambam_down():
+    logging.info('Simulating shutdown keypresses.')
     send_keycodes('q', 'u', 'i', 't')
 
 
 def take_screenshot(title):
+    file_name = os.path.join(os.environ['AUTOPKGTEST_ARTIFACTS'], '%s.png' % title)
     subprocess.call([
         'convert',
         'xwd:' + os.path.join(os.environ['AUTOPKGTEST_TMP'], 'Xvfb_screen0'),
-        os.path.join(os.environ['AUTOPKGTEST_ARTIFACTS'], '%s.png' % title)])
+        file_name])
+    logging.info('Took a screenshot to: %s', file_name)
 
 
 def get_average_color():
@@ -97,4 +104,5 @@ def send_keycodes(*keycodes):
 
 
 if __name__ == '__main__':
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
     main()
