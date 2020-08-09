@@ -1,4 +1,4 @@
-.TH bambam 6 "17 December 2018" "version 1.0.1"
+.TH bambam 6 "9 August 2020" "version 1.0.2"
 .SH NAME
 bambam \- a keyboard mashing and doodling game for babies
 .SH SYNOPSIS
@@ -46,7 +46,17 @@ When scanning directories for files, bambam \fBdoes\fR follow symbolic links
 and descend directories. This makes is easy to have bambam use files located
 elsewhere.
 .PP
-Be aware that bambam does not block virtual terminal switching (e.g.
+\fBBe aware\fR that there are ways to switch to another application from bambam:
+.IP \(bu
+some window environments (maintainer suspects this may be true for wayland)
+do not make it possible for bambam to grab all key presses.
+When using GNOME Shell, pressing the Windows (a.k.a. Super) key will activate
+the activities overview.
+Please check your environment. If that is the case, then you can try running
+bambam in a dedicated X session, for example by running \fBstartx bambam\fR
+from a text console;
+.IP \(bu
+bambam does not block virtual terminal switching (e.g.
 CTRL+ALT+F1). See the example 50-dont-vt-switch.conf file if you would like to
 block that.
 .SH AUTHOR
