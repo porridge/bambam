@@ -3,7 +3,7 @@ Section: games
 Priority: optional
 Maintainer: Marcin Owsiany <porridge@debian.org>
 Build-Depends: debhelper-compat (= 12), python3, dh-python
-Standards-Version: 4.2.1
+Standards-Version: 4.5.0
 Homepage: https://github.com/porridge/bambam
 Vcs-Git: https://github.com/porridge/bambam.git -b debian
 Vcs-Browser: https://github.com/porridge/bambam
