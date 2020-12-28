@@ -45,6 +45,17 @@ class ResourceLoadException(BambamException):
         return 'Failed to load %s: %s' % (self._resource, self._message)
 
 
+def init_joysticks():
+    pygame.joystick.init()
+    """
+    Initialize all joysticks.
+    """
+    joystick_count = pygame.joystick.get_count()
+    for i in range(joystick_count):
+        joystick = pygame.joystick.Joystick(i)
+        joystick.init()
+
+
 class Bambam:
     IMAGE_MAX_WIDTH = 700
 
@@ -130,7 +141,6 @@ class Bambam:
         self.display_height = None
         self.display_width = None
 
-        self.mouse_down = None
         self.sequence = None
         self.sound_muted = None
 
@@ -147,65 +157,44 @@ class Bambam:
 
         self.screen.blit(dot, (mouse_x - r, mouse_y - r))
 
-    def input(self, events):
+    def process_keypress(self, event):
         """
-        Processes events.
+        Processes events from keyboard or joystick.
         """
-        for event in events:
-            if event.type == QUIT:
-                sys.exit(0)
+        # check for words like quit
+        if event.type == KEYDOWN:
+            if event.unicode.isalpha():
+                self.sequence += event.unicode
+                if self.sequence.find('quit') > -1:
+                    sys.exit(0)
+                elif self.sequence.find('unmute') > -1:
+                    self.sound_muted = False
+                    # pygame.mixer.unpause()
+                    self.sequence = ''
+                elif self.sequence.find('mute') > -1:
+                    self.sound_muted = True
+                    pygame.mixer.fadeout(1000)
+                    self.sequence = ''
 
-            elif event.type == KEYDOWN or event.type == pygame.JOYBUTTONDOWN:
-                # check for words like quit
-                if event.type == KEYDOWN:
-                    if event.unicode.isalpha():
-                        self.sequence += event.unicode
-                        if self.sequence.find('quit') > -1:
-                            sys.exit(0)
-                        elif self.sequence.find('unmute') > -1:
-                            self.sound_muted = False
-                            # pygame.mixer.unpause()
-                            self.sequence = ''
-                        elif self.sequence.find('mute') > -1:
-                            self.sound_muted = True
-                            pygame.mixer.fadeout(1000)
-                            self.sequence = ''
+        # Clear the self.background 10% of the time
+        if random.randint(0, 10) == 1:
+            self.screen.blit(self.background, (0, 0))
+            pygame.display.flip()
 
-                # Clear the self.background 10% of the time
-                if random.randint(0, 10) == 1:
-                    self.screen.blit(self.background, (0, 0))
-                    pygame.display.flip()
+        # play random sound
+        if not self.sound_muted:
+            if event.type == KEYDOWN and self.args.deterministic_sounds:
+                self.sounds[event.key % len(self.sounds)].play()
+            else:
+                self.sounds[random.randint(
+                    0, len(self.sounds) - 1)].play()
 
-                # play random sound
-                if not self.sound_muted:
-                    if event.type == KEYDOWN and self.args.deterministic_sounds:
-                        self.sounds[event.key % len(self.sounds)].play()
-                    else:
-                        self.sounds[random.randint(
-                            0, len(self.sounds) - 1)].play()
-
-                # show self.images
-                if event.type == pygame.KEYDOWN and (event.unicode.isalpha() or event.unicode.isdigit()):
-                    self.print_letter(event.unicode)
-                else:
-                    self.print_image()
-                pygame.display.flip()
-
-            # mouse motion
-            elif event.type == MOUSEMOTION:
-                if self.mouse_down:
-                    self.draw_dot()
-                    pygame.display.flip()
-
-            # mouse button down
-            elif event.type == MOUSEBUTTONDOWN:
-                self.draw_dot()
-                self.mouse_down = True
-                pygame.display.flip()
-
-            # mouse button up
-            elif event.type == MOUSEBUTTONUP:
-                self.mouse_down = False
+        # show self.images
+        if event.type == pygame.KEYDOWN and (event.unicode.isalpha() or event.unicode.isdigit()):
+            self.print_letter(event.unicode)
+        else:
+            self.print_image()
+        pygame.display.flip()
 
     def print_image(self):
         """
@@ -330,7 +319,6 @@ class Bambam:
         self.screen.blit(self.background, (0, 0))
         pygame.display.flip()
 
-        self.mouse_down = False
         self.sound_muted = self.args.mute
 
         self.sounds = self.load_items(
@@ -345,19 +333,34 @@ class Bambam:
             self.load_image,
             "images")
 
+        init_joysticks()
+
         clock = pygame.time.Clock()
-
-        pygame.joystick.init()
-
-        # Initialize all joysticks
-        joystick_count = pygame.joystick.get_count()
-        for i in range(joystick_count):
-            joystick = pygame.joystick.Joystick(i)
-            joystick.init()
-
+        mouse_pressed = False
         while True:
             clock.tick(60)
-            self.input(pygame.event.get())
+            for event in pygame.event.get():
+                if event.type == QUIT:
+                    sys.exit(0)
+
+                elif event.type == KEYDOWN or event.type == pygame.JOYBUTTONDOWN:
+                    self.process_keypress(event)
+
+                # mouse motion
+                elif event.type == MOUSEMOTION:
+                    if mouse_pressed:
+                        self.draw_dot()
+                        pygame.display.flip()
+
+                # mouse button down
+                elif event.type == MOUSEBUTTONDOWN:
+                    self.draw_dot()
+                    mouse_pressed = True
+                    pygame.display.flip()
+
+                # mouse button up
+                elif event.type == MOUSEBUTTONUP:
+                    mouse_pressed = False
 
 
 def main():
