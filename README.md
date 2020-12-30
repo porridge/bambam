@@ -28,7 +28,7 @@ cd bambam-1.0.2
 ```
 ./bambam.py
 ```
-  1. To exit, type
+  1. To exit, just directly type the command mentioned in the upper left-hand corner of the window. In the English locales, this is:
 ```
 quit
 ```
