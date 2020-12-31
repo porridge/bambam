@@ -1,0 +1,69 @@
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH bambam 6 "30 grudnia 2020" "wersja 1.1.0" 
+.SH NAZWA
+bambam \- gra w klawiaturę i doodling dla małych dzieci
+.SH SKŁADNIA
+\fBbambam\fP [\fIOPCJE\fP]
+.SH OPIS
+.TP 
+\fB\-u\fP, \fB\-\-uppercase\fP
+Pokazuj WIELKIE litery.
+.TP 
+\fB\-d\fP, \fB\-\-deterministic\-sounds\fP
+Wydawaj te same dźwięki przy tych samych klawiszach.
+.TP 
+\fB\-D\fP, \fB\-\-dark\fP
+Używaj ciemnego tła zamiast jasnego.
+.TP 
+\fB\-m\fP, \fB\-\-mute\fP
+Nie wydawaj żadnych dźwięków.
+.TP 
+\fB\-\-sound_blacklist\fP=\fIGLOB\fP
+Lista wzorów nazw plików dźwięków które nigdy nie mają być odtwarzane.
+.TP 
+\fB\-\-image_blacklist\fP=\fIGLOB\fP
+Lista wzorów nazw plików obrazów które nigdy nie mają być wyświetlane.
+.PP
+bambam is a keyboard and mouse game for babies written in Python.  Pressing
+letter keys prints them in random locations and colours.  Pressing any other
+key draws little pictures in random locations.  Dragging the mouse while the
+mouse button is pressed draws in randomly changing colours.  The screen is
+cleared at random.
+.SH UWAGI
+\fBAby zakończyć grę, wpisz bezpośrednio na klawiaturze komendę wspomnianą w
+lewym górnym rogu okna. W Polskim locale jest to słowo: koniec.\fP
+.PP
+Aby wyłączyć lub włączyć dźwięk, wpisz w trakcie gry odpowienio słowo:
+wycisz i zglosnij.
+.PP
+bambam ładuje obrazy (pliki GIF, JPEG, PNG i TIFF) oraz dźwięki (pliki WAV i
+OGG) z następujących katalogów:
+.IP \(bu
+katalog \fBdata\fP będący częścią gry,
+.IP \(bu
+\fB$XDG_DATA_HOME\fP (zwykle ~/.local/share/bambam/data)
+.PP
+Poszukując plików w tych katalogach, bambam \fBpodążą\fP za dowiązaniami
+symbolicznymi i wchodzi wgłąb katalogów. Dzięki temu można łatwo udostępnić
+grze pliki umieszczone gdzie indziej.
+.PP
+\fBUwaga\fP, istnieją sposoby na to by przełączyć się z bambam do innego
+programu:
+.IP \(bu
+niektóre środowiska (opiekun sądzi, że może tak być w przypadku wayland) nie
+pozwalają grze przechwytywać wszystkich naciśnięć klawiszy. Gdy używany jest
+GNOME Shell, naciśnięcie klawisza Windows (znanego też jako Super) włączy
+podgląd aktywności. Proszę sprawdzić to w swoim środowisku. Jeśli jest tak w
+istocie, wtedy możesz spróbować uruchomić bambam w oddzielnej sesji X, na
+przykład wydając polecenie \fBstartx bambam\fP w konsoli tekstowej;
+.IP \(bu
+bambam nie blokuje przełączania terminali wirtualnych Linuksa
+(np. CTRL+ALT+F1). Jeśli chciałbyś to zablokować, zobacz przykładowy plik
+50\-dont\-vt\-switch.conf.
+.SH AUTOR
+Spike Burch <spikeb@gmail.com> Marcin Owsiany
+<marcin@owsiany.pl>
