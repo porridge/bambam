@@ -18,17 +18,17 @@ bambam
 ```
 
 If not, you can install it manually as follows:
-  1. [Download](https://github.com/porridge/bambam/releases) the bambam-1.0.2.zip or bambam-1.0.2.tar.gz file.
-  1. Unzip bambam-1.0.2.zip or "tar zxvf bambam-1.0.2.tar.gz" to create the bambam-1.0.2 directory.
-  1. Move into the 'bambam-1.0.2' directory
+  1. [Download](https://github.com/porridge/bambam/releases) the bambam-1.1.0.zip or bambam-1.1.0.tar.gz file.
+  1. Unzip bambam-1.1.0.zip or "tar zxvf bambam-1.1.0.tar.gz" to create the bambam-1.1.0 directory.
+  1. Move into the 'bambam-1.1.0' directory
 ```
-cd bambam-1.0.2
+cd bambam-1.1.0
 ```
   1. Execute
 ```
 ./bambam.py
 ```
-  1. To exit, type
+  1. To exit, just directly type the command mentioned in the upper left-hand corner of the window. In the English locales, this is:
 ```
 quit
 ```
