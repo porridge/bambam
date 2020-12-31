@@ -6,3 +6,4 @@
 override_dh_auto_install:
 	dh_auto_install
 	install -D bambam.py $(CURDIR)/debian/bambam/usr/games/bambam
+	make install-mo PREFIX=$(CURDIR)/debian/bambam

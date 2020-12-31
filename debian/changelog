@@ -1,3 +1,12 @@
+bambam (1.1.0+dfsg-1) sid; urgency=low
+
+  * New upstream release
+  * Bumped Standards-Version to 4.5.1 (no changes needed).
+  * Build-depend on gettext
+  * Add rule to install mo files and translated manpage
+
+ -- Marcin Owsiany <porridge@debian.org>  Thu, 31 Dec 2020 16:39:46 +0100
+
 bambam (1.0.2+dfsg-2) sid; urgency=medium
 
   * Bumped Standards-Version to 4.5.0 (no other changes needed).

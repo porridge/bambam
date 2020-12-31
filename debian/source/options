@@ -1,1 +1,1 @@
-extend-diff-ignore = "(^|/)(\.venv|__pycache__)(/|$)"
+extend-diff-ignore = "(^|/)(\.venv|__pycache__|\.idea)(/|$)"

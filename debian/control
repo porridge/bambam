@@ -2,8 +2,8 @@ Source: bambam
 Section: games
 Priority: optional
 Maintainer: Marcin Owsiany <porridge@debian.org>
-Build-Depends: debhelper-compat (= 12), python3, dh-python
-Standards-Version: 4.5.0
+Build-Depends: debhelper-compat (= 12), python3, dh-python, gettext
+Standards-Version: 4.5.1
 Homepage: https://github.com/porridge/bambam
 Vcs-Git: https://github.com/porridge/bambam.git -b debian
 Vcs-Browser: https://github.com/porridge/bambam
@@ -16,4 +16,5 @@ Description: keyboard mashing and doodling game for babies
  the keyboard and mouse and instead displays bright colors,
  pictures, and sounds.
  .
- Note: type "quit" to stop the game.
+ Note: to stop the game, type the command shown in upper left-hand
+ corner of the screen.
