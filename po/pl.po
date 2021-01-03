@@ -223,6 +223,11 @@ msgid ""
 "mouse button is pressed draws in randomly changing colours.  The screen is "
 "cleared at random."
 msgstr ""
+"bambam to gra z użyciem klawiatury i myszy dla małych dzieci, napisana w "
+"języku Python.  Naciskanie klawiszy liter wyświetla je w losowych miejscach "
+"i kolorach.  Naciskanie innych klawiszy rysuje małe obrazki w losowych "
+"miejscach.  Przeciąganie myszą z naciśniętym przyciskiem rysuje w losowo "
+"zmieniających się kolorach.  Ekran jest kasowany losowo."
 
 #. type: SH
 #: bambam.6:33
