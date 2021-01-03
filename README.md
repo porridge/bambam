@@ -39,6 +39,7 @@ man ./bambam.6
 
 Comments or suggestions? Any feedback is appreciated, please send it to [the bambam-users forum](https://groups.google.com/forum/#!forum/bambam-users).
 
+Translations for this game are done on [Weblate](https://hosted.weblate.org/projects/bambam/). Please help translating for your mothe tongue!
 
 ---
 
