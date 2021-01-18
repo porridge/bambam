@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
-"POT-Creation-Date: 2021-01-05 11:11+0100\n"
+"POT-Creation-Date: 2021-01-18 11:17+0100\n"
 "PO-Revision-Date: 2021-01-11 04:32+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/bambam/"
@@ -158,8 +158,8 @@ msgstr "30 Desember 2020"
 #. type: TH
 #: bambam.6:1
 #, no-wrap
-msgid "version 1.1.0"
-msgstr "versjon 1.1.0"
+msgid "version 1.1.1"
+msgstr "versjon 1.1.1"
 
 #. type: SH
 #: bambam.6:2

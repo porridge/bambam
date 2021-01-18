@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bambam 1.0.2\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
-"POT-Creation-Date: 2021-01-05 11:11+0100\n"
+"POT-Creation-Date: 2021-01-18 11:17+0100\n"
 "PO-Revision-Date: 2020-12-30 11:43+0100\n"
 "Last-Translator: Marcin Owsiany <marcin@owsiany.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
@@ -150,8 +150,8 @@ msgstr "30 grudnia 2020"
 #. type: TH
 #: bambam.6:1
 #, no-wrap
-msgid "version 1.1.0"
-msgstr "wersja 1.1.0"
+msgid "version 1.1.1"
+msgstr "wersja 1.1.1"
 
 #. type: SH
 #: bambam.6:2
