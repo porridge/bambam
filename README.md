@@ -10,7 +10,10 @@ Before running this application, ensure you have the following installed:
 
 ### Installation ###
 
-First, see if your distribution has a bambam package already, for example:
+First, see if your distribution has a bambam package already.
+This way takes care of localized program messages and manual pages.
+
+For example:
 ```
 sudo apt install bambam
 man bambam
@@ -18,27 +21,32 @@ bambam
 ```
 
 If not, you can install it manually as follows:
-  1. [Download](https://github.com/porridge/bambam/releases) the bambam-1.1.0.zip or bambam-1.1.0.tar.gz file.
-  1. Unzip bambam-1.1.0.zip or "tar zxvf bambam-1.1.0.tar.gz" to create the bambam-1.1.0 directory.
-  1. Move into the 'bambam-1.1.0' directory
+  1. [Download](https://github.com/porridge/bambam/releases) the bambam-1.1.1.zip or bambam-1.1.1.tar.gz file.
+  1. Unzip bambam-1.1.1.zip or "tar zxvf bambam-1.1.1.tar.gz" to create the bambam-1.1.1 directory.
+  1. Move into the 'bambam-1.1.1' directory
 ```
-cd bambam-1.1.0
+cd bambam-1.1.1
 ```
   1. Execute
 ```
 ./bambam.py
 ```
-  1. To exit, just directly type the command mentioned in the upper left-hand corner of the window. In the English locales, this is:
+
+
+To exit, just directly type the command mentioned in the upper left-hand corner of the window. In the English locales, this is:
 ```
 quit
 ```
-  1. More information is in the man page. To view it, type:
+
+
+More information is in the man page. To view it, type:
 ```
 man ./bambam.6
 ```
 
 Comments or suggestions? Any feedback is appreciated, please send it to [the bambam-users forum](https://groups.google.com/forum/#!forum/bambam-users).
 
+Translations for this game are done on [Weblate](https://hosted.weblate.org/projects/bambam/). Please help translating for your mothe tongue!
 
 ---
 
