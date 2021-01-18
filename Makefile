@@ -1,5 +1,5 @@
-VERSION = 1.1.0
-LINGUAS = pl
+VERSION = 1.1.1
+LINGUAS = pl nb_NO fr
 PREFIX ?=
 
 .PHONY: all-mo
@@ -28,7 +28,7 @@ po/%.po: bambam.pot
 bambam.pot: bambam-py.pot bambam-man.pot
 	msgcat $^ > $@
 
-bambam-py.pot: bambam.py
+bambam-py.pot: bambam.py Makefile
 	xgettext -d bambam --msgid-bugs-address=marcin@owsiany.pl --package-name bambam --package-version $(VERSION) -o $@ -kN_ -c $<
 
 bambam-man.pot: bambam.6
