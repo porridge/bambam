@@ -1,3 +1,10 @@
+bambam (1.1.1+dfsg-1) sid; urgency=low
+
+  * New upstream release (only adds new translations)
+  * Fixed the regex in debian/watch
+
+ -- Marcin Owsiany <porridge@debian.org>  Mon, 18 Jan 2021 11:30:13 +0100
+
 bambam (1.1.0+dfsg-1) sid; urgency=low
 
   * New upstream release
