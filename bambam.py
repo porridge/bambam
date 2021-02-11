@@ -295,13 +295,13 @@ class Bambam:
                 "",
                 _("Press any key to quit.")]):
             caption_label = caption_font.render(
-                    msg,
-                    True,
-                    (250, 0, 0),
-                    self.background_color)
+                msg,
+                True,
+                (250, 0, 0),
+                self.background_color)
             caption_rect = caption_label.get_rect()
             caption_rect.x = 150
-            caption_rect.y = 100 + (i* 80)
+            caption_rect.y = 100 + (i * 80)
             self.background.blit(caption_label, caption_rect)
 
     def run(self):
@@ -371,8 +371,8 @@ class Bambam:
         while in_wayland:
             clock.tick(60)
             for event in pygame.event.get():
-                 if event.type in [QUIT, KEYDOWN, pygame.JOYBUTTONDOWN, MOUSEBUTTONDOWN]:
-                     sys.exit(1)
+                if event.type in [QUIT, KEYDOWN, pygame.JOYBUTTONDOWN, MOUSEBUTTONDOWN]:
+                    sys.exit(1)
 
         self.sound_muted = self.args.mute
 
