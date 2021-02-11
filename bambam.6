@@ -48,13 +48,16 @@ elsewhere.
 .PP
 \fBBe aware\fR that there are ways to switch to another application from bambam:
 .IP \(bu
-some window environments (maintainer suspects this may be true for wayland)
-do not make it possible for bambam to grab all key presses.
-When using GNOME Shell, pressing the Windows (a.k.a. Super) key will activate
-the activities overview.
+when running under wayland, it is not currently possible for bambam to grab all
+key presses.
+A consequence of that is that if you use GNOME Shell, pressing the Windows
+(a.k.a. Super) key will activate the activities overview.
 Please check your environment. If that is the case, then you can try running
 bambam in a dedicated X session, for example by running \fBstartx bambam\fR
-from a text console;
+from a text console.
+As a workaround, starting with version 1.1.2, bambam will try to detect if it
+is running under wayland. If this is the case, bambam will display a warning
+and refuse to work.
 .IP \(bu
 bambam does not block virtual terminal switching (e.g.
 CTRL+ALT+F1). See the example 50-dont-vt-switch.conf file if you would like to
