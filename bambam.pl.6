@@ -3,7 +3,7 @@
 .\" This file was generated with po4a. Translate the source file.
 .\"
 .\"*******************************************************************
-.TH bambam 6 "30 grudnia 2020" "wersja 1.1.1" 
+.TH bambam 6 "30 grudnia 2020" "version 1.1.2" 
 .SH NAZWA
 bambam \- gra w klawiaturę i doodling dla małych dzieci
 .SH SKŁADNIA
@@ -54,12 +54,14 @@ grze pliki umieszczone gdzie indziej.
 \fBUwaga\fP, istnieją sposoby na to by przełączyć się z bambam do innego
 programu:
 .IP \(bu
-niektóre środowiska (opiekun sądzi, że może tak być w przypadku wayland) nie
-pozwalają grze przechwytywać wszystkich naciśnięć klawiszy. Gdy używany jest
-GNOME Shell, naciśnięcie klawisza Windows (znanego też jako Super) włączy
-podgląd aktywności. Proszę sprawdzić to w swoim środowisku. Jeśli jest tak w
-istocie, wtedy możesz spróbować uruchomić bambam w oddzielnej sesji X, na
-przykład wydając polecenie \fBstartx bambam\fP w konsoli tekstowej;
+when running under wayland, it is not currently possible for bambam to grab
+all key presses.  A consequence of that is that if you use GNOME Shell,
+pressing the Windows (a.k.a. Super) key will activate the activities
+overview.  Please check your environment. If that is the case, then you can
+try running bambam in a dedicated X session, for example by running \fBstartx
+bambam\fP from a text console.  As a workaround, starting with version 1.1.2,
+bambam will try to detect if it is running under wayland. If this is the
+case, bambam will display a warning and refuse to work.
 .IP \(bu
 bambam nie blokuje przełączania terminali wirtualnych Linuksa
 (np. CTRL+ALT+F1). Jeśli chciałbyś to zablokować, zobacz przykładowy plik

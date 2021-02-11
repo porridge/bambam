@@ -21,11 +21,11 @@ bambam
 ```
 
 If not, you can install it manually as follows:
-  1. [Download](https://github.com/porridge/bambam/releases) the bambam-1.1.1.zip or bambam-1.1.1.tar.gz file.
-  1. Unzip bambam-1.1.1.zip or "tar zxvf bambam-1.1.1.tar.gz" to create the bambam-1.1.1 directory.
-  1. Move into the 'bambam-1.1.1' directory
+  1. [Download](https://github.com/porridge/bambam/releases) the bambam-1.1.2.zip or bambam-1.1.2.tar.gz file.
+  1. Unzip bambam-1.1.2.zip or "tar zxvf bambam-1.1.2.tar.gz" to create the bambam-1.1.2 directory.
+  1. Move into the 'bambam-1.1.2' directory
 ```
-cd bambam-1.1.1
+cd bambam-1.1.2
 ```
   1. Execute
 ```
