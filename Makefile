@@ -1,5 +1,5 @@
 VERSION = 1.1.1
-LINGUAS = pl nb_NO fr
+LINGUAS = eo fr nb_NO pl
 PREFIX ?=
 
 .PHONY: all-mo
