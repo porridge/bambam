@@ -2,19 +2,22 @@
 # This file is distributed under the same license as the bambam package.
 # Marcin Owsiany <marcin@owsiany.pl>, 2020
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: bambam 1.0.2\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2021-01-18 11:17+0100\n"
-"PO-Revision-Date: 2020-12-30 11:43+0100\n"
+"PO-Revision-Date: 2021-02-11 20:12+0000\n"
 "Last-Translator: Marcin Owsiany <marcin@owsiany.pl>\n"
-"Language-Team: Polish <pl@li.org>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/bambam/"
+"app-and-manpage/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.5-dev\n"
 
 #. TRANSLATORS: command string to mute sounds.
 #. Must not contain spaces, and should be be at least 4 characters long,
@@ -149,9 +152,9 @@ msgstr "30 grudnia 2020"
 
 #. type: TH
 #: bambam.6:1
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "version 1.1.2"
-msgstr "wersja 1.1.1"
+msgstr "wersja 1.1.2"
 
 #. type: SH
 #: bambam.6:2
@@ -302,7 +305,6 @@ msgstr ""
 
 #. type: Plain text
 #: bambam.6:61
-#, fuzzy
 msgid ""
 "when running under wayland, it is not currently possible for bambam to grab "
 "all key presses.  A consequence of that is that if you use GNOME Shell, "
@@ -313,12 +315,14 @@ msgid ""
 "bambam will try to detect if it is running under wayland. If this is the "
 "case, bambam will display a warning and refuse to work."
 msgstr ""
-"niektóre środowiska (opiekun sądzi, że może tak być w przypadku wayland) nie "
-"pozwalają grze przechwytywać wszystkich naciśnięć klawiszy. Gdy używany jest "
-"GNOME Shell, naciśnięcie klawisza Windows (znanego też jako Super) włączy "
-"podgląd aktywności. Proszę sprawdzić to w swoim środowisku. Jeśli jest tak w "
+"bambam nie potrafi obecnie przechwytywać wszystkich naciśnięć klawiszy gdy "
+"działa w sesji wayland. W rezultacie gdy używany jest GNOME Shell, "
+"naciśnięcie klawisza Windows (znanego też jako Super) włączy podgląd "
+"aktywności. Proszę sprawdzić to w swoim środowisku. Jeśli jest tak w "
 "istocie, wtedy możesz spróbować uruchomić bambam w oddzielnej sesji X, na "
-"przykład wydając polecenie B<startx bambam> w konsoli tekstowej;"
+"przykład wydając polecenie B<startx bambam> w konsoli tekstowej. Jako środek "
+"zapobiegawczy bambam próbuje wykryć czy działa pod wayland. Jeśli tak jest, "
+"wyświetla ostrzeżenie i odmawia działania."
 
 #. type: Plain text
 #: bambam.6:65
