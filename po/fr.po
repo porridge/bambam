@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
-"POT-Creation-Date: 2021-01-18 11:17+0100\n"
+"POT-Creation-Date: 2021-02-11 21:14+0100\n"
 "PO-Revision-Date: 2021-01-06 11:29+0000\n"
 "Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/bambam/app-and-"
@@ -67,75 +67,87 @@ msgstr ""
 msgid "Skipping blacklisted item %s"
 msgstr "Ignorer l'élément de la liste noire %s"
 
-#: bambam.py:281 bambam.py:288
+#. TRANSLATORS: the string is space-separated list of all command strings.
+#: bambam.py:281
+#, python-format
+msgid "Commands: %s"
+msgstr "Commandes : %s"
+
+#: bambam.py:293
+msgid "Error: wayland display detected."
+msgstr ""
+
+#: bambam.py:294
+msgid "Cannot lock the keyboard safely."
+msgstr ""
+
+#: bambam.py:296
+msgid "Press any key to quit."
+msgstr ""
+
+#: bambam.py:315 bambam.py:322
 #, python-format
 msgid "Using data directory %s"
 msgstr "Utilisation du répertoire de données %s"
 
-#: bambam.py:292
+#: bambam.py:326
 msgid "A keyboard mashing game for babies."
 msgstr "Un jeu de clavier pour bébés."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
-#: bambam.py:294 bambam.6:11
+#: bambam.py:328 bambam.6:11
 msgid "Show UPPER-CASE letters."
 msgstr "Afficher les lettres MAJUSCULES."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
-#: bambam.py:296 bambam.6:23
+#: bambam.py:330 bambam.6:23
 msgid "List of sound filename patterns to never play."
 msgstr "Liste des modèles de noms de fichiers sonores à ne jamais jouer."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
-#: bambam.py:298 bambam.6:26
+#: bambam.py:332 bambam.6:26
 msgid "List of image filename patterns to never show."
 msgstr "Liste des modèles de noms de fichiers d’image à ne jamais afficher."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
-#: bambam.py:300 bambam.6:14
+#: bambam.py:334 bambam.6:14
 msgid "Produce same sounds on same key presses."
 msgstr "Produire les mêmes sons sur les mêmes touches."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
-#: bambam.py:302 bambam.6:17
+#: bambam.py:336 bambam.6:17
 msgid "Use a dark background instead of a light one."
 msgstr "Utiliser un fond sombre au lieu d’un fond clair."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
-#: bambam.py:304 bambam.6:20
+#: bambam.py:338 bambam.6:20
 msgid "Do not play any sounds."
 msgstr "Ne jouer aucun son."
 
-#: bambam.py:310
+#: bambam.py:344
 msgid "Warning, fonts disabled."
 msgstr "Attention, polices désactivées."
 
-#: bambam.py:312
+#: bambam.py:346
 msgid "Warning, sound disabled."
 msgstr "Attention, son désactivé."
 
 #. TRANSLATORS: Main game window name.
-#: bambam.py:322
+#: bambam.py:356
 msgid "Bam Bam"
 msgstr "Bam Bam"
 
-#. TRANSLATORS: the string is space-separated list of all command strings.
-#: bambam.py:334
-#, python-format
-msgid "Commands: %s"
-msgstr "Commandes : %s"
-
-#: bambam.py:352
+#: bambam.py:383
 msgid "All sounds failed to load."
 msgstr "Le chargement de tous les sons a échoué."
 
-#: bambam.py:358
+#: bambam.py:389
 msgid "All images failed to load."
 msgstr "Le chargement de toutes les images a échoué."
 

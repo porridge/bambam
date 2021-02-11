@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
-"POT-Creation-Date: 2021-01-18 11:21+0100\n"
+"POT-Creation-Date: 2021-02-11 21:14+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -62,75 +62,87 @@ msgstr ""
 msgid "Skipping blacklisted item %s"
 msgstr ""
 
-#: bambam.py:281 bambam.py:288
+#. TRANSLATORS: the string is space-separated list of all command strings.
+#: bambam.py:281
+#, python-format
+msgid "Commands: %s"
+msgstr ""
+
+#: bambam.py:293
+msgid "Error: wayland display detected."
+msgstr ""
+
+#: bambam.py:294
+msgid "Cannot lock the keyboard safely."
+msgstr ""
+
+#: bambam.py:296
+msgid "Press any key to quit."
+msgstr ""
+
+#: bambam.py:315 bambam.py:322
 #, python-format
 msgid "Using data directory %s"
 msgstr ""
 
-#: bambam.py:292
+#: bambam.py:326
 msgid "A keyboard mashing game for babies."
 msgstr ""
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
-#: bambam.py:294 bambam.6:11
+#: bambam.py:328 bambam.6:11
 msgid "Show UPPER-CASE letters."
 msgstr ""
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
-#: bambam.py:296 bambam.6:23
+#: bambam.py:330 bambam.6:23
 msgid "List of sound filename patterns to never play."
 msgstr ""
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
-#: bambam.py:298 bambam.6:26
+#: bambam.py:332 bambam.6:26
 msgid "List of image filename patterns to never show."
 msgstr ""
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
-#: bambam.py:300 bambam.6:14
+#: bambam.py:334 bambam.6:14
 msgid "Produce same sounds on same key presses."
 msgstr ""
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
-#: bambam.py:302 bambam.6:17
+#: bambam.py:336 bambam.6:17
 msgid "Use a dark background instead of a light one."
 msgstr ""
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
-#: bambam.py:304 bambam.6:20
+#: bambam.py:338 bambam.6:20
 msgid "Do not play any sounds."
 msgstr ""
 
-#: bambam.py:310
+#: bambam.py:344
 msgid "Warning, fonts disabled."
 msgstr ""
 
-#: bambam.py:312
+#: bambam.py:346
 msgid "Warning, sound disabled."
 msgstr ""
 
 #. TRANSLATORS: Main game window name.
-#: bambam.py:322
+#: bambam.py:356
 msgid "Bam Bam"
 msgstr ""
 
-#. TRANSLATORS: the string is space-separated list of all command strings.
-#: bambam.py:334
-#, python-format
-msgid "Commands: %s"
-msgstr ""
-
-#: bambam.py:352
+#: bambam.py:383
 msgid "All sounds failed to load."
 msgstr ""
 
-#: bambam.py:358
+#: bambam.py:389
 msgid "All images failed to load."
 msgstr ""
 
@@ -149,7 +161,7 @@ msgstr ""
 #. type: TH
 #: bambam.6:1
 #, no-wrap
-msgid "version 1.1.1"
+msgid "version 1.1.2"
 msgstr ""
 
 #. type: SH
@@ -254,7 +266,7 @@ msgid ""
 msgstr ""
 
 #. type: IP
-#: bambam.6:40 bambam.6:42 bambam.6:50 bambam.6:58
+#: bambam.6:40 bambam.6:42 bambam.6:50 bambam.6:61
 #, no-wrap
 msgid "\\(bu"
 msgstr ""
@@ -284,31 +296,33 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: bambam.6:58
+#: bambam.6:61
 msgid ""
-"some window environments (maintainer suspects this may be true for wayland)  "
-"do not make it possible for bambam to grab all key presses.  When using "
-"GNOME Shell, pressing the Windows (a.k.a. Super) key will activate the "
-"activities overview.  Please check your environment. If that is the case, "
-"then you can try running bambam in a dedicated X session, for example by "
-"running B<startx bambam> from a text console;"
+"when running under wayland, it is not currently possible for bambam to grab "
+"all key presses.  A consequence of that is that if you use GNOME Shell, "
+"pressing the Windows (a.k.a. Super) key will activate the activities "
+"overview.  Please check your environment. If that is the case, then you can "
+"try running bambam in a dedicated X session, for example by running B<startx "
+"bambam> from a text console.  As a workaround, starting with version 1.1.2, "
+"bambam will try to detect if it is running under wayland. If this is the "
+"case, bambam will display a warning and refuse to work."
 msgstr ""
 
 #. type: Plain text
-#: bambam.6:62
+#: bambam.6:65
 msgid ""
 "bambam does not block virtual terminal switching (e.g.  CTRL+ALT+F1). See "
 "the example 50-dont-vt-switch.conf file if you would like to block that."
 msgstr ""
 
 #. type: SH
-#: bambam.6:62
+#: bambam.6:65
 #, no-wrap
 msgid "AUTHOR"
 msgstr ""
 
 #. type: Plain text
-#: bambam.6:65
+#: bambam.6:68
 msgid ""
 "Spike Burch E<lt>spikeb@gmail.comE<gt> Marcin Owsiany E<lt>marcin@owsiany."
 "plE<gt>"

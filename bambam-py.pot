@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bambam 1.1.2\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
-"POT-Creation-Date: 2021-01-18 11:17+0100\n"
+"POT-Creation-Date: 2021-02-11 21:14+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -56,62 +56,74 @@ msgstr ""
 msgid "Skipping blacklisted item %s"
 msgstr ""
 
-#: bambam.py:281 bambam.py:288
-#, python-format
-msgid "Using data directory %s"
-msgstr ""
-
-#: bambam.py:292
-msgid "A keyboard mashing game for babies."
-msgstr ""
-
-#: bambam.py:294
-msgid "Show UPPER-CASE letters."
-msgstr ""
-
-#: bambam.py:296
-msgid "List of sound filename patterns to never play."
-msgstr ""
-
-#: bambam.py:298
-msgid "List of image filename patterns to never show."
-msgstr ""
-
-#: bambam.py:300
-msgid "Produce same sounds on same key presses."
-msgstr ""
-
-#: bambam.py:302
-msgid "Use a dark background instead of a light one."
-msgstr ""
-
-#: bambam.py:304
-msgid "Do not play any sounds."
-msgstr ""
-
-#: bambam.py:310
-msgid "Warning, fonts disabled."
-msgstr ""
-
-#: bambam.py:312
-msgid "Warning, sound disabled."
-msgstr ""
-
-#. TRANSLATORS: Main game window name.
-#: bambam.py:322
-msgid "Bam Bam"
-msgstr ""
-
 #. TRANSLATORS: the string is space-separated list of all command strings.
-#: bambam.py:334
+#: bambam.py:281
 #, python-format
 msgid "Commands: %s"
 msgstr ""
 
-#: bambam.py:352
+#: bambam.py:293
+msgid "Error: wayland display detected."
+msgstr ""
+
+#: bambam.py:294
+msgid "Cannot lock the keyboard safely."
+msgstr ""
+
+#: bambam.py:296
+msgid "Press any key to quit."
+msgstr ""
+
+#: bambam.py:315 bambam.py:322
+#, python-format
+msgid "Using data directory %s"
+msgstr ""
+
+#: bambam.py:326
+msgid "A keyboard mashing game for babies."
+msgstr ""
+
+#: bambam.py:328
+msgid "Show UPPER-CASE letters."
+msgstr ""
+
+#: bambam.py:330
+msgid "List of sound filename patterns to never play."
+msgstr ""
+
+#: bambam.py:332
+msgid "List of image filename patterns to never show."
+msgstr ""
+
+#: bambam.py:334
+msgid "Produce same sounds on same key presses."
+msgstr ""
+
+#: bambam.py:336
+msgid "Use a dark background instead of a light one."
+msgstr ""
+
+#: bambam.py:338
+msgid "Do not play any sounds."
+msgstr ""
+
+#: bambam.py:344
+msgid "Warning, fonts disabled."
+msgstr ""
+
+#: bambam.py:346
+msgid "Warning, sound disabled."
+msgstr ""
+
+#. TRANSLATORS: Main game window name.
+#: bambam.py:356
+msgid "Bam Bam"
+msgstr ""
+
+#: bambam.py:383
 msgid "All sounds failed to load."
 msgstr ""
 
-#: bambam.py:358
+#: bambam.py:389
 msgid "All images failed to load."
 msgstr ""
