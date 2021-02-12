@@ -290,7 +290,7 @@ class Bambam:
     def _prepare_wayland_warning(self):
         caption_font = pygame.font.SysFont(None, 80)
         for i, msg in enumerate([
-                _("Error: wayland display detected."),
+                _("Error: Wayland display detected."),
                 _("Cannot lock the keyboard safely."),
                 "",
                 _("Press any key to quit.")]):
