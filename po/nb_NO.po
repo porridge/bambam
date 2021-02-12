@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2021-02-11 21:14+0100\n"
-"PO-Revision-Date: 2021-01-11 04:32+0000\n"
+"PO-Revision-Date: 2021-02-13 08:50+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/bambam/"
 "app-and-manpage/nb_NO/>\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4.1-dev\n"
+"X-Generator: Weblate 4.5-dev\n"
 
 #. TRANSLATORS: command string to mute sounds.
 #. Must not contain spaces, and should be be at least 4 characters long,
@@ -76,15 +76,15 @@ msgstr "Kommandoer: %s"
 
 #: bambam.py:293
 msgid "Error: wayland display detected."
-msgstr ""
+msgstr "Feil: Oppdaget wayland-skjerm."
 
 #: bambam.py:294
 msgid "Cannot lock the keyboard safely."
-msgstr ""
+msgstr "Kan ikke låse tastaturet på trygg måte."
 
 #: bambam.py:296
 msgid "Press any key to quit."
-msgstr ""
+msgstr "Trykk vilkårlig tast for å avslutte."
 
 #: bambam.py:315 bambam.py:322
 #, fuzzy, python-format
@@ -261,13 +261,12 @@ msgstr "Merknader"
 
 #. type: Plain text
 #: bambam.6:35
-#, fuzzy
 msgid ""
 "B<To quit, directly type the command mentioned in the upper left-hand corner "
 "of the window. In the English locales, this is the word: quit.>"
 msgstr ""
 "B<For å avslutte, skriv kommandoen nevnt oppe i venstre hjørne av vinduet. "
-"For engelsk er dette order: quit.>"
+"På bokmål er dette ordet «avslutt».>"
 
 #. type: Plain text
 #: bambam.6:37
