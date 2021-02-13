@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
-"POT-Creation-Date: 2021-02-11 21:14+0100\n"
+"POT-Creation-Date: 2021-02-13 09:54+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -69,7 +69,7 @@ msgid "Commands: %s"
 msgstr ""
 
 #: bambam.py:293
-msgid "Error: wayland display detected."
+msgid "Error: Wayland display detected."
 msgstr ""
 
 #: bambam.py:294

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
-"POT-Creation-Date: 2021-02-11 21:14+0100\n"
+"POT-Creation-Date: 2021-02-13 09:54+0100\n"
 "PO-Revision-Date: 2021-02-13 08:50+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/bambam/"
@@ -75,7 +75,8 @@ msgid "Commands: %s"
 msgstr "Kommandoer: %s"
 
 #: bambam.py:293
-msgid "Error: wayland display detected."
+#, fuzzy
+msgid "Error: Wayland display detected."
 msgstr "Feil: Oppdaget wayland-skjerm."
 
 #: bambam.py:294

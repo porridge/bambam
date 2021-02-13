@@ -16,7 +16,7 @@ msgstr ""
 "#-#-#-#-#  bambam-py.pot (bambam 1.1.2)  #-#-#-#-#\n"
 "Project-Id-Version: bambam 1.1.2\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
-"POT-Creation-Date: 2021-02-11 21:14+0100\n"
+"POT-Creation-Date: 2021-02-13 09:54+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -81,7 +81,7 @@ msgid "Commands: %s"
 msgstr ""
 
 #: bambam.py:293
-msgid "Error: wayland display detected."
+msgid "Error: Wayland display detected."
 msgstr ""
 
 #: bambam.py:294
