@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bambam 1.1.2\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
-"POT-Creation-Date: 2021-02-13 09:54+0100\n"
+"POT-Creation-Date: 2021-02-19 21:59+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -107,23 +107,27 @@ msgstr ""
 msgid "Do not play any sounds."
 msgstr ""
 
-#: bambam.py:344
-msgid "Warning, fonts disabled."
+#: bambam.py:340
+msgid "Do not prevent running under Wayland."
 msgstr ""
 
 #: bambam.py:346
+msgid "Warning, fonts disabled."
+msgstr ""
+
+#: bambam.py:348
 msgid "Warning, sound disabled."
 msgstr ""
 
 #. TRANSLATORS: Main game window name.
-#: bambam.py:356
+#: bambam.py:358
 msgid "Bam Bam"
 msgstr ""
 
-#: bambam.py:383
+#: bambam.py:385
 msgid "All sounds failed to load."
 msgstr ""
 
-#: bambam.py:389
+#: bambam.py:391
 msgid "All images failed to load."
 msgstr ""

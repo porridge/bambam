@@ -27,6 +27,9 @@ Lista wzorów nazw plików dźwięków które nigdy nie mają być odtwarzane.
 .TP 
 \fB\-\-image_blacklist\fP=\fIGLOB\fP
 Lista wzorów nazw plików obrazów które nigdy nie mają być wyświetlane.
+.TP 
+\fB\-\-wayland\-ok\fP
+Nie zapobiegaj działaniu pod Wayland. Patrz \fBUWAGI\fP.
 .PP
 bambam to gra z użyciem klawiatury i myszy dla małych dzieci, napisana w
 języku Python.  Naciskanie klawiszy liter wyświetla je w losowych miejscach
@@ -55,13 +58,14 @@ grze pliki umieszczone gdzie indziej.
 programu:
 .IP \(bu
 bambam nie potrafi obecnie przechwytywać wszystkich naciśnięć klawiszy gdy
-działa w sesji wayland. W rezultacie gdy używany jest GNOME Shell,
+działa w sesji Wayland. W rezultacie gdy używany jest GNOME Shell,
 naciśnięcie klawisza Windows (znanego też jako Super) włączy podgląd
 aktywności. Proszę sprawdzić to w swoim środowisku. Jeśli jest tak w
 istocie, wtedy możesz spróbować uruchomić bambam w oddzielnej sesji X, na
 przykład wydając polecenie \fBstartx bambam\fP w konsoli tekstowej. Jako środek
-zapobiegawczy bambam próbuje wykryć czy działa pod wayland. Jeśli tak jest,
-wyświetla ostrzeżenie i odmawia działania.
+zapobiegawczy bambam próbuje wykryć czy działa pod Wayland. Jeśli tak jest,
+wyświetla ostrzeżenie i odmawia działania. Możesz wyłączyć to zachowanie
+przy pomocy opcji \fB\-\-wayland\-ok\fP.
 .IP \(bu
 bambam nie blokuje przełączania terminali wirtualnych Linuksa
 (np. CTRL+ALT+F1). Jeśli chciałbyś to zablokować, zobacz przykładowy plik
