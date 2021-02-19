@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2021-02-19 21:59+0100\n"
-"PO-Revision-Date: 2021-02-13 08:50+0000\n"
+"PO-Revision-Date: 2021-02-20 11:10+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/bambam/"
 "app-and-manpage/nb_NO/>\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 4.5\n"
 
 #. TRANSLATORS: command string to mute sounds.
 #. Must not contain spaces, and should be be at least 4 characters long,
@@ -135,7 +135,7 @@ msgstr "Ikke spill noen lyder."
 
 #: bambam.py:340
 msgid "Do not prevent running under Wayland."
-msgstr ""
+msgstr "Ikke forhindre kjøring i Wayland."
 
 #: bambam.py:346
 msgid "Warning, fonts disabled."
@@ -250,8 +250,9 @@ msgstr ""
 
 #. type: Plain text
 #: bambam.6:29
+#, fuzzy
 msgid "Do not prevent running under Wayland. See the B<NOTES> section."
-msgstr ""
+msgstr "Ikke forhindre kjøring i Wayland. Sjekk B<NOTATER>-delen."
 
 #. type: Plain text
 #: bambam.6:36
