@@ -336,6 +336,8 @@ class Bambam:
                             help=_('Use a dark background instead of a light one.'))
         parser.add_argument('-m', '--mute', action='store_true',
                             help=_('Do not play any sounds.'))
+        parser.add_argument('--wayland-ok', action='store_true',
+                            help=_('Do not prevent running under Wayland.'))
         self.args = parser.parse_args()
 
         pygame.init()
@@ -359,7 +361,7 @@ class Bambam:
         self._prepare_background()
         clock = pygame.time.Clock()
 
-        if os.getenv('WAYLAND_DISPLAY') or os.getenv('XDG_SESSION_TYPE') == 'wayland':
+        if not self.args.wayland_ok and (os.getenv('WAYLAND_DISPLAY') or os.getenv('XDG_SESSION_TYPE') == 'wayland'):
             in_wayland = True
             self._prepare_wayland_warning()
         else:
