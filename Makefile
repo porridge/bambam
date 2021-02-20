@@ -1,4 +1,5 @@
 VERSION = 1.1.2
+# Note: keep po4a.conf in sync
 LINGUAS = eo fr nb_NO pl
 PREFIX ?=
 
