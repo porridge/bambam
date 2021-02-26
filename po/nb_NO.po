@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
-"POT-Creation-Date: 2021-01-18 11:17+0100\n"
-"PO-Revision-Date: 2021-01-11 04:32+0000\n"
+"POT-Creation-Date: 2021-02-19 21:59+0100\n"
+"PO-Revision-Date: 2021-02-20 11:10+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/bambam/"
 "app-and-manpage/nb_NO/>\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.4.1-dev\n"
+"X-Generator: Weblate 4.5\n"
 
 #. TRANSLATORS: command string to mute sounds.
 #. Must not contain spaces, and should be be at least 4 characters long,
@@ -68,78 +68,95 @@ msgstr ""
 msgid "Skipping blacklisted item %s"
 msgstr "Hopper over svartelistet element %s"
 
-#: bambam.py:281 bambam.py:288
+#. TRANSLATORS: the string is space-separated list of all command strings.
+#: bambam.py:281
+#, python-format
+msgid "Commands: %s"
+msgstr "Kommandoer: %s"
+
+#: bambam.py:293
+#, fuzzy
+msgid "Error: Wayland display detected."
+msgstr "Feil: Oppdaget wayland-skjerm."
+
+#: bambam.py:294
+msgid "Cannot lock the keyboard safely."
+msgstr "Kan ikke låse tastaturet på trygg måte."
+
+#: bambam.py:296
+msgid "Press any key to quit."
+msgstr "Trykk vilkårlig tast for å avslutte."
+
+#: bambam.py:315 bambam.py:322
 #, fuzzy, python-format
 msgid "Using data directory %s"
 msgstr "Bruker datamappe %s"
 
-#: bambam.py:292
+#: bambam.py:326
 msgid "A keyboard mashing game for babies."
 msgstr "Et tastaturtrykkespill for babyer."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
-#: bambam.py:294 bambam.6:11
+#: bambam.py:328 bambam.6:11
 msgid "Show UPPER-CASE letters."
 msgstr "Vis STORE BOKSTAVER."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
-#: bambam.py:296 bambam.6:23
+#: bambam.py:330 bambam.6:23
 msgid "List of sound filename patterns to never play."
 msgstr "Liste over lydfilnavnsmønster som aldri skal spilles."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
-#: bambam.py:298 bambam.6:26
+#: bambam.py:332 bambam.6:26
 msgid "List of image filename patterns to never show."
 msgstr "Liste over bildefilnavnsmønster som aldri skal vises."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
-#: bambam.py:300 bambam.6:14
+#: bambam.py:334 bambam.6:14
 msgid "Produce same sounds on same key presses."
 msgstr "Lag samme lyd ved trykk av samme tast."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
-#: bambam.py:302 bambam.6:17
+#: bambam.py:336 bambam.6:17
 #, fuzzy
 msgid "Use a dark background instead of a light one."
 msgstr "Mørk bakgrunn."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
-#: bambam.py:304 bambam.6:20
+#: bambam.py:338 bambam.6:20
 msgid "Do not play any sounds."
 msgstr "Ikke spill noen lyder."
 
-#: bambam.py:310
+#: bambam.py:340
+msgid "Do not prevent running under Wayland."
+msgstr "Ikke forhindre kjøring i Wayland."
+
+#: bambam.py:346
 msgid "Warning, fonts disabled."
 msgstr "Advarsel, skrifter avskrudd."
 
-#: bambam.py:312
+#: bambam.py:348
 #, fuzzy
 msgid "Warning, sound disabled."
 msgstr "Advarsel, lyd avsrkudd."
 
 #. TRANSLATORS: Main game window name.
-#: bambam.py:322
+#: bambam.py:358
 msgid "Bam Bam"
 msgstr "Bam Bam"
 
-#. TRANSLATORS: the string is space-separated list of all command strings.
-#: bambam.py:334
-#, python-format
-msgid "Commands: %s"
-msgstr "Kommandoer: %s"
-
-#: bambam.py:352
+#: bambam.py:385
 #, fuzzy
 msgid "All sounds failed to load."
 msgstr "Klarte ikke å laste inn lyder."
 
-#: bambam.py:358
+#: bambam.py:391
 msgid "All images failed to load."
 msgstr "Klarte ikke å laste inn bilder."
 
@@ -157,8 +174,8 @@ msgstr "30 Desember 2020"
 
 #. type: TH
 #: bambam.6:1
-#, no-wrap
-msgid "version 1.1.1"
+#, fuzzy, no-wrap
+msgid "version 1.1.2"
 msgstr "versjon 1.1.1"
 
 #. type: SH
@@ -225,8 +242,20 @@ msgstr "B<--sound_blacklist>=I<GLOB>"
 msgid "B<--image_blacklist>=I<GLOB>"
 msgstr "B<--image_blacklist>=I<GLOB>"
 
+#. type: TP
+#: bambam.6:26
+#, no-wrap
+msgid "B<--wayland-ok>"
+msgstr ""
+
 #. type: Plain text
-#: bambam.6:33
+#: bambam.6:29
+#, fuzzy
+msgid "Do not prevent running under Wayland. See the B<NOTES> section."
+msgstr "Ikke forhindre kjøring i Wayland. Sjekk B<NOTATER>-delen."
+
+#. type: Plain text
+#: bambam.6:36
 #, fuzzy
 msgid ""
 "bambam is a keyboard and mouse game for babies written in Python.  Pressing "
@@ -242,23 +271,22 @@ msgstr ""
 "tilfeldig."
 
 #. type: SH
-#: bambam.6:33
+#: bambam.6:36
 #, no-wrap
 msgid "NOTES"
 msgstr "Merknader"
 
 #. type: Plain text
-#: bambam.6:35
-#, fuzzy
+#: bambam.6:38
 msgid ""
 "B<To quit, directly type the command mentioned in the upper left-hand corner "
 "of the window. In the English locales, this is the word: quit.>"
 msgstr ""
 "B<For å avslutte, skriv kommandoen nevnt oppe i venstre hjørne av vinduet. "
-"For engelsk er dette order: quit.>"
+"På bokmål er dette ordet «avslutt».>"
 
 #. type: Plain text
-#: bambam.6:37
+#: bambam.6:40
 msgid ""
 "To turn the sound off and on, type mute and unmute, respectively, in the "
 "game."
@@ -266,7 +294,7 @@ msgstr ""
 "For å skru lyden av og på, skriv (respektivt) «mute» og «unmute», i spillet."
 
 #. type: Plain text
-#: bambam.6:40
+#: bambam.6:43
 #, fuzzy
 msgid ""
 "bambam loads images (GIF, JPEG, PNG and TIFF files) and sounds (WAV and OGG "
@@ -276,23 +304,23 @@ msgstr ""
 "filer) fra følgende mapper:"
 
 #. type: IP
-#: bambam.6:40 bambam.6:42 bambam.6:50 bambam.6:58
+#: bambam.6:43 bambam.6:45 bambam.6:53 bambam.6:65
 #, fuzzy, no-wrap
 msgid "\\(bu"
 msgstr "\\(bu"
 
 #. type: Plain text
-#: bambam.6:42
+#: bambam.6:45
 msgid "the B<data> directory distributed with the game,"
 msgstr "B<data>-mappen som følger med spillet,"
 
 #. type: Plain text
-#: bambam.6:44
+#: bambam.6:47
 msgid "B<$XDG_DATA_HOME> (usually ~/.local/share/bambam/data)"
 msgstr "B<$XDG_DATA_HOME> (vanligvis ~/.local/share/bambam/data)"
 
 #. type: Plain text
-#: bambam.6:48
+#: bambam.6:51
 #, fuzzy
 msgid ""
 "When scanning directories for files, bambam B<does> follow symbolic links "
@@ -304,22 +332,25 @@ msgstr ""
 "annensteds hen."
 
 #. type: Plain text
-#: bambam.6:50
+#: bambam.6:53
 #, fuzzy
 msgid ""
 "B<Be aware> that there are ways to switch to another application from bambam:"
 msgstr "B<Husk> at det går an å bytte til et annet program fra bambam:"
 
 #. type: Plain text
-#: bambam.6:58
+#: bambam.6:65
 #, fuzzy
 msgid ""
-"some window environments (maintainer suspects this may be true for wayland)  "
-"do not make it possible for bambam to grab all key presses.  When using "
-"GNOME Shell, pressing the Windows (a.k.a. Super) key will activate the "
-"activities overview.  Please check your environment. If that is the case, "
-"then you can try running bambam in a dedicated X session, for example by "
-"running B<startx bambam> from a text console;"
+"when running under Wayland, it is not currently possible for bambam to grab "
+"all key presses.  A consequence of that is that if you use GNOME Shell, "
+"pressing the Windows (a.k.a. Super) key will activate the activities "
+"overview.  Please check your environment. If that is the case, then you can "
+"try running bambam in a dedicated X session, for example by running B<startx "
+"bambam> from a text console.  As a workaround, starting with version 1.1.2, "
+"bambam will try to detect if it is running under Wayland. If this is the "
+"case, bambam will display a warning and refuse to work.  You can disable "
+"this workaround, with the B<--wayland-ok> option."
 msgstr ""
 "noen vindusmiljøer (vedlikeholderen mistenker at dette kan gjelde Wayland) "
 "gjør det ikke mulig for bambam å hente alle tastetrykk. Når du bruker GNOME-"
@@ -329,7 +360,7 @@ msgstr ""
 "kommandolinjen;"
 
 #. type: Plain text
-#: bambam.6:62
+#: bambam.6:69
 #, fuzzy
 msgid ""
 "bambam does not block virtual terminal switching (e.g.  CTRL+ALT+F1). See "
@@ -339,13 +370,13 @@ msgstr ""
 "ekemplet 50-dont-vt-switch.conf -filen hvis du ønsker å blokkere dette."
 
 #. type: SH
-#: bambam.6:62
+#: bambam.6:69
 #, fuzzy, no-wrap
 msgid "AUTHOR"
 msgstr "Utvikler"
 
 #. type: Plain text
-#: bambam.6:65
+#: bambam.6:72
 msgid ""
 "Spike Burch E<lt>spikeb@gmail.comE<gt> Marcin Owsiany E<lt>marcin@owsiany."
 "plE<gt>"

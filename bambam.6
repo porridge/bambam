@@ -1,4 +1,4 @@
-.TH bambam 6 "30 December 2020" "version 1.1.1"
+.TH bambam 6 "30 December 2020" "version 1.1.2"
 .SH NAME
 bambam \- a keyboard mashing and doodling game for babies
 .SH SYNOPSIS
@@ -23,6 +23,9 @@ List of sound filename patterns to never play.
 .TP
 \fB\-\-image_blacklist\fR=\fIGLOB\fR
 List of image filename patterns to never show.
+.TP
+\fB\-\-wayland\-ok\fR
+Do not prevent running under Wayland. See the \fBNOTES\fR section.
 .PP
 bambam is a keyboard and mouse game for babies written in Python.
 Pressing letter keys prints them in random locations and colours.
@@ -48,13 +51,17 @@ elsewhere.
 .PP
 \fBBe aware\fR that there are ways to switch to another application from bambam:
 .IP \(bu
-some window environments (maintainer suspects this may be true for wayland)
-do not make it possible for bambam to grab all key presses.
-When using GNOME Shell, pressing the Windows (a.k.a. Super) key will activate
-the activities overview.
+when running under Wayland, it is not currently possible for bambam to grab all
+key presses.
+A consequence of that is that if you use GNOME Shell, pressing the Windows
+(a.k.a. Super) key will activate the activities overview.
 Please check your environment. If that is the case, then you can try running
 bambam in a dedicated X session, for example by running \fBstartx bambam\fR
-from a text console;
+from a text console.
+As a workaround, starting with version 1.1.2, bambam will try to detect if it
+is running under Wayland. If this is the case, bambam will display a warning
+and refuse to work.
+You can disable this workaround, with the \fB\-\-wayland\-ok\fR option.
 .IP \(bu
 bambam does not block virtual terminal switching (e.g.
 CTRL+ALT+F1). See the example 50-dont-vt-switch.conf file if you would like to

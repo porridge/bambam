@@ -1,5 +1,6 @@
-VERSION = 1.1.1
-LINGUAS = pl nb_NO fr
+VERSION = 1.1.2
+# Note: keep po4a.conf in sync
+LINGUAS = eo fr nb_NO pl
 PREFIX ?=
 
 .PHONY: all-mo

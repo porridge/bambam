@@ -21,11 +21,11 @@ bambam
 ```
 
 If not, you can install it manually as follows:
-  1. [Download](https://github.com/porridge/bambam/releases) the bambam-1.1.1.zip or bambam-1.1.1.tar.gz file.
-  1. Unzip bambam-1.1.1.zip or "tar zxvf bambam-1.1.1.tar.gz" to create the bambam-1.1.1 directory.
-  1. Move into the 'bambam-1.1.1' directory
+  1. [Download](https://github.com/porridge/bambam/releases) the bambam-1.1.2.zip or bambam-1.1.2.tar.gz file.
+  1. Unzip bambam-1.1.2.zip or "tar zxvf bambam-1.1.2.tar.gz" to create the bambam-1.1.2 directory.
+  1. Move into the 'bambam-1.1.2' directory
 ```
-cd bambam-1.1.1
+cd bambam-1.1.2
 ```
   1. Execute
 ```
@@ -46,7 +46,7 @@ man ./bambam.6
 
 Comments or suggestions? Any feedback is appreciated, please send it to [the bambam-users forum](https://groups.google.com/forum/#!forum/bambam-users).
 
-Translations for this game are done on [Weblate](https://hosted.weblate.org/projects/bambam/). Please help translating for your mothe tongue!
+Translations for this game are done on [Weblate](https://hosted.weblate.org/projects/bambam/). Please help translating for your mother tongue!
 
 ---
 
