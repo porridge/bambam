@@ -164,7 +164,7 @@ class Bambam:
         self.display_height = None
         self.display_width = None
 
-        self.sequence = None
+        self.sequence = ""
         self.sound_muted = None
 
     def draw_dot(self):
@@ -198,7 +198,7 @@ class Bambam:
                 pygame.mixer.fadeout(1000)
                 self.sequence = ''
 
-        # Clear the self.background 10% of the time
+        # Clear the screen 10% of the time
         if random.randint(0, 10) == 1:
             self.screen.blit(self.background, (0, 0))
             pygame.display.flip()
@@ -270,6 +270,40 @@ class Bambam:
             file_list.extend(self.glob_dir(data_dir, extensions))
         return file_list
 
+    def _prepare_background(self):
+        # noinspection PyArgumentList
+        self.background = pygame.Surface(self.screen.get_size()).convert()
+        self.background_color = (0, 0, 0) if self.args.dark else (250, 250, 250)
+        self.background.fill(self.background_color)
+        caption_font = pygame.font.SysFont(None, 20)
+        caption_label = caption_font.render(
+            # TRANSLATORS: the string is space-separated list of all command strings.
+            _("Commands: %s") % " ".join(_(s) for s in [QUIT_STRING, MUTE_STRING, UNMUTE_STRING]),
+            True,
+            (210, 210, 210),
+            self.background_color)
+        caption_rect = caption_label.get_rect()
+        caption_rect.x = 15
+        caption_rect.y = 10
+        self.background.blit(caption_label, caption_rect)
+
+    def _prepare_wayland_warning(self):
+        caption_font = pygame.font.SysFont(None, 80)
+        for i, msg in enumerate([
+                _("Error: Wayland display detected."),
+                _("Cannot lock the keyboard safely."),
+                "",
+                _("Press any key to quit.")]):
+            caption_label = caption_font.render(
+                msg,
+                True,
+                (250, 0, 0),
+                self.background_color)
+            caption_rect = caption_label.get_rect()
+            caption_rect.x = 150
+            caption_rect.y = 100 + (i * 80)
+            self.background.blit(caption_label, caption_rect)
+
     def run(self):
         """
         Main application entry point.
@@ -302,6 +336,8 @@ class Bambam:
                             help=_('Use a dark background instead of a light one.'))
         parser.add_argument('-m', '--mute', action='store_true',
                             help=_('Do not play any sounds.'))
+        parser.add_argument('--wayland-ok', action='store_true',
+                            help=_('Do not prevent running under Wayland.'))
         self.args = parser.parse_args()
 
         pygame.init()
@@ -322,26 +358,23 @@ class Bambam:
         pygame.display.set_caption(_('Bam Bam'))
         self.screen = pygame.display.get_surface()
 
-        # noinspection PyArgumentList
-        self.background = pygame.Surface(self.screen.get_size()).convert()
-        if self.args.dark:
-            self.background.fill((0, 0, 0))
+        self._prepare_background()
+        clock = pygame.time.Clock()
+
+        if not self.args.wayland_ok and (os.getenv('WAYLAND_DISPLAY') or os.getenv('XDG_SESSION_TYPE') == 'wayland'):
+            in_wayland = True
+            self._prepare_wayland_warning()
         else:
-            self.background.fill((250, 250, 250))
-        caption_font = pygame.font.SysFont(None, 20)
-        caption_label = caption_font.render(
-            # TRANSLATORS: the string is space-separated list of all command strings.
-            _("Commands: %s") % " ".join(_(s) for s in [QUIT_STRING, MUTE_STRING, UNMUTE_STRING]),
-            True,
-            (210, 210, 210),
-            (250, 250, 250))
-        caption_rect = caption_label.get_rect()
-        caption_rect.x = 15
-        caption_rect.y = 10
-        self.background.blit(caption_label, caption_rect)
-        self.sequence = ""
+            in_wayland = False
+
         self.screen.blit(self.background, (0, 0))
         pygame.display.flip()
+
+        while in_wayland:
+            clock.tick(60)
+            for event in pygame.event.get():
+                if event.type in [QUIT, KEYDOWN, pygame.JOYBUTTONDOWN, MOUSEBUTTONDOWN]:
+                    sys.exit(1)
 
         self.sound_muted = self.args.mute
 
@@ -359,7 +392,6 @@ class Bambam:
 
         init_joysticks()
 
-        clock = pygame.time.Clock()
         mouse_pressed = False
         while True:
             clock.tick(60)

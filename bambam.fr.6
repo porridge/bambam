@@ -3,7 +3,7 @@
 .\" This file was generated with po4a. Translate the source file.
 .\"
 .\"*******************************************************************
-.TH bambam 6 "30 décembre 2020" "version 1.1.1" 
+.TH bambam 6 "30 décembre 2020" "version 1.1.2" 
 .SH NOM
 bambam \- un jeu de clavier et de gribouillage pour bébés
 .SH SYNOPSIS
@@ -27,6 +27,9 @@ Liste des modèles de noms de fichiers sonores à ne jamais jouer.
 .TP 
 \fB\-\-image_blacklist\fP=\fIGLOB\fP
 Liste des modèles de noms de fichiers d’image à ne jamais afficher.
+.TP 
+\fB\-\-wayland\-ok\fP
+Do not prevent running under Wayland. See the \fBNOTES\fP section.
 .PP
 bambam est un jeu de clavier et de souris pour bébés écrit en
 Python. Appuyer sur les touches alphabétiques les affiche dans des
@@ -56,12 +59,15 @@ fichiers d'utilisation de bambam ailleurs.
 \fBAttention\fP il existe des moyens de passer à une autre application depuis
 bambam\ :
 .IP \(bu
-some window environments (maintainer suspects this may be true for wayland)
-do not make it possible for bambam to grab all key presses.  When using
-GNOME Shell, pressing the Windows (a.k.a. Super) key will activate the
-activities overview.  Please check your environment. If that is the case,
-then you can try running bambam in a dedicated X session, for example by
-running \fBstartx bambam\fP from a text console;
+when running under Wayland, it is not currently possible for bambam to grab
+all key presses.  A consequence of that is that if you use GNOME Shell,
+pressing the Windows (a.k.a. Super) key will activate the activities
+overview.  Please check your environment. If that is the case, then you can
+try running bambam in a dedicated X session, for example by running \fBstartx
+bambam\fP from a text console.  As a workaround, starting with version 1.1.2,
+bambam will try to detect if it is running under Wayland. If this is the
+case, bambam will display a warning and refuse to work.  You can disable
+this workaround, with the \fB\-\-wayland\-ok\fP option.
 .IP \(bu
 bambam does not block virtual terminal switching (e.g.  CTRL+ALT+F1). See
 the example 50\-dont\-vt\-switch.conf file if you would like to block that.
