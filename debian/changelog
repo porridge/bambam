@@ -1,3 +1,14 @@
+bambam (1.1.2+dfsg-1) sid; urgency=medium
+
+  * New upstream release, which however only contains two types of changes,
+    which are targeted specifically at bullseye:
+   - translation updates
+   - a workaround for lack of proper keyboard grabbing under Wayland which
+     has the potential of causing data loss (as a child using the game could
+     relatively easily close the application)
+
+ -- Marcin Owsiany <porridge@debian.org>  Fri, 26 Feb 2021 13:07:05 +0100
+
 bambam (1.1.1+dfsg-1) sid; urgency=low
 
   * New upstream release (only adds new translations)
