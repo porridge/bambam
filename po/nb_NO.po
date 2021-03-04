@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2021-02-19 21:59+0100\n"
-"PO-Revision-Date: 2021-02-20 11:10+0000\n"
+"PO-Revision-Date: 2021-03-04 09:52+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/bambam/"
 "app-and-manpage/nb_NO/>\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.5\n"
+"X-Generator: Weblate 4.5.1-dev\n"
 
 #. TRANSLATORS: command string to mute sounds.
 #. Must not contain spaces, and should be be at least 4 characters long,
@@ -246,7 +246,7 @@ msgstr "B<--image_blacklist>=I<GLOB>"
 #: bambam.6:26
 #, no-wrap
 msgid "B<--wayland-ok>"
-msgstr ""
+msgstr "B<--wayland-ok>"
 
 #. type: Plain text
 #: bambam.6:29
