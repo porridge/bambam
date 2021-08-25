@@ -16,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2021-02-19 22:06+0100\n"
 "PO-Revision-Date: 2021-08-25 17:13+0000\n"
-"Last-Translator: dasistdaniel <d.intrup@googlemail.com>\n"
+"Last-Translator: Pixelcode <pixelcode@dismail.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/bambam/"
 "app-and-manpage/de/>\n"
 "Language: de\n"
@@ -199,54 +199,55 @@ msgstr "B<bambam> [I<OPTIONS>]"
 #: bambam.6:7
 #, no-wrap
 msgid "DESCRIPTION"
-msgstr "Beschreibung"
+msgstr "BESCHREIBUNG"
 
 #. type: TP
 #: bambam.6:8
-#, no-wrap
+#, fuzzy, no-wrap
 msgid "B<-u>, B<--uppercase>"
-msgstr ""
+msgstr "B<-u>, B<--uppercase>"
 
 #. type: TP
 #: bambam.6:11
-#, no-wrap
+#, fuzzy, no-wrap
 msgid "B<-d>, B<--deterministic-sounds>"
-msgstr ""
+msgstr "B<-d>, B<--deterministic-sounds>"
 
 #. type: TP
 #: bambam.6:14
-#, no-wrap
+#, fuzzy, no-wrap
 msgid "B<-D>, B<--dark>"
-msgstr ""
+msgstr "B<-D>, B<--dark>"
 
 #. type: TP
 #: bambam.6:17
-#, no-wrap
+#, fuzzy, no-wrap
 msgid "B<-m>, B<--mute>"
-msgstr ""
+msgstr "B<-m>, B<--mute>"
 
 #. type: TP
 #: bambam.6:20
-#, no-wrap
+#, fuzzy, no-wrap
 msgid "B<--sound_blacklist>=I<GLOB>"
-msgstr ""
+msgstr "B<--sound_blacklist>=I<GLOB>"
 
 #. type: TP
 #: bambam.6:23
-#, no-wrap
+#, fuzzy, no-wrap
 msgid "B<--image_blacklist>=I<GLOB>"
-msgstr ""
+msgstr "B<--image_blacklist>=I<GLOB>"
 
 #. type: TP
 #: bambam.6:26
-#, no-wrap
+#, fuzzy, no-wrap
 msgid "B<--wayland-ok>"
-msgstr ""
+msgstr "B<--wayland-ok>"
 
 #. type: Plain text
 #: bambam.6:29
 msgid "Do not prevent running under Wayland. See the B<NOTES> section."
 msgstr ""
+"Nicht die Ausführung unter Wayland verhindern. Siehe Abschnitt B<NOTES>."
 
 #. type: Plain text
 #: bambam.6:36
