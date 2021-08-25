@@ -16,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2021-02-19 22:06+0100\n"
 "PO-Revision-Date: 2021-08-25 17:37+0000\n"
-"Last-Translator: dasistdaniel <d.intrup@googlemail.com>\n"
+"Last-Translator: Pixelcode <pixelcode@dismail.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/bambam/"
 "app-and-manpage/de/>\n"
 "Language: de\n"
@@ -269,7 +269,7 @@ msgstr ""
 #: bambam.6:36
 #, no-wrap
 msgid "NOTES"
-msgstr "Notizen"
+msgstr "NOTIZEN"
 
 #. type: Plain text
 #: bambam.6:38
@@ -291,12 +291,14 @@ msgid ""
 "bambam loads images (GIF, JPEG, PNG and TIFF files) and sounds (WAV and OGG "
 "files) from the following directories:"
 msgstr ""
+"bambam lädt Bilder (GIF-, JPEG-, PNG- und TFF-Dateien) und Töne (WAV- und "
+"OGG-Dateien) aus den folgenden Ordnern:"
 
 #. type: IP
 #: bambam.6:43 bambam.6:45 bambam.6:53 bambam.6:65
-#, no-wrap
+#, fuzzy, no-wrap
 msgid "\\(bu"
-msgstr ""
+msgstr "\\(bu"
 
 #. type: Plain text
 #: bambam.6:45
@@ -306,7 +308,7 @@ msgstr ""
 #. type: Plain text
 #: bambam.6:47
 msgid "B<$XDG_DATA_HOME> (usually ~/.local/share/bambam/data)"
-msgstr ""
+msgstr "B<$XDG_DATA_HOME> (normalerweise ~/.local/share/bambam/data)"
 
 #. type: Plain text
 #: bambam.6:51
@@ -315,12 +317,16 @@ msgid ""
 "and descend directories. This makes is easy to have bambam use files located "
 "elsewhere."
 msgstr ""
+"Wenn Ordner nach Dateien durchsucht werden, B<folgt> bambam symbolischen "
+"Links und Verzeichnissen abwärts. Das macht es einfach, bambam Dateien "
+"nutzen zu lassen, die anderswo gespeichert sind."
 
 #. type: Plain text
 #: bambam.6:53
 msgid ""
 "B<Be aware> that there are ways to switch to another application from bambam:"
 msgstr ""
+"B<Beachte>, dass es Wege gibt, von bambam zu einer anderen App zu wechseln:"
 
 #. type: Plain text
 #: bambam.6:65
@@ -342,16 +348,22 @@ msgid ""
 "bambam does not block virtual terminal switching (e.g.  CTRL+ALT+F1). See "
 "the example 50-dont-vt-switch.conf file if you would like to block that."
 msgstr ""
+"bambam blockiert kein virtuelles Terminal-Wechseln (z.B. STRG+ALT+F1). Schau "
+"dir die example-50-dont-vt-switch.conf-Datei an, falls du das blockieren "
+"willst."
 
 #. type: SH
 #: bambam.6:69
 #, no-wrap
 msgid "AUTHOR"
-msgstr ""
+msgstr "AUTOR"
 
 #. type: Plain text
 #: bambam.6:72
+#, fuzzy
 msgid ""
 "Spike Burch E<lt>spikeb@gmail.comE<gt> Marcin Owsiany E<lt>marcin@owsiany."
 "plE<gt>"
 msgstr ""
+"Spike Burch E<lt>spikeb@gmail.comE<gt> Marcin Owsiany E<lt>marcin@owsiany."
+"plE<gt>"
