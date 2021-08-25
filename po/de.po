@@ -16,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2021-02-19 22:06+0100\n"
 "PO-Revision-Date: 2021-08-25 17:13+0000\n"
-"Last-Translator: Pixelcode <pixelcode@dismail.de>\n"
+"Last-Translator: dasistdaniel <d.intrup@googlemail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/bambam/"
 "app-and-manpage/de/>\n"
 "Language: de\n"
@@ -269,7 +269,7 @@ msgstr ""
 #: bambam.6:36
 #, no-wrap
 msgid "NOTES"
-msgstr ""
+msgstr "Notizen"
 
 #. type: Plain text
 #: bambam.6:38
