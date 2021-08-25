@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2021-02-19 22:06+0100\n"
-"PO-Revision-Date: 2021-08-25 17:08+0000\n"
-"Last-Translator: Pixelcode <pixelcode@dismail.de>\n"
+"PO-Revision-Date: 2021-08-25 17:09+0000\n"
+"Last-Translator: dasistdaniel <d.intrup@googlemail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/bambam/"
 "app-and-manpage/de/>\n"
 "Language: de\n"
@@ -199,7 +199,7 @@ msgstr ""
 #: bambam.6:7
 #, no-wrap
 msgid "DESCRIPTION"
-msgstr ""
+msgstr "Beschreibung"
 
 #. type: TP
 #: bambam.6:8
