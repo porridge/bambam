@@ -16,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2021-02-19 22:06+0100\n"
 "PO-Revision-Date: 2021-08-25 17:04+0000\n"
-"Last-Translator: dasistdaniel <d.intrup@googlemail.com>\n"
+"Last-Translator: Pixelcode <pixelcode@dismail.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/bambam/"
 "app-and-manpage/de/>\n"
 "Language: de\n"
@@ -136,7 +136,7 @@ msgstr "Die Ausführung unter Wayland nicht verhindern."
 
 #: bambam.py:346
 msgid "Warning, fonts disabled."
-msgstr "Achtung, Schriftarten gesperrt."
+msgstr "Achtung, Schriftarten deaktiviert."
 
 #: bambam.py:348
 msgid "Warning, sound disabled."
