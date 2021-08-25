@@ -16,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2021-02-19 22:06+0100\n"
 "PO-Revision-Date: 2021-08-25 16:56+0000\n"
-"Last-Translator: dasistdaniel <d.intrup@googlemail.com>\n"
+"Last-Translator: Pixelcode <pixelcode@dismail.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/bambam/"
 "app-and-manpage/de/>\n"
 "Language: de\n"
@@ -50,7 +50,7 @@ msgstr ""
 #: bambam.py:64
 #, python-format
 msgid "Failed to load file \"%(file)s\": %(message)s"
-msgstr "Fehler beim laden von  \"%(file)s\": %(message)s"
+msgstr "Fehler beim Laden von \"%(file)s\": %(message)s"
 
 #: bambam.py:106
 #, python-format
