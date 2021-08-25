@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2021-02-19 22:06+0100\n"
-"PO-Revision-Date: 2021-08-25 16:56+0000\n"
-"Last-Translator: Pixelcode <pixelcode@dismail.de>\n"
+"PO-Revision-Date: 2021-08-25 16:57+0000\n"
+"Last-Translator: dasistdaniel <d.intrup@googlemail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/bambam/"
 "app-and-manpage/de/>\n"
 "Language: de\n"
@@ -65,17 +65,17 @@ msgstr ""
 #: bambam.py:140
 #, python-format
 msgid "Skipping blacklisted item %s"
-msgstr ""
+msgstr "Überspringe gesperrtes Element %s"
 
 #. TRANSLATORS: the string is space-separated list of all command strings.
 #: bambam.py:281
 #, python-format
 msgid "Commands: %s"
-msgstr ""
+msgstr "Befehle: %s"
 
 #: bambam.py:293
 msgid "Error: Wayland display detected."
-msgstr ""
+msgstr "Fehler: Wayland Anzeige erkannt."
 
 #: bambam.py:294
 msgid "Cannot lock the keyboard safely."
