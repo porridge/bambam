@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2021-02-19 22:06+0100\n"
-"PO-Revision-Date: 2021-08-25 16:55+0000\n"
+"PO-Revision-Date: 2021-08-25 16:56+0000\n"
 "Last-Translator: dasistdaniel <d.intrup@googlemail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/bambam/"
 "app-and-manpage/de/>\n"
@@ -58,6 +58,8 @@ msgid ""
 "image has height of 0 after resizing to fit within %(width)dx%(height)d "
 "pixels"
 msgstr ""
+"Bild hat eine Höhe von 0 nach dem verkleinern zu %(width)dx%(height)d "
+"Bildpunkten"
 
 #. TRANSLATORS: "item" can refer to an image or sound file path
 #: bambam.py:140
