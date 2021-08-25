@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2021-02-19 22:06+0100\n"
-"PO-Revision-Date: 2021-08-25 17:05+0000\n"
-"Last-Translator: Pixelcode <pixelcode@dismail.de>\n"
+"PO-Revision-Date: 2021-08-25 17:08+0000\n"
+"Last-Translator: dasistdaniel <d.intrup@googlemail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/bambam/"
 "app-and-manpage/de/>\n"
 "Language: de\n"
@@ -159,19 +159,19 @@ msgstr ""
 #: bambam.6:1
 #, no-wrap
 msgid "bambam"
-msgstr ""
+msgstr "bambam"
 
 #. type: TH
 #: bambam.6:1
 #, no-wrap
 msgid "30 December 2020"
-msgstr ""
+msgstr "30. Dezember 2020"
 
 #. type: TH
 #: bambam.6:1
 #, no-wrap
 msgid "version 1.1.2"
-msgstr ""
+msgstr "Version 1.1.2"
 
 #. type: SH
 #: bambam.6:2
@@ -182,13 +182,13 @@ msgstr ""
 #. type: Plain text
 #: bambam.6:4
 msgid "bambam - a keyboard mashing and doodling game for babies"
-msgstr ""
+msgstr "bambam - Ein Tastendrück- und Kritzelspiel für Babys"
 
 #. type: SH
 #: bambam.6:4
 #, no-wrap
 msgid "SYNOPSIS"
-msgstr ""
+msgstr "Übersicht"
 
 #. type: Plain text
 #: bambam.6:7
