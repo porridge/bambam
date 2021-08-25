@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2021-02-19 22:06+0100\n"
-"PO-Revision-Date: 2021-08-25 17:37+0000\n"
+"PO-Revision-Date: 2021-08-26 18:33+0000\n"
 "Last-Translator: Pixelcode <pixelcode@dismail.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/bambam/"
 "app-and-manpage/de/>\n"
@@ -277,6 +277,8 @@ msgid ""
 "B<To quit, directly type the command mentioned in the upper left-hand corner "
 "of the window. In the English locales, this is the word: quit.>"
 msgstr ""
+"B<Zum Beenden gib direkt den Befehl ein, der in der oberen linken "
+"Fensterecke erwähnt wird. Im Deutschen ist es das Wort: beenden.>"
 
 #. type: Plain text
 #: bambam.6:40
@@ -303,7 +305,7 @@ msgstr "\\(bu"
 #. type: Plain text
 #: bambam.6:45
 msgid "the B<data> directory distributed with the game,"
-msgstr ""
+msgstr "das mit dem Spiel ausgelieferte B<Daten>verzeichnis"
 
 #. type: Plain text
 #: bambam.6:47
