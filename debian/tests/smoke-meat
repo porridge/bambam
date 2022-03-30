@@ -10,6 +10,7 @@ See the main() function for a high-level overview of what the script does.
 
 import logging
 import os
+import random
 import re
 import subprocess
 import time
@@ -55,6 +56,7 @@ def test_functionality():
     attempt_count = 1000
     for attempt in range(attempt_count):
         send_keycodes('space', 'm')  # any letter will do, but em is nice and big
+        send_mouse_move()
         time.sleep(0.005)  # let the event propagate and bambam process it
         if is_screen_colorful_enough(attempt):
             take_screenshot('success')
@@ -99,8 +101,21 @@ def get_average_color():
     return [int(i) for i in m.group(1, 2, 3)]
 
 
+def xdotool(*args):
+    subprocess.check_call(['xdotool', 'search', '--class', 'bambam'] + list(args))
+
+
 def send_keycodes(*keycodes):
-    subprocess.check_call(['xdotool', 'key', '+'.join(keycodes)])
+    xdotool('key', *keycodes)
+
+
+def random_move():
+    return random.choice(['+', '-']) + str(random.choice(range(1, 50)))
+
+
+def send_mouse_move():
+    x, y = random_move(), random_move()
+    xdotool('mousedown', '1', 'mousemove_relative', '--', x, y, 'mouseup', '1')
 
 
 if __name__ == '__main__':
