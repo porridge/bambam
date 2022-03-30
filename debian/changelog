@@ -1,3 +1,12 @@
+bambam (1.1.2+dfsg-2) sid; urgency=medium
+
+  * Fix xdotool invocations which no longer work with pygame2 for some reason.
+    - search for the bambam window before sending keypresses
+    - send each keypress separately rather than a combination of keys
+    Closes: #1008611.
+
+ -- Marcin Owsiany <porridge@debian.org>  Wed, 30 Mar 2022 17:16:14 +0200
+
 bambam (1.1.2+dfsg-1) sid; urgency=medium
 
   * New upstream release, which however only contains two types of changes,
