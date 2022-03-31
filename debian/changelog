@@ -1,3 +1,9 @@
+bambam (1.1.2+dfsg-3) sid; urgency=medium
+
+  * Source-only upload to reach testing.
+
+ -- Marcin Owsiany <porridge@debian.org>  Thu, 31 Mar 2022 18:00:10 +0200
+
 bambam (1.1.2+dfsg-2) sid; urgency=medium
 
   * Fix xdotool invocations which no longer work with pygame2 for some reason.
