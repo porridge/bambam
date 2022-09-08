@@ -19,14 +19,17 @@
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from __future__ import print_function
-import gettext
-import pygame
-import sys
-import os
-import random
 import argparse
 import fnmatch
+import gettext
+import math
+import os
+import pygame
+import random
+import sys
+from textwrap import fill
+
+
 from pygame.locals import Color, QUIT, KEYDOWN, MOUSEMOTION, MOUSEBUTTONDOWN, MOUSEBUTTONUP
 
 
@@ -302,7 +305,8 @@ class Bambam:
         self.background.blit(caption_label, caption_rect)
 
     def _prepare_wayland_warning(self):
-        caption_font = pygame.font.SysFont(None, 80)
+        font_size = 80
+        caption_font = pygame.font.SysFont(None, font_size)
         for i, msg in enumerate([
                 _("Error: Wayland display detected."),
                 _("Cannot lock the keyboard safely."),
@@ -315,8 +319,75 @@ class Bambam:
                 self.background_color)
             caption_rect = caption_label.get_rect()
             caption_rect.x = 150
-            caption_rect.y = 100 + (i * 80)
+            caption_rect.y = 100 + (i * font_size)
             self.screen.blit(caption_label, caption_rect)
+        pygame.display.flip()
+
+    def _prepare_welcome_message(self, dedicated_session):
+        header_font = pygame.font.SysFont(None, 60)
+        header_label = header_font.render(_("Please read the following important information!"), True, pygame.Color('blue'), self.background_color)
+        header_rect = header_label.get_rect()
+        header_rect.x = 150
+        header_rect.y = 100
+        self.screen.blit(header_label, header_rect)
+        header_padding = 20
+
+        text_font_size = 40
+
+        # Draw an arrow starting next to second/third line of text (the text that speaks about the commands)...
+        arrow_start = (header_rect.x, int(header_rect.y + header_rect.height + header_padding + text_font_size * 1.5))
+        # ... and ending below the list of commands.
+        arrow_end = (30, 30)
+
+        arrow_rect = pygame.Rect(arrow_end, (arrow_start[0] - arrow_end[0], arrow_start[1] - arrow_end[1]))
+        # The arc is a quarter of an elipse, so the elipse bounds are four times the size of the arrow arc bounds.
+        above_arrow_rect = pygame.Rect(arrow_rect)
+        above_arrow_rect.bottomleft = arrow_rect.topleft
+        east_of_arrow_rect = pygame.Rect(arrow_rect)
+        east_of_arrow_rect.bottomleft = arrow_rect.bottomright
+        elipse_bounds = pygame.Rect(above_arrow_rect.topleft, (arrow_rect.width*2, arrow_rect.height*2))
+
+        arrow_color = pygame.Color('red')
+        arrow_width = 8
+        pygame.draw.arc(self.screen, arrow_color, elipse_bounds, math.pi, 3*math.pi/2, arrow_width)
+        # Account for the width of the arrow arc.
+        arrow_head_start = (arrow_end[0] + int(arrow_width / 2)-1, arrow_end[1])
+        pygame.draw.line(self.screen, arrow_color, arrow_head_start, (arrow_head_start[0] - 20, arrow_head_start[1] + 40), arrow_width)
+        pygame.draw.line(self.screen, arrow_color, arrow_head_start, (arrow_head_start[0] + 20, arrow_head_start[1] + 40), arrow_width)
+
+        text_font = pygame.font.SysFont(None, text_font_size)
+        texts = []
+        # TRANSLATORS: the substituted word will be the translated command for quitting the game.
+        texts.append(_("To quit the game after it starts, directly type the word %s on the keyboard.") % _(QUIT_STRING))
+        # TRANSLATORS: "this" means the word quit from the preceding message, in this context.
+        texts.append(_("This, and other available commands are mentioned in the upper left-hand corner of the window."))
+        texts.append("")
+        texts.append(_("The game tries to grab the keyboard and mouse pointer focus, to keep your child from causing damage."))
+        if dedicated_session:
+            texts.append(_(
+                "Despite running in a dedicated session, it may be possible for the child to accidentally quit the game, "
+                "or swich to a different virtual terminal (for example using CTRL+ALT+F2). "
+                "Make sure other user sessions, if any, are locked with a password if leaving your child unattended with the game."))
+        else:
+            texts.append(_(
+                "However in some environments it may be possible for the child to exit or switch away from the game by using a special key combination. "
+                "The exact mechanism depends on your graphical environment, window manager, etc. Examples include the Super (also known as Windows) key, "
+                "function key combinations (CTRL+ALT+Fx) or hot corners when using the mouse. "
+                "Exercise caution when leaving your child unattended with the game."))
+            texts.append(_("Please consider using a dedicated BamBam session instead (look for a gear icon when logging in)."))
+        texts.append("")
+        texts.append("")
+        texts.append(_("Press any key or mouse button to start the game."))
+        prev_rect = header_rect
+        prev_rect.y += header_padding
+        for paragraph in texts:
+            for line in fill(paragraph, 80).split("\n"):
+                text_label = text_font.render(line, True, pygame.Color('lightblue'), self.background_color)
+                text_rect = text_label.get_rect()
+                text_rect.x = 150
+                text_rect.y = prev_rect.y + prev_rect.height
+                self.screen.blit(text_label, text_rect)
+                prev_rect = text_rect
         pygame.display.flip()
 
     def run(self):
@@ -353,6 +424,8 @@ class Bambam:
                             help=_('Do not play any sounds.'))
         parser.add_argument('--wayland-ok', action='store_true',
                             help=_('Do not prevent running under Wayland.'))
+        parser.add_argument('--in-dedicated-session', action='store_true',
+                            help=argparse.SUPPRESS)
         self.args = parser.parse_args()
 
         pygame.init()
@@ -379,10 +452,17 @@ class Bambam:
         self.screen.blit(self.background, (0, 0))
         pygame.display.flip()
 
-        if not self.args.wayland_ok and (os.getenv('WAYLAND_DISPLAY') or os.getenv('XDG_SESSION_TYPE') == 'wayland'):
+        if self.args.in_dedicated_session:
+            self._prepare_welcome_message(dedicated_session=True)
+        elif not self.args.wayland_ok and (os.getenv('WAYLAND_DISPLAY') or os.getenv('XDG_SESSION_TYPE') == 'wayland'):
             self._prepare_wayland_warning()
             poll_for_any_key_press(clock)
             sys.exit(1)
+        else:
+            self._prepare_welcome_message(dedicated_session=False)
+        poll_for_any_key_press(clock)
+        self.screen.blit(self.background, (0, 0))
+        pygame.display.flip()
 
         self.sound_muted = self.args.mute
 
