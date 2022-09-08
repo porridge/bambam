@@ -55,6 +55,8 @@ Translations for this game are done on [Weblate](https://hosted.weblate.org/proj
 
 ---
 
+## History
+
 This project was moved from [its code.google.com location](https://code.google.com/p/bambam/) in April 2015, since that site was about to be shut down.
 
 Note that changes (as of 2010-08-17) from [the launchpad bambam fork](https://launchpad.net/bambam) had been merged back to this project in February 2014.
