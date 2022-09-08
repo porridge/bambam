@@ -7,42 +7,64 @@ Bambam is a simple baby keyboard (and gamepad) masher application that locks the
 
 ![Bambam screenshot](docs/bambam.png "Bambam screenshot")
 
-## Usage ##
+## Installation
 
-Before running this application, ensure you have the following installed:
-  * [Python](http://python.org) - version 3.x is recommended but version 2.7 should work too
-  * [Pygame](http://www.pygame.org/)
-
-### Installation ###
+### From a distribution package
 
 First, see if your distribution has a bambam package already.
-This way takes care of localized program messages and manual pages.
+This way takes care of dependencies, localized program messages and manual pages.
 
 For example:
 ```
 sudo apt install bambam
 man bambam
-bambam
 ```
+
+### Manual installation
+
+Before installing this application, ensure you have the following installed:
+  * [Python](http://python.org) - version 3.x is recommended but version 2.7 should work too
+  * [Pygame](http://www.pygame.org/) - version 2.x is recommended, but version 1.9 may work too
 
 If not, you can install it manually as follows:
-  1. [Download](https://github.com/porridge/bambam/releases) the bambam-1.1.2.zip or bambam-1.1.2.tar.gz file.
-  1. Unzip bambam-1.1.2.zip or "tar zxvf bambam-1.1.2.tar.gz" to create the bambam-1.1.2 directory.
-  1. Move into the 'bambam-1.1.2' directory
+  1. [Download](https://github.com/porridge/bambam/releases) the `bambam-1.2.0.zip` or `bambam-1.2.0.tar.gz` file.
+  1. Unzip bambam-1.2.0.zip or `tar zxvf bambam-1.2.0.tar.gz` to create the `bambam-1.2.0` directory.
+  1. Change into the 'bambam-1.2.0' directory
 ```
-cd bambam-1.1.2
-```
-  1. Execute
-```
-./bambam.py
+cd bambam-1.2.0
 ```
 
+If you would like to take advantage of the recommended way to start the game (see reasons in the next section) do the following:
+
+```
+sed -i -e "s,/usr/games/bambam,`pwd`/bambam.py," bambam-session.desktop
+sudo mkdir -p /etc/X11/sessions
+sudo cp bambam-session.desktop /etc/X11/sessions/
+```
+
+## Usage
+
+Once installed, there are two ways to run the game:
+1. **Recommended**: as a dedicated graphical session.
+   When logging into your system, look for a gear icon, which opens a drop-down
+   menu of available session types. Select BamBam and log in. This way only the
+   game is launched, and the user is logged out as soon as the game quits.
+   Thanks to this, a child is not able to cause any damage even if he or she
+   somehow manages to quit the game.
+2. Directly from a terminal, or applications menu. This way the program runs
+   as part of a regular session. The game tries to grab the keyboard and mouse
+   pointer focus in order to prevent a child from exiting the game or switching away
+   from it. However it is not 100% bulletproof, depending on the exact environment.
+   Take care when leaving your child unattended with the game.
+
+   To run the game from a terminal window, type `bambam` if you installed from a distribution package, or `./bambam.py` if you installed manually.
+
+## Exiting
 
 To exit, just directly type the command mentioned in the upper left-hand corner of the window. In the English locales, this is:
 ```
 quit
 ```
-
 
 More information is in the man page. To view it, type:
 ```
