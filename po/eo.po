@@ -275,7 +275,7 @@ msgid ""
 "B<To quit, directly type the command mentioned in the upper left-hand corner "
 "of the window. In the English locales, this is the word: quit.>"
 msgstr ""
-"B <Por forlasi, rekte tajpu la komandon menciitan en la supra maldekstra "
+"B<Por forlasi, rekte tajpu la komandon menciitan en la supra maldekstra "
 "angulo de la fenestro. En la Esperanta lokaĵaro, jen la vorto: forlasi.>"
 
 #. type: Plain text
