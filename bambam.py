@@ -81,6 +81,14 @@ def init_joysticks():
         joystick.init()
 
 
+def poll_for_any_key_press(clock):
+    while True:
+        clock.tick(60)
+        for event in pygame.event.get():
+            if event.type in [QUIT, KEYDOWN, pygame.JOYBUTTONDOWN, MOUSEBUTTONDOWN]:
+                return
+
+
 class Bambam:
     IMAGE_MAX_WIDTH = 700
 
@@ -308,7 +316,8 @@ class Bambam:
             caption_rect = caption_label.get_rect()
             caption_rect.x = 150
             caption_rect.y = 100 + (i * 80)
-            self.background.blit(caption_label, caption_rect)
+            self.screen.blit(caption_label, caption_rect)
+        pygame.display.flip()
 
     def run(self):
         """
@@ -367,20 +376,13 @@ class Bambam:
         self._prepare_background()
         clock = pygame.time.Clock()
 
-        if not self.args.wayland_ok and (os.getenv('WAYLAND_DISPLAY') or os.getenv('XDG_SESSION_TYPE') == 'wayland'):
-            in_wayland = True
-            self._prepare_wayland_warning()
-        else:
-            in_wayland = False
-
         self.screen.blit(self.background, (0, 0))
         pygame.display.flip()
 
-        while in_wayland:
-            clock.tick(60)
-            for event in pygame.event.get():
-                if event.type in [QUIT, KEYDOWN, pygame.JOYBUTTONDOWN, MOUSEBUTTONDOWN]:
-                    sys.exit(1)
+        if not self.args.wayland_ok and (os.getenv('WAYLAND_DISPLAY') or os.getenv('XDG_SESSION_TYPE') == 'wayland'):
+            self._prepare_wayland_warning()
+            poll_for_any_key_press(clock)
+            sys.exit(1)
 
         self.sound_muted = self.args.mute
 
