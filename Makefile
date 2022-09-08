@@ -1,6 +1,5 @@
 VERSION = 1.1.2
-# Note: keep po4a.conf in sync
-LINGUAS = eo fr nb_NO pl
+LINGUAS = $(shell awk '$$1=="[po4a_langs]"{$$1="";print}' po4a.conf)
 PREFIX ?=
 
 .PHONY: all-mo
