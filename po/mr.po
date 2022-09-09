@@ -168,7 +168,7 @@ msgstr ""
 #. type: TH
 #: bambam.6:1
 #, no-wrap
-msgid "version 1.1.2"
+msgid "version 1.2.0"
 msgstr ""
 
 #. type: SH

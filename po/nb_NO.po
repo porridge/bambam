@@ -181,7 +181,7 @@ msgstr "30 Desember 2020"
 #. type: TH
 #: bambam.6:1
 #, fuzzy, no-wrap
-msgid "version 1.1.2"
+msgid "version 1.2.0"
 msgstr "versjon 1.1.1"
 
 #. type: SH
