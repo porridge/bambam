@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2022-09-10 11:14+0200\n"
+"POT-Creation-Date: 2022-09-10 13:47+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -212,7 +212,7 @@ msgstr ""
 #. type: Plain text
 #: bambam.6:64
 msgid ""
-"One way do do this is to select BamBam session type from your display "
+"One way to do this is to select BamBam session type from your display "
 "manager settings when logging in (look for a gear icon)."
 msgstr ""
 
