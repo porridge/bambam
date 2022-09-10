@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2022-09-10 13:47+0200\n"
-"PO-Revision-Date: 2021-03-04 09:52+0000\n"
+"PO-Revision-Date: 2022-09-11 19:16+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/bambam/"
 "app-and-manpage/nb_NO/>\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.5.1-dev\n"
+"X-Generator: Weblate 4.14.1-dev\n"
 
 #. TRANSLATORS: command string to mute sounds.
 #. Must not contain spaces, and should be be at least 4 characters long,
@@ -95,7 +95,7 @@ msgstr "Trykk vilkårlig tast for å avslutte."
 
 #: bambam.py:328
 msgid "Please read the following important information!"
-msgstr ""
+msgstr "Les følgende viktige info:"
 
 #. TRANSLATORS: the substituted word will be the translated command for quitting the game.
 #: bambam.py:361
@@ -103,6 +103,8 @@ msgstr ""
 msgid ""
 "To quit the game after it starts, directly type the word %s on the keyboard."
 msgstr ""
+"For å avslutte spillet etter at det har startet kan du skrive ordet «%s» på "
+"tastaturet."
 
 #. TRANSLATORS: "this" means the word quit from the preceding message, in this context.
 #: bambam.py:363
@@ -119,6 +121,8 @@ msgid ""
 "The game tries to grab the keyboard and mouse pointer focus, to keep your "
 "child from causing damage to your files."
 msgstr ""
+"Spillet prøver å bruke tastatur og musepeker til å fokusere, for å holde "
+"barnet ditt unna filene dine."
 
 #: bambam.py:368
 msgid ""
@@ -127,14 +131,20 @@ msgid ""
 "accidentally quit the game, or swich to a different virtual terminal (for "
 "example using CTRL+ALT+Fx)."
 msgstr ""
+"Spillet kjører nå i en egen innloggingsøkt, som gir ytterligere sikkerhet. "
+"Dog kan det være mulig for barnet å avslutte spillet tilfeldig, eller bytte "
+"til en annen virtuell terminal (for eksempel ved å bruke Ctrl+Alt+Fx)."
 
 #: bambam.py:373
 msgid ""
 "Make sure other user sessions (if any) are locked with a password, if "
 "leaving your child unattended with the game."
 msgstr ""
+"Forsire deg om at andre brukerøkter (om noen) er låst med et passord, hvis "
+"du lar barnet bruke spillet alene."
 
 #: bambam.py:376
+#, fuzzy
 msgid ""
 "However in some environments it may be possible for the child to exit or "
 "switch away from the game by using a special key combination. The exact "
@@ -142,20 +152,27 @@ msgid ""
 "Examples include the Super (also known as Windows) key, function key "
 "combinations (CTRL+ALT+Fx) or hot corners when using the mouse."
 msgstr ""
+"Dog er det i noen miljøer mulig for barnet å avslutte eller bytte til et "
+"annet vindu fra spillet ved å bruke en tastekombinasjon. Dette avhenger av "
+"miljøet, vindusbehandleren, osv. Det kan være Super-tast, funksjonstaster "
+"(Ctrl+Alt+Fx), eller funksjonshjørner når du bruker musen."
 
 #: bambam.py:380
 msgid "We recommend to NOT LEAVE YOUR CHILD UNATTENDED with the game."
-msgstr ""
+msgstr "Det anbefales at du IKKE LAR BARNET VÆRE ALENE med spillet."
 
 #: bambam.py:381
+#, fuzzy
 msgid ""
 "Please consider using a dedicated BamBam session instead (look for a gear "
 "icon when logging in), which is safer."
 msgstr ""
+"Overvei å bruke en egen BamBam-økt istedenfor (se etter et tannhjulsikon når "
+"du logger inn), som er tryggere."
 
 #: bambam.py:384
 msgid "Press any key or mouse button to start the game now."
-msgstr ""
+msgstr "Trykk vilkårlig tast for å starte spillet nå."
 
 #: bambam.py:405 bambam.py:412
 #, fuzzy, python-format
@@ -406,13 +423,18 @@ msgid ""
 "there may be other yet unknown ways in other environments and window "
 "managers."
 msgstr ""
+"det kan være ukjente eller hittil ukjente måter i andre miljøer og "
+"vindushåndterere."
 
 #. type: Plain text
 #: bambam.6:61
+#, fuzzy
 msgid ""
 "For the above reasons, starting with version 1.2.0, B<it is possible and "
 "recommended to run bambam in a dedicated login session.>"
 msgstr ""
+"På grunn av dette vil det fra versjon 1.2.0, B<det er mulig å anbefalt å "
+"kjøre BamBam i en egen innloggingsøkt.>"
 
 #. type: Plain text
 #: bambam.6:64
@@ -420,12 +442,16 @@ msgid ""
 "One way to do this is to select BamBam session type from your display "
 "manager settings when logging in (look for a gear icon)."
 msgstr ""
+"En måte å gjøre dette på er å velge BamBam-økttypen fra din skjermhåndterers "
+"innstillinger når du logger inn (se etter et tannhjulsikon)."
 
 #. type: Plain text
 #: bambam.6:67
 msgid ""
 "Another way is use command such as B<exec startx bambam> from a text console."
 msgstr ""
+"En annen måte er å bruke en kommando, som f.eks. B<exec startx bambam> fra "
+"en tekstkonsoll."
 
 #. type: Plain text
 #: bambam.6:69
@@ -484,12 +510,12 @@ msgstr ""
 
 #: bambam.en.desktop:3 bambam-session.en.desktop:3
 msgid "BamBam"
-msgstr ""
+msgstr "BamBam"
 
 #. TRANSLATORS: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon! Do NOT translate or remove the application name from the list! It is used for search.
 #: bambam.en.desktop:11
 msgid "bambam;baby;child;toddler;game;keyboard mashing;mouse;doodling;"
-msgstr ""
+msgstr "bambam;baby;barn;spedbarn;spill;tastaturtrykking;mus;dodling;"
 
 #~ msgid "A keyboard mashing game for babies."
 #~ msgstr "Et tastaturtrykkespill for babyer."
