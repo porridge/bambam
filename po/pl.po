@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: bambam 1.0.2\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2022-09-10 11:14+0200\n"
-"PO-Revision-Date: 2022-09-10 09:23+0000\n"
+"PO-Revision-Date: 2022-09-10 11:44+0000\n"
 "Last-Translator: Marcin Owsiany <marcin@owsiany.pl>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/bambam/"
 "app-and-manpage/pl/>\n"
@@ -125,12 +125,18 @@ msgid ""
 "accidentally quit the game, or swich to a different virtual terminal (for "
 "example using CTRL+ALT+Fx)."
 msgstr ""
+"Gra jest teraz uruchomiona w dedykowanej sesji, co zapewnia pewne dodatkowe "
+"bezpieczeństwo. Jednak mimo wszystko jest możliwe, że dziecko przez "
+"przypadek zakończy grę lub przełączy się na inny terminal wirtualny (na "
+"przykład przy pomocy kombinacji CTRL+ALT+Fx)."
 
 #: bambam.py:373
 msgid ""
 "Make sure other user sessions (if any) are locked with a password, if "
 "leaving your child unattended with the game."
 msgstr ""
+"Upewnij się, że sesje innych użytkowników (gdy takowe istnieją) są "
+"zabezpieczone hasłem, jeśli zostawiasz dziecko sam na sam z grą."
 
 #: bambam.py:376
 msgid ""
@@ -140,20 +146,28 @@ msgid ""
 "Examples include the Super (also known as Windows) key, function key "
 "combinations (CTRL+ALT+Fx) or hot corners when using the mouse."
 msgstr ""
+"Jednak w niektórych środowiskach dziecko może być w stanie wyłączyć grę lub "
+"przełączyć się na inny program przy pomocy jakiejś kombinacji klawiszy. "
+"Dokładny sposób zależy od Twojego środowiska graficznego, zarządcy okien, "
+"itd. Przykładem może być klawisz Super (zwany też klawiszem Windows), "
+"kombinacje klawiszy funkcyjnych (CTRL+ALT+Fx) lub gesty narożne przy pomocy "
+"myszy."
 
 #: bambam.py:380
 msgid "We recommend to NOT LEAVE YOUR CHILD UNATTENDED with the game."
-msgstr ""
+msgstr "Zalecamy by NIE POZOSTAWIAĆ DZIECKA SAM NA SAM z grą."
 
 #: bambam.py:381
 msgid ""
 "Please consider using a dedicated BamBam session instead (look for a gear "
 "icon when logging in), which is safer."
 msgstr ""
+"Prosimy rozważyć zamiast tego użycie dedykowanej sesji BamBam (szukaj ikony "
+"koła zębatego przy logowaniu się), jest to bardziej bezpieczne."
 
 #: bambam.py:384
 msgid "Press any key or mouse button to start the game now."
-msgstr ""
+msgstr "Naciśnij teraz dowolny klawisz lub przycisk myszy by rozpocząć grę."
 
 #: bambam.py:405 bambam.py:412
 #, python-format
@@ -161,9 +175,8 @@ msgid "Using data directory %s"
 msgstr "Używanie katalogu danych %s"
 
 #: bambam.py:416 bambam.en.desktop:4 bambam-session.en.desktop:4
-#, fuzzy
 msgid "Keyboard mashing and doodling game for babies and toddlers."
-msgstr "Gra w klawiaturę dla małych dzieci"
+msgstr "Gra w klawiaturę i bazgranie dla małych dzieci."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
@@ -175,13 +188,13 @@ msgstr "Pokazuj WIELKIE litery."
 #. type: Plain text
 #: bambam.py:420 bambam.6:23
 msgid "List of sound filename patterns to never play."
-msgstr "Lista wzorów nazw plików dźwięków które nigdy nie mają być odtwarzane."
+msgstr "Lista wzorów nazw plików dźwięków, które nigdy nie mają być odtwarzane."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
 #: bambam.py:422 bambam.6:26
 msgid "List of image filename patterns to never show."
-msgstr "Lista wzorów nazw plików obrazów które nigdy nie mają być wyświetlane."
+msgstr "Lista wzorów nazw plików obrazów, które nigdy nie mają być wyświetlane."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
@@ -234,9 +247,9 @@ msgstr "bambam"
 
 #. type: TH
 #: bambam.6:1
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "10 September 2022"
-msgstr "30 grudnia 2020"
+msgstr "10 września 2022"
 
 #. type: TH
 #: bambam.6:1
@@ -252,9 +265,8 @@ msgstr "NAZWA"
 
 #. type: Plain text
 #: bambam.6:4
-#, fuzzy
 msgid "bambam - a keyboard mashing and doodling game for babies and toddlers"
-msgstr "Gra w klawiaturę dla małych dzieci"
+msgstr "bambam - gra w klawiaturę i bazgranie dla małych dzieci"
 
 #. type: SH
 #: bambam.6:4
@@ -367,7 +379,6 @@ msgstr "\\(bu"
 
 #. type: Plain text
 #: bambam.6:51
-#, fuzzy
 msgid ""
 "when running under Wayland, it is not currently possible for bambam to grab "
 "all key presses.  A consequence of that is that if you use GNOME Shell, "
@@ -380,12 +391,10 @@ msgstr ""
 "bambam nie potrafi obecnie przechwytywać wszystkich naciśnięć klawiszy gdy "
 "działa w sesji Wayland. W rezultacie gdy używany jest GNOME Shell, "
 "naciśnięcie klawisza Windows (znanego też jako Super) włączy podgląd "
-"aktywności. Proszę sprawdzić to w swoim środowisku. Jeśli jest tak w "
-"istocie, wtedy możesz spróbować uruchomić bambam w oddzielnej sesji X, na "
-"przykład wydając polecenie B<startx bambam> w konsoli tekstowej. Jako środek "
-"zapobiegawczy bambam próbuje wykryć czy działa pod Wayland. Jeśli tak jest, "
-"wyświetla ostrzeżenie i odmawia działania. Możesz wyłączyć to zachowanie "
-"przy pomocy opcji B<--wayland-ok>."
+"aktywności. Proszę sprawdzić to w swoim środowisku.  Jako środek "
+"zapobiegawczy, od wersji 1.1.2 bambam próbuje wykryć, czy działa pod "
+"Wayland. Jeśli tak jest, wyświetla ostrzeżenie i odmawia działania. Możesz "
+"wyłączyć to zachowanie przy pomocy opcji B<--wayland-ok>."
 
 #. type: Plain text
 #: bambam.6:55
@@ -403,6 +412,8 @@ msgid ""
 "there may be other yet unknown ways in other environments and window "
 "managers."
 msgstr ""
+"być może istnieją jeszcze nieznane sposoby w innych środowiskach i "
+"zarządcach okien."
 
 #. type: Plain text
 #: bambam.6:61
@@ -410,6 +421,8 @@ msgid ""
 "For the above reasons, starting with version 1.2.0, B<it is possible and "
 "recommended to run bambam in a dedicated login session.>"
 msgstr ""
+"Z powyższych powodów, od wersji 1.2.0 B<jest możliwe i zalecane uruchamianie "
+"bambam w dedykowanej sesji logowania.>"
 
 #. type: Plain text
 #: bambam.6:64
@@ -417,12 +430,16 @@ msgid ""
 "One way do do this is to select BamBam session type from your display "
 "manager settings when logging in (look for a gear icon)."
 msgstr ""
+"Jednym ze sposobów na to jest wybranie typu sesji BamBam w twoim menedżerze "
+"wyświetlania podczas logowania się (szukaj ikony koła zębatego)."
 
 #. type: Plain text
 #: bambam.6:67
 msgid ""
 "Another way is use command such as B<exec startx bambam> from a text console."
 msgstr ""
+"Innym jest użycie komendy takiej jak B<exec startx bambam> z konsoli "
+"tekstowej."
 
 #. type: Plain text
 #: bambam.6:69
@@ -430,7 +447,7 @@ msgid ""
 "To turn the sound off and on, type mute and unmute, respectively, in the "
 "game."
 msgstr ""
-"Aby wyłączyć lub włączyć dźwięk, wpisz w trakcie gry odpowienio słowo: "
+"Aby wyłączyć lub włączyć dźwięk, wpisz w trakcie gry odpowiednio słowo: "
 "wycisz i zglosnij."
 
 #. type: Plain text
@@ -459,7 +476,7 @@ msgid ""
 "and descend directories. This makes is easy to have bambam use files located "
 "elsewhere."
 msgstr ""
-"Poszukując plików w tych katalogach, bambam B<podążą> za dowiązaniami "
+"Poszukując plików w tych katalogach, bambam B<podąża> za dowiązaniami "
 "symbolicznymi i wchodzi wgłąb katalogów. Dzięki temu można łatwo udostępnić "
 "grze pliki umieszczone gdzie indziej."
 
@@ -485,7 +502,7 @@ msgstr "BamBam"
 #. TRANSLATORS: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon! Do NOT translate or remove the application name from the list! It is used for search.
 #: bambam.en.desktop:11
 msgid "bambam;baby;child;toddler;game;keyboard mashing;mouse;doodling;"
-msgstr ""
+msgstr "bambam;dziecko;niemowle;gra;klawiatura;mysz;bazgranie;rysowanie;"
 
 #~ msgid "A keyboard mashing game for babies."
 #~ msgstr "Gra w klawiaturę dla małych dzieci."
