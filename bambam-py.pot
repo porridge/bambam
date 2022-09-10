@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bambam 1.2.0\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
-"POT-Creation-Date: 2022-09-10 10:02+0200\n"
+"POT-Creation-Date: 2022-09-10 11:14+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -101,91 +101,100 @@ msgstr ""
 #: bambam.py:365
 msgid ""
 "The game tries to grab the keyboard and mouse pointer focus, to keep your "
-"child from causing damage."
+"child from causing damage to your files."
 msgstr ""
 
 #: bambam.py:368
 msgid ""
-"Despite running in a dedicated session, it may be possible for the child to "
+"The game is now running in a dedicated login session, which provides some "
+"additional safety. However it may still be possible for the child to "
 "accidentally quit the game, or swich to a different virtual terminal (for "
-"example using CTRL+ALT+F2). Make sure other user sessions, if any, are "
-"locked with a password if leaving your child unattended with the game."
+"example using CTRL+ALT+Fx)."
 msgstr ""
 
 #: bambam.py:373
+msgid ""
+"Make sure other user sessions (if any) are locked with a password, if "
+"leaving your child unattended with the game."
+msgstr ""
+
+#: bambam.py:376
 msgid ""
 "However in some environments it may be possible for the child to exit or "
 "switch away from the game by using a special key combination. The exact "
 "mechanism depends on your graphical environment, window manager, etc. "
 "Examples include the Super (also known as Windows) key, function key "
-"combinations (CTRL+ALT+Fx) or hot corners when using the mouse. Exercise "
-"caution when leaving your child unattended with the game."
-msgstr ""
-
-#: bambam.py:377
-msgid ""
-"Please consider using a dedicated BamBam session instead (look for a gear "
-"icon when logging in)."
+"combinations (CTRL+ALT+Fx) or hot corners when using the mouse."
 msgstr ""
 
 #: bambam.py:380
-msgid "Press any key or mouse button to start the game."
+msgid "We recommend to NOT LEAVE YOUR CHILD UNATTENDED with the game."
 msgstr ""
 
-#: bambam.py:401 bambam.py:408
+#: bambam.py:381
+msgid ""
+"Please consider using a dedicated BamBam session instead (look for a gear "
+"icon when logging in), which is safer."
+msgstr ""
+
+#: bambam.py:384
+msgid "Press any key or mouse button to start the game now."
+msgstr ""
+
+#: bambam.py:405 bambam.py:412
 #, python-format
 msgid "Using data directory %s"
 msgstr ""
 
-#: bambam.py:412
+#: bambam.py:416
 msgid "Keyboard mashing and doodling game for babies and toddlers."
 msgstr ""
 
-#: bambam.py:414
+#: bambam.py:418
 msgid "Show UPPER-CASE letters."
 msgstr ""
 
-#: bambam.py:416
+#: bambam.py:420
 msgid "List of sound filename patterns to never play."
 msgstr ""
 
-#: bambam.py:418
+#: bambam.py:422
 msgid "List of image filename patterns to never show."
 msgstr ""
 
-#: bambam.py:420
+#: bambam.py:424
 msgid "Produce same sounds on same key presses."
 msgstr ""
 
-#: bambam.py:422
+#: bambam.py:426
 msgid "Use a dark background instead of a light one."
 msgstr ""
 
-#: bambam.py:424
+#: bambam.py:428
 msgid "Do not play any sounds."
 msgstr ""
 
-#: bambam.py:426
+#: bambam.py:430
 msgid "Do not prevent running under Wayland."
 msgstr ""
 
-#: bambam.py:434
+#: bambam.py:438
 msgid "Warning, fonts disabled."
 msgstr ""
 
-#: bambam.py:436
+#: bambam.py:440
 msgid "Warning, sound disabled."
 msgstr ""
 
 #. TRANSLATORS: Main game window name.
-#: bambam.py:446
+#: bambam.py:450
 msgid "Bam Bam"
 msgstr ""
 
-#: bambam.py:473
+#: bambam.py:477
 msgid "All sounds failed to load."
 msgstr ""
 
-#: bambam.py:479
+#: bambam.py:483
 msgid "All images failed to load."
 msgstr ""

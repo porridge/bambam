@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
-"POT-Creation-Date: 2022-09-10 09:40+0200\n"
+"POT-Creation-Date: 2022-09-10 11:14+0200\n"
 "PO-Revision-Date: 2022-06-02 20:19+0000\n"
 "Last-Translator: Marcin Owsiany <marcin@owsiany.pl>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/bambam/app-and-"
@@ -115,105 +115,114 @@ msgstr ""
 #: bambam.py:365
 msgid ""
 "The game tries to grab the keyboard and mouse pointer focus, to keep your "
-"child from causing damage."
+"child from causing damage to your files."
 msgstr ""
 
 #: bambam.py:368
 msgid ""
-"Despite running in a dedicated session, it may be possible for the child to "
+"The game is now running in a dedicated login session, which provides some "
+"additional safety. However it may still be possible for the child to "
 "accidentally quit the game, or swich to a different virtual terminal (for "
-"example using CTRL+ALT+F2). Make sure other user sessions, if any, are "
-"locked with a password if leaving your child unattended with the game."
+"example using CTRL+ALT+Fx)."
 msgstr ""
 
 #: bambam.py:373
+msgid ""
+"Make sure other user sessions (if any) are locked with a password, if "
+"leaving your child unattended with the game."
+msgstr ""
+
+#: bambam.py:376
 msgid ""
 "However in some environments it may be possible for the child to exit or "
 "switch away from the game by using a special key combination. The exact "
 "mechanism depends on your graphical environment, window manager, etc. "
 "Examples include the Super (also known as Windows) key, function key "
-"combinations (CTRL+ALT+Fx) or hot corners when using the mouse. Exercise "
-"caution when leaving your child unattended with the game."
-msgstr ""
-
-#: bambam.py:377
-msgid ""
-"Please consider using a dedicated BamBam session instead (look for a gear "
-"icon when logging in)."
+"combinations (CTRL+ALT+Fx) or hot corners when using the mouse."
 msgstr ""
 
 #: bambam.py:380
-msgid "Press any key or mouse button to start the game."
+msgid "We recommend to NOT LEAVE YOUR CHILD UNATTENDED with the game."
 msgstr ""
 
-#: bambam.py:401 bambam.py:408
+#: bambam.py:381
+msgid ""
+"Please consider using a dedicated BamBam session instead (look for a gear "
+"icon when logging in), which is safer."
+msgstr ""
+
+#: bambam.py:384
+msgid "Press any key or mouse button to start the game now."
+msgstr ""
+
+#: bambam.py:405 bambam.py:412
 #, python-format
 msgid "Using data directory %s"
 msgstr "Usando directorio de datos %s"
 
-#: bambam.py:412 bambam.en.desktop:4 bambam-session.en.desktop:4
+#: bambam.py:416 bambam.en.desktop:4 bambam-session.en.desktop:4
 #, fuzzy
 msgid "Keyboard mashing and doodling game for babies and toddlers."
 msgstr "Un juego de machacar el teclado para bebés."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
-#: bambam.py:414 bambam.6:11
+#: bambam.py:418 bambam.6:11
 msgid "Show UPPER-CASE letters."
 msgstr "Muestra MAYÚSCULAS."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
-#: bambam.py:416 bambam.6:23
+#: bambam.py:420 bambam.6:23
 msgid "List of sound filename patterns to never play."
 msgstr "Lista de patrones de archivos de sonido para no reproducir nunca."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
-#: bambam.py:418 bambam.6:26
+#: bambam.py:422 bambam.6:26
 msgid "List of image filename patterns to never show."
 msgstr "Lista de patrones de imágenes para no mostrar nunca."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
-#: bambam.py:420 bambam.6:14
+#: bambam.py:424 bambam.6:14
 msgid "Produce same sounds on same key presses."
 msgstr "Produce los mismos sonidos con las mismas pulsaciones de teclas."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
-#: bambam.py:422 bambam.6:17
+#: bambam.py:426 bambam.6:17
 msgid "Use a dark background instead of a light one."
 msgstr "Usa un fondo oscuro en vez de uno claro."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
-#: bambam.py:424 bambam.6:20
+#: bambam.py:428 bambam.6:20
 msgid "Do not play any sounds."
 msgstr "No reproduzca ningún sonido."
 
-#: bambam.py:426
+#: bambam.py:430
 msgid "Do not prevent running under Wayland."
 msgstr ""
 
-#: bambam.py:434
+#: bambam.py:438
 msgid "Warning, fonts disabled."
 msgstr "Cuidado, tipografías desactivadas."
 
-#: bambam.py:436
+#: bambam.py:440
 msgid "Warning, sound disabled."
 msgstr "Cuidado, sonido desactivado."
 
 #. TRANSLATORS: Main game window name.
-#: bambam.py:446
+#: bambam.py:450
 msgid "Bam Bam"
 msgstr "Bam Bam"
 
-#: bambam.py:473
+#: bambam.py:477
 msgid "All sounds failed to load."
 msgstr "Todos los sonidos fallaron al cargar."
 
-#: bambam.py:479
+#: bambam.py:483
 msgid "All images failed to load."
 msgstr "Todas las imágenes fallaron al cargar."
 
@@ -333,7 +342,7 @@ msgid "NOTES"
 msgstr "NOTAS"
 
 #. type: Plain text
-#: bambam.6:38
+#: bambam.6:39
 msgid ""
 "B<To quit, directly type the command mentioned in the upper left-hand corner "
 "of the window. In the English locales, this is the word: quit.>"
@@ -342,7 +351,66 @@ msgstr ""
 "derecha de la ventana. Para españoles, la palabra es: salir.>"
 
 #. type: Plain text
-#: bambam.6:40
+#: bambam.6:41
+msgid ""
+"B<Be aware> that there are ways to switch to another application from bambam:"
+msgstr ""
+
+#. type: IP
+#: bambam.6:41 bambam.6:51 bambam.6:55 bambam.6:61 bambam.6:64 bambam.6:72
+#: bambam.6:74
+#, no-wrap
+msgid "\\(bu"
+msgstr ""
+
+#. type: Plain text
+#: bambam.6:51
+msgid ""
+"when running under Wayland, it is not currently possible for bambam to grab "
+"all key presses.  A consequence of that is that if you use GNOME Shell, "
+"pressing the Windows (a.k.a. Super) key will activate the activities "
+"overview.  Please check your environment.  As a workaround, starting with "
+"version 1.1.2, bambam will try to detect if it is running under Wayland. If "
+"this is the case, bambam will display a warning and refuse to work.  You can "
+"disable this workaround, with the B<--wayland-ok> option."
+msgstr ""
+
+#. type: Plain text
+#: bambam.6:55
+msgid ""
+"bambam does not block virtual terminal switching (e.g.  CTRL+ALT+F1). See "
+"the example 50-dont-vt-switch.conf file if you would like to block that."
+msgstr ""
+
+#. type: Plain text
+#: bambam.6:57
+msgid ""
+"there may be other yet unknown ways in other environments and window "
+"managers."
+msgstr ""
+
+#. type: Plain text
+#: bambam.6:61
+msgid ""
+"For the above reasons, starting with version 1.2.0, B<it is possible and "
+"recommended to run bambam in a dedicated login session.>"
+msgstr ""
+
+#. type: Plain text
+#: bambam.6:64
+msgid ""
+"One way do do this is to select BamBam session type from your display "
+"manager settings when logging in (look for a gear icon)."
+msgstr ""
+
+#. type: Plain text
+#: bambam.6:67
+msgid ""
+"Another way is use command such as B<exec startx bambam> from a text console."
+msgstr ""
+
+#. type: Plain text
+#: bambam.6:69
 msgid ""
 "To turn the sound off and on, type mute and unmute, respectively, in the "
 "game."
@@ -351,7 +419,7 @@ msgstr ""
 "juego."
 
 #. type: Plain text
-#: bambam.6:43
+#: bambam.6:72
 msgid ""
 "bambam loads images (GIF, JPEG, PNG and TIFF files) and sounds (WAV and OGG "
 "files) from the following directories:"
@@ -359,65 +427,32 @@ msgstr ""
 "Bambam es capaz de cargar imágenes (archivos GIF, JPEG, PNG y TIFF) y "
 "sonidos (archivos WAV y OGG) de los siguientes directorios:"
 
-#. type: IP
-#: bambam.6:43 bambam.6:45 bambam.6:53 bambam.6:65
-#, no-wrap
-msgid "\\(bu"
-msgstr ""
-
 #. type: Plain text
-#: bambam.6:45
+#: bambam.6:74
 msgid "the B<data> directory distributed with the game,"
 msgstr ""
 
 #. type: Plain text
-#: bambam.6:47
+#: bambam.6:76
 msgid "B<$XDG_DATA_HOME> (usually ~/.local/share/bambam/data)"
 msgstr ""
 
 #. type: Plain text
-#: bambam.6:51
+#: bambam.6:80
 msgid ""
 "When scanning directories for files, bambam B<does> follow symbolic links "
 "and descend directories. This makes is easy to have bambam use files located "
 "elsewhere."
 msgstr ""
 
-#. type: Plain text
-#: bambam.6:53
-msgid ""
-"B<Be aware> that there are ways to switch to another application from bambam:"
-msgstr ""
-
-#. type: Plain text
-#: bambam.6:65
-msgid ""
-"when running under Wayland, it is not currently possible for bambam to grab "
-"all key presses.  A consequence of that is that if you use GNOME Shell, "
-"pressing the Windows (a.k.a. Super) key will activate the activities "
-"overview.  Please check your environment. If that is the case, then you can "
-"try running bambam in a dedicated X session, for example by running B<startx "
-"bambam> from a text console.  As a workaround, starting with version 1.1.2, "
-"bambam will try to detect if it is running under Wayland. If this is the "
-"case, bambam will display a warning and refuse to work.  You can disable "
-"this workaround, with the B<--wayland-ok> option."
-msgstr ""
-
-#. type: Plain text
-#: bambam.6:69
-msgid ""
-"bambam does not block virtual terminal switching (e.g.  CTRL+ALT+F1). See "
-"the example 50-dont-vt-switch.conf file if you would like to block that."
-msgstr ""
-
 #. type: SH
-#: bambam.6:69
+#: bambam.6:80
 #, no-wrap
 msgid "AUTHOR"
 msgstr ""
 
 #. type: Plain text
-#: bambam.6:72
+#: bambam.6:83
 msgid ""
 "Spike Burch E<lt>spikeb@gmail.comE<gt> Marcin Owsiany E<lt>marcin@owsiany."
 "plE<gt>"
