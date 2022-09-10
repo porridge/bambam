@@ -92,8 +92,6 @@ Comments or suggestions? Any feedback is appreciated, please send it to [the bam
 
 Translations for this game are done on [Weblate](https://hosted.weblate.org/projects/bambam/). Please help translating for your mother tongue!
 
----
-
 ## History
 
 This project was moved from [its code.google.com location](https://code.google.com/p/bambam/) in April 2015, since that site was about to be shut down.
