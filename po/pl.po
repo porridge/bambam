@@ -7,17 +7,17 @@ msgstr ""
 "Project-Id-Version: bambam 1.0.2\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2022-09-10 11:14+0200\n"
-"PO-Revision-Date: 2021-02-13 08:55+0000\n"
+"PO-Revision-Date: 2022-09-10 09:23+0000\n"
 "Last-Translator: Marcin Owsiany <marcin@owsiany.pl>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/bambam/app-and-"
-"manpage/pl/>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/bambam/"
+"app-and-manpage/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 4.14.1-dev\n"
 
 #. TRANSLATORS: command string to mute sounds.
 #. Must not contain spaces, and should be be at least 4 characters long,
@@ -92,7 +92,7 @@ msgstr "Naciśnij dowolny klawisz by zakończyć grę."
 
 #: bambam.py:328
 msgid "Please read the following important information!"
-msgstr ""
+msgstr "Proszę przeczytać następujące ważne informacje!"
 
 #. TRANSLATORS: the substituted word will be the translated command for quitting the game.
 #: bambam.py:361
@@ -100,22 +100,23 @@ msgstr ""
 msgid ""
 "To quit the game after it starts, directly type the word %s on the keyboard."
 msgstr ""
+"Aby zakończyć grę po jej uruchomieniu, wpisz bezpośrednio na klawiaturze "
+"słowo %s."
 
 #. TRANSLATORS: "this" means the word quit from the preceding message, in this context.
 #: bambam.py:363
-#, fuzzy
 msgid ""
 "This, and other available commands are mentioned in the upper left-hand "
 "corner of the window."
-msgstr ""
-"B<Aby zakończyć grę, wpisz bezpośrednio na klawiaturze komendę wspomnianą w "
-"lewym górnym rogu okna. W Polskim locale jest to słowo: koniec.>"
+msgstr "Ta, i inne dostępne komendy są wypisane w lewym górnym rogu okna."
 
 #: bambam.py:365
 msgid ""
 "The game tries to grab the keyboard and mouse pointer focus, to keep your "
 "child from causing damage to your files."
 msgstr ""
+"Gra próbuje przechwycić klawiaturę i kursor myszy, aby uniemożliwić dziecku "
+"zniszczenie twoich plików."
 
 #: bambam.py:368
 msgid ""
