@@ -324,7 +324,7 @@ class Bambam:
         pygame.display.flip()
 
     def _prepare_welcome_message(self, dedicated_session):
-        header_font = pygame.font.SysFont(None, 60)
+        header_font = pygame.font.SysFont(None, 56)
         header_label = header_font.render(_("Please read the following important information!"), True, pygame.Color('blue'), self.background_color)
         header_rect = header_label.get_rect()
         header_rect.x = 150
@@ -332,7 +332,7 @@ class Bambam:
         self.screen.blit(header_label, header_rect)
         header_padding = 20
 
-        text_font_size = 40
+        text_font_size = 36
 
         # Draw an arrow starting next to second/third line of text (the text that speaks about the commands)...
         arrow_start = (header_rect.x, int(header_rect.y + header_rect.height + header_padding + text_font_size * 1.5))
@@ -362,26 +362,30 @@ class Bambam:
         # TRANSLATORS: "this" means the word quit from the preceding message, in this context.
         texts.append(_("This, and other available commands are mentioned in the upper left-hand corner of the window."))
         texts.append("")
-        texts.append(_("The game tries to grab the keyboard and mouse pointer focus, to keep your child from causing damage."))
+        texts.append(_("The game tries to grab the keyboard and mouse pointer focus, to keep your child from causing damage to your files."))
         if dedicated_session:
             texts.append(_(
-                "Despite running in a dedicated session, it may be possible for the child to accidentally quit the game, "
-                "or swich to a different virtual terminal (for example using CTRL+ALT+F2). "
-                "Make sure other user sessions, if any, are locked with a password if leaving your child unattended with the game."))
+                "The game is now running in a dedicated login session, which provides some additional safety. "
+                "However it may still be possible for the child to accidentally quit the game, or swich to a different virtual terminal "
+                "(for example using CTRL+ALT+Fx)."))
+            texts.append("")
+            texts.append(_(
+                "Make sure other user sessions (if any) are locked with a password, if leaving your child unattended with the game."))
         else:
             texts.append(_(
                 "However in some environments it may be possible for the child to exit or switch away from the game by using a special key combination. "
                 "The exact mechanism depends on your graphical environment, window manager, etc. Examples include the Super (also known as Windows) key, "
-                "function key combinations (CTRL+ALT+Fx) or hot corners when using the mouse. "
-                "Exercise caution when leaving your child unattended with the game."))
-            texts.append(_("Please consider using a dedicated BamBam session instead (look for a gear icon when logging in)."))
+                "function key combinations (CTRL+ALT+Fx) or hot corners when using the mouse."))
+            texts.append("")
+            texts.append(_("We recommend to NOT LEAVE YOUR CHILD UNATTENDED with the game."))
+            texts.append(_("Please consider using a dedicated BamBam session instead (look for a gear icon when logging in), which is safer."))
         texts.append("")
         texts.append("")
-        texts.append(_("Press any key or mouse button to start the game."))
+        texts.append(_("Press any key or mouse button to start the game now."))
         prev_rect = header_rect
         prev_rect.y += header_padding
         for paragraph in texts:
-            for line in fill(paragraph, 80).split("\n"):
+            for line in fill(paragraph, 70).split("\n"):
                 text_label = text_font.render(line, True, pygame.Color('lightblue'), self.background_color)
                 text_rect = text_label.get_rect()
                 text_rect.x = 150
