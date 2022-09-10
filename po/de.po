@@ -16,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2022-09-10 13:47+0200\n"
 "PO-Revision-Date: 2022-09-11 19:16+0000\n"
-"Last-Translator: Pixelcode <pixelcode@dismail.de>\n"
+"Last-Translator: dasistdaniel <d.intrup@googlemail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/bambam/"
 "app-and-manpage/de/>\n"
 "Language: de\n"
@@ -243,7 +243,7 @@ msgstr "Es konnten keine Töne geladen werden."
 
 #: bambam.py:483
 msgid "All images failed to load."
-msgstr "Es konnten keine Bilder geladen werden."
+msgstr "Bilder konnten nicht geladen werden."
 
 #. type: TH
 #: bambam.6:1
