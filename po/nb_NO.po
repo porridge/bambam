@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
-"POT-Creation-Date: 2022-09-09 18:22+0200\n"
+"POT-Creation-Date: 2022-09-10 09:40+0200\n"
 "PO-Revision-Date: 2021-03-04 09:52+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/bambam/"
@@ -153,8 +153,9 @@ msgstr ""
 msgid "Using data directory %s"
 msgstr "Bruker datamappe %s"
 
-#: bambam.py:412
-msgid "A keyboard mashing game for babies."
+#: bambam.py:412 bambam.en.desktop:4 bambam-session.en.desktop:4
+#, fuzzy
+msgid "Keyboard mashing and doodling game for babies and toddlers."
 msgstr "Et tastaturtrykkespill for babyer."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
@@ -230,7 +231,7 @@ msgstr "bambam"
 #. type: TH
 #: bambam.6:1
 #, fuzzy, no-wrap
-msgid "8 September 2022"
+msgid "10 September 2022"
 msgstr "30 Desember 2020"
 
 #. type: TH
@@ -247,8 +248,9 @@ msgstr "Navn"
 
 #. type: Plain text
 #: bambam.6:4
-msgid "bambam - a keyboard mashing and doodling game for babies"
-msgstr "bambam—et tastaturtrykk- og drodlingsspill for babyer"
+#, fuzzy
+msgid "bambam - a keyboard mashing and doodling game for babies and toddlers"
+msgstr "Et tastaturtrykkespill for babyer."
 
 #. type: SH
 #: bambam.6:4
@@ -444,3 +446,18 @@ msgid ""
 msgstr ""
 "Spike Burch E<lt>spikeb@gmail.comE<gt> Marcin Owsiany E<lt>marcin@owsiany."
 "plE<gt>"
+
+#: bambam.en.desktop:3 bambam-session.en.desktop:3
+msgid "BamBam"
+msgstr ""
+
+#. TRANSLATORS: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon! Do NOT translate or remove the application name from the list! It is used for search.
+#: bambam.en.desktop:11
+msgid "bambam;baby;child;toddler;game;keyboard mashing;mouse;doodling;"
+msgstr ""
+
+#~ msgid "A keyboard mashing game for babies."
+#~ msgstr "Et tastaturtrykkespill for babyer."
+
+#~ msgid "bambam - a keyboard mashing and doodling game for babies"
+#~ msgstr "bambam—et tastaturtrykk- og drodlingsspill for babyer"

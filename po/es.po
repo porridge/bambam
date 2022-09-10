@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
-"POT-Creation-Date: 2022-09-09 18:22+0200\n"
+"POT-Creation-Date: 2022-09-10 09:40+0200\n"
 "PO-Revision-Date: 2022-06-02 20:19+0000\n"
 "Last-Translator: Marcin Owsiany <marcin@owsiany.pl>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/bambam/app-and-"
@@ -151,8 +151,9 @@ msgstr ""
 msgid "Using data directory %s"
 msgstr "Usando directorio de datos %s"
 
-#: bambam.py:412
-msgid "A keyboard mashing game for babies."
+#: bambam.py:412 bambam.en.desktop:4 bambam-session.en.desktop:4
+#, fuzzy
+msgid "Keyboard mashing and doodling game for babies and toddlers."
 msgstr "Un juego de machacar el teclado para bebés."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
@@ -225,7 +226,7 @@ msgstr "bambam"
 #. type: TH
 #: bambam.6:1
 #, fuzzy, no-wrap
-msgid "8 September 2022"
+msgid "10 September 2022"
 msgstr "30 de diciembre de 2020"
 
 #. type: TH
@@ -242,8 +243,9 @@ msgstr "NOMBRE"
 
 #. type: Plain text
 #: bambam.6:4
-msgid "bambam - a keyboard mashing and doodling game for babies"
-msgstr "Bambam - un juego de machacar y garabatear para bebés"
+#, fuzzy
+msgid "bambam - a keyboard mashing and doodling game for babies and toddlers"
+msgstr "Un juego de machacar el teclado para bebés."
 
 #. type: SH
 #: bambam.6:4
@@ -420,3 +422,18 @@ msgid ""
 "Spike Burch E<lt>spikeb@gmail.comE<gt> Marcin Owsiany E<lt>marcin@owsiany."
 "plE<gt>"
 msgstr ""
+
+#: bambam.en.desktop:3 bambam-session.en.desktop:3
+msgid "BamBam"
+msgstr ""
+
+#. TRANSLATORS: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon! Do NOT translate or remove the application name from the list! It is used for search.
+#: bambam.en.desktop:11
+msgid "bambam;baby;child;toddler;game;keyboard mashing;mouse;doodling;"
+msgstr ""
+
+#~ msgid "A keyboard mashing game for babies."
+#~ msgstr "Un juego de machacar el teclado para bebés."
+
+#~ msgid "bambam - a keyboard mashing and doodling game for babies"
+#~ msgstr "Bambam - un juego de machacar y garabatear para bebés"

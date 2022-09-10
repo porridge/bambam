@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
-"POT-Creation-Date: 2022-09-09 18:22+0200\n"
+"POT-Creation-Date: 2022-09-10 09:40+0200\n"
 "PO-Revision-Date: 2021-03-13 00:02+0000\n"
 "Last-Translator: J. Lavoie <j.lavoie@net-c.ca>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/bambam/app-and-"
@@ -152,8 +152,9 @@ msgstr ""
 msgid "Using data directory %s"
 msgstr "Utilisation du répertoire de données %s"
 
-#: bambam.py:412
-msgid "A keyboard mashing game for babies."
+#: bambam.py:412 bambam.en.desktop:4 bambam-session.en.desktop:4
+#, fuzzy
+msgid "Keyboard mashing and doodling game for babies and toddlers."
 msgstr "Un jeu de clavier pour bébés."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
@@ -226,7 +227,7 @@ msgstr "bambam"
 #. type: TH
 #: bambam.6:1
 #, fuzzy, no-wrap
-msgid "8 September 2022"
+msgid "10 September 2022"
 msgstr "30 décembre 2020"
 
 #. type: TH
@@ -243,8 +244,9 @@ msgstr "NOM"
 
 #. type: Plain text
 #: bambam.6:4
-msgid "bambam - a keyboard mashing and doodling game for babies"
-msgstr "bambam - un jeu de clavier et de gribouillage pour bébés"
+#, fuzzy
+msgid "bambam - a keyboard mashing and doodling game for babies and toddlers"
+msgstr "Un jeu de clavier pour bébés."
 
 #. type: SH
 #: bambam.6:4
@@ -430,3 +432,18 @@ msgid ""
 msgstr ""
 "Spike Burch E<lt>spikeb@gmail.comE<gt> Marcin Owsiany E<lt>marcin@owsiany."
 "plE<gt>"
+
+#: bambam.en.desktop:3 bambam-session.en.desktop:3
+msgid "BamBam"
+msgstr ""
+
+#. TRANSLATORS: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon! Do NOT translate or remove the application name from the list! It is used for search.
+#: bambam.en.desktop:11
+msgid "bambam;baby;child;toddler;game;keyboard mashing;mouse;doodling;"
+msgstr ""
+
+#~ msgid "A keyboard mashing game for babies."
+#~ msgstr "Un jeu de clavier pour bébés."
+
+#~ msgid "bambam - a keyboard mashing and doodling game for babies"
+#~ msgstr "bambam - un jeu de clavier et de gribouillage pour bébés"

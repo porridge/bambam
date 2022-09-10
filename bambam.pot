@@ -10,13 +10,25 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# #-#-#-#-#  bambam-desktop.pot (bambam 1.2.0)  #-#-#-#-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the bambam package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+# #-#-#-#-#  bambam-session-desktop.pot (bambam 1.2.0)  #-#-#-#-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the bambam package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "#-#-#-#-#  bambam-py.pot (bambam 1.2.0)  #-#-#-#-#\n"
 "Project-Id-Version: bambam 1.2.0\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
-"POT-Creation-Date: 2022-09-09 18:22+0200\n"
+"POT-Creation-Date: 2022-09-10 09:59+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,7 +38,29 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "#-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2022-09-09 18:48+0200\n"
+"POT-Creation-Date: 2022-09-10 09:40+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  bambam-desktop.pot (bambam 1.2.0)  #-#-#-#-#\n"
+"Project-Id-Version: bambam 1.2.0\n"
+"Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
+"POT-Creation-Date: 2022-09-10 09:59+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"#-#-#-#-#  bambam-session-desktop.pot (bambam 1.2.0)  #-#-#-#-#\n"
+"Project-Id-Version: bambam 1.2.0\n"
+"Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
+"POT-Creation-Date: 2022-09-10 09:59+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -155,8 +189,8 @@ msgstr ""
 msgid "Using data directory %s"
 msgstr ""
 
-#: bambam.py:412
-msgid "A keyboard mashing game for babies."
+#: bambam.py:412 bambam.en.desktop:4 bambam-session.en.desktop:4
+msgid "Keyboard mashing and doodling game for babies and toddlers."
 msgstr ""
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
@@ -229,7 +263,7 @@ msgstr ""
 #. type: TH
 #: bambam.6:1
 #, no-wrap
-msgid "8 September 2022"
+msgid "10 September 2022"
 msgstr ""
 
 #. type: TH
@@ -246,7 +280,7 @@ msgstr ""
 
 #. type: Plain text
 #: bambam.6:4
-msgid "bambam - a keyboard mashing and doodling game for babies"
+msgid "bambam - a keyboard mashing and doodling game for babies and toddlers"
 msgstr ""
 
 #. type: SH
@@ -412,4 +446,13 @@ msgstr ""
 msgid ""
 "Spike Burch E<lt>spikeb@gmail.comE<gt> Marcin Owsiany E<lt>marcin@owsiany."
 "plE<gt>"
+msgstr ""
+
+#: bambam.en.desktop:3 bambam-session.en.desktop:3
+msgid "BamBam"
+msgstr ""
+
+#. TRANSLATORS: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon! Do NOT translate or remove the application name from the list! It is used for search.
+#: bambam.en.desktop:11
+msgid "bambam;baby;child;toddler;game;keyboard mashing;mouse;doodling;"
 msgstr ""

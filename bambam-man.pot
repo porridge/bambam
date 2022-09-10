@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2022-09-09 18:48+0200\n"
+"POT-Creation-Date: 2022-09-10 09:40+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,7 +25,7 @@ msgstr ""
 #. type: TH
 #: bambam.6:1
 #, no-wrap
-msgid "8 September 2022"
+msgid "10 September 2022"
 msgstr ""
 
 #. type: TH
@@ -42,7 +42,7 @@ msgstr ""
 
 #. type: Plain text
 #: bambam.6:4
-msgid "bambam - a keyboard mashing and doodling game for babies"
+msgid "bambam - a keyboard mashing and doodling game for babies and toddlers"
 msgstr ""
 
 #. type: SH
