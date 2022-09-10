@@ -409,7 +409,7 @@ class Bambam:
                 self.data_dirs.append(extra_data_dir)
 
         parser = argparse.ArgumentParser(
-            description=_('A keyboard mashing game for babies.'))
+            description=_('Keyboard mashing and doodling game for babies and toddlers.'))
         parser.add_argument('-u', '--uppercase', action='store_true',
                             help=_('Show UPPER-CASE letters.'))
         parser.add_argument('--sound_blacklist', action='append', default=[],

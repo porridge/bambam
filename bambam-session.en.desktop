@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=BamBam
-Comment=Keyboard mashing game for babies and toddlers
+Comment=Keyboard mashing and doodling game for babies and toddlers.
 Exec=/usr/games/bambam --in-dedicated-session
 TryExec=/usr/games/bambam
+Icon=bambam
 Type=Application
