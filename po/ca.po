@@ -15,16 +15,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2022-09-10 13:47+0200\n"
-"PO-Revision-Date: 2022-03-01 21:17+0000\n"
+"PO-Revision-Date: 2022-09-14 01:15+0000\n"
 "Last-Translator: Maite Guix <maite.guix@gmail.com>\n"
-"Language-Team: Catalan <https://hosted.weblate.org/projects/bambam/app-and-"
-"manpage/ca/>\n"
+"Language-Team: Catalan <https://hosted.weblate.org/projects/bambam/"
+"app-and-manpage/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11.1-dev\n"
+"X-Generator: Weblate 4.14.1-dev\n"
 
 #. TRANSLATORS: command string to mute sounds.
 #. Must not contain spaces, and should be be at least 4 characters long,
@@ -93,7 +93,7 @@ msgstr "Prem qualsevol tecla per a sortir."
 
 #: bambam.py:328
 msgid "Please read the following important information!"
-msgstr ""
+msgstr "Si us plau, llegiu la següent informació!"
 
 #. TRANSLATORS: the substituted word will be the translated command for quitting the game.
 #: bambam.py:361
@@ -101,22 +101,25 @@ msgstr ""
 msgid ""
 "To quit the game after it starts, directly type the word %s on the keyboard."
 msgstr ""
+"Per a sortir del joc després que s'iniciï, escriviu directament la paraula "
+"%s al teclat."
 
 #. TRANSLATORS: "this" means the word quit from the preceding message, in this context.
 #: bambam.py:363
-#, fuzzy
 msgid ""
 "This, and other available commands are mentioned in the upper left-hand "
 "corner of the window."
 msgstr ""
-"B<Per a sortir, escriu directament l'ordre esmentada a l'extrem superior "
-"esquerre de la finestra. En anglés, la paraula és: quit.>"
+"Aquesta i altres ordres disponibles s'esmenten a l'extrem superior esquerre "
+"de la finestra."
 
 #: bambam.py:365
 msgid ""
 "The game tries to grab the keyboard and mouse pointer focus, to keep your "
 "child from causing damage to your files."
 msgstr ""
+"El joc intenta agafar el focus del punter del teclat i del ratolí, per a "
+"evitar que el vostre fill causi danys als vostres fitxers."
 
 #: bambam.py:368
 msgid ""
@@ -125,12 +128,18 @@ msgid ""
 "accidentally quit the game, or swich to a different virtual terminal (for "
 "example using CTRL+ALT+Fx)."
 msgstr ""
+"El joc s'està executant ara en una sessió d'inici de sessió dedicada, que "
+"proporciona una mica de seguretat addicional. Tanmateix, encara és possible "
+"que el nen abandoni el joc accidentalment o canviï a un terminal virtual "
+"diferent (per exemple, utilitzant CTRL+ALT+Fx)."
 
 #: bambam.py:373
 msgid ""
 "Make sure other user sessions (if any) are locked with a password, if "
 "leaving your child unattended with the game."
 msgstr ""
+"Si deixeu el vostre fill desatès amb el joc, assegureu-vos que altres "
+"sessions d'usuari (si n'hi ha) estiguin bloquejades amb una contrasenya."
 
 #: bambam.py:376
 msgid ""
@@ -140,20 +149,27 @@ msgid ""
 "Examples include the Super (also known as Windows) key, function key "
 "combinations (CTRL+ALT+Fx) or hot corners when using the mouse."
 msgstr ""
+"Tanmateix, en alguns entorns és possible que el nen surti o s'allunyi del "
+"joc mitjançant una combinació especial de tecles. El mecanisme exacte depèn "
+"del vostre entorn gràfic, gestor de finestres, etc. Alguns exemples inclouen "
+"la tecla Super (també coneguda com a Windows), les combinacions de tecles de "
+"funció (CTRL + ALT + Fx) o les cantonades calentes quan s'utilitza el ratolí."
 
 #: bambam.py:380
 msgid "We recommend to NOT LEAVE YOUR CHILD UNATTENDED with the game."
-msgstr ""
+msgstr "Recomanem NO DEIXAR AL SEU FILL DESATÈS amb el joc."
 
 #: bambam.py:381
 msgid ""
 "Please consider using a dedicated BamBam session instead (look for a gear "
 "icon when logging in), which is safer."
 msgstr ""
+"Considereu l'ús d'una sessió dedicada de BamBam en el seu lloc (busqueu una "
+"icona de roda dentada en iniciar la sessió), que és més segura."
 
 #: bambam.py:384
 msgid "Press any key or mouse button to start the game now."
-msgstr ""
+msgstr "Premeu qualsevol tecla o botó del ratolí per a iniciar el joc ara."
 
 #: bambam.py:405 bambam.py:412
 #, python-format
@@ -161,9 +177,9 @@ msgid "Using data directory %s"
 msgstr "Utilitzant el directori de dades %s"
 
 #: bambam.py:416 bambam.en.desktop:4 bambam-session.en.desktop:4
-#, fuzzy
 msgid "Keyboard mashing and doodling game for babies and toddlers."
-msgstr "Un joc amb teclat senzill per a bebès."
+msgstr ""
+"Per a que els nadons i els nens petits matxuquin el teclat i facin gargots."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
@@ -234,9 +250,9 @@ msgstr "bambam"
 
 #. type: TH
 #: bambam.6:1
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "10 September 2022"
-msgstr "30 de desembre de 2020"
+msgstr "10 de setembre de 2022"
 
 #. type: TH
 #: bambam.6:1
@@ -252,9 +268,9 @@ msgstr "NOM"
 
 #. type: Plain text
 #: bambam.6:4
-#, fuzzy
 msgid "bambam - a keyboard mashing and doodling game for babies and toddlers"
-msgstr "Un joc amb teclat senzill per a bebès."
+msgstr ""
+"bambam: un joc de matxucar el teclat i fer gargots per a nadons i nens petits"
 
 #. type: SH
 #: bambam.6:4
@@ -366,7 +382,6 @@ msgstr "\\(bu"
 
 #. type: Plain text
 #: bambam.6:51
-#, fuzzy
 msgid ""
 "when running under Wayland, it is not currently possible for bambam to grab "
 "all key presses.  A consequence of that is that if you use GNOME Shell, "
@@ -376,16 +391,14 @@ msgid ""
 "this is the case, bambam will display a warning and refuse to work.  You can "
 "disable this workaround, with the B<--wayland-ok> option."
 msgstr ""
-"quan s'executa sota el Wayland, actualment no és possible que bambam agafi "
-"totes les tecles.  Una conseqüència d'això és que si utilitzeu GNOME Shell, "
-"prement la tecla Windows (també s'aplicarà Super) s'activarà la visió "
-"general de les activitats.  Si us plau, comprova el teu entorn. Si aquest és "
-"el cas, pots provar d'executar bambam en una sessió X dedicada, per exemple "
-"executant B<startx bambam> des d'una consola de text.  Com a solució "
-"alternativa, a partir de la versió 1.1.2, bambam intentarà detectar si "
-"s'està executant sota Wayland. Si aquest és el cas, bambam mostrarà un "
-"advertiment i es negarà a treballar.  Pots desactivar aquesta solució "
-"alternativa, amb l'opció B<--wayland-ok> ."
+"quan s'executa sota Wayland, actualment no és possible que bambam agafi "
+"totes les premses de tecles.  Una conseqüència d'això és que si utilitzeu "
+"GNOME Shell, si premeu la tecla Windows (també coneguda com a Super) "
+"s'activarà la vista general de les activitats.  Consulteu el vostre entorn.  "
+"Com a solució alternativa, a partir de la versió 1.1.2, bambam intentarà "
+"detectar si s'està executant sota Wayland. Si aquest és el cas, bambam "
+"mostrarà un avís i es negarà a treballar.  Podeu desactivar aquesta solució "
+"alternativa, amb l'opció B<--wayland-ok>."
 
 #. type: Plain text
 #: bambam.6:55
@@ -402,6 +415,8 @@ msgid ""
 "there may be other yet unknown ways in other environments and window "
 "managers."
 msgstr ""
+"pot haver-hi altres maneres encara desconegudes en altres entorns i gestors "
+"de finestres."
 
 #. type: Plain text
 #: bambam.6:61
@@ -409,6 +424,8 @@ msgid ""
 "For the above reasons, starting with version 1.2.0, B<it is possible and "
 "recommended to run bambam in a dedicated login session.>"
 msgstr ""
+"Per les raons anteriors, a partir de la versió 1.2.0, B<és possible i "
+"recomanable executar bambam en una sessió d'inici de sessió dedicada.>"
 
 #. type: Plain text
 #: bambam.6:64
@@ -416,12 +433,17 @@ msgid ""
 "One way to do this is to select BamBam session type from your display "
 "manager settings when logging in (look for a gear icon)."
 msgstr ""
+"Una manera de fer-ho és seleccionar el tipus de sessió de BamBam a la "
+"configuració del gestor de visualització quan inicieu sessió (cerqueu una "
+"icona d'engranatge)."
 
 #. type: Plain text
 #: bambam.6:67
 msgid ""
 "Another way is use command such as B<exec startx bambam> from a text console."
 msgstr ""
+"Una altra manera és utilitzar una ordre com ara B<exec startx bambam> des "
+"d'una consola de text."
 
 #. type: Plain text
 #: bambam.6:69
@@ -479,12 +501,13 @@ msgstr ""
 
 #: bambam.en.desktop:3 bambam-session.en.desktop:3
 msgid "BamBam"
-msgstr ""
+msgstr "BamBam"
 
 #. TRANSLATORS: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon! Do NOT translate or remove the application name from the list! It is used for search.
 #: bambam.en.desktop:11
 msgid "bambam;baby;child;toddler;game;keyboard mashing;mouse;doodling;"
 msgstr ""
+"bambam;nadó;nen;nen petit;joc;utilitzar el teclat;ratolí;gargots;nena petita;"
 
 #~ msgid "A keyboard mashing game for babies."
 #~ msgstr "Un joc amb teclat senzill per a bebès."
