@@ -15,16 +15,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2022-09-10 13:47+0200\n"
-"PO-Revision-Date: 2021-03-14 13:03+0000\n"
+"PO-Revision-Date: 2022-09-14 01:15+0000\n"
 "Last-Translator: phlostically <phlostically@mailinator.com>\n"
-"Language-Team: Esperanto <https://hosted.weblate.org/projects/bambam/app-and-"
-"manpage/eo/>\n"
+"Language-Team: Esperanto <https://hosted.weblate.org/projects/bambam/"
+"app-and-manpage/eo/>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.5.2-dev\n"
+"X-Generator: Weblate 4.14.1-dev\n"
 
 #. TRANSLATORS: command string to mute sounds.
 #. Must not contain spaces, and should be be at least 4 characters long,
@@ -153,7 +153,7 @@ msgstr ""
 
 #: bambam.py:384
 msgid "Press any key or mouse button to start the game now."
-msgstr ""
+msgstr "Premu ajnan klavon aŭ musbutonon por komenci la ludon nun."
 
 #: bambam.py:405 bambam.py:412
 #, python-format
@@ -234,9 +234,9 @@ msgstr "bambam"
 
 #. type: TH
 #: bambam.6:1
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "10 September 2022"
-msgstr "30-a de Decembro, 2020"
+msgstr "10-a de Septembro, 2022"
 
 #. type: TH
 #: bambam.6:1
@@ -252,9 +252,8 @@ msgstr "NOMO"
 
 #. type: Plain text
 #: bambam.6:4
-#, fuzzy
 msgid "bambam - a keyboard mashing and doodling game for babies and toddlers"
-msgstr "Klavaro-premaĉa ludo por beboj."
+msgstr "bambam - klavaro-premaĉa ludo por beboj"
 
 #. type: SH
 #: bambam.6:4
@@ -475,12 +474,12 @@ msgstr ""
 
 #: bambam.en.desktop:3 bambam-session.en.desktop:3
 msgid "BamBam"
-msgstr ""
+msgstr "BamBam"
 
 #. TRANSLATORS: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon! Do NOT translate or remove the application name from the list! It is used for search.
 #: bambam.en.desktop:11
 msgid "bambam;baby;child;toddler;game;keyboard mashing;mouse;doodling;"
-msgstr ""
+msgstr "bambam;bebo;infano;ludo;premaĉo;muso;desegnaĉo;"
 
 #~ msgid "A keyboard mashing game for babies."
 #~ msgstr "Klavaro-premaĉa ludo por beboj."
