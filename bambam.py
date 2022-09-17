@@ -325,7 +325,8 @@ class Bambam:
 
     def _prepare_welcome_message(self, dedicated_session):
         header_font = pygame.font.SysFont(None, 56)
-        header_label = header_font.render(_("Please read the following important information!"), True, pygame.Color('blue'), self.background_color)
+        header_text = _("Please read the following important information!")
+        header_label = header_font.render(header_text, True, pygame.Color('blue'), self.background_color)
         header_rect = header_label.get_rect()
         header_rect.x = 150
         header_rect.y = 100
@@ -352,8 +353,10 @@ class Bambam:
         pygame.draw.arc(self.screen, arrow_color, elipse_bounds, math.pi, 3*math.pi/2, arrow_width)
         # Account for the width of the arrow arc.
         arrow_head_start = (arrow_end[0] + int(arrow_width / 2)-1, arrow_end[1])
-        pygame.draw.line(self.screen, arrow_color, arrow_head_start, (arrow_head_start[0] - 20, arrow_head_start[1] + 40), arrow_width)
-        pygame.draw.line(self.screen, arrow_color, arrow_head_start, (arrow_head_start[0] + 20, arrow_head_start[1] + 40), arrow_width)
+        arrow_head_end1 = (arrow_head_start[0] - 20, arrow_head_start[1] + 40)
+        arrow_head_end2 = (arrow_head_start[0] + 20, arrow_head_start[1] + 40)
+        pygame.draw.line(self.screen, arrow_color, arrow_head_start, arrow_head_end1, arrow_width)
+        pygame.draw.line(self.screen, arrow_color, arrow_head_start, arrow_head_end2, arrow_width)
 
         text_font = pygame.font.SysFont(None, text_font_size)
         texts = []
@@ -362,23 +365,30 @@ class Bambam:
         # TRANSLATORS: "this" means the word quit from the preceding message, in this context.
         texts.append(_("This, and other available commands are mentioned in the upper left-hand corner of the window."))
         texts.append("")
-        texts.append(_("The game tries to grab the keyboard and mouse pointer focus, to keep your child from causing damage to your files."))
+        texts.append(_(
+            "The game tries to grab the keyboard and mouse pointer focus, "
+            "to keep your child from causing damage to your files."))
         if dedicated_session:
             texts.append(_(
                 "The game is now running in a dedicated login session, which provides some additional safety. "
-                "However it may still be possible for the child to accidentally quit the game, or swich to a different virtual terminal "
-                "(for example using CTRL+ALT+Fx)."))
+                "However it may still be possible for the child to accidentally quit the game, "
+                "or swich to a different virtual terminal (for example using CTRL+ALT+Fx)."))
             texts.append("")
             texts.append(_(
-                "Make sure other user sessions (if any) are locked with a password, if leaving your child unattended with the game."))
+                "Make sure other user sessions (if any) are locked with a password, "
+                "if leaving your child unattended with the game."))
         else:
             texts.append(_(
-                "However in some environments it may be possible for the child to exit or switch away from the game by using a special key combination. "
-                "The exact mechanism depends on your graphical environment, window manager, etc. Examples include the Super (also known as Windows) key, "
-                "function key combinations (CTRL+ALT+Fx) or hot corners when using the mouse."))
+                "However in some environments it may be possible for the child to exit or "
+                "switch away from the game by using a special key combination. "
+                "The exact mechanism depends on your graphical environment, window manager, etc. "
+                "Examples include the Super (also known as Windows) key, function key combinations (CTRL+ALT+Fx) or "
+                "hot corners when using the mouse."))
             texts.append("")
             texts.append(_("We recommend to NOT LEAVE YOUR CHILD UNATTENDED with the game."))
-            texts.append(_("Please consider using a dedicated BamBam session instead (look for a gear icon when logging in), which is safer."))
+            texts.append(_(
+                "Please consider using a dedicated BamBam session instead "
+                "(look for a gear icon when logging in), which is safer."))
         texts.append("")
         texts.append("")
         texts.append(_("Press any key or mouse button to start the game now."))
