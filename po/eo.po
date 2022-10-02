@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2022-09-10 13:47+0200\n"
-"PO-Revision-Date: 2022-09-14 01:15+0000\n"
+"PO-Revision-Date: 2022-10-03 21:16+0000\n"
 "Last-Translator: phlostically <phlostically@mailinator.com>\n"
 "Language-Team: Esperanto <https://hosted.weblate.org/projects/bambam/"
 "app-and-manpage/eo/>\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1-dev\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. TRANSLATORS: command string to mute sounds.
 #. Must not contain spaces, and should be be at least 4 characters long,
@@ -93,7 +93,7 @@ msgstr "Premu ajnan klavon por forlasi."
 
 #: bambam.py:328
 msgid "Please read the following important information!"
-msgstr ""
+msgstr "Bonvolu legi la jenajn gravajn informojn!"
 
 #. TRANSLATORS: the substituted word will be the translated command for quitting the game.
 #: bambam.py:361
@@ -101,6 +101,8 @@ msgstr ""
 msgid ""
 "To quit the game after it starts, directly type the word %s on the keyboard."
 msgstr ""
+"Por forlasi la ludon post kiam ĝi komenciĝas, tajpu la vorton %s per la "
+"klavaro."
 
 #. TRANSLATORS: "this" means the word quit from the preceding message, in this context.
 #: bambam.py:363
@@ -117,6 +119,8 @@ msgid ""
 "The game tries to grab the keyboard and mouse pointer focus, to keep your "
 "child from causing damage to your files."
 msgstr ""
+"La ludo provas kapti la fokusojn de la klavaro kaj la musmontrilo, por eviti "
+"ke via infano damaĝu viajn dosierojn."
 
 #: bambam.py:368
 msgid ""
@@ -143,13 +147,15 @@ msgstr ""
 
 #: bambam.py:380
 msgid "We recommend to NOT LEAVE YOUR CHILD UNATTENDED with the game."
-msgstr ""
+msgstr "Ni rekomendas NE LASI VIAN INFANON SENATENTE kun la ludo."
 
 #: bambam.py:381
 msgid ""
 "Please consider using a dedicated BamBam session instead (look for a gear "
 "icon when logging in), which is safer."
 msgstr ""
+"Bonvolu konsideri uzi dediĉitan BamBam-seancon anstataŭe (serĉu dentradan "
+"piktogramon dum ensaluto), kio estas pli sekura."
 
 #: bambam.py:384
 msgid "Press any key or mouse button to start the game now."
@@ -161,9 +167,8 @@ msgid "Using data directory %s"
 msgstr "Uzante datendosierujon %s"
 
 #: bambam.py:416 bambam.en.desktop:4 bambam-session.en.desktop:4
-#, fuzzy
 msgid "Keyboard mashing and doodling game for babies and toddlers."
-msgstr "Klavaro-premaĉa ludo por beboj."
+msgstr "Klavaro-premaĉa kaj desegnaĉa ludo por beboj."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
@@ -418,6 +423,8 @@ msgstr ""
 msgid ""
 "Another way is use command such as B<exec startx bambam> from a text console."
 msgstr ""
+"Alia maniero estas uzi komandon kiel B<exec startx bambam> per teksta "
+"konzolo."
 
 #. type: Plain text
 #: bambam.6:69
