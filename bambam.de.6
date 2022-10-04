@@ -1,0 +1,87 @@
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH bambam 6 "10. September 2022" "Version 1.2.0" 
+.SH NAME
+BamBam – ein Tastendrückspiel für Babys und Kleinkinder
+.SH ÜBERSICHT
+\fBbambam\fP [\fIOPTIONS\fP]
+.SH BESCHREIBUNG
+.TP 
+\fB\-u\fP, \fB\-\-uppercase\fP
+Zeige GROSSBUCHSTABEN.
+.TP 
+\fB\-d\fP, \fB\-\-deterministic\-sounds\fP
+Erzeuge den gleichen Ton bei gleichem Tastendruck.
+.TP 
+\fB\-D\fP, \fB\-\-dark\fP
+Nutze einen dunklen Hintergrund anstatt eines hellen.
+.TP 
+\fB\-m\fP, \fB\-\-mute\fP
+Spiele keine Töne.
+.TP 
+\fB\-\-sound_blacklist\fP=\fIGLOB\fP
+Liste mit Mustern von Audio\-Dateinamen, die nie gespielt werden sollen.
+.TP 
+\fB\-\-image_blacklist\fP=\fIGLOB\fP
+Liste mit Mustern von Bilddateinamen, die nie gezeigt werden sollen.
+.TP 
+\fB\-\-wayland\-ok\fP
+Nicht die Ausführung unter Wayland verhindern. Siehe Abschnitt \fBNOTES\fP.
+.PP
+bambam ist ein in Python geschriebenes Tastatur\- und Maus\-Spiel für
+Babys. Ein Druck auf einen Buchstaben zeigt diesen auf dem Bildschirm an
+zufälliger Position und in zufälliger Farbe an. Jede andere Taste zeigt ein
+kleines Bild an zufälliger Position. Ziehe die Maus mit gedrückter Taste
+über den Bildschirm, um eine farbige Linie zu malen. Der Bildschirm wird
+zufällig wieder gelöscht.
+.SH NOTIZEN
+\fBZum Beenden gib direkt den Befehl ein, der in der oberen linken
+Fensterecke erwähnt wird. Im Deutschen ist es das Wort: beenden.\fP
+.PP
+\fBBeachte\fP, dass es Wege gibt, von bambam zu einer anderen App zu wechseln:
+.IP \(bu
+Unter Wayland ist es BamBam aktuell nicht möglich, alle Tastenanschläge zu
+ermitteln. Dies resultiert darin, dass beim Verwenden der GNOME\-Shell das
+Drücken der Windows\- bzw. Super\-Taste die Aktivitätenübersicht öffnet. Bitte
+überprüfe deine Umgebung. Abhilfe schafft ab Version 1.1.2 der Umstand, dass
+BamBam versucht zu ermitteln, ob es unter Wayland läuft. Wenn das der Fall
+ist, zeigt BamBam eine Warnung an und hört auf zu funktionieren. Du kannst
+diese Funktion mit der Option \fB\-\-wayland\-ok\fP deaktivieren.
+.IP \(bu
+bambam blockiert kein virtuelles Terminal\-Wechseln (z.B. STRG+ALT+F1). Schau
+dir die example\-50\-dont\-vt\-switch.conf\-Datei an, falls du das blockieren
+willst.
+.IP \(bu
+Es könnte andere – bislang unbekannte – Möglichkeiten dazu in Umgebungen und
+Fenster\-Managern geben.
+.PP
+Aus den oben genannten Gründen wir es – beginnend mit Version 1.2.0 –
+möglich und empfohlen sein, BamBam in einer speziellen Login\-Sitzung laufen
+zu lassen.
+.IP \(bu
+Ein Weg, um dies zu tun, ist es, den BamBam\-Sitzungstyp in den
+Displaymanager\-Einstellungen beim Einloggen auszuwählen (schau nach einem
+Werkzeug\-Icon).
+.IP \(bu
+Eine andere Möglichkeit ist es, einen Befehl wie \fBexec startx bambam\fP in
+der Textkonsole zu verwenden.
+.PP
+Um den Ton ein\- und auszuschalten, gib “stummschalten” bzw. “lautstellen” im
+Spiel ein.
+.PP
+bambam lädt Bilder (GIF\-, JPEG\-, PNG\- und TFF\-Dateien) und Töne (WAV\- und
+OGG\-Dateien) aus den folgenden Ordnern:
+.IP \(bu
+das mit dem Spiel ausgelieferte \fBDaten\fPverzeichnis
+.IP \(bu
+\fB$XDG_DATA_HOME\fP (normalerweise ~/.local/share/bambam/data)
+.PP
+Wenn Ordner nach Dateien durchsucht werden, \fBfolgt\fP bambam symbolischen
+Links und Verzeichnissen abwärts. Das macht es einfach, bambam Dateien
+nutzen zu lassen, die anderswo gespeichert sind.
+.SH AUTOR
+Spike Burch <spikeb@gmail.com> Marcin Owsiany
+<marcin@owsiany.pl>

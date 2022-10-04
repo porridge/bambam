@@ -14,11 +14,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
-"POT-Creation-Date: 2022-09-10 13:47+0200\n"
+"POT-Creation-Date: 2022-10-04 13:43+0200\n"
 "PO-Revision-Date: 2022-09-14 01:15+0000\n"
 "Last-Translator: Maite Guix <maite.guix@gmail.com>\n"
-"Language-Team: Catalan <https://hosted.weblate.org/projects/bambam/"
-"app-and-manpage/ca/>\n"
+"Language-Team: Catalan <https://hosted.weblate.org/projects/bambam/app-and-"
+"manpage/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -96,7 +96,7 @@ msgid "Please read the following important information!"
 msgstr "Si us plau, llegiu la següent informació!"
 
 #. TRANSLATORS: the substituted word will be the translated command for quitting the game.
-#: bambam.py:361
+#: bambam.py:364
 #, python-format
 msgid ""
 "To quit the game after it starts, directly type the word %s on the keyboard."
@@ -105,7 +105,7 @@ msgstr ""
 "%s al teclat."
 
 #. TRANSLATORS: "this" means the word quit from the preceding message, in this context.
-#: bambam.py:363
+#: bambam.py:366
 msgid ""
 "This, and other available commands are mentioned in the upper left-hand "
 "corner of the window."
@@ -113,7 +113,7 @@ msgstr ""
 "Aquesta i altres ordres disponibles s'esmenten a l'extrem superior esquerre "
 "de la finestra."
 
-#: bambam.py:365
+#: bambam.py:369
 msgid ""
 "The game tries to grab the keyboard and mouse pointer focus, to keep your "
 "child from causing damage to your files."
@@ -121,7 +121,7 @@ msgstr ""
 "El joc intenta agafar el focus del punter del teclat i del ratolí, per a "
 "evitar que el vostre fill causi danys als vostres fitxers."
 
-#: bambam.py:368
+#: bambam.py:373
 msgid ""
 "The game is now running in a dedicated login session, which provides some "
 "additional safety. However it may still be possible for the child to "
@@ -133,7 +133,7 @@ msgstr ""
 "que el nen abandoni el joc accidentalment o canviï a un terminal virtual "
 "diferent (per exemple, utilitzant CTRL+ALT+Fx)."
 
-#: bambam.py:373
+#: bambam.py:378
 msgid ""
 "Make sure other user sessions (if any) are locked with a password, if "
 "leaving your child unattended with the game."
@@ -141,7 +141,7 @@ msgstr ""
 "Si deixeu el vostre fill desatès amb el joc, assegureu-vos que altres "
 "sessions d'usuari (si n'hi ha) estiguin bloquejades amb una contrasenya."
 
-#: bambam.py:376
+#: bambam.py:382
 msgid ""
 "However in some environments it may be possible for the child to exit or "
 "switch away from the game by using a special key combination. The exact "
@@ -155,11 +155,11 @@ msgstr ""
 "la tecla Super (també coneguda com a Windows), les combinacions de tecles de "
 "funció (CTRL + ALT + Fx) o les cantonades calentes quan s'utilitza el ratolí."
 
-#: bambam.py:380
+#: bambam.py:388
 msgid "We recommend to NOT LEAVE YOUR CHILD UNATTENDED with the game."
 msgstr "Recomanem NO DEIXAR AL SEU FILL DESATÈS amb el joc."
 
-#: bambam.py:381
+#: bambam.py:390
 msgid ""
 "Please consider using a dedicated BamBam session instead (look for a gear "
 "icon when logging in), which is safer."
@@ -167,78 +167,78 @@ msgstr ""
 "Considereu l'ús d'una sessió dedicada de BamBam en el seu lloc (busqueu una "
 "icona de roda dentada en iniciar la sessió), que és més segura."
 
-#: bambam.py:384
+#: bambam.py:394
 msgid "Press any key or mouse button to start the game now."
 msgstr "Premeu qualsevol tecla o botó del ratolí per a iniciar el joc ara."
 
-#: bambam.py:405 bambam.py:412
+#: bambam.py:415 bambam.py:422
 #, python-format
 msgid "Using data directory %s"
 msgstr "Utilitzant el directori de dades %s"
 
-#: bambam.py:416 bambam.en.desktop:4 bambam-session.en.desktop:4
+#: bambam.py:426 bambam.en.desktop:4 bambam-session.en.desktop:4
 msgid "Keyboard mashing and doodling game for babies and toddlers."
 msgstr ""
 "Per a que els nadons i els nens petits matxuquin el teclat i facin gargots."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
-#: bambam.py:418 bambam.6:11
+#: bambam.py:428 bambam.6:11
 msgid "Show UPPER-CASE letters."
 msgstr "Mostrar en MAJÚSCULES."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
-#: bambam.py:420 bambam.6:23
+#: bambam.py:430 bambam.6:23
 msgid "List of sound filename patterns to never play."
 msgstr "Llista de patrons de noms de fitxer de so que no es reproduiran mai."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
-#: bambam.py:422 bambam.6:26
+#: bambam.py:432 bambam.6:26
 msgid "List of image filename patterns to never show."
 msgstr "Llista de patrons de noms de fitxer d'imatge que no es mostraran mai."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
-#: bambam.py:424 bambam.6:14
+#: bambam.py:434 bambam.6:14
 msgid "Produce same sounds on same key presses."
 msgstr "Produeix els mateixos sons amb les mateixes de tecles."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
-#: bambam.py:426 bambam.6:17
+#: bambam.py:436 bambam.6:17
 msgid "Use a dark background instead of a light one."
 msgstr "Utilitzar un fons fosc en lloc de clar."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
-#: bambam.py:428 bambam.6:20
+#: bambam.py:438 bambam.6:20
 msgid "Do not play any sounds."
 msgstr "No reproduir cap so."
 
-#: bambam.py:430
+#: bambam.py:440
 msgid "Do not prevent running under Wayland."
 msgstr "No eviteu el maneig de Wayland."
 
-#: bambam.py:438
+#: bambam.py:448
 msgid "Warning, fonts disabled."
 msgstr "Advertiment, tipus de lletra inhabilitats."
 
-#: bambam.py:440
+#: bambam.py:450
 msgid "Warning, sound disabled."
 msgstr "Advertiment, so inhabilitat."
 
 #. TRANSLATORS: Main game window name.
-#: bambam.py:450
+#: bambam.py:460
 msgid "Bam Bam"
 msgstr "Bam Bam"
 
-#: bambam.py:477
+#: bambam.py:487
 msgid "All sounds failed to load."
 msgstr "Error en carregar tots els sons."
 
-#: bambam.py:483
+#: bambam.py:493
 msgid "All images failed to load."
 msgstr "Error en carregar totes les imatges."
 

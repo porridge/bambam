@@ -14,11 +14,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
-"POT-Creation-Date: 2022-09-10 13:47+0200\n"
+"POT-Creation-Date: 2022-10-04 13:43+0200\n"
 "PO-Revision-Date: 2022-09-11 19:16+0000\n"
 "Last-Translator: dasistdaniel <d.intrup@googlemail.com>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/bambam/"
-"app-and-manpage/de/>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/bambam/app-and-"
+"manpage/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -96,7 +96,7 @@ msgid "Please read the following important information!"
 msgstr "Bitte lies die folgenden wichtigen Infos!"
 
 #. TRANSLATORS: the substituted word will be the translated command for quitting the game.
-#: bambam.py:361
+#: bambam.py:364
 #, python-format
 msgid ""
 "To quit the game after it starts, directly type the word %s on the keyboard."
@@ -105,7 +105,7 @@ msgstr ""
 "Tastatur ein."
 
 #. TRANSLATORS: "this" means the word quit from the preceding message, in this context.
-#: bambam.py:363
+#: bambam.py:366
 msgid ""
 "This, and other available commands are mentioned in the upper left-hand "
 "corner of the window."
@@ -113,7 +113,7 @@ msgstr ""
 "Dies und andere verfügbare Befehle werden in der oberen linken "
 "Bildschirmecke angezeigt."
 
-#: bambam.py:365
+#: bambam.py:369
 msgid ""
 "The game tries to grab the keyboard and mouse pointer focus, to keep your "
 "child from causing damage to your files."
@@ -121,7 +121,7 @@ msgstr ""
 "Das Spiel versucht, den Tastatur- und Mauszeiger-Fokus zu erlangen, um zu "
 "verhindern, dass dein Kind deine Dateien beschädigt."
 
-#: bambam.py:368
+#: bambam.py:373
 msgid ""
 "The game is now running in a dedicated login session, which provides some "
 "additional safety. However it may still be possible for the child to "
@@ -133,7 +133,7 @@ msgstr ""
 "Kind das Spiel versehentlich beendet oder zu einem anderen virtuellen "
 "Terminal wechselt (z.B. mit STRG-ALT-Fx)."
 
-#: bambam.py:373
+#: bambam.py:378
 msgid ""
 "Make sure other user sessions (if any) are locked with a password, if "
 "leaving your child unattended with the game."
@@ -141,7 +141,7 @@ msgstr ""
 "Stelle sicher, dass andere Nutzersitzungen (falls es welche gibt) mit einem "
 "Passwort geschützt werden, wenn du dein Kind mit dem Spiel alleinlässt."
 
-#: bambam.py:376
+#: bambam.py:382
 msgid ""
 "However in some environments it may be possible for the child to exit or "
 "switch away from the game by using a special key combination. The exact "
@@ -155,12 +155,12 @@ msgstr ""
 "Fenstermanager usw. ab. Beispiele: Super- oder Windows-Taste, "
 "Funktionstasten (STRG+ALT+Fx), Hot-Corners beim Benutzen der Maus usw."
 
-#: bambam.py:380
+#: bambam.py:388
 msgid "We recommend to NOT LEAVE YOUR CHILD UNATTENDED with the game."
 msgstr ""
 "Wir empfehlen, dein KIND NICHT UNBEAUFSICHTIGT mit dem Spiel alleinzulassen."
 
-#: bambam.py:381
+#: bambam.py:390
 msgid ""
 "Please consider using a dedicated BamBam session instead (look for a gear "
 "icon when logging in), which is safer."
@@ -168,80 +168,80 @@ msgstr ""
 "Bitte erwäge, stattdessen eine spezielle BamBam-Sitzung zu nutzen (suche "
 "nach einem Werkzeug-Icon beim Einloggen), was sicherer ist."
 
-#: bambam.py:384
+#: bambam.py:394
 msgid "Press any key or mouse button to start the game now."
 msgstr ""
 "Drücke eine beliebige Tastatur- oder Maustaste, um das Spiel jetzt zu "
 "starten."
 
-#: bambam.py:405 bambam.py:412
+#: bambam.py:415 bambam.py:422
 #, python-format
 msgid "Using data directory %s"
 msgstr "Nutze Daten-Verzeichnis %s"
 
-#: bambam.py:416 bambam.en.desktop:4 bambam-session.en.desktop:4
+#: bambam.py:426 bambam.en.desktop:4 bambam-session.en.desktop:4
 msgid "Keyboard mashing and doodling game for babies and toddlers."
 msgstr "Ein Tastendrückspiel für Babys und Kleinkinder."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
-#: bambam.py:418 bambam.6:11
+#: bambam.py:428 bambam.6:11
 msgid "Show UPPER-CASE letters."
 msgstr "Zeige GROSSBUCHSTABEN."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
-#: bambam.py:420 bambam.6:23
+#: bambam.py:430 bambam.6:23
 msgid "List of sound filename patterns to never play."
 msgstr ""
 "Liste mit Mustern von Audio-Dateinamen, die nie gespielt werden sollen."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
-#: bambam.py:422 bambam.6:26
+#: bambam.py:432 bambam.6:26
 msgid "List of image filename patterns to never show."
 msgstr "Liste mit Mustern von Bilddateinamen, die nie gezeigt werden sollen."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
-#: bambam.py:424 bambam.6:14
+#: bambam.py:434 bambam.6:14
 msgid "Produce same sounds on same key presses."
 msgstr "Erzeuge den gleichen Ton bei gleichem Tastendruck."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
-#: bambam.py:426 bambam.6:17
+#: bambam.py:436 bambam.6:17
 msgid "Use a dark background instead of a light one."
 msgstr "Nutze einen dunklen Hintergrund anstatt eines hellen."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
-#: bambam.py:428 bambam.6:20
+#: bambam.py:438 bambam.6:20
 msgid "Do not play any sounds."
 msgstr "Spiele keine Töne."
 
-#: bambam.py:430
+#: bambam.py:440
 msgid "Do not prevent running under Wayland."
 msgstr "Die Ausführung unter Wayland nicht verhindern."
 
-#: bambam.py:438
+#: bambam.py:448
 msgid "Warning, fonts disabled."
 msgstr "Achtung, Schriftarten deaktiviert."
 
-#: bambam.py:440
+#: bambam.py:450
 msgid "Warning, sound disabled."
 msgstr "Achtung, Ton deaktiviert."
 
 #. TRANSLATORS: Main game window name.
-#: bambam.py:450
+#: bambam.py:460
 msgid "Bam Bam"
 msgstr "Bam Bam"
 
-#: bambam.py:477
+#: bambam.py:487
 msgid "All sounds failed to load."
 msgstr "Es konnten keine Töne geladen werden."
 
-#: bambam.py:483
+#: bambam.py:493
 msgid "All images failed to load."
 msgstr "Bilder konnten nicht geladen werden."
 
