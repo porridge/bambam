@@ -1,3 +1,14 @@
+bambam (1.2.0+dfsg-1) sid; urgency=low
+
+  * New upstream release
+  * Update Standards-Version, no changes needed.
+  * Install upstream (localized!) desktop files, drop the one in debian/
+  * Update the lintian override context to match new format too.
+  * Mention the dedicated session mode in package description.
+  * Teach smoke test about welcome screen.
+
+ -- Marcin Owsiany <porridge@debian.org>  Wed, 05 Oct 2022 21:35:29 +0200
+
 bambam (1.1.2+dfsg-3) sid; urgency=medium
 
   * Source-only upload to reach testing.
