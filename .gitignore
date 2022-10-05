@@ -1,5 +1,6 @@
 /.venv
 /__pycache__
-/po/*.po~
 /*.pot~
+/po/*.po~
 /po/*.mo
+/po/LINGUAS

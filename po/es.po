@@ -1,4 +1,4 @@
-# #-#-#-#-#  bambam-py.pot (bambam 1.1.0)  #-#-#-#-#
+# #-#-#-#-#  bambam-py.pot (bambam 1.1.2)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the bambam package.
@@ -15,16 +15,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2022-10-04 13:43+0200\n"
-"PO-Revision-Date: 2022-09-11 19:16+0000\n"
-"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
-"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/bambam/"
-"app-and-manpage/nb_NO/>\n"
-"Language: nb_NO\n"
+"PO-Revision-Date: 2022-06-02 20:19+0000\n"
+"Last-Translator: Marcin Owsiany <marcin@owsiany.pl>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/bambam/app-and-"
+"manpage/es/>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1-dev\n"
+"X-Generator: Weblate 4.13-dev\n"
 
 #. TRANSLATORS: command string to mute sounds.
 #. Must not contain spaces, and should be be at least 4 characters long,
@@ -33,7 +33,7 @@ msgstr ""
 #. it is relatively easy to type by an adult without making mistakes.
 #: bambam.py:45
 msgid "mute"
-msgstr "forstum"
+msgstr "silenciar"
 
 #. TRANSLATORS: command string to unmute sounds.
 #. Must not contain spaces, and should be be at least 4 characters long,
@@ -41,9 +41,8 @@ msgstr "forstum"
 #. However it is recommended to keep it shorter than 10 characters so that
 #. it is relatively easy to type by an adult without making mistakes.
 #: bambam.py:51
-#, fuzzy
 msgid "unmute"
-msgstr "opphevforstummelse"
+msgstr "desactivar silencio"
 
 #. TRANSLATORS: command string to quit the game.
 #. Must not contain spaces, and should be be at least 4 characters long,
@@ -52,12 +51,12 @@ msgstr "opphevforstummelse"
 #. it is relatively easy to type by an adult without making mistakes.
 #: bambam.py:57
 msgid "quit"
-msgstr "avslutt"
+msgstr "salir"
 
 #: bambam.py:73
 #, python-format
 msgid "Failed to load file \"%(file)s\": %(message)s"
-msgstr "Klarte ikke å late inn filen «%(file)s»: %(message)s"
+msgstr "Fallo al cargar el archivo \"%(file)s\": %(message)s"
 
 #: bambam.py:123
 #, python-format
@@ -65,37 +64,36 @@ msgid ""
 "image has height of 0 after resizing to fit within %(width)dx%(height)d "
 "pixels"
 msgstr ""
-"Bildet har en høyde på 0 etter endring av oppløsnigen for å passe inn i "
-"%(width)dx%(height)d piksler"
+"La imagen tiene una altura 0 tras redimensionarla para encajar en %(width)dx"
+"%(height)d píxeles"
 
 #. TRANSLATORS: "item" can refer to an image or sound file path
 #: bambam.py:157
-#, fuzzy, python-format
+#, python-format
 msgid "Skipping blacklisted item %s"
-msgstr "Hopper over svartelistet element %s"
+msgstr ""
 
 #. TRANSLATORS: the string is space-separated list of all command strings.
 #: bambam.py:298
 #, python-format
 msgid "Commands: %s"
-msgstr "Kommandoer: %s"
+msgstr "Comandos: %s"
 
 #: bambam.py:311
-#, fuzzy
 msgid "Error: Wayland display detected."
-msgstr "Feil: Oppdaget wayland-skjerm."
+msgstr "Error: ruta incorrecta."
 
 #: bambam.py:312
 msgid "Cannot lock the keyboard safely."
-msgstr "Kan ikke låse tastaturet på trygg måte."
+msgstr "No se puede bloquear el teclado de manera segura."
 
 #: bambam.py:314
 msgid "Press any key to quit."
-msgstr "Trykk vilkårlig tast for å avslutte."
+msgstr "Presiona cualquier tecla para salir."
 
 #: bambam.py:328
 msgid "Please read the following important information!"
-msgstr "Les følgende viktige info:"
+msgstr ""
 
 #. TRANSLATORS: the substituted word will be the translated command for quitting the game.
 #: bambam.py:364
@@ -103,8 +101,6 @@ msgstr "Les følgende viktige info:"
 msgid ""
 "To quit the game after it starts, directly type the word %s on the keyboard."
 msgstr ""
-"For å avslutte spillet etter at det har startet kan du skrive ordet «%s» på "
-"tastaturet."
 
 #. TRANSLATORS: "this" means the word quit from the preceding message, in this context.
 #: bambam.py:366
@@ -113,16 +109,14 @@ msgid ""
 "This, and other available commands are mentioned in the upper left-hand "
 "corner of the window."
 msgstr ""
-"B<For å avslutte, skriv kommandoen nevnt oppe i venstre hjørne av vinduet. "
-"På bokmål er dette ordet «avslutt».>"
+"B<Para salir, escribe directamente el comando mencionado en la esquina "
+"derecha de la ventana. Para españoles, la palabra es: salir.>"
 
 #: bambam.py:369
 msgid ""
 "The game tries to grab the keyboard and mouse pointer focus, to keep your "
 "child from causing damage to your files."
 msgstr ""
-"Spillet prøver å bruke tastatur og musepeker til å fokusere, for å holde "
-"barnet ditt unna filene dine."
 
 #: bambam.py:373
 msgid ""
@@ -131,20 +125,14 @@ msgid ""
 "accidentally quit the game, or swich to a different virtual terminal (for "
 "example using CTRL+ALT+Fx)."
 msgstr ""
-"Spillet kjører nå i en egen innloggingsøkt, som gir ytterligere sikkerhet. "
-"Dog kan det være mulig for barnet å avslutte spillet tilfeldig, eller bytte "
-"til en annen virtuell terminal (for eksempel ved å bruke Ctrl+Alt+Fx)."
 
 #: bambam.py:378
 msgid ""
 "Make sure other user sessions (if any) are locked with a password, if "
 "leaving your child unattended with the game."
 msgstr ""
-"Forsire deg om at andre brukerøkter (om noen) er låst med et passord, hvis "
-"du lar barnet bruke spillet alene."
 
 #: bambam.py:382
-#, fuzzy
 msgid ""
 "However in some environments it may be possible for the child to exit or "
 "switch away from the game by using a special key combination. The exact "
@@ -152,87 +140,78 @@ msgid ""
 "Examples include the Super (also known as Windows) key, function key "
 "combinations (CTRL+ALT+Fx) or hot corners when using the mouse."
 msgstr ""
-"Dog er det i noen miljøer mulig for barnet å avslutte eller bytte til et "
-"annet vindu fra spillet ved å bruke en tastekombinasjon. Dette avhenger av "
-"miljøet, vindusbehandleren, osv. Det kan være Super-tast, funksjonstaster "
-"(Ctrl+Alt+Fx), eller funksjonshjørner når du bruker musen."
 
 #: bambam.py:388
 msgid "We recommend to NOT LEAVE YOUR CHILD UNATTENDED with the game."
-msgstr "Det anbefales at du IKKE LAR BARNET VÆRE ALENE med spillet."
+msgstr ""
 
 #: bambam.py:390
-#, fuzzy
 msgid ""
 "Please consider using a dedicated BamBam session instead (look for a gear "
 "icon when logging in), which is safer."
 msgstr ""
-"Overvei å bruke en egen BamBam-økt istedenfor (se etter et tannhjulsikon når "
-"du logger inn), som er tryggere."
 
 #: bambam.py:394
 msgid "Press any key or mouse button to start the game now."
-msgstr "Trykk vilkårlig tast for å starte spillet nå."
+msgstr ""
 
 #: bambam.py:415 bambam.py:422
-#, fuzzy, python-format
+#, python-format
 msgid "Using data directory %s"
-msgstr "Bruker datamappe %s"
+msgstr "Usando directorio de datos %s"
 
 #: bambam.py:426 bambam.en.desktop:4 bambam-session.en.desktop:4
 #, fuzzy
 msgid "Keyboard mashing and doodling game for babies and toddlers."
-msgstr "Et tastaturtrykkespill for babyer."
+msgstr "Un juego de machacar el teclado para bebés."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
 #: bambam.py:428 bambam.6:11
 msgid "Show UPPER-CASE letters."
-msgstr "Vis STORE BOKSTAVER."
+msgstr "Muestra MAYÚSCULAS."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
 #: bambam.py:430 bambam.6:23
 msgid "List of sound filename patterns to never play."
-msgstr "Liste over lydfilnavnsmønster som aldri skal spilles."
+msgstr "Lista de patrones de archivos de sonido para no reproducir nunca."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
 #: bambam.py:432 bambam.6:26
 msgid "List of image filename patterns to never show."
-msgstr "Liste over bildefilnavnsmønster som aldri skal vises."
+msgstr "Lista de patrones de imágenes para no mostrar nunca."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
 #: bambam.py:434 bambam.6:14
 msgid "Produce same sounds on same key presses."
-msgstr "Lag samme lyd ved trykk av samme tast."
+msgstr "Produce los mismos sonidos con las mismas pulsaciones de teclas."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
 #: bambam.py:436 bambam.6:17
-#, fuzzy
 msgid "Use a dark background instead of a light one."
-msgstr "Mørk bakgrunn."
+msgstr "Usa un fondo oscuro en vez de uno claro."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
 #: bambam.py:438 bambam.6:20
 msgid "Do not play any sounds."
-msgstr "Ikke spill noen lyder."
+msgstr "No reproduzca ningún sonido."
 
 #: bambam.py:440
 msgid "Do not prevent running under Wayland."
-msgstr "Ikke forhindre kjøring i Wayland."
+msgstr ""
 
 #: bambam.py:448
 msgid "Warning, fonts disabled."
-msgstr "Advarsel, skrifter avskrudd."
+msgstr "Cuidado, tipografías desactivadas."
 
 #: bambam.py:450
-#, fuzzy
 msgid "Warning, sound disabled."
-msgstr "Advarsel, lyd avsrkudd."
+msgstr "Cuidado, sonido desactivado."
 
 #. TRANSLATORS: Main game window name.
 #: bambam.py:460
@@ -240,17 +219,16 @@ msgid "Bam Bam"
 msgstr "Bam Bam"
 
 #: bambam.py:487
-#, fuzzy
 msgid "All sounds failed to load."
-msgstr "Klarte ikke å laste inn lyder."
+msgstr "Todos los sonidos fallaron al cargar."
 
 #: bambam.py:493
 msgid "All images failed to load."
-msgstr "Klarte ikke å laste inn bilder."
+msgstr "Todas las imágenes fallaron al cargar."
 
 #. type: TH
 #: bambam.6:1
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "bambam"
 msgstr "bambam"
 
@@ -258,94 +236,92 @@ msgstr "bambam"
 #: bambam.6:1
 #, fuzzy, no-wrap
 msgid "10 September 2022"
-msgstr "30 Desember 2020"
+msgstr "30 de diciembre de 2020"
 
 #. type: TH
 #: bambam.6:1
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "version 1.2.0"
-msgstr "versjon 1.1.1"
+msgstr "Versión 1.2.0"
 
 #. type: SH
 #: bambam.6:2
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "NAME"
-msgstr "Navn"
+msgstr "NOMBRE"
 
 #. type: Plain text
 #: bambam.6:4
 #, fuzzy
 msgid "bambam - a keyboard mashing and doodling game for babies and toddlers"
-msgstr "Et tastaturtrykkespill for babyer."
+msgstr "Un juego de machacar el teclado para bebés."
 
 #. type: SH
 #: bambam.6:4
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "SYNOPSIS"
-msgstr "Sammendrag"
+msgstr "SINOPSIS"
 
 #. type: Plain text
 #: bambam.6:7
 msgid "B<bambam> [I<OPTIONS>]"
-msgstr "B<bambam> [I<ALTERNATIVER>]"
+msgstr "B<bambam> [I<OPCIONES>]"
 
 #. type: SH
 #: bambam.6:7
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "DESCRIPTION"
-msgstr "Beskrivelse"
+msgstr "DESCRIPCIÓN"
 
 #. type: TP
 #: bambam.6:8
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "B<-u>, B<--uppercase>"
-msgstr "B<-u>, B<--uppercase>"
+msgstr "B<-u>, B<--mayúscula>"
 
 #. type: TP
 #: bambam.6:11
 #, no-wrap
 msgid "B<-d>, B<--deterministic-sounds>"
-msgstr "B<-d>, B<--deterministic-sounds>"
+msgstr "B<-d>, B<--sonidos-deterministas>"
 
 #. type: TP
 #: bambam.6:14
 #, no-wrap
 msgid "B<-D>, B<--dark>"
-msgstr "B<-D>, B<--dark>"
+msgstr "B<-D>, B<--oscuro>"
 
 #. type: TP
 #: bambam.6:17
 #, no-wrap
 msgid "B<-m>, B<--mute>"
-msgstr "B<-m>, B<--mute>"
+msgstr "B<-m>, B<--silenciar>"
 
 #. type: TP
 #: bambam.6:20
 #, no-wrap
 msgid "B<--sound_blacklist>=I<GLOB>"
-msgstr "B<--sound_blacklist>=I<GLOB>"
+msgstr ""
 
 #. type: TP
 #: bambam.6:23
 #, no-wrap
 msgid "B<--image_blacklist>=I<GLOB>"
-msgstr "B<--image_blacklist>=I<GLOB>"
+msgstr ""
 
 #. type: TP
 #: bambam.6:26
 #, no-wrap
 msgid "B<--wayland-ok>"
-msgstr "B<--wayland-ok>"
+msgstr ""
 
 #. type: Plain text
 #: bambam.6:29
-#, fuzzy
 msgid "Do not prevent running under Wayland. See the B<NOTES> section."
-msgstr "Ikke forhindre kjøring i Wayland. Sjekk B<NOTATER>-delen."
+msgstr ""
 
 #. type: Plain text
 #: bambam.6:36
-#, fuzzy
 msgid ""
 "bambam is a keyboard and mouse game for babies written in Python.  Pressing "
 "letter keys prints them in random locations and colours.  Pressing any other "
@@ -353,17 +329,17 @@ msgid ""
 "mouse button is pressed draws in randomly changing colours.  The screen is "
 "cleared at random."
 msgstr ""
-"bambam er et tastatur og musespill for babyer skrevet i Python. Å trykke på "
-"knapper skriver dem ut på tilfeldige steder i forskjellige farger. Å trykke "
-"andre taster lager små bilder på tilfeldige steder. Å dra musen mens "
-"musknappen er trykket ned tegner tilfeldig endrede farger. Skjermen tømmes "
-"tilfeldig."
+"Bambam es un juego de teclado y ratón para bebés escrito en Python. "
+"Presionando teclas de letras se imprimen en sitios y colores aleatorios. "
+"Presionando cualquier otra tecla dibuja imágenes en sitios aleatorios. "
+"Arrastrando el ratón mientras el botón del ratón está presionado dibuja en "
+"colores aleatorios cambiantes. La pantalla es borrada de manera aleatoria."
 
 #. type: SH
 #: bambam.6:36
 #, no-wrap
 msgid "NOTES"
-msgstr "Merknader"
+msgstr "NOTAS"
 
 #. type: Plain text
 #: bambam.6:39
@@ -371,26 +347,24 @@ msgid ""
 "B<To quit, directly type the command mentioned in the upper left-hand corner "
 "of the window. In the English locales, this is the word: quit.>"
 msgstr ""
-"B<For å avslutte, skriv kommandoen nevnt oppe i venstre hjørne av vinduet. "
-"På bokmål er dette ordet «avslutt».>"
+"B<Para salir, escribe directamente el comando mencionado en la esquina "
+"derecha de la ventana. Para españoles, la palabra es: salir.>"
 
 #. type: Plain text
 #: bambam.6:41
-#, fuzzy
 msgid ""
 "B<Be aware> that there are ways to switch to another application from bambam:"
-msgstr "B<Husk> at det går an å bytte til et annet program fra bambam:"
+msgstr ""
 
 #. type: IP
 #: bambam.6:41 bambam.6:51 bambam.6:55 bambam.6:61 bambam.6:64 bambam.6:72
 #: bambam.6:74
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "\\(bu"
-msgstr "\\(bu"
+msgstr ""
 
 #. type: Plain text
 #: bambam.6:51
-#, fuzzy
 msgid ""
 "when running under Wayland, it is not currently possible for bambam to grab "
 "all key presses.  A consequence of that is that if you use GNOME Shell, "
@@ -400,22 +374,13 @@ msgid ""
 "this is the case, bambam will display a warning and refuse to work.  You can "
 "disable this workaround, with the B<--wayland-ok> option."
 msgstr ""
-"noen vindusmiljøer (vedlikeholderen mistenker at dette kan gjelde Wayland) "
-"gjør det ikke mulig for bambam å hente alle tastetrykk. Når du bruker GNOME-"
-"skallet, vil det å trykke supertasten starte vindusoversikten. Sjekk ditt "
-"miljø. Tasten har ofte en Windows-logo. Hvis det er tilfelle, kan du prøve å "
-"kjøre bambam i en egen X-økt, for eksempel ved å kjøre B<startx bambam> fra "
-"kommandolinjen;"
 
 #. type: Plain text
 #: bambam.6:55
-#, fuzzy
 msgid ""
 "bambam does not block virtual terminal switching (e.g.  CTRL+ALT+F1). See "
 "the example 50-dont-vt-switch.conf file if you would like to block that."
 msgstr ""
-"bambam blokkerer ikke virtuell terminalveksling (f.eks. Ctrl+Alt+F1). Se "
-"ekemplet 50-dont-vt-switch.conf -filen hvis du ønsker å blokkere dette."
 
 #. type: Plain text
 #: bambam.6:57
@@ -423,18 +388,13 @@ msgid ""
 "there may be other yet unknown ways in other environments and window "
 "managers."
 msgstr ""
-"det kan være ukjente eller hittil ukjente måter i andre miljøer og "
-"vindushåndterere."
 
 #. type: Plain text
 #: bambam.6:61
-#, fuzzy
 msgid ""
 "For the above reasons, starting with version 1.2.0, B<it is possible and "
 "recommended to run bambam in a dedicated login session.>"
 msgstr ""
-"På grunn av dette vil det fra versjon 1.2.0, B<det er mulig å anbefalt å "
-"kjøre BamBam i en egen innloggingsøkt.>"
 
 #. type: Plain text
 #: bambam.6:64
@@ -442,16 +402,12 @@ msgid ""
 "One way to do this is to select BamBam session type from your display "
 "manager settings when logging in (look for a gear icon)."
 msgstr ""
-"En måte å gjøre dette på er å velge BamBam-økttypen fra din skjermhåndterers "
-"innstillinger når du logger inn (se etter et tannhjulsikon)."
 
 #. type: Plain text
 #: bambam.6:67
 msgid ""
 "Another way is use command such as B<exec startx bambam> from a text console."
 msgstr ""
-"En annen måte er å bruke en kommando, som f.eks. B<exec startx bambam> fra "
-"en tekstkonsoll."
 
 #. type: Plain text
 #: bambam.6:69
@@ -459,45 +415,41 @@ msgid ""
 "To turn the sound off and on, type mute and unmute, respectively, in the "
 "game."
 msgstr ""
-"For å skru lyden av og på, skriv (respektivt) «mute» og «unmute», i spillet."
+"Para quitar y poner el sonido, escribe mute y unmute, respectivamente, en el "
+"juego."
 
 #. type: Plain text
 #: bambam.6:72
-#, fuzzy
 msgid ""
 "bambam loads images (GIF, JPEG, PNG and TIFF files) and sounds (WAV and OGG "
 "files) from the following directories:"
 msgstr ""
-"bambam laster inn bilder (GIF, JPEG, PNG og TIFF-filer) og lyder (WAV og OGG-"
-"filer) fra følgende mapper:"
+"Bambam es capaz de cargar imágenes (archivos GIF, JPEG, PNG y TIFF) y "
+"sonidos (archivos WAV y OGG) de los siguientes directorios:"
 
 #. type: Plain text
 #: bambam.6:74
 msgid "the B<data> directory distributed with the game,"
-msgstr "B<data>-mappen som følger med spillet,"
+msgstr ""
 
 #. type: Plain text
 #: bambam.6:76
 msgid "B<$XDG_DATA_HOME> (usually ~/.local/share/bambam/data)"
-msgstr "B<$XDG_DATA_HOME> (vanligvis ~/.local/share/bambam/data)"
+msgstr ""
 
 #. type: Plain text
 #: bambam.6:80
-#, fuzzy
 msgid ""
 "When scanning directories for files, bambam B<does> follow symbolic links "
 "and descend directories. This makes is easy to have bambam use files located "
 "elsewhere."
 msgstr ""
-"Når du skanner mapper for filer, B<følger> bambam symbolske lenker og mapper "
-"rekursivt. Dette gjør det enklere å få bambam til å bruke filer som finnes "
-"annensteds hen."
 
 #. type: SH
 #: bambam.6:80
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "AUTHOR"
-msgstr "Utvikler"
+msgstr ""
 
 #. type: Plain text
 #: bambam.6:83
@@ -505,20 +457,18 @@ msgid ""
 "Spike Burch E<lt>spikeb@gmail.comE<gt> Marcin Owsiany E<lt>marcin@owsiany."
 "plE<gt>"
 msgstr ""
-"Spike Burch E<lt>spikeb@gmail.comE<gt> Marcin Owsiany E<lt>marcin@owsiany."
-"plE<gt>"
 
 #: bambam.en.desktop:3 bambam-session.en.desktop:3
 msgid "BamBam"
-msgstr "BamBam"
+msgstr ""
 
 #. TRANSLATORS: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon! Do NOT translate or remove the application name from the list! It is used for search.
 #: bambam.en.desktop:11
 msgid "bambam;baby;child;toddler;game;keyboard mashing;mouse;doodling;"
-msgstr "bambam;baby;barn;spedbarn;spill;tastaturtrykking;mus;dodling;"
+msgstr ""
 
 #~ msgid "A keyboard mashing game for babies."
-#~ msgstr "Et tastaturtrykkespill for babyer."
+#~ msgstr "Un juego de machacar el teclado para bebés."
 
 #~ msgid "bambam - a keyboard mashing and doodling game for babies"
-#~ msgstr "bambam—et tastaturtrykk- og drodlingsspill for babyer"
+#~ msgstr "Bambam - un juego de machacar y garabatear para bebés"

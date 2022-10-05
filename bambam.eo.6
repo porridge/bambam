@@ -1,0 +1,82 @@
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH bambam 6 "10\-a de Septembro, 2022" "versio 1.2.0" 
+.SH NOMO
+bambam \- klavaro\-premaĉa ludo por beboj
+.SH RESUMO
+\fBbambam\fP [\fIOPCIOJ\fP]
+.SH PRISKRIBO
+.TP 
+\fB\-u\fP, \fB\-\-uppercase\fP
+Montri MAJUSKLAJN literojn.
+.TP 
+\fB\-d\fP, \fB\-\-deterministic\-sounds\fP
+Soni same por samaj klavpremoj.
+.TP 
+\fB\-D\fP, \fB\-\-dark\fP
+Uzi malhelan fonon anstataŭ helan.
+.TP 
+\fB\-m\fP, \fB\-\-mute\fP
+Ne ludi ajnan sonon.
+.TP 
+\fB\-\-sound_blacklist\fP=\fIDOSIERŜABLONO\fP
+Listo de dosiernomaj ŝablonoj de neludotaj sonoj.
+.TP 
+\fB\-\-image_blacklist\fP=\fIDOSIERŜABLONO\fP
+Listo de dosiernomaj ŝablonoj de nemontrotaj bildoj.
+.TP 
+\fB\-\-wayland\-ok\fP
+Ne malhelpu ruladon sub Wayland. Vidu la sekcion \fBNOTES\fP.
+.PP
+bambam estas klavara kaj musa ludo por beboj verkita en Python. Premo de
+literaj klavoj montrigas literojn ĉe hazardaj lokoj kaj koloroj. Premo de
+aliaj klavoj desegnas bildetojn ĉe hazardaj lokoj. Musotreneo dum la
+musbutono estas premata desegnas hazarde ŝanĝantajn kolorojn. La ekrano
+forviŝiĝas hazarde.
+.SH NOTOJ
+\fBPor forlasi, rekte tajpu la komandon menciitan en la supra maldekstra
+angulo de la fenestro. En la Esperanta lokaĵaro, jen la vorto: forlasi.\fP
+.PP
+\fBKonsciu\fP aliajn manierojn enfokusigi alian aplikaĵon for de bambam:
+.IP \(bu
+when running under Wayland, it is not currently possible for bambam to grab
+all key presses.  A consequence of that is that if you use GNOME Shell,
+pressing the Windows (a.k.a. Super) key will activate the activities
+overview.  Please check your environment.  As a workaround, starting with
+version 1.1.2, bambam will try to detect if it is running under Wayland. If
+this is the case, bambam will display a warning and refuse to work.  You can
+disable this workaround, with the \fB\-\-wayland\-ok\fP option.
+.IP \(bu
+bambam ne forbaras aktivigon de virtuala terminalo (ekz. Stir+Alt+F1). Vidu
+la ekzemplan dosieron 50\-dont\-vt\-switch.conf se vi volas forbari tion.
+.IP \(bu
+there may be other yet unknown ways in other environments and window
+managers.
+.PP
+For the above reasons, starting with version 1.2.0, \fBit is possible and
+recommended to run bambam in a dedicated login session.\fP
+.IP \(bu
+One way to do this is to select BamBam session type from your display
+manager settings when logging in (look for a gear icon).
+.IP \(bu
+Alia maniero estas uzi komandon kiel \fBexec startx bambam\fP per teksta
+konzolo.
+.PP
+Por malŝalti aŭ ŝalti la sonon, tajpu "silentigi" aŭ "malsilentigi",
+respektive, dum la ludo.
+.PP
+bambam ŝargas bildojn (GIF\-, JPEG\-, PNG\- kaj TIFF\-dosieroj) kaj sonojn (WAV\-
+kaj OGG\-dosieroj) el la jenaj dosierujoj:
+.IP \(bu
+la dosierujo \fBdata\fP distribuita kune kun la ludo,
+.IP \(bu
+\fB$XDG_DATA_HOME\fP (kutime ~/.local/share/bambam/data)
+.PP
+Dum serĉado dosierujojn pri dosieroj, bambam \fBja\fP sekvas simbolajn ligilojn
+kaj subdosierujojn. Tio faciligas uzon de dosieroj alilokaj.
+.SH AŬTORO
+Spike Burch <spikeb@gmail.com> Marcin Owsiany
+<marcin@owsiany.pl>
