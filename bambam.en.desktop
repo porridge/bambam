@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=BamBam
+Comment=Keyboard mashing and doodling game for babies and toddlers.
+Exec=/usr/games/bambam
+Icon=bambam
+Terminal=false
+Type=Application
+Categories=Game;KidsGame;
+# TRANSLATORS: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon! Do NOT translate or remove the application name from the list! It is used for search.
+Keywords=bambam;baby;child;toddler;game;keyboard mashing;mouse;doodling;

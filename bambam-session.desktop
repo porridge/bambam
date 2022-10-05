@@ -1,0 +1,16 @@
+[Desktop Entry]
+Name[ca]=BamBam
+Name[de]=BamBam
+Name[eo]=BamBam
+Name[nb_NO]=BamBam
+Name[pl]=BamBam
+Name=BamBam
+Comment[ca]=Per a que els nadons i els nens petits matxuquin el teclat i facin gargots.
+Comment[de]=Ein Tastendrückspiel für Babys und Kleinkinder.
+Comment[eo]=Klavaro-premaĉa kaj desegnaĉa ludo por beboj.
+Comment[pl]=Gra w klawiaturę i bazgranie dla małych dzieci.
+Comment=Keyboard mashing and doodling game for babies and toddlers.
+Exec=/usr/games/bambam --in-dedicated-session
+TryExec=/usr/games/bambam
+Icon=bambam
+Type=Application

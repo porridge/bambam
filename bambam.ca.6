@@ -1,0 +1,87 @@
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH bambam 6 "10 de setembre de 2022" "versió 1.2.0" 
+.SH NOM
+bambam: un joc de matxucar el teclat i fer gargots per a nadons i nens
+petits
+.SH SINOPSI
+\fBbambam\fP [\fIOPTIONS\fP]
+.SH DESCRIPCIÓ
+.TP 
+\fB\-u\fP, \fB\-\-uppercase\fP
+Mostrar en MAJÚSCULES.
+.TP 
+\fB\-d\fP, \fB\-\-deterministic\-sounds\fP
+Produeix els mateixos sons amb les mateixes de tecles.
+.TP 
+\fB\-D\fP, \fB\-\-dark\fP
+Utilitzar un fons fosc en lloc de clar.
+.TP 
+\fB\-m\fP, \fB\-\-mute\fP
+No reproduir cap so.
+.TP 
+\fB\-\-sound_blacklist\fP=\fIGLOB\fP
+Llista de patrons de noms de fitxer de so que no es reproduiran mai.
+.TP 
+\fB\-\-image_blacklist\fP=\fIGLOB\fP
+Llista de patrons de noms de fitxer d'imatge que no es mostraran mai.
+.TP 
+\fB\-\-wayland\-ok\fP
+No eviteu el maneig de Wayland. Veure la secció \fBNOTES\fP.
+.PP
+bambam és un joc de teclat i ratolí per a bebès escrit en Python.  En prémer
+les lletres aquestes es mostren en ubicacions i colors aleatoris.  En prémer
+qualsevol altra tecla es dibuixen petites imatges en ubicacions aleatòries.
+Arrossegar el ratolí mentre es prem el botó del ratolí dibuixa en colors que
+canvien aleatòriament.  La pantalla s'esborra a l'atzar.
+.SH NOTES
+\fBPer a sortir, escriu directament l'ordre esmentada a l'extrem superior
+esquerre de la finestra. En anglés, la paraula és: quit.\fP
+.PP
+\fBAdvertència\fP hi ha maneres de canviar a una altra aplicació des de bambam:
+.IP \(bu
+quan s'executa sota Wayland, actualment no és possible que bambam agafi
+totes les premses de tecles.  Una conseqüència d'això és que si utilitzeu
+GNOME Shell, si premeu la tecla Windows (també coneguda com a Super)
+s'activarà la vista general de les activitats.  Consulteu el vostre entorn.
+Com a solució alternativa, a partir de la versió 1.1.2, bambam intentarà
+detectar si s'està executant sota Wayland. Si aquest és el cas, bambam
+mostrarà un avís i es negarà a treballar.  Podeu desactivar aquesta solució
+alternativa, amb l'opció \fB\-\-wayland\-ok\fP.
+.IP \(bu
+bambam no bloqueja la commutació de terminals virtuals (p. ex.
+CONTROL+ALT+F1). Veure l'exemple del fitxer 50\-dont\-vt\-switch.conf si vols
+bloquejar\-lo.
+.IP \(bu
+pot haver\-hi altres maneres encara desconegudes en altres entorns i gestors
+de finestres.
+.PP
+Per les raons anteriors, a partir de la versió 1.2.0, \fBés possible i
+recomanable executar bambam en una sessió d'inici de sessió dedicada.\fP
+.IP \(bu
+Una manera de fer\-ho és seleccionar el tipus de sessió de BamBam a la
+configuració del gestor de visualització quan inicieu sessió (cerqueu una
+icona d'engranatge).
+.IP \(bu
+Una altra manera és utilitzar una ordre com ara \fBexec startx bambam\fP des
+d'una consola de text.
+.PP
+Per a desactivar i activar el so, escriu silenci i nosilenci,
+respectivament, al joc.
+.PP
+bambam carrega imatges (fitxers GIF, JPEG, PNG i TIFF) i sons (fitxers WAV i
+OGG) des dels directoris següents:
+.IP \(bu
+el directori \fBdata\fP distribuït amb el joc,
+.IP \(bu
+\fB$XDG_DATA_HOME\fP (normalment ~/.local/share/bambam/data)
+.PP
+Quan exploris directoris per a fitxers, bambam \fBdoes\fP segueix enllaços
+simbòlics i descendents de directoris. Això fa que sigui fàcil tenir fitxers
+d'ús bambam ubicats en un altre lloc.
+.SH AUTOR
+Spike Burch <spikeb@gmail.com> Marcin Owsiany
+<marcin@owsiany.pl>

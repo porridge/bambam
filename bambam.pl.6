@@ -3,9 +3,9 @@
 .\" This file was generated with po4a. Translate the source file.
 .\"
 .\"*******************************************************************
-.TH bambam 6 "30 grudnia 2020" "wersja 1.1.2" 
+.TH bambam 6 "10 września 2022" "wersja 1.2.0" 
 .SH NAZWA
-bambam \- gra w klawiaturę i doodling dla małych dzieci
+bambam \- gra w klawiaturę i bazgranie dla małych dzieci
 .SH SKŁADNIA
 \fBbambam\fP [\fIOPCJE\fP]
 .SH OPIS
@@ -23,10 +23,10 @@ Używaj ciemnego tła zamiast jasnego.
 Nie wydawaj żadnych dźwięków.
 .TP 
 \fB\-\-sound_blacklist\fP=\fIGLOB\fP
-Lista wzorów nazw plików dźwięków które nigdy nie mają być odtwarzane.
+Lista wzorów nazw plików dźwięków, które nigdy nie mają być odtwarzane.
 .TP 
 \fB\-\-image_blacklist\fP=\fIGLOB\fP
-Lista wzorów nazw plików obrazów które nigdy nie mają być wyświetlane.
+Lista wzorów nazw plików obrazów, które nigdy nie mają być wyświetlane.
 .TP 
 \fB\-\-wayland\-ok\fP
 Nie zapobiegaj działaniu pod Wayland. Patrz \fBUWAGI\fP.
@@ -40,7 +40,34 @@ zmieniających się kolorach.  Ekran jest kasowany losowo.
 \fBAby zakończyć grę, wpisz bezpośrednio na klawiaturze komendę wspomnianą w
 lewym górnym rogu okna. W Polskim locale jest to słowo: koniec.\fP
 .PP
-Aby wyłączyć lub włączyć dźwięk, wpisz w trakcie gry odpowienio słowo:
+\fBUwaga\fP, istnieją sposoby na to by przełączyć się z bambam do innego
+programu:
+.IP \(bu
+bambam nie potrafi obecnie przechwytywać wszystkich naciśnięć klawiszy gdy
+działa w sesji Wayland. W rezultacie gdy używany jest GNOME Shell,
+naciśnięcie klawisza Windows (znanego też jako Super) włączy podgląd
+aktywności. Proszę sprawdzić to w swoim środowisku.  Jako środek
+zapobiegawczy, od wersji 1.1.2 bambam próbuje wykryć, czy działa pod
+Wayland. Jeśli tak jest, wyświetla ostrzeżenie i odmawia działania. Możesz
+wyłączyć to zachowanie przy pomocy opcji \fB\-\-wayland\-ok\fP.
+.IP \(bu
+bambam nie blokuje przełączania terminali wirtualnych Linuksa
+(np. CTRL+ALT+F1). Jeśli chciałbyś to zablokować, zobacz przykładowy plik
+50\-dont\-vt\-switch.conf.
+.IP \(bu
+być może istnieją jeszcze nieznane sposoby w innych środowiskach i
+zarządcach okien.
+.PP
+Z powyższych powodów, od wersji 1.2.0 \fBjest możliwe i zalecane uruchamianie
+bambam w dedykowanej sesji logowania.\fP
+.IP \(bu
+Jednym ze sposobów na to jest wybranie typu sesji BamBam w twoim menedżerze
+wyświetlania podczas logowania się (szukaj ikony koła zębatego).
+.IP \(bu
+Innym jest użycie komendy takiej jak \fBexec startx bambam\fP z konsoli
+tekstowej.
+.PP
+Aby wyłączyć lub włączyć dźwięk, wpisz w trakcie gry odpowiednio słowo:
 wycisz i zglosnij.
 .PP
 bambam ładuje obrazy (pliki GIF, JPEG, PNG i TIFF) oraz dźwięki (pliki WAV i
@@ -50,26 +77,9 @@ katalog \fBdata\fP będący częścią gry,
 .IP \(bu
 \fB$XDG_DATA_HOME\fP (zwykle ~/.local/share/bambam/data)
 .PP
-Poszukując plików w tych katalogach, bambam \fBpodążą\fP za dowiązaniami
+Poszukując plików w tych katalogach, bambam \fBpodąża\fP za dowiązaniami
 symbolicznymi i wchodzi wgłąb katalogów. Dzięki temu można łatwo udostępnić
 grze pliki umieszczone gdzie indziej.
-.PP
-\fBUwaga\fP, istnieją sposoby na to by przełączyć się z bambam do innego
-programu:
-.IP \(bu
-bambam nie potrafi obecnie przechwytywać wszystkich naciśnięć klawiszy gdy
-działa w sesji Wayland. W rezultacie gdy używany jest GNOME Shell,
-naciśnięcie klawisza Windows (znanego też jako Super) włączy podgląd
-aktywności. Proszę sprawdzić to w swoim środowisku. Jeśli jest tak w
-istocie, wtedy możesz spróbować uruchomić bambam w oddzielnej sesji X, na
-przykład wydając polecenie \fBstartx bambam\fP w konsoli tekstowej. Jako środek
-zapobiegawczy bambam próbuje wykryć czy działa pod Wayland. Jeśli tak jest,
-wyświetla ostrzeżenie i odmawia działania. Możesz wyłączyć to zachowanie
-przy pomocy opcji \fB\-\-wayland\-ok\fP.
-.IP \(bu
-bambam nie blokuje przełączania terminali wirtualnych Linuksa
-(np. CTRL+ALT+F1). Jeśli chciałbyś to zablokować, zobacz przykładowy plik
-50\-dont\-vt\-switch.conf.
 .SH AUTOR
 Spike Burch <spikeb@gmail.com> Marcin Owsiany
 <marcin@owsiany.pl>

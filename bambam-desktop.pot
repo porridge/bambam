@@ -1,0 +1,31 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the bambam package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: bambam 1.2.0\n"
+"Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
+"POT-Creation-Date: 2022-09-10 10:02+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: bambam.en.desktop:3
+msgid "BamBam"
+msgstr ""
+
+#: bambam.en.desktop:4
+msgid "Keyboard mashing and doodling game for babies and toddlers."
+msgstr ""
+
+#. TRANSLATORS: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon! Do NOT translate or remove the application name from the list! It is used for search.
+#: bambam.en.desktop:11
+msgid "bambam;baby;child;toddler;game;keyboard mashing;mouse;doodling;"
+msgstr ""
