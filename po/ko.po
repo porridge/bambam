@@ -27,13 +27,16 @@ msgstr ""
 "Project-Id-Version: bambam 1.2.0\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2022-09-10 10:02+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2022-10-05 06:17+0000\n"
+"Last-Translator: 이정희 <daemul72@gmail.com>\n"
+"Language-Team: Korean <https://hosted.weblate.org/projects/bambam/"
+"app-and-manpage/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.14.1\n"
 
 #. TRANSLATORS: command string to mute sounds.
 #. Must not contain spaces, and should be be at least 4 characters long,
@@ -42,7 +45,7 @@ msgstr ""
 #. it is relatively easy to type by an adult without making mistakes.
 #: bambam.py:45
 msgid "mute"
-msgstr ""
+msgstr "음소거"
 
 #. TRANSLATORS: command string to unmute sounds.
 #. Must not contain spaces, and should be be at least 4 characters long,
@@ -51,7 +54,7 @@ msgstr ""
 #. it is relatively easy to type by an adult without making mistakes.
 #: bambam.py:51
 msgid "unmute"
-msgstr ""
+msgstr "음소거 해제"
 
 #. TRANSLATORS: command string to quit the game.
 #. Must not contain spaces, and should be be at least 4 characters long,
@@ -60,7 +63,7 @@ msgstr ""
 #. it is relatively easy to type by an adult without making mistakes.
 #: bambam.py:57
 msgid "quit"
-msgstr ""
+msgstr "끝내기"
 
 #: bambam.py:73
 #, python-format
