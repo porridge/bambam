@@ -1,4 +1,5 @@
-debian/bambam.desktop usr/share/applications/
+bambam.desktop usr/share/applications/
+bambam-session.desktop usr/share/xsessions/
 debian/bambam.xpm usr/share/pixmaps/
 debian/bambam.png usr/share/icons/hicolor/64x64/apps/
 data usr/share/bambam/
