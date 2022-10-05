@@ -23,7 +23,9 @@ _EXIT_SECONDS = 5
 def main():
     bambam = subprocess.Popen(['/usr/games/bambam'])
     try:
-        await_startup()
+        await_welcome_screen()
+        send_keycodes('space')  # any keypress should do
+        await_blank_screen()
         test_functionality()
         shut_bambam_down()
         logging.info('Waiting for game to exit cleanly.')
@@ -36,8 +38,24 @@ def main():
         raise
 
 
-def await_startup():
-    logging.info('Polling to observe a mostly-white screen (which means that bambam has started).')
+def await_welcome_screen():
+    logging.info('Polling to observe a light blue screen (which means that bambam has started AND is displaying a welcome screen where the text is blue).')
+    attempt_count = 40
+    sleep_delay = 0.25
+    for attempt in range(attempt_count):
+        current_average_hsl = get_average_hsl()
+        logging.info('On attempt %d the average screen HSV was %s.', attempt, current_average_hsl)
+        h, s, l = current_average_hsl
+        if 50 < h and h < 70 and 20 < s and s < 40 and 80 < l and l < 100:
+            logging.info('Found light blue screen, looks like bambam started up OK.')
+            take_screenshot('welcome')
+            return
+        time.sleep(sleep_delay)
+    raise Exception('Failed to see bambam start and display light-blue background, after polling %d times every %f seconds.' % (attempt_count, sleep_delay))
+
+
+def await_blank_screen():
+    logging.info('Polling to observe a mostly-white screen (which means that welcome screen was cleared).')
     attempt_count = 40
     sleep_delay = 0.25
     for attempt in range(attempt_count):
@@ -45,7 +63,7 @@ def await_startup():
         logging.info('On attempt %d the average screen color was %s.', attempt, current_average_color)
         if all(color_component >= 248 for color_component in current_average_color):
             logging.info('Found mostly white screen, looks like bambam started up OK.')
-            take_screenshot('startup')
+            take_screenshot('blank')
             return
         time.sleep(sleep_delay)
     raise Exception('Failed to see bambam start and display mostly-white background, after polling %d times every %f seconds.' % (attempt_count, sleep_delay))
@@ -89,11 +107,22 @@ def take_screenshot(title):
 
 
 def get_average_color():
+    return summarize_screen('r*255', 'g*255', 'b*255')
+
+
+def get_average_hsl():
+    return summarize_screen('hue*100', 'saturation*100', 'lightness*100')
+
+
+def summarize_screen(*fx_expressions):
+    if len(fx_expressions) != 3:
+        raise Exception('Expected three FX expressions, got %s' % fx_expressions)
+    format_arg = ','.join(('%%[fx:int(%s)]' % e) for e in fx_expressions)
     color_str = subprocess.check_output([
         'convert',
         'xwd:' + os.path.join(os.environ['AUTOPKGTEST_TMP'], 'Xvfb_screen0'),
         '-resize', '1x1!',
-        '-format', '%[fx:int(r*255)],%[fx:int(g*255)],%[fx:int(b*255)]',
+        '-format', format_arg,
         'info:-']).decode()
     m = _COLOR_PATTERN.match(color_str)
     if not m:
