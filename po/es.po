@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2022-10-04 13:43+0200\n"
-"PO-Revision-Date: 2022-12-31 14:49+0000\n"
+"PO-Revision-Date: 2023-01-01 18:50+0000\n"
 "Last-Translator: gallegonovato <fran-carro@hotmail.es>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/bambam/"
 "app-and-manpage/es/>\n"
@@ -504,7 +504,7 @@ msgstr "BamBam"
 #. TRANSLATORS: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon! Do NOT translate or remove the application name from the list! It is used for search.
 #: bambam.en.desktop:11
 msgid "bambam;baby;child;toddler;game;keyboard mashing;mouse;doodling;"
-msgstr "bambam;bebé;niño;niño pequeño;juego;teclado;ratón;garabatos;"
+msgstr "bambam;bebé;niño;jóvenes;juego;teclado;ratón;garabatos;"
 
 #~ msgid "A keyboard mashing game for babies."
 #~ msgstr "Un juego de machacar el teclado para bebés."
