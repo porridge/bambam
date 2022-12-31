@@ -23,8 +23,8 @@ man bambam
 ### Manual installation
 
 Before installing this application, ensure you have the following installed:
-  * [Python](http://python.org) - version 3.x is recommended but version 2.7 should work too
-  * [Pygame](http://www.pygame.org/) - version 2.x is recommended, but version 1.9 may work too
+  * [Python](http://python.org) - version 3.x is supported but version 2.7 might still work too
+  * [Pygame](http://www.pygame.org/) - version 2.x is supported, but version 1.9 might work too
 
 If not, you can install it manually as follows:
   1. [Download](https://github.com/porridge/bambam/releases) the `bambam-1.2.0.zip` or `bambam-1.2.0.tar.gz` file.
