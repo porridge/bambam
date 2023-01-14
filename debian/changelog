@@ -1,3 +1,13 @@
+bambam (1.2.1+dfsg-1) sid; urgency=medium
+
+  * New upstream release (just translation updates)
+  * Smoke test script now incorporated upstream. Use that and drop the script
+    from debian/tests
+  * Update copyright year
+  * Update Standards-Version, no changes needed.
+
+ -- Marcin Owsiany <porridge@debian.org>  Sat, 14 Jan 2023 08:42:08 +0100
+
 bambam (1.2.0+dfsg-1) sid; urgency=low
 
   * New upstream release

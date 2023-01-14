@@ -10,12 +10,12 @@ Source:
 Files: *
 Copyright: 2007-2008, Don Brown
            2010, Spike Burch <spikeb@gmail.com>
-           2014-2020, Marcin Owsiany <marcin@owsiany.pl>
+           2014-2023, Marcin Owsiany <marcin@owsiany.pl>
 License: GPL-3+
 
 Files: debian/*
 Copyright: 2011-2012, Bojana Borkovic <bojana.borkovic@ulk.rs.ba>
-           2014-2020, Marcin Owsiany <marcin@owsiany.pl>
+           2014-2023, Marcin Owsiany <marcin@owsiany.pl>
 License: GPL-3+
 
 Files: data/bear.gif
