@@ -2,12 +2,16 @@
 Name[ca]=BamBam
 Name[de]=BamBam
 Name[eo]=BamBam
+Name[es]=BamBam
+Name[ko]=BamBam
 Name[nb_NO]=BamBam
 Name[pl]=BamBam
 Name=BamBam
 Comment[ca]=Per a que els nadons i els nens petits matxuquin el teclat i facin gargots.
 Comment[de]=Ein Tastendrückspiel für Babys und Kleinkinder.
 Comment[eo]=Klavaro-premaĉa kaj desegnaĉa ludo por beboj.
+Comment[es]=Juego de teclado y garabatos para los bebés y los niños pequeños.
+Comment[ko]=영유아를 위한 키보드 매싱 및 낙서 게임.
 Comment[pl]=Gra w klawiaturę i bazgranie dla małych dzieci.
 Comment=Keyboard mashing and doodling game for babies and toddlers.
 Exec=/usr/games/bambam
@@ -18,6 +22,8 @@ Categories=Game;KidsGame;
 # TRANSLATORS: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon! Do NOT translate or remove the application name from the list! It is used for search.
 Keywords[ca]=bambam;nadó;nen;nen petit;joc;utilitzar el teclat;ratolí;gargots;nena petita;
 Keywords[eo]=bambam;bebo;infano;ludo;premaĉo;muso;desegnaĉo;
+Keywords[es]=bambam;bebé;niño;jóvenes;juego;teclado;ratón;garabatos;
+Keywords[ko]=bambam;baby;child;toddler;game;keyboard mashing;mouse;doodling;뱀뱀;아기;어린이;유아;게임;키보드 매싱;마우스;낙서;탕탕;퍽퍽;팡팡;
 Keywords[nb_NO]=bambam;baby;barn;spedbarn;spill;tastaturtrykking;mus;dodling;
 Keywords[pl]=bambam;dziecko;niemowle;gra;klawiatura;mysz;bazgranie;rysowanie;
 Keywords=bambam;baby;child;toddler;game;keyboard mashing;mouse;doodling;
