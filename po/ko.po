@@ -27,7 +27,7 @@ msgstr ""
 "Project-Id-Version: bambam 1.2.0\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2022-09-10 10:02+0200\n"
-"PO-Revision-Date: 2022-10-05 06:17+0000\n"
+"PO-Revision-Date: 2022-10-06 13:21+0000\n"
 "Last-Translator: 이정희 <daemul72@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/bambam/"
 "app-and-manpage/ko/>\n"
@@ -68,62 +68,63 @@ msgstr "끝내기"
 #: bambam.py:73
 #, python-format
 msgid "Failed to load file \"%(file)s\": %(message)s"
-msgstr ""
+msgstr "\"%(file)s\" 파일을 불러오지 못했습니다: %(message)s"
 
 #: bambam.py:123
 #, python-format
 msgid ""
 "image has height of 0 after resizing to fit within %(width)dx%(height)d "
 "pixels"
-msgstr ""
+msgstr "이미지의 높이는 %(width)dx%(height)d 픽셀에 맞게 크기를 조정한 후 0입니다"
 
 #. TRANSLATORS: "item" can refer to an image or sound file path
 #: bambam.py:157
 #, python-format
 msgid "Skipping blacklisted item %s"
-msgstr ""
+msgstr "블랙리스트된 항목 %s을(를) 건너뛰는 중"
 
 #. TRANSLATORS: the string is space-separated list of all command strings.
 #: bambam.py:298
 #, python-format
 msgid "Commands: %s"
-msgstr ""
+msgstr "명령: %s"
 
 #: bambam.py:311
 msgid "Error: Wayland display detected."
-msgstr ""
+msgstr "오류: Wayland 디스플레이가 감지되었습니다."
 
 #: bambam.py:312
 msgid "Cannot lock the keyboard safely."
-msgstr ""
+msgstr "키보드를 안전하게 잠글 수 없습니다."
 
 #: bambam.py:314
 msgid "Press any key to quit."
-msgstr ""
+msgstr "종료하려면 아무 키나 누르십시오."
 
 #: bambam.py:328
 msgid "Please read the following important information!"
-msgstr ""
+msgstr "다음 중요한 정보를 읽으십시오!"
 
 #. TRANSLATORS: the substituted word will be the translated command for quitting the game.
 #: bambam.py:364
 #, python-format
 msgid ""
 "To quit the game after it starts, directly type the word %s on the keyboard."
-msgstr ""
+msgstr "게임을 시작한 후 종료하려면 키보드에 %s라는 단어를 직접 입력합니다."
 
 #. TRANSLATORS: "this" means the word quit from the preceding message, in this context.
 #: bambam.py:366
 msgid ""
 "This, and other available commands are mentioned in the upper left-hand "
 "corner of the window."
-msgstr ""
+msgstr "이 명령과 기타 사용 가능한 명령은 창의 왼쪽 상단 모서리에 나와 있습니다."
 
 #: bambam.py:369
 msgid ""
 "The game tries to grab the keyboard and mouse pointer focus, to keep your "
 "child from causing damage to your files."
-msgstr ""
+msgstr "게임은 자녀가 파일을 손상시키지 않도록 키보드와 마우스 포인터 포커스를 "
+"잡으려고 합니다."
 
 #: bambam.py:373
 msgid ""
@@ -132,12 +133,16 @@ msgid ""
 "accidentally quit the game, or swich to a different virtual terminal (for "
 "example using CTRL+ALT+Fx)."
 msgstr ""
+"이제 게임이 전용 로그인 세션에서 실행되어 추가적인 안전성을 제공합니다. "
+"그러나 어린이가 실수로 게임을 종료하거나 다른 가상 터미널로 전환할 수 "
+"있습니다(예: CTRL+ALT+Fx 사용)."
 
 #: bambam.py:378
 msgid ""
 "Make sure other user sessions (if any) are locked with a password, if "
 "leaving your child unattended with the game."
-msgstr ""
+msgstr "자녀를 게임에 방치하는 경우, 다른 사용자 세션(있는 경우)이 암호로 잠겨 "
+"있는지 확인하십시오."
 
 #: bambam.py:382
 msgid ""
@@ -147,183 +152,188 @@ msgid ""
 "Examples include the Super (also known as Windows) key, function key "
 "combinations (CTRL+ALT+Fx) or hot corners when using the mouse."
 msgstr ""
+"그러나 일부 환경에서는 특수 키 조합을 사용하여 어린이가 게임을 종료하거나 "
+"게임에서 다른 방향으로 전환할 수 있습니다. 정확한 메커니즘은 그래픽 환경, 창 "
+"관리자 등에 따라 다릅니다. 예로는 Super(Windows라고도 함) 키, 기능 키 "
+"조합(CTRL+ALT+Fx) 또는 마우스를 사용할 때의 위험 지대가 있습니다."
 
 #: bambam.py:388
 msgid "We recommend to NOT LEAVE YOUR CHILD UNATTENDED with the game."
-msgstr ""
+msgstr "게임에 \"아이를 방치하지 않는 것\"이 좋습니다."
 
 #: bambam.py:390
 msgid ""
 "Please consider using a dedicated BamBam session instead (look for a gear "
 "icon when logging in), which is safer."
-msgstr ""
+msgstr "대신 더 안전한 전용 BamBam 세션(로그인 할 때 톱니바퀴 아이콘 확인)을 "
+"사용하는 것이 더 안전합니다."
 
 #: bambam.py:394
 msgid "Press any key or mouse button to start the game now."
-msgstr ""
+msgstr "키 또는 마우스 버튼을 눌러 지금 게임을 시작하십시오."
 
 #: bambam.py:415 bambam.py:422
 #, python-format
 msgid "Using data directory %s"
-msgstr ""
+msgstr "%s 데이터 디렉토리 사용"
 
 #: bambam.py:426 bambam.en.desktop:4 bambam-session.en.desktop:4
 msgid "Keyboard mashing and doodling game for babies and toddlers."
-msgstr ""
+msgstr "영유아를 위한 키보드 매싱 및 낙서 게임."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
 #: bambam.py:428 bambam.6:11
 msgid "Show UPPER-CASE letters."
-msgstr ""
+msgstr "대문자를 표시합니다."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
 #: bambam.py:430 bambam.6:23
 msgid "List of sound filename patterns to never play."
-msgstr ""
+msgstr "재생하지 않을 사운드 파일이름 패턴 목록입니다."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
 #: bambam.py:432 bambam.6:26
 msgid "List of image filename patterns to never show."
-msgstr ""
+msgstr "절대 표시하지 않을 이미지 파일이름 패턴 목록입니다."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
 #: bambam.py:434 bambam.6:14
 msgid "Produce same sounds on same key presses."
-msgstr ""
+msgstr "동일한 키를 누를 때 동일한 소리가 납니다."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
 #: bambam.py:436 bambam.6:17
 msgid "Use a dark background instead of a light one."
-msgstr ""
+msgstr "밝은 배경 대신 어두운 배경을 사용합니다."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
 #: bambam.py:438 bambam.6:20
 msgid "Do not play any sounds."
-msgstr ""
+msgstr "아무 소리도 재생하지 않습니다."
 
 #: bambam.py:440
 msgid "Do not prevent running under Wayland."
-msgstr ""
+msgstr "Wayland에서 실행하는 것을 막지 않습니다."
 
 #: bambam.py:448
 msgid "Warning, fonts disabled."
-msgstr ""
+msgstr "경고, 글꼴이 비활성화되었습니다."
 
 #: bambam.py:450
 msgid "Warning, sound disabled."
-msgstr ""
+msgstr "경고, 소리가 비활성화되었습니다."
 
 #. TRANSLATORS: Main game window name.
 #: bambam.py:460
 msgid "Bam Bam"
-msgstr ""
+msgstr "Bam Bam"
 
 #: bambam.py:487
 msgid "All sounds failed to load."
-msgstr ""
+msgstr "모든 소리를 불러오지 못했습니다."
 
 #: bambam.py:493
 msgid "All images failed to load."
-msgstr ""
+msgstr "모든 이미지를 불러오지 못했습니다."
 
 #. type: TH
 #: bambam.6:1
 #, no-wrap
 msgid "bambam"
-msgstr ""
+msgstr "bambam"
 
 #. type: TH
 #: bambam.6:1
 #, no-wrap
 msgid "10 September 2022"
-msgstr ""
+msgstr "2022년 9월 10일"
 
 #. type: TH
 #: bambam.6:1
 #, no-wrap
-msgid "version 1.2.0"
-msgstr ""
+msgid "version 1.2.1"
+msgstr "버전 1.2.1"
 
 #. type: SH
 #: bambam.6:2
 #, no-wrap
 msgid "NAME"
-msgstr ""
+msgstr "이름"
 
 #. type: Plain text
 #: bambam.6:4
 msgid "bambam - a keyboard mashing and doodling game for babies and toddlers"
-msgstr ""
+msgstr "bambam - 영유아를 위한 키보드 매싱 및 낙서 게임"
 
 #. type: SH
 #: bambam.6:4
 #, no-wrap
 msgid "SYNOPSIS"
-msgstr ""
+msgstr "개요"
 
 #. type: Plain text
 #: bambam.6:7
 msgid "B<bambam> [I<OPTIONS>]"
-msgstr ""
+msgstr "B<bambam> [I<옵션>]"
 
 #. type: SH
 #: bambam.6:7
 #, no-wrap
 msgid "DESCRIPTION"
-msgstr ""
+msgstr "설명"
 
 #. type: TP
 #: bambam.6:8
 #, no-wrap
 msgid "B<-u>, B<--uppercase>"
-msgstr ""
+msgstr "B<-u>, B<--uppercase>"
 
 #. type: TP
 #: bambam.6:11
 #, no-wrap
 msgid "B<-d>, B<--deterministic-sounds>"
-msgstr ""
+msgstr "B<-d>, B<--deterministic-sounds>"
 
 #. type: TP
 #: bambam.6:14
 #, no-wrap
 msgid "B<-D>, B<--dark>"
-msgstr ""
+msgstr "B<-D>, B<--dark>"
 
 #. type: TP
 #: bambam.6:17
 #, no-wrap
 msgid "B<-m>, B<--mute>"
-msgstr ""
+msgstr "B<-m>, B<--mute>"
 
 #. type: TP
 #: bambam.6:20
 #, no-wrap
 msgid "B<--sound_blacklist>=I<GLOB>"
-msgstr ""
+msgstr "B<--sound_blacklist>=I<GLOB>"
 
 #. type: TP
 #: bambam.6:23
 #, no-wrap
 msgid "B<--image_blacklist>=I<GLOB>"
-msgstr ""
+msgstr "B<--image_blacklist>=I<GLOB>"
 
 #. type: TP
 #: bambam.6:26
 #, no-wrap
 msgid "B<--wayland-ok>"
-msgstr ""
+msgstr "B<--wayland-ok>"
 
 #. type: Plain text
 #: bambam.6:29
 msgid "Do not prevent running under Wayland. See the B<NOTES> section."
-msgstr ""
+msgstr "Wayland에서 실행하는 것을 막지 마십시오. B<참고> 섹션을 참조하십시오."
 
 #. type: Plain text
 #: bambam.6:36
@@ -334,32 +344,37 @@ msgid ""
 "mouse button is pressed draws in randomly changing colours.  The screen is "
 "cleared at random."
 msgstr ""
+"bambam은 Python으로 작성된 유아용 키보드 및 마우스 게임입니다. 문자 키를 "
+"누르면 임의의 위치와 색상으로 인쇄됩니다. 다른 키를 누르면 임의의 위치에 "
+"작은 그림이 그려집니다. 마우스 버튼을 누른 상태에서 마우스를 드래그하면 "
+"무작위로 변화하는 색상이 그려집니다. 무작위로 화면이 지워집니다."
 
 #. type: SH
 #: bambam.6:36
 #, no-wrap
 msgid "NOTES"
-msgstr ""
+msgstr "참고"
 
 #. type: Plain text
 #: bambam.6:39
 msgid ""
 "B<To quit, directly type the command mentioned in the upper left-hand corner "
 "of the window. In the English locales, this is the word: quit.>"
-msgstr ""
+msgstr "B<종료하려면 창의 왼쪽 상단 모서리에 언급된 명령을 직접 입력합니다. 영어 "
+"로케일에서는 단어: quit입니다.>"
 
 #. type: Plain text
 #: bambam.6:41
 msgid ""
 "B<Be aware> that there are ways to switch to another application from bambam:"
-msgstr ""
+msgstr "B<Be aware>에서 다른 응용프로그램으로 전환하는 방법은 다음과 같습니다:"
 
 #. type: IP
 #: bambam.6:41 bambam.6:51 bambam.6:55 bambam.6:61 bambam.6:64 bambam.6:72
 #: bambam.6:74
 #, no-wrap
 msgid "\\(bu"
-msgstr ""
+msgstr "\\(bu"
 
 #. type: Plain text
 #: bambam.6:51
@@ -372,6 +387,12 @@ msgid ""
 "this is the case, bambam will display a warning and refuse to work.  You can "
 "disable this workaround, with the B<--wayland-ok> option."
 msgstr ""
+"Wayland에서 실행할 때 bambam이 모든 키 누름을 잡는 것은 현재 불가능합니다.  "
+"그 결과 GNOME 셸을 사용하는 경우 Windows(일명 Super) 키를 누르면 활동 개요가 "
+"활성화됩니다.  환경을 확인해 주세요. 해결 방법으로 버전 1.1.2부터 bambam은 "
+"Wayland에서 실행 중인지 감지하려고 시도합니다.  이 경우 bambam은 경고를 "
+"표시하고 작업을 거부합니다.  B<--wayland-ok> 옵션을 사용하여 이 해결 방법을 "
+"비활성화할 수 있습니다."
 
 #. type: Plain text
 #: bambam.6:55
@@ -379,20 +400,23 @@ msgid ""
 "bambam does not block virtual terminal switching (e.g.  CTRL+ALT+F1). See "
 "the example 50-dont-vt-switch.conf file if you would like to block that."
 msgstr ""
+"bambam은 가상 터미널 전환을 차단하지 않습니다(예: CTRL+ALT+F1). 차단하려면 "
+"예제 50-dont-vt-switch.conf 파일을 참조하십시오."
 
 #. type: Plain text
 #: bambam.6:57
 msgid ""
 "there may be other yet unknown ways in other environments and window "
 "managers."
-msgstr ""
+msgstr "다른 환경 및 창 관리자에는 아직 알려지지 않은 다른 방법이 있을 수 있습니다."
 
 #. type: Plain text
 #: bambam.6:61
 msgid ""
 "For the above reasons, starting with version 1.2.0, B<it is possible and "
 "recommended to run bambam in a dedicated login session.>"
-msgstr ""
+msgstr "위와 같은 이유로 버전 1.2.0부터 B<전용 로그인 세션에서 bambam을 실행할 수 "
+"있으며 권장합니다.>"
 
 #. type: Plain text
 #: bambam.6:64
@@ -400,19 +424,22 @@ msgid ""
 "One way to do this is to select BamBam session type from your display "
 "manager settings when logging in (look for a gear icon)."
 msgstr ""
+"이를 수행하는 한 가지 방법은 로그인할 때 디스플레이 관리자 설정에서 BamBam "
+"세션 유형을 선택하는 것입니다(톱니바퀴 아이콘 찾기)."
 
 #. type: Plain text
 #: bambam.6:67
 msgid ""
 "Another way is use command such as B<exec startx bambam> from a text console."
-msgstr ""
+msgstr "또 다른 방법은 텍스트 콘솔에서 B<exec startx bambam>과 같은 명령을 사용하는 "
+"것입니다."
 
 #. type: Plain text
 #: bambam.6:69
 msgid ""
 "To turn the sound off and on, type mute and unmute, respectively, in the "
 "game."
-msgstr ""
+msgstr "소리를 끄거나 켜려면 게임에서 각각 음소거 및 음소거 해제를 입력합니다."
 
 #. type: Plain text
 #: bambam.6:72
@@ -420,16 +447,18 @@ msgid ""
 "bambam loads images (GIF, JPEG, PNG and TIFF files) and sounds (WAV and OGG "
 "files) from the following directories:"
 msgstr ""
+"bambam은 다음 디렉터리에서 이미지(GIF, JPEG, PNG 및 TIFF 파일) 및 사운드(WAV "
+"및 OGG 파일)를 불러옵니다:"
 
 #. type: Plain text
 #: bambam.6:74
 msgid "the B<data> directory distributed with the game,"
-msgstr ""
+msgstr "게임과 함께 배포된 B<data> 디렉터리,"
 
 #. type: Plain text
 #: bambam.6:76
 msgid "B<$XDG_DATA_HOME> (usually ~/.local/share/bambam/data)"
-msgstr ""
+msgstr "B<$XDG_DATA_HOME> (보통 ~/.local/share/bambam/data)"
 
 #. type: Plain text
 #: bambam.6:80
@@ -438,12 +467,15 @@ msgid ""
 "and descend directories. This makes is easy to have bambam use files located "
 "elsewhere."
 msgstr ""
+"디렉터리에서 파일을 검색할 때 bambam B<does>는 심볼릭 링크를 따라 디렉터리를 "
+"내려갑니다. 이렇게 하면 bambam이 다른 곳에 있는 파일을 쉽게 사용할 수 "
+"있습니다."
 
 #. type: SH
 #: bambam.6:80
 #, no-wrap
 msgid "AUTHOR"
-msgstr ""
+msgstr "작성자"
 
 #. type: Plain text
 #: bambam.6:83
@@ -451,12 +483,17 @@ msgid ""
 "Spike Burch E<lt>spikeb@gmail.comE<gt> Marcin Owsiany E<lt>marcin@owsiany."
 "plE<gt>"
 msgstr ""
+"Spike Burch E<lt>spikeb@gmail.comE<gt> Marcin Owsiany E<lt>marcin@owsiany."
+"plE<gt>"
 
 #: bambam.en.desktop:3 bambam-session.en.desktop:3
 msgid "BamBam"
-msgstr ""
+msgstr "BamBam"
 
 #. TRANSLATORS: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon! Do NOT translate or remove the application name from the list! It is used for search.
 #: bambam.en.desktop:11
 msgid "bambam;baby;child;toddler;game;keyboard mashing;mouse;doodling;"
 msgstr ""
+"bambam;baby;child;toddler;game;keyboard "
+"mashing;mouse;doodling;뱀뱀;아기;어린이;유아;게임;키보드 "
+"매싱;마우스;낙서;탕탕;퍽퍽;팡팡;"

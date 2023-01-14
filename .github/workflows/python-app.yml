@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["2.7", "3.5"]
+        python-version: ["3.9", "3.10"]
 
     steps:
     - uses: actions/checkout@v3
@@ -37,3 +37,21 @@ jobs:
     - name: Smoke test import
       run: |
         python -c 'import bambam'
+
+    - name: Install GUI packages
+      run: |
+        sudo apt-get install -y xvfb xauth imagemagick xdotool
+
+    - name: Run GUI tests
+      run: |
+        export AUTOPKGTEST_ARTIFACTS=`pwd`/artifacts
+        mkdir -p $AUTOPKGTEST_ARTIFACTS
+        export AUTOPKGTEST_TMP=/tmp
+        export AUTOPKGTEST_BAMBAM_PROGRAM=./bambam.py
+        xvfb-run -e $AUTOPKGTEST_ARTIFACTS/xvfb-run.stderr -s "-screen 0 1024x768x24 -fbdir $AUTOPKGTEST_TMP" ./test-e2e.py
+
+    - name: Save artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-artifacts-${{ matrix.python-version }}
+        path: artifacts
