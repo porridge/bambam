@@ -257,8 +257,8 @@ msgstr "10 de setembre de 2022"
 #. type: TH
 #: bambam.6:1
 #, no-wrap
-msgid "version 1.2.0"
-msgstr "versió 1.2.0"
+msgid "version 1.2.1"
+msgstr "versió 1.2.1"
 
 #. type: SH
 #: bambam.6:2

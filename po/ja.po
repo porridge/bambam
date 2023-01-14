@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
-"POT-Creation-Date: 2022-10-04 13:43+0200\n"
+"POT-Creation-Date: 2023-01-14 07:46+0100\n"
 "PO-Revision-Date: 2021-04-06 08:26+0000\n"
 "Last-Translator: J.R. Hill <hiljusti@pm.me>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/bambam/app-and-"
@@ -237,7 +237,7 @@ msgstr "２０２０年１２月３０日"
 #. type: TH
 #: bambam.6:1
 #, fuzzy, no-wrap
-msgid "version 1.2.0"
+msgid "version 1.2.1"
 msgstr "バージョン１．１．２"
 
 #. type: SH

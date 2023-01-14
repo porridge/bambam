@@ -1,0 +1,70 @@
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH bambam 6 "2022년 9월 10일" "버전 1.2.1" 
+.SH 이름
+bambam \- 영유아를 위한 키보드 매싱 및 낙서 게임
+.SH 개요
+\fBbambam\fP [\fI옵션\fP]
+.SH 설명
+.TP 
+\fB\-u\fP, \fB\-\-uppercase\fP
+대문자를 표시합니다.
+.TP 
+\fB\-d\fP, \fB\-\-deterministic\-sounds\fP
+동일한 키를 누를 때 동일한 소리가 납니다.
+.TP 
+\fB\-D\fP, \fB\-\-dark\fP
+밝은 배경 대신 어두운 배경을 사용합니다.
+.TP 
+\fB\-m\fP, \fB\-\-mute\fP
+아무 소리도 재생하지 않습니다.
+.TP 
+\fB\-\-sound_blacklist\fP=\fIGLOB\fP
+재생하지 않을 사운드 파일이름 패턴 목록입니다.
+.TP 
+\fB\-\-image_blacklist\fP=\fIGLOB\fP
+절대 표시하지 않을 이미지 파일이름 패턴 목록입니다.
+.TP 
+\fB\-\-wayland\-ok\fP
+Wayland에서 실행하는 것을 막지 마십시오. \fB참고\fP 섹션을 참조하십시오.
+.PP
+bambam은 Python으로 작성된 유아용 키보드 및 마우스 게임입니다. 문자 키를 누르면 임의의 위치와 색상으로 인쇄됩니다. 다른
+키를 누르면 임의의 위치에 작은 그림이 그려집니다. 마우스 버튼을 누른 상태에서 마우스를 드래그하면 무작위로 변화하는 색상이
+그려집니다. 무작위로 화면이 지워집니다.
+.SH 참고
+\fB종료하려면 창의 왼쪽 상단 모서리에 언급된 명령을 직접 입력합니다. 영어 로케일에서는 단어: quit입니다.\fP
+.PP
+\fBBe aware\fP에서 다른 응용프로그램으로 전환하는 방법은 다음과 같습니다:
+.IP \(bu
+Wayland에서 실행할 때 bambam이 모든 키 누름을 잡는 것은 현재 불가능합니다.  그 결과 GNOME 셸을 사용하는 경우
+Windows(일명 Super) 키를 누르면 활동 개요가 활성화됩니다.  환경을 확인해 주세요. 해결 방법으로 버전 1.1.2부터
+bambam은 Wayland에서 실행 중인지 감지하려고 시도합니다.  이 경우 bambam은 경고를 표시하고 작업을 거부합니다.
+\fB\-\-wayland\-ok\fP 옵션을 사용하여 이 해결 방법을 비활성화할 수 있습니다.
+.IP \(bu
+bambam은 가상 터미널 전환을 차단하지 않습니다(예: CTRL+ALT+F1). 차단하려면 예제
+50\-dont\-vt\-switch.conf 파일을 참조하십시오.
+.IP \(bu
+다른 환경 및 창 관리자에는 아직 알려지지 않은 다른 방법이 있을 수 있습니다.
+.PP
+위와 같은 이유로 버전 1.2.0부터 \fB전용 로그인 세션에서 bambam을 실행할 수 있으며 권장합니다.\fP
+.IP \(bu
+이를 수행하는 한 가지 방법은 로그인할 때 디스플레이 관리자 설정에서 BamBam 세션 유형을 선택하는 것입니다(톱니바퀴 아이콘 찾기).
+.IP \(bu
+또 다른 방법은 텍스트 콘솔에서 \fBexec startx bambam\fP과 같은 명령을 사용하는 것입니다.
+.PP
+소리를 끄거나 켜려면 게임에서 각각 음소거 및 음소거 해제를 입력합니다.
+.PP
+bambam은 다음 디렉터리에서 이미지(GIF, JPEG, PNG 및 TIFF 파일) 및 사운드(WAV 및 OGG 파일)를 불러옵니다:
+.IP \(bu
+게임과 함께 배포된 \fBdata\fP 디렉터리,
+.IP \(bu
+\fB$XDG_DATA_HOME\fP (보통 ~/.local/share/bambam/data)
+.PP
+디렉터리에서 파일을 검색할 때 bambam \fBdoes\fP는 심볼릭 링크를 따라 디렉터리를 내려갑니다. 이렇게 하면 bambam이 다른
+곳에 있는 파일을 쉽게 사용할 수 있습니다.
+.SH 작성자
+Spike Burch <spikeb@gmail.com> Marcin Owsiany
+<marcin@owsiany.pl>

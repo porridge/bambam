@@ -257,8 +257,8 @@ msgstr "2022년 9월 10일"
 #. type: TH
 #: bambam.6:1
 #, no-wrap
-msgid "version 1.2.0"
-msgstr "버전 1.2.0"
+msgid "version 1.2.1"
+msgstr "버전 1.2.1"
 
 #. type: SH
 #: bambam.6:2

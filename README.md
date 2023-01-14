@@ -27,11 +27,11 @@ Before installing this application, ensure you have the following installed:
   * [Pygame](http://www.pygame.org/) - version 2.x is supported, but version 1.9 might work too
 
 If not, you can install it manually as follows:
-  1. [Download](https://github.com/porridge/bambam/releases) the `bambam-1.2.0.zip` or `bambam-1.2.0.tar.gz` file.
-  1. Unzip bambam-1.2.0.zip or `tar zxvf bambam-1.2.0.tar.gz` to create the `bambam-1.2.0` directory.
-  1. Change into the 'bambam-1.2.0' directory
+  1. [Download](https://github.com/porridge/bambam/releases) the `bambam-1.2.1.zip` or `bambam-1.2.1.tar.gz` file.
+  1. Unzip bambam-1.2.1.zip or `tar zxvf bambam-1.2.1.tar.gz` to create the `bambam-1.2.1` directory.
+  1. Change into the 'bambam-1.2.1' directory
 ```
-cd bambam-1.2.0
+cd bambam-1.2.1
 ```
 
 If you would like to take advantage of the recommended way to start the game (see the next section) do the following:
