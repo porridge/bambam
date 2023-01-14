@@ -280,7 +280,7 @@ msgstr "개요"
 #. type: Plain text
 #: bambam.6:7
 msgid "B<bambam> [I<OPTIONS>]"
-msgstr "B<bambam> [나<옵션>]"
+msgstr "B<bambam> [I<옵션>]"
 
 #. type: SH
 #: bambam.6:7
