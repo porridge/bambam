@@ -242,8 +242,8 @@ msgstr "30 décembre 2020"
 #. type: TH
 #: bambam.6:1
 #, no-wrap
-msgid "version 1.2.0"
-msgstr "version 1.2.0"
+msgid "version 1.2.1"
+msgstr "version 1.2.1"
 
 #. type: SH
 #: bambam.6:2
