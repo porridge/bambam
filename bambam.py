@@ -203,17 +203,7 @@ class Bambam:
         """
         # check for command words
         if event.type == KEYDOWN and event.unicode.isalpha():
-            self.sequence += event.unicode
-            if self.sequence.find(_(QUIT_STRING)) > -1:
-                sys.exit(0)
-            elif self.sequence.find(_(UNMUTE_STRING)) > -1:
-                self.sound_muted = False
-                # pygame.mixer.unpause()
-                self.sequence = ''
-            elif self.sequence.find(_(MUTE_STRING)) > -1:
-                self.sound_muted = True
-                pygame.mixer.fadeout(1000)
-                self.sequence = ''
+            self._maybe_process_command(event.unicode)
 
         # Clear the screen 10% of the time
         if random.randint(0, 10) == 1:
@@ -234,6 +224,22 @@ class Bambam:
         else:
             self.print_image()
         pygame.display.flip()
+
+    def _maybe_process_command(self, last_keypress):
+        """
+        Keeps track of recently pressed keys and acts if they contain
+        a valid command.
+        """
+        self.sequence += last_keypress
+        if self.sequence.find(_(QUIT_STRING)) > -1:
+            sys.exit(0)
+        elif self.sequence.find(_(UNMUTE_STRING)) > -1:
+            self.sound_muted = False
+            self.sequence = ''
+        elif self.sequence.find(_(MUTE_STRING)) > -1:
+            self.sound_muted = True
+            pygame.mixer.fadeout(1000)
+            self.sequence = ''
 
     def print_image(self):
         """
