@@ -210,19 +210,10 @@ class Bambam:
             self.screen.blit(self.background, (0, 0))
             pygame.display.flip()
 
-        # play random sound
-        if not self.sound_muted:
-            if event.type == KEYDOWN and self.args.deterministic_sounds:
-                self.sounds[event.key % len(self.sounds)].play()
-            else:
-                self.sounds[random.randint(
-                    0, len(self.sounds) - 1)].play()
-
-        # show self.images
-        if event.type == pygame.KEYDOWN and (event.unicode.isalpha() or event.unicode.isdigit()):
-            self.print_letter(event.unicode)
-        else:
-            self.print_image()
+        sound, img = self._select_response(event)
+        if sound:
+            sound.play()
+        self._display_image(img)
         pygame.display.flip()
 
     def _maybe_process_command(self, last_keypress):
@@ -241,31 +232,33 @@ class Bambam:
             pygame.mixer.fadeout(1000)
             self.sequence = ''
 
-    def print_image(self):
+    def _select_response(self, event):
+        sound, img = None, None
+        if not self.sound_muted:
+            if event.type == KEYDOWN and self.args.deterministic_sounds:
+                sound_idx = event.key % len(self.sounds)
+            else:
+                sound_idx = random.randint(0, len(self.sounds) - 1)
+            sound = self.sounds[sound_idx]
+
+        if event.type == pygame.KEYDOWN and (event.unicode.isalpha() or event.unicode.isdigit()):
+            font = pygame.font.Font(None, 256)
+            char = event.unicode
+            if self.args.uppercase:
+                char = char.upper()
+            img = font.render(char, 1, random.choice(self.colors))
+        else:
+            img = random.choice(self.images)
+
+        return sound, img
+
+    def _display_image(self, img):
         """
         Prints an image at a random location.
         """
-        img = self.images[random.randint(0, len(self.images) - 1)]
-        w = random.randint(0, self.display_width - img.get_width())
-        h = random.randint(0, self.display_height - img.get_height())
+        w = random.randint(0, self.display_width - img.get_width() - 1)
+        h = random.randint(0, self.display_height - img.get_height() - 1)
         self.screen.blit(img, (w, h))
-
-    def print_letter(self, char):
-        """
-        Prints a letter at a random location.
-        """
-        font = pygame.font.Font(None, 256)
-        if self.args.uppercase:
-            char = char.upper()
-        text = font.render(
-            char, 1, self.colors[random.randint(0, len(self.colors) - 1)])
-        text_pos = text.get_rect()
-        center = (text_pos.width // 2, text_pos.height // 2)
-        w = random.randint(0 + center[0], self.display_width - center[0])
-        h = random.randint(0 + center[1], self.display_height - center[1])
-        text_pos.centerx = w
-        text_pos.centery = h
-        self.screen.blit(text, text_pos)
 
     def glob_dir(self, path, extensions):
         files = []
