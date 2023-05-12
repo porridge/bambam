@@ -162,15 +162,8 @@ class Bambam:
         return result
 
     def __init__(self):
-        self.colors = ((0, 0, 255), (255, 0, 0), (255, 255, 0),
-                       (255, 0, 128), (0, 0, 128), (0, 255, 0),
-                       (255, 128, 0), (255, 0, 255), (0, 255, 255)
-                       )
         self.data_dirs = []
         self.args = None
-
-        self.images = None
-        self.sounds = None
 
         self.background = None
         self.screen = None
@@ -231,24 +224,9 @@ class Bambam:
             self.sequence = ''
 
     def _select_response(self, event):
-        sound, img = None, None
-        if self._sound_enabled:
-            if event.type == KEYDOWN and self.args.deterministic_sounds:
-                sound_idx = event.key % len(self.sounds)
-            else:
-                sound_idx = random.randint(0, len(self.sounds) - 1)
-            sound = self.sounds[sound_idx]
-
-        if event.type == pygame.KEYDOWN and (event.unicode.isalpha() or event.unicode.isdigit()):
-            font = pygame.font.Font(None, 256)
-            char = event.unicode
-            if self.args.uppercase:
-                char = char.upper()
-            img = font.render(char, 1, random.choice(self.colors))
-        else:
-            img = random.choice(self.images)
-
-        return sound, img
+        sound_policy = self._sound_policies[self._sound_mapper.map(event)] if self._sound_enabled else None
+        image_policy = self._image_policies[self._image_mapper.map(event)]
+        return sound_policy.select(event) if sound_policy else None, image_policy.select(event)
 
     def _display_image(self, img):
         """
@@ -494,19 +472,31 @@ class Bambam:
         pygame.display.flip()
 
         self.sound_muted = self.args.mute
+        self._image_mapper = LegacyImageMapper()
+        self._sound_mapper = LegacySoundMapper(self.args.deterministic_sounds)
 
         if self._sound_enabled:
-            self.sounds = self.load_items(
+            sounds = self.load_items(
                 self.glob_data(['.wav', '.ogg']),
                 self.args.sound_blacklist,
                 self.load_sound,
                 _("All sounds failed to load."))
 
-        self.images = self.load_items(
+            self._sound_policies = dict(
+                deterministic=DeterministicPolicy(sounds),
+                random=RandomPolicy(sounds),
+            )
+
+        images = self.load_items(
             self.glob_data(['.gif', '.jpg', '.jpeg', '.png', '.tif', '.tiff']),
             self.args.image_blacklist,
             self.load_image,
             _("All images failed to load."))
+
+        self._image_policies = dict(
+            font=FontImagePolicy(self.args.uppercase),
+            random=RandomPolicy(images),
+        )
 
         init_joysticks()
 
@@ -535,6 +525,66 @@ class Bambam:
                 # mouse button up
                 elif event.type == MOUSEBUTTONUP:
                     mouse_pressed = False
+
+
+class CollectionPolicyBase:
+    def __init__(self, things):
+        self._things = things
+
+    def select(self, event):
+        raise NotImplementedError()
+
+
+class DeterministicPolicy(CollectionPolicyBase):
+    def select(self, event):
+        thing_idx = event.key % len(self._things)
+        return self._things[thing_idx]
+
+
+class RandomPolicy(CollectionPolicyBase):
+    def select(self, event):
+        return random.choice(self._things)
+
+
+class FontImagePolicy:
+    COLORS = (
+        (0, 0, 255), (255, 0, 0), (255, 255, 0),
+        (255, 0, 128), (0, 0, 128), (0, 255, 0),
+        (255, 128, 0), (255, 0, 255), (0, 255, 255)
+    )
+
+    def __init__(self, upper_case: bool) -> None:
+        self._upper_case = upper_case
+
+    def select(self, event):
+        font = pygame.font.Font(None, 256)
+        char = event.unicode
+        if self._upper_case:
+            char = char.upper()
+        return font.render(char, 1, random.choice(self.COLORS))
+
+
+class LegacySoundMapper:
+
+    def __init__(self, deterministic_sounds: bool) -> None:
+        self._deterministic_sounds = deterministic_sounds
+
+    def map(self, event):
+        if self._deterministic_sounds:
+            if event.type == KEYDOWN:
+                return "deterministic"
+            return "random"
+        else:
+            return "random"
+
+
+class LegacyImageMapper:
+
+    def map(self, event):
+        if event.type == pygame.KEYDOWN and (event.unicode.isalpha() or event.unicode.isdigit()):
+            return "font"
+        else:
+            return "random"
 
 
 def main():
