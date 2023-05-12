@@ -445,7 +445,8 @@ class Bambam:
         pygame.init()
 
         if not pygame.font:
-            print(_('Warning, fonts disabled.'))
+            print(_('Error, pygame fonts not available. Exiting...'), file=sys.stderr)
+            sys.exit(1)
         if not pygame.mixer or not pygame.mixer.get_init():
             print(_('Warning, sound disabled.'), file=sys.stderr)
 

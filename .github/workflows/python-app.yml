@@ -55,3 +55,55 @@ jobs:
       with:
         name: test-artifacts-${{ matrix.python-version }}
         path: artifacts
+
+  nofonts:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11"]  # Just latest to keep number of combinations down.
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements-dev.txt
+
+    - name: Install GUI packages
+      run: |
+        sudo apt-get install -y xvfb xauth
+
+    - name: Run test for font absence
+      run: |
+        export AUTOPKGTEST_ARTIFACTS=`pwd`/artifacts
+        mkdir -p $AUTOPKGTEST_ARTIFACTS
+        export AUTOPKGTEST_TMP=/tmp
+
+        # Prepare permissions for deleting freetype.
+        for lib in $(./test/find-freetype.sh echo); do
+          dir="$(dirname "${lib}")"
+          echo "Granting write permission on ${dir}" >&2
+          sudo chmod a+w "${dir}"
+        done
+
+        xvfb-run \
+          -e $AUTOPKGTEST_ARTIFACTS/xvfb-run.stderr \
+          -s "-screen 0 1024x768x24 -fbdir $AUTOPKGTEST_TMP" \
+          ./test/find-freetype.sh rm-and-run \
+          timeout -v -k 5 10 \
+          ./test/redirect-stderr-and-run.sh errors.txt ./bambam.py || echo Bambam under xvfb exited code $?
+
+        if grep -q 'Error, pygame fonts not available.' errors.txt; then
+          echo "Expected font absence message found."
+          exit 0
+        fi
+        echo "Expected font absence message not found."
+        cat errors.txt
+        exit 1
