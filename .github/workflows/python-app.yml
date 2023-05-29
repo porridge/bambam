@@ -37,9 +37,9 @@ jobs:
       run: |
         autopep8 -d *.py | awk 'BEGIN{had_data=0}{print;had_data=1}END{exit had_data}'
 
-    - name: Smoke test import
+    - name: Run unit tests
       run: |
-        python -c 'import bambam'
+        python -m unittest *_test.py
 
     - name: Install GUI packages
       run: |
