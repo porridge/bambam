@@ -163,8 +163,8 @@ class Bambam:
 
     def __init__(self):
         self.data_dirs = []
-        self.args = None
 
+        self.background_color = None
         self.background = None
         self.screen = None
         self.display_height = None
@@ -274,7 +274,6 @@ class Bambam:
             command_strings = [QUIT_STRING]
         # noinspection PyArgumentList
         self.background = pygame.Surface(self.screen.get_size()).convert()
-        self.background_color = (0, 0, 0) if self.args.dark else (250, 250, 250)
         self.background.fill(self.background_color)
         caption_font = pygame.font.SysFont(None, 20)
         caption_label = caption_font.render(
@@ -429,7 +428,7 @@ class Bambam:
                             help=_('Do not prevent running under Wayland.'))
         parser.add_argument('--in-dedicated-session', action='store_true',
                             help=argparse.SUPPRESS)
-        self.args = parser.parse_args()
+        args = parser.parse_args()
 
         pygame.init()
 
@@ -442,6 +441,7 @@ class Bambam:
         else:
             self._sound_enabled = True
 
+        self.background_color = (0, 0, 0) if args.dark else (250, 250, 250)
         pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 
         # determine display resolution
@@ -459,9 +459,9 @@ class Bambam:
         self.screen.blit(self.background, (0, 0))
         pygame.display.flip()
 
-        if self.args.in_dedicated_session:
+        if args.in_dedicated_session:
             self._prepare_welcome_message(dedicated_session=True)
-        elif not self.args.wayland_ok and (os.getenv('WAYLAND_DISPLAY') or os.getenv('XDG_SESSION_TYPE') == 'wayland'):
+        elif not args.wayland_ok and (os.getenv('WAYLAND_DISPLAY') or os.getenv('XDG_SESSION_TYPE') == 'wayland'):
             self._prepare_wayland_warning()
             poll_for_any_key_press(clock)
             sys.exit(1)
@@ -471,14 +471,14 @@ class Bambam:
         self.screen.blit(self.background, (0, 0))
         pygame.display.flip()
 
-        self.sound_muted = self.args.mute
+        self.sound_muted = args.mute
         self._image_mapper = LegacyImageMapper()
-        self._sound_mapper = LegacySoundMapper(self.args.deterministic_sounds)
+        self._sound_mapper = LegacySoundMapper(args.deterministic_sounds)
 
         if self._sound_enabled:
             sounds = self.load_items(
                 self.glob_data(['.wav', '.ogg']),
-                self.args.sound_blacklist,
+                args.sound_blacklist,
                 self.load_sound,
                 _("All sounds failed to load."))
 
@@ -489,12 +489,12 @@ class Bambam:
 
         images = self.load_items(
             self.glob_data(['.gif', '.jpg', '.jpeg', '.png', '.tif', '.tiff']),
-            self.args.image_blacklist,
+            args.image_blacklist,
             self.load_image,
             _("All images failed to load."))
 
         self._image_policies = dict(
-            font=FontImagePolicy(self.args.uppercase),
+            font=FontImagePolicy(args.uppercase),
             random=RandomPolicy(images),
         )
 
