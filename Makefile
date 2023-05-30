@@ -53,3 +53,13 @@ bambam.%.6: po/%.po bambam.6
 .PHONY: clean
 clean:
 	rm -f $(LINGUAS:%=po/%.mo) po/LINGUAS
+
+# From https://docs.weblate.org/pl/latest/faq.html#merge
+.PHONY: resolve-conflicts-in-po-files
+resolve-conflicts-in-po-files:
+	for PO in `find . -name '*.po'` ; do \
+		lang=$${PO##*/}; lang=$${lang%.po}; \
+		msgcat --use-first ../app-and-manpage/$$PO $$PO -o $$PO.merge; \
+		msgmerge --previous --lang=$$lang $$PO.merge bambam.pot -o $$PO; \
+		rm $$PO.merge; \
+	done
