@@ -262,6 +262,7 @@ class Bambam:
 
     def glob_dir(self, path, extensions):
         files = []
+
         for file_name in os.listdir(path):
             path_name = os.path.join(path, file_name)
             if os.path.isdir(path_name):
