@@ -159,7 +159,7 @@ class Bambam:
                 try:
                     result.append(load_function(name))
                 except ResourceLoadException as e:
-                    print(e)
+                    print(e, file=sys.stderr)
                     errors_encountered = True
         if not result and errors_encountered:
             raise BambamException(failure_message)
@@ -447,7 +447,7 @@ class Bambam:
         if not pygame.font:
             print(_('Warning, fonts disabled.'))
         if not pygame.mixer or not pygame.mixer.get_init():
-            print(_('Warning, sound disabled.'))
+            print(_('Warning, sound disabled.'), file=sys.stderr)
 
         pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 
@@ -527,7 +527,7 @@ def main():
         bambam = Bambam()
         bambam.run()
     except BambamException as e:
-        print(e)
+        print(e, file=sys.stderr)
         sys.exit(1)
 
 
