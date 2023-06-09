@@ -22,21 +22,35 @@ file.
 See the main() function for a high-level overview of what the script does.
 """
 
+import argparse
 import logging
 import os
 import random
 import re
 import subprocess
+import tempfile
 import time
 
 
 _COLOR_PATTERN = re.compile(r'(\d+),(\d+),(\d+)')
 _EXIT_SECONDS = 5
 _BAMBAM_PROGRAM = os.getenv('AUTOPKGTEST_BAMBAM_PROGRAM', '/usr/games/bambam')
+_ARTIFACTS_DIR = os.getenv('AUTOPKGTEST_ARTIFACTS', '.')
+_TMP_DIR = os.getenv('AUTOPKGTEST_TMP', tempfile.gettempdir())
+_AUDIO_FILE = os.path.join(_TMP_DIR, 'sdlaudio.raw')
 
 
 def main():
-    bambam = subprocess.Popen([_BAMBAM_PROGRAM])
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--expect-audio-output', action=argparse.BooleanOptionalAction, default=True)
+    parser.add_argument('--expect-sounds', action=argparse.BooleanOptionalAction, default=True)
+    parser.add_argument('--sdl-audio-driver', default='disk')
+    parser.add_argument('bambam_args', nargs='*')
+    args = parser.parse_args()
+
+    remove_if_exists(_AUDIO_FILE)
+    env = os.environ.copy() | dict(SDL_AUDIODRIVER=args.sdl_audio_driver, SDL_DISKAUDIOFILE=_AUDIO_FILE)
+    bambam = subprocess.Popen([_BAMBAM_PROGRAM]+args.bambam_args, env=env)
     try:
         await_welcome_screen()
         send_keycodes('space')  # any keypress should do
@@ -47,10 +61,18 @@ def main():
         exit_code = bambam.wait(timeout=_EXIT_SECONDS)
         if exit_code != 0:
             raise Exception('Bambam exited with unexpected code %d.' % exit_code)
-        logging.info('Test successful.')
     except:  # noqa: E722
         take_screenshot('exception')
         raise
+    check_audio(args.expect_audio_output, args.expect_sounds)
+    logging.info('Test successful.')
+
+
+def remove_if_exists(file_path: str):
+    try:
+        os.remove(file_path)
+    except FileNotFoundError:
+        pass
 
 
 def await_welcome_screen():
@@ -97,7 +119,7 @@ def test_functionality():
     for attempt in range(attempt_count):
         send_keycodes('space', 'm')  # any letter will do, but em is nice and big
         send_mouse_move()
-        time.sleep(0.005)  # let the event propagate and bambam process it
+        time.sleep(0.25)  # let the event propagate and bambam process it (leave some time for sound to play)
         if is_screen_colorful_enough(attempt):
             take_screenshot('success')
             return
@@ -119,11 +141,47 @@ def shut_bambam_down():
     send_keycodes('q', 'u', 'i', 't')
 
 
+def check_audio(assert_audio_output_exists=True, assert_contains_sounds=True):
+    if assert_audio_output_exists:
+        logging.info('Checking that audio output was created.')
+        if not os.path.exists(_AUDIO_FILE):
+            raise Exception('Output audio file %s not found.' % _AUDIO_FILE)
+    else:
+        logging.info('Checking that audio output was NOT created.')
+        if os.path.exists(_AUDIO_FILE):
+            raise Exception('Output audio file %s was unexpectedly found.' % _AUDIO_FILE)
+        return
+
+    logging.info('Checking that emitted audio %s sounds.' % (
+        'contains' if assert_contains_sounds else 'does NOT contain'))
+    # Create WAV file as an artifact, as it is easier to handle thanks to embedded metadata.
+    audio_artifact = os.path.join(_ARTIFACTS_DIR, 'audio.wav')
+    remove_if_exists(audio_artifact)
+    # Audio parameters based on pygame.mixer.init() defaults:
+    # https://www.pygame.org/docs/ref/mixer.html#pygame.mixer.init
+    subprocess.check_call([
+        'sox', '-r', '44.1k', '-e', 'signed', '-b', '16', '-c', '2',
+        _AUDIO_FILE, audio_artifact
+    ])
+    # Remove silence anywhere in the file:
+    trimmed_audio = os.path.join(_TMP_DIR, 'trimmed.raw')
+    remove_if_exists(trimmed_audio)
+    subprocess.check_call([
+        'sox', audio_artifact, trimmed_audio,
+        'silence', '1', '0', '0%', '-1', '0', '0%',
+    ])
+    size = os.stat(trimmed_audio).st_size
+    if assert_contains_sounds and size < 100000:
+        raise Exception('Audio file unexpectedly small after trimming silence: %d bytes' % size)
+    elif not assert_contains_sounds and size > 0:
+        raise Exception('Audio file is not empty after trimming silence: %d bytes' % size)
+
+
 def take_screenshot(title):
-    file_name = os.path.join(os.environ['AUTOPKGTEST_ARTIFACTS'], '%s.png' % title)
+    file_name = os.path.join(_ARTIFACTS_DIR, '%s.png' % title)
     subprocess.call([
         'convert',
-        'xwd:' + os.path.join(os.environ['AUTOPKGTEST_TMP'], 'Xvfb_screen0'),
+        'xwd:' + os.path.join(_TMP_DIR, 'Xvfb_screen0'),
         file_name])
     logging.info('Took a screenshot to: %s', file_name)
 
@@ -142,7 +200,7 @@ def summarize_screen(*fx_expressions):
     format_arg = ','.join(('%%[fx:int(%s)]' % e) for e in fx_expressions)
     color_str = subprocess.check_output([
         'convert',
-        'xwd:' + os.path.join(os.environ['AUTOPKGTEST_TMP'], 'Xvfb_screen0'),
+        'xwd:' + os.path.join(_TMP_DIR, 'Xvfb_screen0'),
         '-resize', '1x1!',
         '-format', format_arg,
         'info:-']).decode()
