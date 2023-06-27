@@ -23,12 +23,15 @@ See the main() function for a high-level overview of what the script does.
 """
 
 import argparse
+import io
 import logging
 import os
 import random
 import re
 import subprocess
+import sys
 import tempfile
+import threading
 import time
 
 
@@ -50,8 +53,14 @@ def main():
 
     remove_if_exists(_AUDIO_FILE)
     env = os.environ.copy() | dict(SDL_AUDIODRIVER=args.sdl_audio_driver, SDL_DISKAUDIOFILE=_AUDIO_FILE)
-    bambam = subprocess.Popen([_BAMBAM_PROGRAM]+args.bambam_args, env=env)
+    bambam = subprocess.Popen([_BAMBAM_PROGRAM]+args.bambam_args, env=env, stderr=subprocess.PIPE)
     try:
+        checker_builder = check_stream(bambam.stderr, sys.stderr)
+        if args.expect_audio_output:
+            checker_builder.not_contains_line("Warning, sound disabled.")
+        else:
+            checker_builder.contains_line("Warning, sound disabled.")
+        checker = checker_builder.start()
         await_welcome_screen()
         send_keycodes('space')  # any keypress should do
         await_blank_screen()
@@ -61,6 +70,8 @@ def main():
         exit_code = bambam.wait(timeout=_EXIT_SECONDS)
         if exit_code != 0:
             raise Exception('Bambam exited with unexpected code %d.' % exit_code)
+        if not checker.check():
+            raise Exception('Unexpected standard error output.')
     except:  # noqa: E722
         take_screenshot('exception')
         raise
@@ -225,6 +236,64 @@ def random_move():
 def send_mouse_move():
     x, y = random_move(), random_move()
     xdotool('mousedown', '1', 'mousemove_relative', '--', x, y, 'mouseup', '1')
+
+
+class StreamChecker:
+    def __init__(self, input_stream: io.IOBase, output_stream: io.IOBase, checks, negative_checks) -> None:
+        self._input_stream = input_stream
+        self._output_stream = output_stream
+        self._checks = list(checks)
+        self._negative_checks = list(negative_checks)
+        self._result = False if self._checks else True
+        self._thread = threading.Thread(target=self._ingest, name='StreamChecker for %s' % input_stream)
+        self._thread.start()
+
+    def _ingest(self):
+        while True:
+            line = self._input_stream.readline()
+            if not line:
+                return
+            print(line.decode(), end='', flush=True, file=self._output_stream)
+            line = line.rstrip()
+            for check in self._checks:
+                if line == check:
+                    self._result = True
+
+            for check in self._negative_checks:
+                if line == check:
+                    self._result = False
+
+    def check(self):
+        self._thread.join()
+        return self._result
+
+
+class _StreamCheckerBuilder:
+    def __init__(self, input_stream: io.IOBase, output_stream: io.IOBase) -> None:
+        self._input_stream = input_stream
+        self._output_stream = output_stream
+        self._checks = []
+        self._negative_checks = []
+
+    def contains_line(self, line: str):
+        if self._negative_checks:
+            raise ValueError('contains_line() must not be used together with not_contains_line()')
+        self._checks.append(bytes(line, 'utf-8'))
+        return self
+
+    def not_contains_line(self, line: str):
+        if self._checks:
+            raise ValueError('contains_line() must not be used together with not_contains_line()')
+        self._negative_checks.append(bytes(line, 'utf-8'))
+        return self
+
+    def start(self) -> StreamChecker:
+        checker = StreamChecker(self._input_stream, self._output_stream, self._checks, self._negative_checks)
+        return checker
+
+
+def check_stream(input: io.IOBase, output: io.IOBase) -> _StreamCheckerBuilder:
+    return _StreamCheckerBuilder(input, output)
 
 
 if __name__ == '__main__':
