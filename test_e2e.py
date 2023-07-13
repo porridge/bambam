@@ -64,7 +64,7 @@ def main():
         await_welcome_screen()
         send_keycodes('space')  # any keypress should do
         await_blank_screen()
-        test_functionality()
+        test_functionality(args.expect_sounds)
         shut_bambam_down()
         logging.info('Waiting for game to exit cleanly.')
         exit_code = bambam.wait(timeout=_EXIT_SECONDS)
@@ -124,7 +124,14 @@ def await_blank_screen():
         'after polling %d times every %f seconds.' % (attempt_count, sleep_delay))
 
 
-def test_functionality():
+def test_functionality(try_unmute):
+    logging.info('Exercising runtime mute.')
+    send_keycodes('m', 'u')
+    time.sleep(0.25)  # let the event propagate and bambam process it (leave some time for sound to play)
+    send_keycodes('t', 'e')
+    if try_unmute:
+        logging.info('Exercising runtime unmute.')
+        send_keycodes('u', 'n', 'm', 'u', 't', 'e')
     logging.info('Simulating space and letter keypresses and measuring average screen color, to test functionality.')
     attempt_count = 1000
     for attempt in range(attempt_count):
