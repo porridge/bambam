@@ -86,6 +86,17 @@ jobs:
           -s "-screen 0 1024x768x24 -fbdir $AUTOPKGTEST_TMP" \
           ./test_e2e.py --no-expect-sounds -- --mute
 
+    - name: Run GUI tests muted just initially
+      run: |
+        export AUTOPKGTEST_ARTIFACTS=`pwd`/artifacts/start-muted
+        mkdir -p $AUTOPKGTEST_ARTIFACTS
+        export AUTOPKGTEST_TMP=/tmp
+        export AUTOPKGTEST_BAMBAM_PROGRAM=./bambam.py
+        xvfb-run \
+          -e $AUTOPKGTEST_ARTIFACTS/xvfb-run.stderr \
+          -s "-screen 0 1024x768x24 -fbdir $AUTOPKGTEST_TMP" \
+          ./test_e2e.py -- --mute
+
     - name: Run GUI tests without sound support
       run: |
         export AUTOPKGTEST_ARTIFACTS=`pwd`/artifacts/no-audio
