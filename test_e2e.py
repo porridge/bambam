@@ -158,6 +158,9 @@ def test_functionality(bambam: subprocess.Popen, try_unmute: bool):
 
 def is_screen_colorful_enough(attempt):
     r, g, b = get_average_color()
+    if any(color < 10 for color in (r, g, b)):
+        logging.info('On attempt %d the average screen color was too close to black: %d,%d,%d.', attempt, r, g, b)
+        return False
     if any(color > 225 for color in (r, g, b)):
         logging.info('On attempt %d the average screen color was too close to white: %d,%d,%d.', attempt, r, g, b)
         return False
