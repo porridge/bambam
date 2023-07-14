@@ -47,6 +47,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--expect-audio-output', action=argparse.BooleanOptionalAction, default=True)
     parser.add_argument('--expect-sounds', action=argparse.BooleanOptionalAction, default=True)
+    parser.add_argument('--expect-light-mode', action=argparse.BooleanOptionalAction, default=True)
     parser.add_argument('--sdl-audio-driver', default='disk')
     parser.add_argument('bambam_args', nargs='*')
     args = parser.parse_args()
@@ -62,11 +63,11 @@ def main():
             checker_builder.contains_line("Warning, sound disabled.")
         checker = checker_builder.start()
         check_still_running(bambam)
-        await_welcome_screen()
+        await_welcome_screen(args.expect_light_mode)
         send_keycodes('space')  # any keypress should do
         check_still_running(bambam)
-        await_blank_screen()
-        test_functionality(bambam, args.expect_sounds)
+        await_blank_screen(args.expect_light_mode)
+        test_functionality(bambam, args.expect_sounds, args.expect_light_mode)
         shut_bambam_down(bambam)
         logging.info('Waiting for game to exit cleanly.')
         exit_code = bambam.wait(timeout=_EXIT_SECONDS)
@@ -89,42 +90,55 @@ def remove_if_exists(file_path: str):
         pass
 
 
-def await_welcome_screen():
+def await_welcome_screen(expect_light):
+    if expect_light:
+        comment = 'light blue'
+        hsl_ranges = ((50, 70), (20, 40), (80, 100))
+    else:
+        comment = 'dark blue'
+        hsl_ranges = ((50, 70), (10, 30), (1, 20))
     logging.info(
-        'Polling to observe a light blue screen (which means that bambam '
+        'Polling to observe a %s screen (which means that bambam '
         'has started AND is displaying a welcome screen where the text '
-        'is blue).')
+        'is blue).' % comment)
     attempt_count = 40
     sleep_delay = 0.25
     for attempt in range(attempt_count):
         current_average_hsl = get_average_hsl()
-        logging.info('On attempt %d the average screen HSV was %s.', attempt, current_average_hsl)
+        logging.info('On attempt %d the average screen HSL was %s.', attempt, current_average_hsl)
         h, s, l = current_average_hsl  # noqa: E741
-        if 50 < h and h < 70 and 20 < s and s < 40 and 80 < l and l < 100:
-            logging.info('Found light blue screen, looks like bambam started up OK.')
+        hr, sr, lr = hsl_ranges
+        if hr[0] < h and h < hr[1] and sr[0] < s and s < sr[1] and lr[0] < l and l < lr[1]:
+            logging.info('Found %s screen, looks like bambam started up OK.', comment)
             take_screenshot('welcome')
             return
         time.sleep(sleep_delay)
     raise Exception(
-        'Failed to see bambam start and display light-blue background, '
-        'after polling %d times every %f seconds.' % (attempt_count, sleep_delay))
+        'Failed to see bambam start and display %s background, '
+        'after polling %d times every %f seconds.' % (comment, attempt_count, sleep_delay))
 
 
-def await_blank_screen():
-    logging.info('Polling to observe a mostly-white screen (which means that welcome screen was cleared).')
+def await_blank_screen(expect_light: bool):
     attempt_count = 40
     sleep_delay = 0.25
+    if expect_light:
+        def check(c): return c >= 248
+        comment = 'mostly white screen'
+    else:
+        def check(c): return c < 2
+        comment = 'mostly black screen'
+    logging.info('Polling to observe a %s (which means that welcome screen was cleared).', comment)
     for attempt in range(attempt_count):
         current_average_color = get_average_color()
         logging.info('On attempt %d the average screen color was %s.', attempt, current_average_color)
-        if all(color_component >= 248 for color_component in current_average_color):
-            logging.info('Found mostly white screen, looks like bambam cleared the welcome screen OK.')
+        if all(check(color_component) for color_component in current_average_color):
+            logging.info('Found %s, looks like bambam cleared the welcome screen OK.', comment)
             take_screenshot('blank')
             return
         time.sleep(sleep_delay)
     raise Exception(
-        'Failed to see bambam clear the startup screen and display mostly-white background, '
-        'after polling %d times every %f seconds.' % (attempt_count, sleep_delay))
+        'Failed to see bambam clear the startup screen and display %s, '
+        'after polling %d times every %f seconds.' % (comment, attempt_count, sleep_delay))
 
 
 def check_still_running(bambam: subprocess.Popen):
@@ -133,7 +147,7 @@ def check_still_running(bambam: subprocess.Popen):
         raise Exception('Bambam unexpectedly exited with code %d' % bambam.returncode)
 
 
-def test_functionality(bambam: subprocess.Popen, try_unmute: bool):
+def test_functionality(bambam: subprocess.Popen, try_unmute: bool, expect_light: bool):
     check_still_running(bambam)
     logging.info('Exercising runtime mute.')
     send_keycodes('m', 'u')
@@ -151,13 +165,13 @@ def test_functionality(bambam: subprocess.Popen, try_unmute: bool):
         time.sleep(0.25)  # let the event propagate and bambam process it (leave some time for sound to play)
         # Do not bother checking screen if bambam crashed.
         check_still_running(bambam)
-        if is_screen_colorful_enough(attempt):
+        if is_screen_colorful_enough(attempt, expect_light):
             take_screenshot('success')
             return
     raise Exception('Failed to see a colorful enough screen after %d key presses.' % (attempt_count * 2))
 
 
-def is_screen_colorful_enough(attempt):
+def is_screen_colorful_enough(attempt, expect_light: bool):
     r, g, b = get_average_color()
     if any(color < 10 for color in (r, g, b)):
         logging.info('On attempt %d the average screen color was too close to black: %d,%d,%d.', attempt, r, g, b)
