@@ -61,11 +61,13 @@ def main():
         else:
             checker_builder.contains_line("Warning, sound disabled.")
         checker = checker_builder.start()
+        check_still_running(bambam)
         await_welcome_screen()
         send_keycodes('space')  # any keypress should do
+        check_still_running(bambam)
         await_blank_screen()
-        test_functionality(args.expect_sounds)
-        shut_bambam_down()
+        test_functionality(bambam, args.expect_sounds)
+        shut_bambam_down(bambam)
         logging.info('Waiting for game to exit cleanly.')
         exit_code = bambam.wait(timeout=_EXIT_SECONDS)
         if exit_code != 0:
@@ -124,7 +126,14 @@ def await_blank_screen():
         'after polling %d times every %f seconds.' % (attempt_count, sleep_delay))
 
 
-def test_functionality(try_unmute):
+def check_still_running(bambam: subprocess.Popen):
+    time.sleep(0.01)
+    if bambam.returncode is not None:
+        raise Exception('Bambam unexpectedly exited with code %d' % bambam.returncode)
+
+
+def test_functionality(bambam: subprocess.Popen, try_unmute: bool):
+    check_still_running(bambam)
     logging.info('Exercising runtime mute.')
     send_keycodes('m', 'u')
     time.sleep(0.25)  # let the event propagate and bambam process it (leave some time for sound to play)
@@ -132,12 +141,15 @@ def test_functionality(try_unmute):
     if try_unmute:
         logging.info('Exercising runtime unmute.')
         send_keycodes('u', 'n', 'm', 'u', 't', 'e')
+    check_still_running(bambam)
     logging.info('Simulating space and letter keypresses and measuring average screen color, to test functionality.')
     attempt_count = 1000
     for attempt in range(attempt_count):
         send_keycodes('space', 'm')  # any letter will do, but em is nice and big
         send_mouse_move()
         time.sleep(0.25)  # let the event propagate and bambam process it (leave some time for sound to play)
+        # Do not bother checking screen if bambam crashed.
+        check_still_running(bambam)
         if is_screen_colorful_enough(attempt):
             take_screenshot('success')
             return
@@ -154,7 +166,8 @@ def is_screen_colorful_enough(attempt):
         return True
 
 
-def shut_bambam_down():
+def shut_bambam_down(bambam: subprocess.Popen):
+    check_still_running(bambam)
     logging.info('Simulating shutdown keypresses.')
     send_keycodes('q', 'u', 'i', 't')
 
