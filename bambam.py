@@ -229,7 +229,8 @@ class Bambam:
             self.sequence = ''
         elif self.sequence.find(_(MUTE_STRING)) > -1:
             self.sound_muted = True
-            pygame.mixer.fadeout(1000)
+            if pygame.mixer and pygame.mixer.get_init():
+                pygame.mixer.fadeout(1000)
             self.sequence = ''
 
     def _select_response(self, event):
