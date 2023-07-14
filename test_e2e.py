@@ -76,6 +76,7 @@ def main():
             raise Exception('Unexpected standard error output.')
     except:  # noqa: E722
         take_screenshot('exception')
+        bambam.kill()
         raise
     check_audio(args.expect_audio_output, args.expect_sounds)
     logging.info('Test successful.')
