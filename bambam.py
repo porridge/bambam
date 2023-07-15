@@ -325,11 +325,12 @@ class Bambam:
         pygame.display.flip()
 
     def _prepare_welcome_message(self, dedicated_session):
+        left_message_margin = 75
         header_font = pygame.font.SysFont(None, 56)
         header_text = _("Please read the following important information!")
         header_label = header_font.render(header_text, True, pygame.Color('blue'), self.background_color)
         header_rect = header_label.get_rect()
-        header_rect.x = 150
+        header_rect.x = left_message_margin
         header_rect.y = 100
         self.screen.blit(header_label, header_rect)
         header_padding = 20
@@ -399,7 +400,7 @@ class Bambam:
             for line in fill(paragraph, 70).split("\n"):
                 text_label = text_font.render(line, True, pygame.Color('lightblue'), self.background_color)
                 text_rect = text_label.get_rect()
-                text_rect.x = 150
+                text_rect.x = left_message_margin
                 text_rect.y = prev_rect.y + prev_rect.height
                 self.screen.blit(text_label, text_rect)
                 prev_rect = text_rect
