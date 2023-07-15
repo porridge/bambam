@@ -135,10 +135,6 @@ class Bambam:
         """
         Load sound file in "data/".
         """
-        class NoneSound:
-            def play(self): pass
-        if not pygame.mixer or not pygame.mixer.get_init():
-            return NoneSound()
         try:
             return pygame.mixer.Sound(name)
         except pygame.error as message:
@@ -211,7 +207,7 @@ class Bambam:
             pygame.display.flip()
 
         sound, img = self._select_response(event)
-        if sound:
+        if sound and not self.sound_muted:
             sound.play()
         self._display_image(img)
         pygame.display.flip()
@@ -224,18 +220,19 @@ class Bambam:
         self.sequence += last_keypress
         if self.sequence.find(_(QUIT_STRING)) > -1:
             sys.exit(0)
-        elif self.sequence.find(_(UNMUTE_STRING)) > -1:
+        if not self._sound_enabled:
+            return
+        if self.sequence.find(_(UNMUTE_STRING)) > -1:
             self.sound_muted = False
             self.sequence = ''
         elif self.sequence.find(_(MUTE_STRING)) > -1:
             self.sound_muted = True
-            if pygame.mixer and pygame.mixer.get_init():
-                pygame.mixer.fadeout(1000)
+            pygame.mixer.fadeout(1000)
             self.sequence = ''
 
     def _select_response(self, event):
         sound, img = None, None
-        if not self.sound_muted:
+        if self._sound_enabled:
             if event.type == KEYDOWN and self.args.deterministic_sounds:
                 sound_idx = event.key % len(self.sounds)
             else:
@@ -289,16 +286,23 @@ class Bambam:
         return file_list
 
     def _prepare_background(self):
+        if self._sound_enabled:
+            # TRANSLATORS: the inserted string is space-separated list of supported command strings (more than one).
+            caption_format = _("Commands: %s")
+            command_strings = [QUIT_STRING, MUTE_STRING, UNMUTE_STRING]
+        else:
+            # TRANSLATORS: the inserted string is the translated quit command.
+            caption_format = _("Command: %s")
+            command_strings = [QUIT_STRING]
         # noinspection PyArgumentList
         self.background = pygame.Surface(self.screen.get_size()).convert()
         self.background_color = (0, 0, 0) if self.args.dark else (250, 250, 250)
         self.background.fill(self.background_color)
         caption_font = pygame.font.SysFont(None, 20)
         caption_label = caption_font.render(
-            # TRANSLATORS: the string is space-separated list of all command strings.
-            _("Commands: %s") % " ".join(_(s) for s in [QUIT_STRING, MUTE_STRING, UNMUTE_STRING]),
+            caption_format % " ".join(_(s) for s in command_strings),
             True,
-            (210, 210, 210),
+            (210, 210, 210),  # Light grey.
             self.background_color)
         caption_rect = caption_label.get_rect()
         caption_rect.x = 15
@@ -364,8 +368,13 @@ class Bambam:
         texts = []
         # TRANSLATORS: the substituted word will be the translated command for quitting the game.
         texts.append(_("To quit the game after it starts, directly type the word %s on the keyboard.") % _(QUIT_STRING))
-        # TRANSLATORS: "this" means the word quit from the preceding message, in this context.
-        texts.append(_("This, and other available commands are mentioned in the upper left-hand corner of the window."))
+        if self._sound_enabled:
+            # TRANSLATORS: "this" means the word quit from the preceding message, in this context.
+            texts.append(_("This, and other available commands are mentioned "
+                           "in the upper left-hand corner of the window."))
+        else:
+            # TRANSLATORS: "this" means the word quit from the preceding message, in this context.
+            texts.append(_("This command is mentioned in the upper left-hand corner of the window."))
         texts.append("")
         texts.append(_(
             "The game tries to grab the keyboard and mouse pointer focus, "
@@ -451,6 +460,9 @@ class Bambam:
             sys.exit(1)
         if not pygame.mixer or not pygame.mixer.get_init():
             print(_('Warning, sound disabled.'), file=sys.stderr)
+            self._sound_enabled = False
+        else:
+            self._sound_enabled = True
 
         pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 
@@ -483,11 +495,12 @@ class Bambam:
 
         self.sound_muted = self.args.mute
 
-        self.sounds = self.load_items(
-            self.glob_data(['.wav', '.ogg']),
-            self.args.sound_blacklist,
-            self.load_sound,
-            _("All sounds failed to load."))
+        if self._sound_enabled:
+            self.sounds = self.load_items(
+                self.glob_data(['.wav', '.ogg']),
+                self.args.sound_blacklist,
+                self.load_sound,
+                _("All sounds failed to load."))
 
         self.images = self.load_items(
             self.glob_data(['.gif', '.jpg', '.jpeg', '.png', '.tif', '.tiff']),
