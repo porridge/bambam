@@ -205,20 +205,20 @@ class Bambam:
         self._display_image(img)
         pygame.display.flip()
 
-    def _maybe_process_command(self, last_keypress):
+    def _maybe_process_command(self, last_keypress: str):
         """
         Keeps track of recently pressed keys and acts if they contain
         a valid command.
         """
-        self.sequence += last_keypress
-        if self.sequence.find(_(QUIT_STRING)) > -1:
+        self.sequence += last_keypress.lower()
+        if self.sequence.find(_(QUIT_STRING).lower()) > -1:
             sys.exit(0)
         if not self._sound_enabled:
             return
-        if self.sequence.find(_(UNMUTE_STRING)) > -1:
+        if self.sequence.find(_(UNMUTE_STRING).lower()) > -1:
             self.sound_muted = False
             self.sequence = ''
-        elif self.sequence.find(_(MUTE_STRING)) > -1:
+        elif self.sequence.find(_(MUTE_STRING).lower()) > -1:
             self.sound_muted = True
             pygame.mixer.fadeout(1000)
             self.sequence = ''
@@ -277,7 +277,7 @@ class Bambam:
         self.background.fill(self.background_color)
         caption_font = pygame.font.SysFont(None, 20)
         caption_label = caption_font.render(
-            caption_format % " ".join(_(s) for s in command_strings),
+            caption_format % " ".join(_(s).lower() for s in command_strings),
             True,
             (210, 210, 210),  # Light grey.
             self.background_color)
@@ -344,7 +344,8 @@ class Bambam:
         text_font = pygame.font.SysFont(None, text_font_size)
         texts = []
         # TRANSLATORS: the substituted word will be the translated command for quitting the game.
-        texts.append(_("To quit the game after it starts, directly type the word %s on the keyboard.") % _(QUIT_STRING))
+        texts.append(_("To quit the game after it starts, "
+                       "directly type the word %s on the keyboard.") % _(QUIT_STRING).lower())
         if self._sound_enabled:
             # TRANSLATORS: "this" means the word quit from the preceding message, in this context.
             texts.append(_("This, and other available commands are mentioned "

@@ -187,7 +187,7 @@ def is_screen_colorful_enough(attempt, expect_light: bool):
 def shut_bambam_down(bambam: subprocess.Popen):
     check_still_running(bambam)
     logging.info('Simulating shutdown keypresses.')
-    send_keycodes('q', 'u', 'i', 't')
+    send_keycodes('q', 'U', 'i', 't')  # make sure command-lower-casing works
 
 
 def check_audio(assert_audio_output_exists=True, assert_contains_sounds=True):
