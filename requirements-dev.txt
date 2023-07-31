@@ -1,7 +1,7 @@
 autopep8==2.0.2
 flake8==6.0.0
 mccabe==0.7.0
-pycodestyle==2.10.0
+pycodestyle==2.11.0
 pyflakes==3.0.1
 pygame==2.5.0
 tomli==2.0.1
