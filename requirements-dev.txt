@@ -1,4 +1,4 @@
-autopep8==2.0.2
+autopep8==2.0.4
 flake8==6.1.0
 mccabe==0.7.0
 pycodestyle==2.11.0
