@@ -163,6 +163,7 @@ class Bambam:
 
     def __init__(self):
         self.data_dirs = []
+        self.extensions_dirs = []
 
         self.background_color = None
         self.background = None
@@ -399,6 +400,12 @@ class Bambam:
         if os.path.isdir(data_subdir):
             print(_('Using data directory %s') % data_subdir)
             self.data_dirs.append(data_subdir)
+
+        extensions_subdir = os.path.join(base_dir, 'extensions')
+        if os.path.isdir(extensions_subdir):
+            # TRANSLATORS: An extension directory is a directory which contains extensions.
+            print(_('Using extension directory %s') % extensions_subdir)
+            self.extensions_dirs.append(extensions_subdir)
 
     def run(self):
         """
