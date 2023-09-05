@@ -391,23 +391,23 @@ class Bambam:
                 prev_rect = text_rect
         pygame.display.flip()
 
+    def _add_base_dir(self, base_dir):
+        """
+        Add base_dir as a possible base directory for bambam data files.
+        """
+        data_subdir = os.path.join(base_dir, 'data')
+        if os.path.isdir(data_subdir):
+            print(_('Using data directory %s') % data_subdir)
+            self.data_dirs.append(data_subdir)
+
     def run(self):
         """
         Main application entry point.
         """
         program_base = os.path.dirname(os.path.realpath(sys.argv[0]))
-
-        dist_data_dir = os.path.join(program_base, 'data')
-        if os.path.isdir(dist_data_dir):
-            print(_('Using data directory %s') % dist_data_dir)
-            self.data_dirs.append(dist_data_dir)
-        installed_data_dir = os.path.join(os.path.dirname(program_base), 'share')
-        xdg_data_home = os.getenv('XDG_DATA_HOME', os.path.expanduser('~/.local/share'))
-        for bambam_base_dir in [installed_data_dir, xdg_data_home]:
-            extra_data_dir = os.path.join(bambam_base_dir, 'bambam', 'data')
-            if os.path.isdir(extra_data_dir):
-                print(_('Using data directory %s') % extra_data_dir)
-                self.data_dirs.append(extra_data_dir)
+        self._add_base_dir(program_base)
+        self._add_base_dir(os.path.join(os.path.dirname(program_base), 'share'))
+        self._add_base_dir(os.getenv('XDG_DATA_HOME', os.path.expanduser('~/.local/share')))
 
         parser = argparse.ArgumentParser(
             description=_('Keyboard mashing and doodling game for babies and toddlers.'))
