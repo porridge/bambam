@@ -236,31 +236,29 @@ class Bambam:
         h = random.randint(0, self.display_height - img.get_height() - 1)
         self.screen.blit(img, (w, h))
 
-    def glob_dir(self, path, extensions):
+    def glob_dir(self, path, suffixes):
         files = []
-
         for file_name in os.listdir(path):
             path_name = os.path.join(path, file_name)
             if os.path.isdir(path_name):
-                files.extend(self.glob_dir(path_name, extensions))
+                files.extend(self.glob_dir(path_name, suffixes))
             else:
-                for ext in extensions:
+                for ext in suffixes:
                     if path_name.lower().endswith(ext):
                         files.append(path_name)
                         break
-
         return files
 
-    def glob_data(self, extensions):
+    def glob_data(self, suffixes):
         """
-        Search for files ending with any of the provided extensions. Eg:
-        extensions = ['.abc'] will be similar to `ls *.abc` in the configured
+        Search for files ending with any of the provided suffixes. Eg:
+        suffixes = ['.abc'] will be similar to `ls *.abc` in the configured
         data dirs. Matching will be case-insensitive.
         """
-        extensions = [x.lower() for x in extensions]
+        suffixes = [x.lower() for x in suffixes]
         file_list = []
         for data_dir in self.data_dirs:
-            file_list.extend(self.glob_dir(data_dir, extensions))
+            file_list.extend(self.glob_dir(data_dir, suffixes))
         return file_list
 
     def _prepare_background(self):
