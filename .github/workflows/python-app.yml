@@ -64,6 +64,7 @@ jobs:
 
     - name: Install GUI packages
       run: |
+        sudo apt-get update
         sudo apt-get install -y xvfb xauth imagemagick xdotool sox
 
     - name: Run regular GUI tests
