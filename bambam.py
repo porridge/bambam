@@ -225,9 +225,9 @@ class Bambam:
             self.sequence = ''
 
     def _select_response(self, event):
-        sound_policy = self._sound_policies[self._sound_mapper.map(event)] if self._sound_enabled else None
-        image_policy = self._image_policies[self._image_mapper.map(event)]
-        return sound_policy.select(event) if sound_policy else None, image_policy.select(event)
+        sound = _map_and_select(event, self._sound_mapper, self._sound_policies) if self._sound_enabled else None
+        image = _map_and_select(event, self._image_mapper, self._image_policies)
+        return sound, image
 
     def _display_image(self, img):
         """
@@ -533,22 +533,28 @@ class Bambam:
                     mouse_pressed = False
 
 
+def _map_and_select(event, mapper, policies):
+    policy_name, policy_args = mapper.map(event)
+    policy = policies[policy_name]
+    return policy.select(event, policy_args)
+
+
 class CollectionPolicyBase:
     def __init__(self, things):
         self._things = things
 
-    def select(self, event):
+    def select(self, event, arg):
         raise NotImplementedError()
 
 
 class DeterministicPolicy(CollectionPolicyBase):
-    def select(self, event):
+    def select(self, event, _):
         thing_idx = event.key % len(self._things)
         return self._things[thing_idx]
 
 
 class RandomPolicy(CollectionPolicyBase):
-    def select(self, event):
+    def select(self, *_):
         return random.choice(self._things)
 
 
@@ -562,7 +568,7 @@ class FontImagePolicy:
     def __init__(self, upper_case: bool) -> None:
         self._upper_case = upper_case
 
-    def select(self, event):
+    def select(self, event, _):
         font = pygame.font.Font(None, 256)
         char = event.unicode
         if self._upper_case:
@@ -578,19 +584,19 @@ class LegacySoundMapper:
     def map(self, event):
         if self._deterministic_sounds:
             if event.type == KEYDOWN:
-                return "deterministic"
-            return "random"
+                return "deterministic", None
+            return "random", None
         else:
-            return "random"
+            return "random", None
 
 
 class LegacyImageMapper:
 
     def map(self, event):
         if event.type == pygame.KEYDOWN and (event.unicode.isalpha() or event.unicode.isdigit()):
-            return "font"
+            return "font", None
         else:
-            return "random"
+            return "random", None
 
 
 def main():
