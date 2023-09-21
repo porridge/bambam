@@ -144,6 +144,7 @@ class Bambam:
     def load_items(cls, lst, blacklist, load_function, failure_message):
         """
         Runs load_function on elements of lst unless they are blacklisted.
+        Returns a list of (base file name, result) tuples.
         """
         result = []
         errors_encountered = False
@@ -153,7 +154,7 @@ class Bambam:
                 print(_("Skipping blacklisted item %s") % name)
             else:
                 try:
-                    result.append(load_function(name))
+                    result.append((os.path.basename(name), load_function(name)))
                 except ResourceLoadException as e:
                     print(e, file=sys.stderr)
                     errors_encountered = True
@@ -540,8 +541,12 @@ def _map_and_select(event, mapper, policies):
 
 
 class CollectionPolicyBase:
-    def __init__(self, things):
-        self._things = things
+    def __init__(self, named_things):
+        self._things = []
+        self._things_by_file_name = {}
+        for name, thing in named_things:
+            self._things.append(thing)
+            self._things_by_file_name[name] = thing
 
     def select(self, event, arg):
         raise NotImplementedError()
