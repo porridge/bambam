@@ -253,14 +253,27 @@ class Bambam:
 
     def glob_data(self, suffixes):
         """
-        Search for files ending with any of the provided suffixes. Eg:
-        suffixes = ['.abc'] will be similar to `ls *.abc` in the configured
+        Search for files ending with any of the provided suffixes in data directories.
+        Eg: suffixes = ['.abc'] will be similar to `ls *.abc` in the configured
         data dirs. Matching will be case-insensitive.
         """
         suffixes = [x.lower() for x in suffixes]
         file_list = []
         for data_dir in self.data_dirs:
             file_list.extend(self.glob_dir(data_dir, suffixes))
+        return file_list
+
+    def glob_extension(self, suffixes, extension_name):
+        """
+        Search for files ending with any of the provided suffixes in extension directories.
+        Eg: suffixes = ['.abc'] will be similar to `ls *.abc` in the configured
+        extension directories. Matching will be case-insensitive.
+        """
+        suffixes = [s.lower() for s in suffixes]
+        file_list = []
+        for extension_dir in self.extensions_dirs:
+            extension_subdir = os.path.join(extension_dir, extension_name)
+            file_list.extend(self.glob_dir(extension_subdir, suffixes))
         return file_list
 
     def _prepare_background(self):
@@ -408,6 +421,26 @@ class Bambam:
             print(_('Using extension directory %s') % extensions_subdir)
             self.extensions_dirs.append(extensions_subdir)
 
+    def _get_extension_mappers(self, extension_name: str):
+        for extension_dir in self.extensions_dirs:
+            extension_subdir = os.path.join(extension_dir, extension_name)
+            event_map_file_name = os.path.join(extension_subdir, 'event_map.yaml')
+            if not os.path.exists(event_map_file_name):
+                continue
+            import yaml
+            with open(event_map_file_name) as event_map_file:
+                event_map = yaml.safe_load(event_map_file)
+                apiVersion = event_map.get('apiVersion', 'undefined')
+                if apiVersion not in ['0', 0]:
+                    raise ResourceLoadException(event_map_file_name, 'Unrecognized API version %s' % apiVersion)
+                image_map = event_map.get('image', {})
+                sound_map = event_map.get('sound', {})
+                for k in event_map:
+                    if k not in ['apiVersion', 'image', 'sound']:
+                        raise ResourceLoadException(event_map_file_name, 'unrecognized key %s' % k)
+                return DeclarativeMapper(sound_map), DeclarativeMapper(image_map)
+        raise ResourceLoadException(os.path.join(extension_name, 'event_map.yaml'), 'File not found.')
+
     def run(self):
         """
         Main application entry point.
@@ -419,6 +452,8 @@ class Bambam:
 
         parser = argparse.ArgumentParser(
             description=_('Keyboard mashing and doodling game for babies and toddlers.'))
+        parser.add_argument('-e', '--extension',
+                            help=_('Use the specified extension.'))
         parser.add_argument('-u', '--uppercase', action='store_true',
                             help=_('Show UPPER-CASE letters.'))
         parser.add_argument('--sound_blacklist', action='append', default=[],
@@ -479,19 +514,31 @@ class Bambam:
         pygame.display.flip()
 
         self.sound_muted = args.mute
+
         self._image_mapper = LegacyImageMapper()
-        self._sound_mapper = LegacySoundMapper(args.deterministic_sounds)
 
         if self._sound_enabled:
-            sounds = self.load_items(
+            if args.extension:
+                extension_sounds = self.load_items(
+                    self.glob_extension(['.wav', '.ogg'], args.extension),
+                    [],
+                    self.load_sound,
+                    _("All extension sounds failed to load."))
+                self._sound_mapper, self._image_mapper = self._get_extension_mappers(args.extension)
+                print(_('Using extension "%s".') % args.extension)
+            else:
+                self._sound_mapper = LegacySoundMapper(args.deterministic_sounds)
+                extension_sounds = []
+            generic_sounds = self.load_items(
                 self.glob_data(['.wav', '.ogg']),
                 args.sound_blacklist,
                 self.load_sound,
                 _("All sounds failed to load."))
 
             self._sound_policies = dict(
-                deterministic=DeterministicPolicy(sounds),
-                random=RandomPolicy(sounds),
+                deterministic=DeterministicPolicy(generic_sounds),
+                random=RandomPolicy(generic_sounds),
+                single=SinglePolicy(extension_sounds)
             )
 
         images = self.load_items(
@@ -537,7 +584,9 @@ class Bambam:
 def _map_and_select(event, mapper, policies):
     policy_name, policy_args = mapper.map(event)
     policy = policies[policy_name]
-    return policy.select(event, policy_args)
+    if not policy_args:
+        policy_args = []
+    return policy.select(event, *policy_args)
 
 
 class CollectionPolicyBase:
@@ -548,14 +597,19 @@ class CollectionPolicyBase:
             self._things.append(thing)
             self._things_by_file_name[name] = thing
 
-    def select(self, event, arg):
+    def select(self, *_):
         raise NotImplementedError()
 
 
 class DeterministicPolicy(CollectionPolicyBase):
-    def select(self, event, _):
+    def select(self, event):
         thing_idx = event.key % len(self._things)
         return self._things[thing_idx]
+
+
+class SinglePolicy(CollectionPolicyBase):
+    def select(self, _, file_name):
+        return self._things_by_file_name[file_name]
 
 
 class RandomPolicy(CollectionPolicyBase):
@@ -573,7 +627,7 @@ class FontImagePolicy:
     def __init__(self, upper_case: bool) -> None:
         self._upper_case = upper_case
 
-    def select(self, event, _):
+    def select(self, event, *_):
         font = pygame.font.Font(None, 256)
         char = event.unicode
         if self._upper_case:
@@ -593,6 +647,50 @@ class LegacySoundMapper:
             return "random", None
         else:
             return "random", None
+
+
+class DeclarativeMapper:
+
+    def __init__(self, spec):
+        self._spec = spec
+
+    def map(self, event):
+        for step in self._spec:
+            if 'check' in step:
+                check_list = step['check']
+                if not self._match_list(event, check_list):
+                    continue
+            return step['policy'], step.get('args', None)
+        raise Exception('ran out of steps in spec %s' % self._spec)
+
+    @classmethod
+    def _match_list(cls, event, check_list):
+        return all(cls._match_check(event, check) for check in check_list)
+
+    @classmethod
+    def _match_check(cls, event, check):
+        if len(check) != 1:
+            raise ValueError('only one key permitted in checks, found %s' % check.keys())
+        if 'type' in check:
+            t = check['type']
+            if t == 'KEYDOWN':
+                return event.type == KEYDOWN
+            else:
+                raise ValueError('only supported check type is currently KEYDOWN')
+        elif 'unicode' in check:
+            u = check['unicode']
+            if len(u) != 1:
+                raise ValueError('only one key is permitted in unicode check, found %s' % u.keys())
+            if 'value' in u:
+                return event.unicode == u['value']
+            elif 'isalpha' in u:
+                return event.unicode.isalpha()
+            elif 'isdigit' in u:
+                return event.unicode.isdigit()
+            else:
+                raise ValueError('unsupported key in unicode check: %s' % u.keys())
+        else:
+            raise ValueError('only checks for type and unicode are curerntly supported, found %s' % check.keys())
 
 
 class LegacyImageMapper:

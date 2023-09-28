@@ -1,0 +1,234 @@
+apiVersion: 0
+image:
+- check:
+  - type: KEYDOWN
+  - unicode:
+      isalpha: True
+  policy: font
+
+- check:
+  - type: KEYDOWN
+  - unicode:
+      isdigit: True
+  policy: font
+
+- policy: random
+
+sound:
+- check:
+  - unicode:
+      value: "0"
+  policy: single
+  args: ["0.ogg"]
+
+- check:
+  - unicode:
+      value: "1"
+  policy: single
+  args: ["1.ogg"]
+
+- check:
+  - unicode:
+      value: "2"
+  policy: single
+  args: ["2.ogg"]
+
+- check:
+  - unicode:
+      value: "3"
+  policy: single
+  args: ["3.ogg"]
+
+- check:
+  - unicode:
+      value: "4"
+  policy: single
+  args: ["4.ogg"]
+
+- check:
+  - unicode:
+      value: "5"
+  policy: single
+  args: ["5.ogg"]
+
+- check:
+  - unicode:
+      value: "6"
+  policy: single
+  args: ["6.ogg"]
+
+- check:
+  - unicode:
+      value: "7"
+  policy: single
+  args: ["7.ogg"]
+
+- check:
+  - unicode:
+      value: "8"
+  policy: single
+  args: ["8.ogg"]
+
+- check:
+  - unicode:
+      value: "9"
+  policy: single
+  args: ["9.ogg"]
+
+- check:
+  - unicode:
+      value: "a"
+  policy: single
+  args: ["a.ogg"]
+
+- check:
+  - unicode:
+      value: "b"
+  policy: single
+  args: ["b.ogg"]
+
+- check:
+  - unicode:
+      value: "c"
+  policy: single
+  args: ["c.ogg"]
+
+- check:
+  - unicode:
+      value: "d"
+  policy: single
+  args: ["d.ogg"]
+
+- check:
+  - unicode:
+      value: "e"
+  policy: single
+  args: ["e.ogg"]
+
+- check:
+  - unicode:
+      value: "f"
+  policy: single
+  args: ["f.ogg"]
+
+- check:
+  - unicode:
+      value: "g"
+  policy: single
+  args: ["g.ogg"]
+
+- check:
+  - unicode:
+      value: "h"
+  policy: single
+  args: ["h.ogg"]
+
+- check:
+  - unicode:
+      value: "i"
+  policy: single
+  args: ["i.ogg"]
+
+- check:
+  - unicode:
+      value: "j"
+  policy: single
+  args: ["j.ogg"]
+
+- check:
+  - unicode:
+      value: "k"
+  policy: single
+  args: ["k.ogg"]
+
+- check:
+  - unicode:
+      value: "l"
+  policy: single
+  args: ["l.ogg"]
+
+- check:
+  - unicode:
+      value: "m"
+  policy: single
+  args: ["m.ogg"]
+
+- check:
+  - unicode:
+      value: "n"
+  policy: single
+  args: ["n.ogg"]
+
+- check:
+  - unicode:
+      value: "o"
+  policy: single
+  args: ["o.ogg"]
+
+- check:
+  - unicode:
+      value: "p"
+  policy: single
+  args: ["p.ogg"]
+
+- check:
+  - unicode:
+      value: "q"
+  policy: single
+  args: ["q.ogg"]
+
+- check:
+  - unicode:
+      value: "r"
+  policy: single
+  args: ["r.ogg"]
+
+- check:
+  - unicode:
+      value: "s"
+  policy: single
+  args: ["s.ogg"]
+
+- check:
+  - unicode:
+      value: "t"
+  policy: single
+  args: ["t.ogg"]
+
+- check:
+  - unicode:
+      value: "u"
+  policy: single
+  args: ["u.ogg"]
+
+- check:
+  - unicode:
+      value: "v"
+  policy: single
+  args: ["v.ogg"]
+
+- check:
+  - unicode:
+      value: "w"
+  policy: single
+  args: ["w.ogg"]
+
+- check:
+  - unicode:
+      value: "x"
+  policy: single
+  args: ["x.ogg"]
+
+- check:
+  - unicode:
+      value: "y"
+  policy: single
+  args: ["y.ogg"]
+
+- check:
+  - unicode:
+      value: "z"
+  policy: single
+  args: ["z.ogg"]
+
+- policy: random
