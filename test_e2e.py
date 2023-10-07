@@ -160,7 +160,7 @@ def test_functionality(bambam: subprocess.Popen, try_unmute: bool, expect_light:
     logging.info('Simulating space and letter keypresses and measuring average screen color, to test functionality.')
     attempt_count = 1000
     for attempt in range(attempt_count):
-        send_keycodes('space', 'm')  # any letter will do, but em is nice and big
+        send_keycodes('space', 'm', '4')  # any letter will do, but em is nice and big
         send_mouse_move()
         time.sleep(0.25)  # let the event propagate and bambam process it (leave some time for sound to play)
         # Do not bother checking screen if bambam crashed.
