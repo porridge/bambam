@@ -174,6 +174,15 @@ class Bambam:
         self.sequence = ""
         self.sound_muted = None
 
+        self._sound_policies = dict()
+        self._image_policies = dict()
+
+    def _add_image_policy(self, name, policy):
+        self._image_policies[name] = policy
+
+    def _add_sound_policy(self, name, policy):
+        self._sound_policies[name] = policy
+
     def draw_dot(self):
         """
         draw filled circle at mouse position.
@@ -482,10 +491,8 @@ class Bambam:
                 self.load_sound,
                 _("All sounds failed to load."))
 
-            self._sound_policies = dict(
-                deterministic=DeterministicPolicy(sounds),
-                random=RandomPolicy(sounds),
-            )
+            self._add_sound_policy('deterministic', DeterministicPolicy(sounds))
+            self._add_sound_policy('random', RandomPolicy(sounds))
 
         images = self.load_items(
             self.glob_data(['.gif', '.jpg', '.jpeg', '.png', '.tif', '.tiff']),
@@ -493,10 +500,8 @@ class Bambam:
             self.load_image,
             _("All images failed to load."))
 
-        self._image_policies = dict(
-            font=FontImagePolicy(args.uppercase),
-            random=RandomPolicy(images),
-        )
+        self._add_image_policy('font', FontImagePolicy(args.uppercase))
+        self._add_image_policy('random', RandomPolicy(images))
 
         init_joysticks()
 
