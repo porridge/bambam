@@ -165,14 +165,11 @@ class Bambam:
     def __init__(self):
         self.data_dirs = []
 
-        self.background_color = None
-        self.background = None
         self.screen = None
         self.display_height = None
         self.display_width = None
 
         self.sequence = ""
-        self.sound_muted = None
 
         self._sound_policies = dict()
         self._image_policies = dict()
@@ -271,7 +268,14 @@ class Bambam:
             file_list.extend(self.glob_dir(data_dir, suffixes))
         return file_list
 
-    def _prepare_background(self):
+    def _prepare_screen(self, args):
+        # determine display resolution
+        display_info = pygame.display.Info()
+        self.display_width = display_info.current_w
+        self.display_height = display_info.current_h
+
+        self.screen = pygame.display.get_surface()
+
         if self._sound_enabled:
             # TRANSLATORS: the inserted string is space-separated list of supported command strings (more than one).
             caption_format = _("Commands: %s")
@@ -280,6 +284,7 @@ class Bambam:
             # TRANSLATORS: the inserted string is the translated quit command.
             caption_format = _("Command: %s")
             command_strings = [QUIT_STRING]
+        self.background_color = (0, 0, 0) if args.dark else (250, 250, 250)
         # noinspection PyArgumentList
         self.background = pygame.Surface(self.screen.get_size()).convert()
         self.background.fill(self.background_color)
@@ -293,6 +298,9 @@ class Bambam:
         caption_rect.x = 15
         caption_rect.y = 10
         self.background.blit(caption_label, caption_rect)
+
+        self.screen.blit(self.background, (0, 0))
+        pygame.display.flip()
 
     def _prepare_wayland_warning(self):
         font_size = 80
@@ -410,6 +418,37 @@ class Bambam:
             print(_('Using data directory %s') % data_subdir)
             self.data_dirs.append(data_subdir)
 
+    def _load_resources(self, args):
+        if not pygame.font:
+            print(_('Error, pygame fonts not available. Exiting...'), file=sys.stderr)
+            sys.exit(1)
+        if not pygame.mixer or not pygame.mixer.get_init():
+            print(_('Warning, sound disabled.'), file=sys.stderr)
+            self._sound_enabled = False
+        else:
+            self._sound_enabled = True
+            self.sound_muted = args.mute
+            sounds = self.load_items(
+                self.glob_data(['.wav', '.ogg']),
+                args.sound_blacklist,
+                self.load_sound,
+                _("All sounds failed to load."))
+
+            self._add_sound_policy('deterministic', DeterministicPolicy(sounds))
+            self._add_sound_policy('random', RandomPolicy(sounds))
+
+        images = self.load_items(
+            self.glob_data(['.gif', '.jpg', '.jpeg', '.png', '.tif', '.tiff']),
+            args.image_blacklist,
+            self.load_image,
+            _("All images failed to load."))
+
+        self._add_image_policy('font', FontImagePolicy(args.uppercase))
+        self._add_image_policy('random', RandomPolicy(images))
+
+        self._image_mapper = LegacyImageMapper()
+        self._sound_mapper = LegacySoundMapper(args.deterministic_sounds)
+
     def run(self):
         """
         Main application entry point.
@@ -441,33 +480,14 @@ class Bambam:
 
         pygame.init()
 
-        if not pygame.font:
-            print(_('Error, pygame fonts not available. Exiting...'), file=sys.stderr)
-            sys.exit(1)
-        if not pygame.mixer or not pygame.mixer.get_init():
-            print(_('Warning, sound disabled.'), file=sys.stderr)
-            self._sound_enabled = False
-        else:
-            self._sound_enabled = True
-
-        self.background_color = (0, 0, 0) if args.dark else (250, 250, 250)
         pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
-
-        # determine display resolution
-        display_info = pygame.display.Info()
-        self.display_width = display_info.current_w
-        self.display_height = display_info.current_h
-
         # TRANSLATORS: Main game window name.
         pygame.display.set_caption(_('Bam Bam'))
-        self.screen = pygame.display.get_surface()
 
-        self._prepare_background()
+        self._load_resources(args)
+        self._prepare_screen(args)
+
         clock = pygame.time.Clock()
-
-        self.screen.blit(self.background, (0, 0))
-        pygame.display.flip()
-
         if args.in_dedicated_session:
             self._prepare_welcome_message(dedicated_session=True)
         elif not args.wayland_ok and (os.getenv('WAYLAND_DISPLAY') or os.getenv('XDG_SESSION_TYPE') == 'wayland'):
@@ -479,29 +499,6 @@ class Bambam:
         poll_for_any_key_press(clock)
         self.screen.blit(self.background, (0, 0))
         pygame.display.flip()
-
-        self.sound_muted = args.mute
-        self._image_mapper = LegacyImageMapper()
-        self._sound_mapper = LegacySoundMapper(args.deterministic_sounds)
-
-        if self._sound_enabled:
-            sounds = self.load_items(
-                self.glob_data(['.wav', '.ogg']),
-                args.sound_blacklist,
-                self.load_sound,
-                _("All sounds failed to load."))
-
-            self._add_sound_policy('deterministic', DeterministicPolicy(sounds))
-            self._add_sound_policy('random', RandomPolicy(sounds))
-
-        images = self.load_items(
-            self.glob_data(['.gif', '.jpg', '.jpeg', '.png', '.tif', '.tiff']),
-            args.image_blacklist,
-            self.load_image,
-            _("All images failed to load."))
-
-        self._add_image_policy('font', FontImagePolicy(args.uppercase))
-        self._add_image_policy('random', RandomPolicy(images))
 
         init_joysticks()
 
