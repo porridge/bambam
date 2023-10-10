@@ -58,9 +58,9 @@ def main():
     try:
         checker_builder = check_stream(bambam.stderr, sys.stderr)
         if args.expect_audio_output:
-            checker_builder.not_contains_line("Warning, sound disabled.")
+            checker_builder.not_contains_line("Warning: Sound support not available.")
         else:
-            checker_builder.contains_line("Warning, sound disabled.")
+            checker_builder.contains_line("Warning: Sound support not available.")
         checker = checker_builder.start()
         check_still_running(bambam)
         await_welcome_screen(args.expect_light_mode)
