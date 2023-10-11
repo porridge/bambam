@@ -25,6 +25,8 @@ man bambam
 Before installing this application, ensure you have the following installed:
   * [Python](http://python.org) - only versions 3.9 or later are supported
   * [Pygame](http://www.pygame.org/) - version 2.x is supported, but version 1.9 might work too
+  * [PyYAML](https://github.com/yaml/pyyaml) - only required for using
+    extensions; any reasonably recent version should work
 
 If not, you can install it manually as follows:
   1. [Download](https://github.com/porridge/bambam/releases) the `bambam-1.2.1.zip` or `bambam-1.2.1.tar.gz` file.
@@ -97,3 +99,6 @@ Translations for this game are done on [Weblate](https://hosted.weblate.org/proj
 This project was moved from [its code.google.com location](https://code.google.com/p/bambam/) in April 2015, since that site was about to be shut down.
 
 Note that changes (as of 2010-08-17) from [the launchpad bambam fork](https://launchpad.net/bambam) had been merged back to this project in February 2014.
+
+The sounds for the alphanumeric-en_US extension were copied from https://github.com/porridge/bambam-media and are distributed
+under the terms of the GNU General Public License.

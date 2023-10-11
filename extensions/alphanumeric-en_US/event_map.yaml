@@ -1,0 +1,234 @@
+apiVersion: 0
+image:
+- check:
+  - type: KEYDOWN
+  - unicode:
+      isalpha: True
+  policy: font
+
+- check:
+  - type: KEYDOWN
+  - unicode:
+      isdigit: True
+  policy: font
+
+- policy: random
+
+sound:
+- check:
+  - unicode:
+      value: "0"
+  policy: named_file
+  args: ["0.ogg"]
+
+- check:
+  - unicode:
+      value: "1"
+  policy: named_file
+  args: ["1.ogg"]
+
+- check:
+  - unicode:
+      value: "2"
+  policy: named_file
+  args: ["2.ogg"]
+
+- check:
+  - unicode:
+      value: "3"
+  policy: named_file
+  args: ["3.ogg"]
+
+- check:
+  - unicode:
+      value: "4"
+  policy: named_file
+  args: ["4.ogg"]
+
+- check:
+  - unicode:
+      value: "5"
+  policy: named_file
+  args: ["5.ogg"]
+
+- check:
+  - unicode:
+      value: "6"
+  policy: named_file
+  args: ["6.ogg"]
+
+- check:
+  - unicode:
+      value: "7"
+  policy: named_file
+  args: ["7.ogg"]
+
+- check:
+  - unicode:
+      value: "8"
+  policy: named_file
+  args: ["8.ogg"]
+
+- check:
+  - unicode:
+      value: "9"
+  policy: named_file
+  args: ["9.ogg"]
+
+- check:
+  - unicode:
+      value: "a"
+  policy: named_file
+  args: ["a.ogg"]
+
+- check:
+  - unicode:
+      value: "b"
+  policy: named_file
+  args: ["b.ogg"]
+
+- check:
+  - unicode:
+      value: "c"
+  policy: named_file
+  args: ["c.ogg"]
+
+- check:
+  - unicode:
+      value: "d"
+  policy: named_file
+  args: ["d.ogg"]
+
+- check:
+  - unicode:
+      value: "e"
+  policy: named_file
+  args: ["e.ogg"]
+
+- check:
+  - unicode:
+      value: "f"
+  policy: named_file
+  args: ["f.ogg"]
+
+- check:
+  - unicode:
+      value: "g"
+  policy: named_file
+  args: ["g.ogg"]
+
+- check:
+  - unicode:
+      value: "h"
+  policy: named_file
+  args: ["h.ogg"]
+
+- check:
+  - unicode:
+      value: "i"
+  policy: named_file
+  args: ["i.ogg"]
+
+- check:
+  - unicode:
+      value: "j"
+  policy: named_file
+  args: ["j.ogg"]
+
+- check:
+  - unicode:
+      value: "k"
+  policy: named_file
+  args: ["k.ogg"]
+
+- check:
+  - unicode:
+      value: "l"
+  policy: named_file
+  args: ["l.ogg"]
+
+- check:
+  - unicode:
+      value: "m"
+  policy: named_file
+  args: ["m.ogg"]
+
+- check:
+  - unicode:
+      value: "n"
+  policy: named_file
+  args: ["n.ogg"]
+
+- check:
+  - unicode:
+      value: "o"
+  policy: named_file
+  args: ["o.ogg"]
+
+- check:
+  - unicode:
+      value: "p"
+  policy: named_file
+  args: ["p.ogg"]
+
+- check:
+  - unicode:
+      value: "q"
+  policy: named_file
+  args: ["q.ogg"]
+
+- check:
+  - unicode:
+      value: "r"
+  policy: named_file
+  args: ["r.ogg"]
+
+- check:
+  - unicode:
+      value: "s"
+  policy: named_file
+  args: ["s.ogg"]
+
+- check:
+  - unicode:
+      value: "t"
+  policy: named_file
+  args: ["t.ogg"]
+
+- check:
+  - unicode:
+      value: "u"
+  policy: named_file
+  args: ["u.ogg"]
+
+- check:
+  - unicode:
+      value: "v"
+  policy: named_file
+  args: ["v.ogg"]
+
+- check:
+  - unicode:
+      value: "w"
+  policy: named_file
+  args: ["w.ogg"]
+
+- check:
+  - unicode:
+      value: "x"
+  policy: named_file
+  args: ["x.ogg"]
+
+- check:
+  - unicode:
+      value: "y"
+  policy: named_file
+  args: ["y.ogg"]
+
+- check:
+  - unicode:
+      value: "z"
+  policy: named_file
+  args: ["z.ogg"]
+
+- policy: random
