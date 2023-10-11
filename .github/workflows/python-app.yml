@@ -45,6 +45,7 @@ jobs:
     strategy:
       matrix:
         python-version: ["3.9", "3.10", "3.11"]
+        extension-arg: ["", "-e=alphanumeric-en_US"]
     env:
       AUTOPKGTEST_TMP: /tmp
       AUTOPKGTEST_BAMBAM_PROGRAM: ./bambam.py
@@ -68,28 +69,28 @@ jobs:
         sudo apt-get install -y xvfb xauth imagemagick xdotool sox
 
     - name: Run regular GUI tests
-      run: ./run_e2e_test.sh regular
+      run: ./run_e2e_test.sh regular -- ${{ matrix.extension-arg }}
 
     - name: Run GUI tests in dark mode
-      run: ./run_e2e_test.sh dark --no-expect-light-mode -- --dark
+      run: ./run_e2e_test.sh dark --no-expect-light-mode -- --dark ${{ matrix.extension-arg }}
 
     - name: Run GUI tests with deterministic sounds
-      run: ./run_e2e_test.sh deterministic -- --deterministic-sounds
+      run: ./run_e2e_test.sh deterministic -- --deterministic-sounds ${{ matrix.extension-arg }}
 
     - name: Run GUI tests muted
-      run: ./run_e2e_test.sh muted --no-expect-sounds -- --mute
+      run: ./run_e2e_test.sh muted --no-expect-sounds -- --mute ${{ matrix.extension-arg }}
 
     - name: Run GUI tests muted just initially
-      run: ./run_e2e_test.sh start-muted -- --mute
+      run: ./run_e2e_test.sh start-muted -- --mute ${{ matrix.extension-arg }}
 
     - name: Run GUI tests without sound support
-      run: ./run_e2e_test.sh no-audio --no-expect-audio-output --sdl-audio-driver invalid
+      run: ./run_e2e_test.sh no-audio --no-expect-audio-output --sdl-audio-driver invalid -- ${{ matrix.extension-arg }}
 
     - name: Save artifacts
       uses: actions/upload-artifact@v3
       if: always()
       with:
-        name: test-artifacts-${{ matrix.python-version }}
+        name: test-artifacts-${{ matrix.python-version }}-arg${{ matrix.extension-arg }}
         path: artifacts
 
   nofonts:
