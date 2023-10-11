@@ -25,18 +25,20 @@ import gettext
 import math
 import os
 import pygame
+from pygame.locals import Color, QUIT, KEYDOWN, MOUSEMOTION, MOUSEBUTTONDOWN, MOUSEBUTTONUP
 import random
 import sys
 from textwrap import fill
+
+_SEED = os.environ.get('BAMBAM_RANDOM_SEED', None)
+if _SEED:
+    random.seed(_SEED)
 
 try:
     import yaml
     _YAML_LOADED = True
 except ImportError:
     _YAML_LOADED = False
-
-
-from pygame.locals import Color, QUIT, KEYDOWN, MOUSEMOTION, MOUSEBUTTONDOWN, MOUSEBUTTONUP
 
 
 # noinspection PyPep8Naming
