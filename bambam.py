@@ -102,13 +102,15 @@ def poll_for_any_key_press(clock):
 
 class Bambam:
     IMAGE_MAX_WIDTH = 700
+    _HUE_SPACE = 360
 
-    @classmethod
-    def get_color(cls):
+    def get_color(self):
         """
         Return bright color varying over time.
         """
-        hue = pygame.time.get_ticks() / 50 % 360
+        # Dividing by two results in a rate of change similar to the legacy
+        # method of generating current color, based on current time.
+        hue = int(self._event_count // 2) % self._HUE_SPACE
         color = Color('white')
         color.hsva = (hue, 100, 100, 100)
         return color
@@ -182,6 +184,8 @@ class Bambam:
 
         self._sound_policies = dict()
         self._image_policies = dict()
+
+        self._event_count = random.randint(0, 2 * self._HUE_SPACE - 1)
 
     def _add_image_policy(self, name, policy):
         self._image_policies[name] = policy
@@ -573,23 +577,30 @@ class Bambam:
                     sys.exit(0)
 
                 elif event.type == KEYDOWN or event.type == pygame.JOYBUTTONDOWN:
+                    self._bump_event_count()
                     self.process_keypress(event)
 
                 # mouse motion
                 elif event.type == MOUSEMOTION:
+                    self._bump_event_count()
                     if mouse_pressed:
                         self.draw_dot()
                         pygame.display.flip()
 
                 # mouse button down
                 elif event.type == MOUSEBUTTONDOWN:
+                    self._bump_event_count()
                     self.draw_dot()
                     mouse_pressed = True
                     pygame.display.flip()
 
                 # mouse button up
                 elif event.type == MOUSEBUTTONUP:
+                    self._bump_event_count()
                     mouse_pressed = False
+
+    def _bump_event_count(self):
+        self._event_count = (self._event_count + 1) % (self._HUE_SPACE * 2)
 
 
 def _map_and_select(event, mapper, policies):
