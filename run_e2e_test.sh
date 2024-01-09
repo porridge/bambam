@@ -16,7 +16,7 @@
 set -euo pipefail
 subdir="$1"
 shift
-AUTOPKGTEST_ARTIFACTS="$(pwd)/artifacts/${subdir}"
+export AUTOPKGTEST_ARTIFACTS="$(pwd)/artifacts/${subdir}"
 mkdir -p "${AUTOPKGTEST_ARTIFACTS}"
 exec xvfb-run \
     -e "${AUTOPKGTEST_ARTIFACTS}/xvfb-run.stderr" \

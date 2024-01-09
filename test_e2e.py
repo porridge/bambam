@@ -28,6 +28,7 @@ import logging
 import os
 import random
 import re
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -38,9 +39,15 @@ import time
 _COLOR_PATTERN = re.compile(r'(\d+),(\d+),(\d+)')
 _EXIT_SECONDS = 5
 _BAMBAM_PROGRAM = os.getenv('AUTOPKGTEST_BAMBAM_PROGRAM', '/usr/games/bambam')
+_GOLDEN_FILE_BASE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'test', 'golden')
 _ARTIFACTS_DIR = os.getenv('AUTOPKGTEST_ARTIFACTS', '.')
 _TMP_DIR = os.getenv('AUTOPKGTEST_TMP', tempfile.gettempdir())
 _AUDIO_FILE = os.path.join(_TMP_DIR, 'sdlaudio.raw')
+_SEED = os.environ.get('BAMBAM_RANDOM_SEED', None)
+_GOLDEN_SUBDIR = None
+_GOLDEN_FILE_SUCCESS = True
+if _SEED:
+    random.seed(_SEED)
 
 
 def main():
@@ -49,8 +56,13 @@ def main():
     parser.add_argument('--expect-sounds', action=argparse.BooleanOptionalAction, default=True)
     parser.add_argument('--expect-light-mode', action=argparse.BooleanOptionalAction, default=True)
     parser.add_argument('--sdl-audio-driver', default='disk')
+    parser.add_argument('--golden-subdir',
+                        help='Generate, or - if they exist - compare screenshot golden files in this subdirectory.')
+    parser.add_argument('--ignored', help='Ignored flag, used by CI to simplify argument processing.')
     parser.add_argument('bambam_args', nargs='*')
     args = parser.parse_args()
+    global _GOLDEN_SUBDIR
+    _GOLDEN_SUBDIR = args.golden_subdir
 
     remove_if_exists(_AUDIO_FILE)
     env = os.environ.copy() | dict(SDL_AUDIODRIVER=args.sdl_audio_driver, SDL_DISKAUDIOFILE=_AUDIO_FILE)
@@ -81,6 +93,9 @@ def main():
         raise
     check_audio(args.expect_audio_output, args.expect_sounds)
     logging.info('Test successful.')
+    if _GOLDEN_SUBDIR and not _GOLDEN_FILE_SUCCESS:
+        logging.error('One or more golden file comparisons failed.')
+        sys.exit(1)
 
 
 def remove_if_exists(file_path: str):
@@ -227,12 +242,53 @@ def check_audio(assert_audio_output_exists=True, assert_contains_sounds=True):
 
 
 def take_screenshot(title):
+    try:
+        _take_screenshot(title)
+    except BaseException as e:
+        logging.exception('Ignoring exception raised when taking %s screenshot.' % title)
+        if isinstance(e, subprocess.CalledProcessError):
+            logging.error('Command output: %s', e.output)
+
+
+def _take_screenshot(title):
     file_name = os.path.join(_ARTIFACTS_DIR, '%s.png' % title)
     subprocess.call([
         'convert',
         'xwd:' + os.path.join(_TMP_DIR, 'Xvfb_screen0'),
         file_name])
     logging.info('Took a screenshot to: %s', file_name)
+    if not _GOLDEN_SUBDIR:
+        return
+    golden_file_subdir = os.path.join(_GOLDEN_FILE_BASE_DIR, _GOLDEN_SUBDIR)
+    golden_file_name = os.path.join(golden_file_subdir, '%s.png' % title)
+    diff_file_name = os.path.join(_ARTIFACTS_DIR, '%s-diff.png' % title)
+    if not os.path.exists(golden_file_name):
+        logging.info('No golden file for %s found, creating one.', title)
+        os.makedirs(golden_file_subdir, exist_ok=True)
+        shutil.copyfile(file_name, golden_file_name)
+    else:
+        logging.info('Comparing to golden file for %s...', title)
+        try:
+            difference_found = False
+            cmp = subprocess.run([
+                'compare', '-metric', 'AE', golden_file_name, file_name, diff_file_name
+            ], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, check=True, universal_newlines=True)
+        except:  # noqa: E722
+            difference_found = True
+            raise
+        else:
+            if cmp.stdout.strip() != '0':
+                print('Difference', cmp.stdout)
+                difference_found = True
+        finally:
+            if difference_found:
+                logging.info('Updating golden file %s.', golden_file_name)
+                os.makedirs(golden_file_subdir, exist_ok=True)
+                shutil.copyfile(file_name, golden_file_name)
+                global _GOLDEN_FILE_SUCCESS
+                _GOLDEN_FILE_SUCCESS = False
+            else:
+                logging.info('No difference found.')
 
 
 def get_average_color():
