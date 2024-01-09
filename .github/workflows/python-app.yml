@@ -1,6 +1,14 @@
 name: BamBam
 
-on: [push, pull_request]
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      golden:
+        default: false
+        description: "Update and/or check golden files."
+        type: boolean
 
 permissions:
   contents: read
@@ -45,7 +53,7 @@ jobs:
     strategy:
       matrix:
         python-version: ["3.9", "3.10", "3.11"]
-        extension-arg: ["", "-e=alphanumeric-en_US"]
+        extension: ["none", "alphanumeric-en_US"]
     env:
       AUTOPKGTEST_TMP: /tmp
       AUTOPKGTEST_BAMBAM_PROGRAM: ./bambam.py
@@ -67,31 +75,57 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y xvfb xauth imagemagick xdotool sox
+    
+    - name: Compute arguments
+      id: args
+      run: |
+        case ${{ matrix.extension }} in
+        none) echo extension_arg= >> $GITHUB_OUTPUT ;;
+        *) echo extension_arg=-e=${{ matrix.extension }} >> $GITHUB_OUTPUT ;;
+        esac
+        if [[ "${{ inputs.golden }}" == true ]]; then
+         echo golden_subdir_arg=--golden-subdir=${{ matrix.python-version }}/${{ matrix.extension }} >> $GITHUB_OUTPUT
+        else
+         echo golden_subdir_arg=--ignored= >> $GITHUB_OUTPUT
+        fi
 
     - name: Run regular GUI tests
-      run: ./run_e2e_test.sh regular -- ${{ matrix.extension-arg }}
+      run: ./run_e2e_test.sh regular ${{ steps.args.outputs.golden_subdir_arg }}/regular -- ${{ steps.args.outputs.extension_arg }}
+      if: always()
 
     - name: Run GUI tests in dark mode
-      run: ./run_e2e_test.sh dark --no-expect-light-mode -- --dark ${{ matrix.extension-arg }}
+      run: ./run_e2e_test.sh dark --no-expect-light-mode ${{ steps.args.outputs.golden_subdir_arg }}/dark -- --dark ${{ steps.args.outputs.extension_arg }}
+      if: always()
 
     - name: Run GUI tests with deterministic sounds
-      run: ./run_e2e_test.sh deterministic -- --deterministic-sounds ${{ matrix.extension-arg }}
+      run: ./run_e2e_test.sh deterministic ${{ steps.args.outputs.golden_subdir_arg }}/deterministic -- --deterministic-sounds ${{ steps.args.outputs.extension_arg }}
+      if: always()
 
     - name: Run GUI tests muted
-      run: ./run_e2e_test.sh muted --no-expect-sounds -- --mute ${{ matrix.extension-arg }}
+      run: ./run_e2e_test.sh muted --no-expect-sounds ${{ steps.args.outputs.golden_subdir_arg }}/muted -- --mute ${{ steps.args.outputs.extension_arg }}
+      if: always()
 
     - name: Run GUI tests muted just initially
-      run: ./run_e2e_test.sh start-muted -- --mute ${{ matrix.extension-arg }}
+      run: ./run_e2e_test.sh start-muted ${{ steps.args.outputs.golden_subdir_arg }}/start-muted -- --mute ${{ steps.args.outputs.extension_arg }}
+      if: always()
 
     - name: Run GUI tests without sound support
-      run: ./run_e2e_test.sh no-audio --no-expect-audio-output --sdl-audio-driver invalid -- ${{ matrix.extension-arg }}
+      run: ./run_e2e_test.sh no-audio --no-expect-audio-output --sdl-audio-driver invalid ${{ steps.args.outputs.golden_subdir_arg }}/no-sound -- ${{ steps.args.outputs.extension_arg }}
+      if: always()
 
     - name: Save artifacts
       uses: actions/upload-artifact@v3
       if: always()
       with:
-        name: test-artifacts-${{ matrix.python-version }}-arg${{ matrix.extension-arg }}
+        name: test-artifacts-${{ matrix.python-version }}-${{ matrix.extension }}
         path: artifacts
+
+    - name: Save golden files
+      uses: actions/upload-artifact@v3
+      if: always() && inputs.golden == true
+      with:
+        name: test-golden-${{ matrix.python-version }}-${{ matrix.extension }}
+        path: test/golden
 
   nofonts:
 
