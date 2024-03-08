@@ -66,7 +66,7 @@ def main():
 
     remove_if_exists(_AUDIO_FILE)
     env = os.environ.copy() | dict(SDL_AUDIODRIVER=args.sdl_audio_driver, SDL_DISKAUDIOFILE=_AUDIO_FILE)
-    bambam = subprocess.Popen([_BAMBAM_PROGRAM]+args.bambam_args, env=env, stderr=subprocess.PIPE)
+    bambam = subprocess.Popen([_BAMBAM_PROGRAM, '--trace'] + args.bambam_args, env=env, stderr=subprocess.PIPE)
     try:
         checker_builder = check_stream(bambam.stderr, sys.stderr)
         if args.expect_audio_output:
