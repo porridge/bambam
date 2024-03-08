@@ -22,6 +22,7 @@
 import argparse
 import fnmatch
 import gettext
+import logging
 import math
 import os
 import pygame
@@ -216,6 +217,7 @@ class Bambam:
 
         # Clear the screen 10% of the time
         if random.randint(0, 10) == 1:
+            logging.debug('Clearing screen.')
             self.screen.blit(self.background, (0, 0))
             pygame.display.flip()
 
@@ -254,6 +256,7 @@ class Bambam:
         """
         w = random.randint(0, self.display_width - img.get_width() - 1)
         h = random.randint(0, self.display_height - img.get_height() - 1)
+        logging.debug('Blitting at %s image %s', (w, h), img)
         self.screen.blit(img, (w, h))
 
     def glob_dir(self, path, suffixes):
@@ -543,8 +546,12 @@ class Bambam:
                             help=_('Do not prevent running under Wayland.'))
         parser.add_argument('--in-dedicated-session', action='store_true',
                             help=argparse.SUPPRESS)
+        parser.add_argument('--trace', action='store_true',
+                            help=_('Print detailed messages about game internals.'))
         args = parser.parse_args()
 
+        log_level = logging.DEBUG if args.trace else logging.INFO
+        logging.basicConfig(level=log_level, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
         pygame.init()
 
         pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
@@ -636,7 +643,9 @@ class NamedFilePolicy(CollectionPolicyBase):
 
 class RandomPolicy(CollectionPolicyBase):
     def select(self, *_):
-        return random.choice(self._things)
+        choice = random.choice(self._things)
+        logging.debug('Selected %s from %d possibilities.', choice, len(self._things))
+        return choice
 
 
 class FontImagePolicy:
@@ -654,7 +663,9 @@ class FontImagePolicy:
         char = event.unicode
         if self._upper_case:
             char = char.upper()
-        return font.render(char, 1, random.choice(self.COLORS))
+        color = random.choice(self.COLORS)
+        logging.debug('Selected color %s for char %s.', color, char)
+        return font.render(char, 1, color)
 
 
 class LegacySoundMapper:
