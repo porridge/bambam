@@ -57,6 +57,7 @@ jobs:
     env:
       AUTOPKGTEST_TMP: /tmp
       AUTOPKGTEST_BAMBAM_PROGRAM: ./bambam.py
+      BAMBAM_RANDOM_SEED: 0
 
     steps:
     - uses: actions/checkout@v3
