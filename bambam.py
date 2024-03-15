@@ -31,10 +31,6 @@ import random
 import sys
 from textwrap import fill
 
-_SEED = os.environ.get('BAMBAM_RANDOM_SEED', None)
-if _SEED:
-    random.seed(_SEED)
-
 try:
     import yaml
     _YAML_LOADED = True
@@ -174,6 +170,8 @@ class Bambam:
         return result
 
     def __init__(self):
+        self._random = random.Random(os.environ.get('BAMBAM_RANDOM_SEED'))
+
         self.data_dirs = []
         self.extensions_dirs = []
 
@@ -186,7 +184,7 @@ class Bambam:
         self._sound_policies = dict()
         self._image_policies = dict()
 
-        self._event_count = random.randint(0, 2 * self._HUE_SPACE - 1)
+        self._event_count = self._random.randint(0, 2 * self._HUE_SPACE - 1)
 
     def _add_image_policy(self, name, policy):
         self._image_policies[name] = policy
@@ -216,7 +214,7 @@ class Bambam:
             self._maybe_process_command(event.unicode)
 
         # Clear the screen 10% of the time
-        if random.randint(0, 10) == 1:
+        if self._random.randint(0, 10) == 1:
             logging.debug('Clearing screen.')
             self.screen.blit(self.background, (0, 0))
             pygame.display.flip()
@@ -254,8 +252,8 @@ class Bambam:
         """
         Prints an image at a random location.
         """
-        w = random.randint(0, self.display_width - img.get_width() - 1)
-        h = random.randint(0, self.display_height - img.get_height() - 1)
+        w = self._random.randint(0, self.display_width - img.get_width() - 1)
+        h = self._random.randint(0, self.display_height - img.get_height() - 1)
         logging.debug('Blitting at %s image %s', (w, h), img)
         self.screen.blit(img, (w, h))
 
@@ -470,7 +468,7 @@ class Bambam:
                 _("All sounds failed to load."))
 
             self._add_sound_policy('deterministic', DeterministicPolicy(sounds))
-            self._add_sound_policy('random', RandomPolicy(sounds))
+            self._add_sound_policy('random', RandomPolicy(sounds, self._random))
 
         images = self.load_items(
             self.glob_data(['.gif', '.jpg', '.jpeg', '.png', '.tif', '.tiff']),
@@ -478,8 +476,8 @@ class Bambam:
             self.load_image,
             _("All images failed to load."))
 
-        self._add_image_policy('font', FontImagePolicy(args.uppercase))
-        self._add_image_policy('random', RandomPolicy(images))
+        self._add_image_policy('font', FontImagePolicy(args.uppercase, self._random))
+        self._add_image_policy('random', RandomPolicy(images, self._random))
 
         if _YAML_LOADED and args.extension:
             if self._sound_enabled:
@@ -642,8 +640,12 @@ class NamedFilePolicy(CollectionPolicyBase):
 
 
 class RandomPolicy(CollectionPolicyBase):
+    def __init__(self, named_things, random_generator):
+        super().__init__(named_things)
+        self._random = random_generator
+
     def select(self, *_):
-        choice = random.choice(self._things)
+        choice = self._random.choice(self._things)
         logging.debug('Selected %s from %d possibilities.', choice, len(self._things))
         return choice
 
@@ -655,15 +657,16 @@ class FontImagePolicy:
         (255, 128, 0), (255, 0, 255), (0, 255, 255)
     )
 
-    def __init__(self, upper_case: bool) -> None:
+    def __init__(self, upper_case: bool, random_generator) -> None:
         self._upper_case = upper_case
+        self._random = random_generator
 
     def select(self, event):
         font = pygame.font.Font(None, 256)
         char = event.unicode
         if self._upper_case:
             char = char.upper()
-        color = random.choice(self.COLORS)
+        color = self._random.choice(self.COLORS)
         logging.debug('Selected color %s for char %s.', color, char)
         return font.render(char, 1, color)
 
