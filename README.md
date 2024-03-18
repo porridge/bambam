@@ -23,7 +23,7 @@ man bambam
 ### Manual installation
 
 Before installing this application, ensure you have the following installed:
-  * [Python](http://python.org) - only versions 3.9 or later are supported
+  * [Python](http://python.org) - versions 3.9, 3.10 and 3.11 are supported
   * [Pygame](http://www.pygame.org/) - version 2.x is supported, but version 1.9 might work too
   * [PyYAML](https://github.com/yaml/pyyaml) - only required for using
     extensions; any reasonably recent version should work
