@@ -172,7 +172,7 @@ jobs:
           timeout -v -k 5 10 \
           ./test/redirect-stderr-and-run.sh errors.txt ./bambam.py || echo Bambam under xvfb exited code $?
 
-        if grep -q 'Error, pygame fonts not available.' errors.txt; then
+        if grep -q 'Error: pygame fonts not available. Exiting.' errors.txt; then
           echo "Expected font absence message found."
           exit 0
         fi
