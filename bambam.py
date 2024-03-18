@@ -304,11 +304,11 @@ class Bambam:
         self.screen = pygame.display.get_surface()
 
         if self._sound_enabled:
-            # TRANSLATORS: the inserted string is space-separated list of supported command strings (more than one).
+            # TRANSLATORS: placeholder is for a space-separated list of supported command strings (more than one).
             caption_format = _("Commands: %s")
             command_strings = [QUIT_STRING, MUTE_STRING, UNMUTE_STRING]
         else:
-            # TRANSLATORS: the inserted string is the translated quit command.
+            # TRANSLATORS: placeholder is for the translated "quit" command.
             caption_format = _("Command: %s")
             command_strings = [QUIT_STRING]
         self.background_color = (0, 0, 0) if args.dark else (250, 250, 250)
