@@ -15,16 +15,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2022-10-04 13:43+0200\n"
-"PO-Revision-Date: 2021-03-13 00:02+0000\n"
-"Last-Translator: J. Lavoie <j.lavoie@net-c.ca>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/bambam/app-and-"
-"manpage/fr/>\n"
+"PO-Revision-Date: 2024-03-25 01:34+0000\n"
+"Last-Translator: programutox <programutox@disroot.org>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/bambam/"
+"app-and-manpage/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.5.2-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #. TRANSLATORS: command string to mute sounds.
 #. Must not contain spaces, and should be be at least 4 characters long,
@@ -56,7 +56,7 @@ msgstr "quit"
 #: bambam.py:73
 #, python-format
 msgid "Failed to load file \"%(file)s\": %(message)s"
-msgstr "Échec du chargement du fichier « %(file)s » : %(message)s"
+msgstr "Échec du chargement du fichier \"%(file)s\" : %(message)s"
 
 #: bambam.py:123
 #, python-format
@@ -93,7 +93,7 @@ msgstr "Appuyez sur n'importe quelle touche pour quitter."
 
 #: bambam.py:328
 msgid "Please read the following important information!"
-msgstr ""
+msgstr "Veuillez lire les informations importantes suivantes !"
 
 #. TRANSLATORS: the substituted word will be the translated command for quitting the game.
 #: bambam.py:364
@@ -101,6 +101,8 @@ msgstr ""
 msgid ""
 "To quit the game after it starts, directly type the word %s on the keyboard."
 msgstr ""
+"Pour quitter le jeu après son lancement, tapez directement le mot %s sur "
+"votre clavier."
 
 #. TRANSLATORS: "this" means the word quit from the preceding message, in this context.
 #: bambam.py:366
@@ -114,26 +116,39 @@ msgstr ""
 "quit.>"
 
 #: bambam.py:369
+#, fuzzy
 msgid ""
 "The game tries to grab the keyboard and mouse pointer focus, to keep your "
 "child from causing damage to your files."
 msgstr ""
+"Le jeu tente d'attirer l'attention sur le clavier et le pointeur de la "
+"souris, pour empêcher votre enfant d'endommager vos fichiers."
 
 #: bambam.py:373
+#, fuzzy
 msgid ""
 "The game is now running in a dedicated login session, which provides some "
 "additional safety. However it may still be possible for the child to "
 "accidentally quit the game, or swich to a different virtual terminal (for "
 "example using CTRL+ALT+Fx)."
 msgstr ""
+"Le jeu s'exécute maintenant dans une session de connexion dédiée, ce qui "
+"fournit une sécurité supplémentaire. Cependant il est toujours possible pour "
+"l'enfant de quitter par accident le jeu, ou de passer à un autre terminal "
+"virtuel (en utilisant par exemple CTRL+ALT+Fx)."
 
 #: bambam.py:378
+#, fuzzy
 msgid ""
 "Make sure other user sessions (if any) are locked with a password, if "
 "leaving your child unattended with the game."
 msgstr ""
+"Assurez-vous que les autres sessions utilisateurs (s'il y en a) sont "
+"verrouillées par un mot de passe, si vous laissez votre enfant jouer sans "
+"surveillance."
 
 #: bambam.py:382
+#, fuzzy
 msgid ""
 "However in some environments it may be possible for the child to exit or "
 "switch away from the game by using a special key combination. The exact "
@@ -141,20 +156,34 @@ msgid ""
 "Examples include the Super (also known as Windows) key, function key "
 "combinations (CTRL+ALT+Fx) or hot corners when using the mouse."
 msgstr ""
+"Cependant dans certains environnements il est possible pour l'enfant de "
+"quitter le jeu ou de changer de programme en utilisant un combinaison "
+"spéciale de touches. Le mécanisme exact dépend de votre environnement "
+"graphique, votre gestionnaire de fenêtres, etc. On peut citer comme exemples "
+"la touche Super (aussi connu sous le nom de Windows), les combinaisons avec "
+"les touches de fonction (CTRL+ALT+Fx) ou les coins dynamiques lorsque vous "
+"utilisez la souris."
 
 #: bambam.py:388
 msgid "We recommend to NOT LEAVE YOUR CHILD UNATTENDED with the game."
 msgstr ""
+"Nous recommandons de NE PAS LAISSER VOTRE ENFANT SANS SURVEILLANCE avec le "
+"jeu."
 
 #: bambam.py:390
 msgid ""
 "Please consider using a dedicated BamBam session instead (look for a gear "
 "icon when logging in), which is safer."
 msgstr ""
+"Veuillez envisager d'utiliser à la place une session bambam dédiée (cherchez "
+"l'icône d'engrenage lorsque vous vous connectez), qui est plus sûre."
 
 #: bambam.py:394
+#, fuzzy
 msgid "Press any key or mouse button to start the game now."
 msgstr ""
+"Appuyez sur n'importe quel touche du clavier ou bouton de la souris pour "
+"démarrer le jeu maintenant."
 
 #: bambam.py:415 bambam.py:422
 #, python-format
@@ -370,6 +399,7 @@ msgstr "\\(bu"
 
 #. type: Plain text
 #: bambam.6:51
+#, fuzzy
 msgid ""
 "when running under Wayland, it is not currently possible for bambam to grab "
 "all key presses.  A consequence of that is that if you use GNOME Shell, "
@@ -379,13 +409,24 @@ msgid ""
 "this is the case, bambam will display a warning and refuse to work.  You can "
 "disable this workaround, with the B<--wayland-ok> option."
 msgstr ""
+"lorsqu'il est exécuté sur Wayland, il n'est actuellement pas possible pour "
+"bambam de recevoir toutes les touches appuyées.  Une des conséquences est "
+"que si vous utilisez le Shell GNOME, appuyer sur la touche WIndows (alias "
+"Super) activera la vue d'ensemble des activités.  Veuillez vérifier votre "
+"environnement.  Comme solution de contournement, à partir de la version "
+"1.1.2, bambam détectera s'il est exécuté sur Wayland. Si c'est le cas, "
+"bambam affichera un avertissement et refusera de fonctionner.  Vous pouvez "
+"désactiver cette solution avec l'option B<--wayland-ok>."
 
 #. type: Plain text
 #: bambam.6:55
+#, fuzzy
 msgid ""
 "bambam does not block virtual terminal switching (e.g.  CTRL+ALT+F1). See "
 "the example 50-dont-vt-switch.conf file if you would like to block that."
 msgstr ""
+"bambam n'empêche pas de passer aux terminaux virtuels (par ex.  CTRL+ALT+F1)"
+". Voyez l'exemple 50-dont-vt-switch.conf si vous souhaitez bloquer cela."
 
 #. type: Plain text
 #: bambam.6:57
@@ -393,6 +434,8 @@ msgid ""
 "there may be other yet unknown ways in other environments and window "
 "managers."
 msgstr ""
+"il existe peut-être d'autres moyens encore inconnus dans d'autres "
+"environnements et gestionnaires de fenêtres."
 
 #. type: Plain text
 #: bambam.6:61
@@ -400,6 +443,8 @@ msgid ""
 "For the above reasons, starting with version 1.2.0, B<it is possible and "
 "recommended to run bambam in a dedicated login session.>"
 msgstr ""
+"Pour les raisons ci-dessus, à partir de la version 1.2.0, B<il est possible "
+"et recommandé d'exécuter bambam dans une session de connexion dédiée.>"
 
 #. type: Plain text
 #: bambam.6:64
@@ -407,12 +452,17 @@ msgid ""
 "One way to do this is to select BamBam session type from your display "
 "manager settings when logging in (look for a gear icon)."
 msgstr ""
+"Une façon de procéder consiste à sélectionner le type de session BamBam dans "
+"les paramètres de votre gestionnaire de fenêtres lorsque vous vous connectez "
+"(cherche l'icône d'engrenage)."
 
 #. type: Plain text
 #: bambam.6:67
 msgid ""
 "Another way is use command such as B<exec startx bambam> from a text console."
 msgstr ""
+"Une autre façon de faire est d'utiliser une commande comme B<exec startx "
+"bambam> depuis une console textuelle."
 
 #. type: Plain text
 #: bambam.6:69
@@ -470,12 +520,12 @@ msgstr ""
 
 #: bambam.en.desktop:3 bambam-session.en.desktop:3
 msgid "BamBam"
-msgstr ""
+msgstr "BamBam"
 
 #. TRANSLATORS: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon! Do NOT translate or remove the application name from the list! It is used for search.
 #: bambam.en.desktop:11
 msgid "bambam;baby;child;toddler;game;keyboard mashing;mouse;doodling;"
-msgstr ""
+msgstr "bambam;bebe;enfant;touts-petits;jeu;clavier;souris;gribouillage;"
 
 #~ msgid "A keyboard mashing game for babies."
 #~ msgstr "Un jeu de clavier pour bébés."
