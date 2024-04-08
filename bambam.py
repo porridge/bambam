@@ -721,9 +721,9 @@ class DeclarativeMapper:
             if 'value' in u:
                 return event.unicode == u['value']
             elif 'isalpha' in u:
-                return event.unicode.isalpha()
+                return str(event.unicode.isalpha()) == u['isalpha']
             elif 'isdigit' in u:
-                return event.unicode.isdigit()
+                return str(event.unicode.isdigit()) == u['isdigit']
             else:
                 raise ValueError('unsupported key in unicode check: %s' % u.keys())
         else:
