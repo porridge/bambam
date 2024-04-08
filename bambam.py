@@ -697,7 +697,8 @@ class DeclarativeMapper:
                 if not self._match_list(event, check_list):
                     continue
             return step['policy'], step.get('args', None)
-        raise Exception('ran out of steps in spec %s' % self._spec)
+        raise Exception('event %s matched no step in spec %s' % (
+            event, self._spec))
 
     @classmethod
     def _match_list(cls, event, check_list):
