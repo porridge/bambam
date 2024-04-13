@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: bambam 1.0.2\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2024-04-13 15:17+0200\n"
-"PO-Revision-Date: 2024-04-13 14:11+0000\n"
+"PO-Revision-Date: 2024-04-13 14:15+0000\n"
 "Last-Translator: Marcin Owsiany <marcin@owsiany.pl>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/bambam/"
 "app-and-manpage/pl/>\n"
@@ -555,7 +555,7 @@ msgid ""
 "(typically ~/.local/share/bambam/extensions)"
 msgstr ""
 "katalog B<extensions> w podkatalogu B<$XDG_DATA_HOME> programu bambam ("
-"zazwyczaj ~/.local/share/bambam/extensions)"
+"zwykle ~/.local/share/bambam/extensions)"
 
 #. type: Plain text
 #: bambam.6:93
