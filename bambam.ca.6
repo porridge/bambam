@@ -3,7 +3,7 @@
 .\" This file was generated with po4a. Translate the source file.
 .\"
 .\"*******************************************************************
-.TH bambam 6 "10 de setembre de 2022" "versió 1.2.1" 
+.TH bambam 6 "13 April 2024" "version 1.3.0" 
 .SH NOM
 bambam: un joc de matxucar el teclat i fer gargots per a nadons i nens
 petits
@@ -29,6 +29,9 @@ Llista de patrons de noms de fitxer de so que no es reproduiran mai.
 \fB\-\-image_blacklist\fP=\fIGLOB\fP
 Llista de patrons de noms de fitxer d'imatge que no es mostraran mai.
 .TP 
+\fB\-\-extension\fP=\fIEXTENSION\fP
+Use the specified extension.
+.TP 
 \fB\-\-wayland\-ok\fP
 No eviteu el maneig de Wayland. Veure la secció \fBNOTES\fP.
 .PP
@@ -38,8 +41,7 @@ qualsevol altra tecla es dibuixen petites imatges en ubicacions aleatòries.
 Arrossegar el ratolí mentre es prem el botó del ratolí dibuixa en colors que
 canvien aleatòriament.  La pantalla s'esborra a l'atzar.
 .SH NOTES
-\fBPer a sortir, escriu directament l'ordre esmentada a l'extrem superior
-esquerre de la finestra. En anglés, la paraula és: quit.\fP
+\fBPer a sortir, escriu directament l'ordre esmentada a l'extrem superior esquerre de la finestra. En anglés, la paraula és: quit.\fP
 .PP
 \fBAdvertència\fP hi ha maneres de canviar a una altra aplicació des de bambam:
 .IP \(bu
@@ -59,8 +61,7 @@ bloquejar\-lo.
 pot haver\-hi altres maneres encara desconegudes en altres entorns i gestors
 de finestres.
 .PP
-Per les raons anteriors, a partir de la versió 1.2.0, \fBés possible i
-recomanable executar bambam en una sessió d'inici de sessió dedicada.\fP
+Per les raons anteriors, a partir de la versió 1.2.0, \fBés possible i recomanable executar bambam en una sessió d'inici de sessió dedicada.\fP
 .IP \(bu
 Una manera de fer\-ho és seleccionar el tipus de sessió de BamBam a la
 configuració del gestor de visualització quan inicieu sessió (cerqueu una
@@ -77,11 +78,24 @@ OGG) des dels directoris següents:
 .IP \(bu
 el directori \fBdata\fP distribuït amb el joc,
 .IP \(bu
-\fB$XDG_DATA_HOME\fP (normalment ~/.local/share/bambam/data)
+the \fBdata\fP directory in bambam's \fB$XDG_DATA_HOME\fP subdirectory (typically
+~/.local/share/bambam/data)
 .PP
 Quan exploris directoris per a fitxers, bambam \fBdoes\fP segueix enllaços
 simbòlics i descendents de directoris. Això fa que sigui fàcil tenir fitxers
 d'ús bambam ubicats en un altre lloc.
+.PP
+As of version 1.3.0 bambam has experimental support for extensions, which
+are a way of changing the program behaviour.  Bambam loads extensions from
+the following directories:
+.IP \(bu
+the \fBextensions\fP directory distributed with the game,
+.IP \(bu
+the \fBextensions\fP directory in bambam's \fB$XDG_DATA_HOME\fP subdirectory
+(typically ~/.local/share/bambam/extensions)
+.PP
+See the EXTENSIONS.md file for documentation on creating and modifying
+extensions.
 .SH AUTOR
 Spike Burch <spikeb@gmail.com> Marcin Owsiany
 <marcin@owsiany.pl>

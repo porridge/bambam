@@ -3,7 +3,7 @@
 .\" This file was generated with po4a. Translate the source file.
 .\"
 .\"*******************************************************************
-.TH bambam 6 "10 Eylül 2022" "sürüm 1.2.1" 
+.TH bambam 6 "13 April 2024" "version 1.3.0" 
 .SH AD
 bambam \- bebekler ve küçük çocuklar için bir klavye ezme ve karalama oyunu
 .SH ÖZET
@@ -28,6 +28,9 @@ Asla çalınmayacak ses dosya adı desenlerinin listesi.
 \fB\-\-image_blacklist\fP=\fIGLOB\fP
 Asla gösterilmeyecek görüntü dosya adı desenlerinin listesi.
 .TP 
+\fB\-\-extension\fP=\fIEXTENSION\fP
+Use the specified extension.
+.TP 
 \fB\-\-wayland\-ok\fP
 Wayland altında çalışmayı engelleme. \fBNOTLAR\fP bölümüne bakın.
 .PP
@@ -37,8 +40,7 @@ Diğer tuşlara basıldığında rastgele yerlere küçük resimler çizilir.   
 düğmesine basılıyken fareyi sürüklemek rastgele değişen renklerde çizer.
 Ekran rastgele temizlenir.
 .SH NOTLAR
-\fBÇıkmak için doğrudan pencerenin sol üst köşesinde belirtilen komutu
-yazın. Türkçe için şu kelimeyi kullanın: çık\fP
+\fBÇıkmak için doğrudan pencerenin sol üst köşesinde belirtilen komutu yazın. Türkçe için şu kelimeyi kullanın: çık\fP
 .PP
 Bambam'dan başka bir uygulamaya geçmenin yolları olduğunu \fBunutmayın\fP:
 .IP \(bu
@@ -57,8 +59,7 @@ engellemek istiyorsanız örnek 50\-dont\-vt\-switch.conf dosyasına bakın.
 diğer ortamlarda ve pencere yöneticilerinde henüz bilinmeyen başka yollar da
 olabilir.
 .PP
-Yukarıdaki nedenlerden dolayı, 1.2.0 sürümünden başlayarak, \fBbambam'ı özel
-bir giriş oturumunda çalıştırmak mümkündür ve önerilir.\fP
+Yukarıdaki nedenlerden dolayı, 1.2.0 sürümünden başlayarak, \fBbambam'ı özel bir giriş oturumunda çalıştırmak mümkündür ve önerilir.\fP
 .IP \(bu
 Bunu yapmanın bir yolu, giriş yaparken ekran yöneticisi ayarlarınızdan
 BamBam oturum türünü seçmektir (dişli simgesine bakabilirsiniz).
@@ -74,11 +75,23 @@ ve sesleri (WAV ve OGG dosyaları) yükler:
 .IP \(bu
 oyunla birlikte dağıtılan \fBdata\fP dizini,
 .IP \(bu
-\fB$XDG_DATA_HOME\fP (genellikle ~/.local/share/bambam/data)
+the \fBdata\fP directory in bambam's \fB$XDG_DATA_HOME\fP subdirectory (typically
+~/.local/share/bambam/data)
 .PP
-Dizinleri, dosyalar için tararken, bambam \fBsembolik bağlantıları takip
-eder\fP ve alt dizinlere de giriş yapar. Bu, bambam'ın başka bir yerde bulunan
+Dizinleri, dosyalar için tararken, bambam \fBsembolik bağlantıları takip eder\fP ve alt dizinlere de giriş yapar. Bu, bambam'ın başka bir yerde bulunan
 dosyaları kullanmasını kolaylaştırır.
+.PP
+As of version 1.3.0 bambam has experimental support for extensions, which
+are a way of changing the program behaviour.  Bambam loads extensions from
+the following directories:
+.IP \(bu
+the \fBextensions\fP directory distributed with the game,
+.IP \(bu
+the \fBextensions\fP directory in bambam's \fB$XDG_DATA_HOME\fP subdirectory
+(typically ~/.local/share/bambam/extensions)
+.PP
+See the EXTENSIONS.md file for documentation on creating and modifying
+extensions.
 .SH YAZAR
 Spike Burch <spikeb@gmail.com> Marcin Owsiany
 <marcin@owsiany.pl>

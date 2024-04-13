@@ -3,7 +3,7 @@
 .\" This file was generated with po4a. Translate the source file.
 .\"
 .\"*******************************************************************
-.TH bambam 6 "10 września 2022" "wersja 1.2.1" 
+.TH bambam 6 "13 April 2024" "version 1.3.0" 
 .SH NAZWA
 bambam \- gra w klawiaturę i bazgranie dla małych dzieci
 .SH SKŁADNIA
@@ -28,6 +28,9 @@ Lista wzorów nazw plików dźwięków, które nigdy nie mają być odtwarzane.
 \fB\-\-image_blacklist\fP=\fIGLOB\fP
 Lista wzorów nazw plików obrazów, które nigdy nie mają być wyświetlane.
 .TP 
+\fB\-\-extension\fP=\fIEXTENSION\fP
+Use the specified extension.
+.TP 
 \fB\-\-wayland\-ok\fP
 Nie zapobiegaj działaniu pod Wayland. Patrz \fBUWAGI\fP.
 .PP
@@ -37,8 +40,7 @@ i kolorach.  Naciskanie innych klawiszy rysuje małe obrazki w losowych
 miejscach.  Przeciąganie myszą z naciśniętym przyciskiem rysuje w losowo
 zmieniających się kolorach.  Ekran jest kasowany losowo.
 .SH UWAGI
-\fBAby zakończyć grę, wpisz bezpośrednio na klawiaturze komendę wspomnianą w
-lewym górnym rogu okna. W Polskim locale jest to słowo: koniec.\fP
+\fBAby zakończyć grę, wpisz bezpośrednio na klawiaturze komendę wspomnianą w lewym górnym rogu okna. W Polskim locale jest to słowo: koniec.\fP
 .PP
 \fBUwaga\fP, istnieją sposoby na to by przełączyć się z bambam do innego
 programu:
@@ -58,8 +60,7 @@ bambam nie blokuje przełączania terminali wirtualnych Linuksa
 być może istnieją jeszcze nieznane sposoby w innych środowiskach i
 zarządcach okien.
 .PP
-Z powyższych powodów, od wersji 1.2.0 \fBjest możliwe i zalecane uruchamianie
-bambam w dedykowanej sesji logowania.\fP
+Z powyższych powodów, od wersji 1.2.0 \fBjest możliwe i zalecane uruchamianie bambam w dedykowanej sesji logowania.\fP
 .IP \(bu
 Jednym ze sposobów na to jest wybranie typu sesji BamBam w twoim menedżerze
 wyświetlania podczas logowania się (szukaj ikony koła zębatego).
@@ -75,11 +76,24 @@ OGG) z następujących katalogów:
 .IP \(bu
 katalog \fBdata\fP będący częścią gry,
 .IP \(bu
-\fB$XDG_DATA_HOME\fP (zwykle ~/.local/share/bambam/data)
+the \fBdata\fP directory in bambam's \fB$XDG_DATA_HOME\fP subdirectory (typically
+~/.local/share/bambam/data)
 .PP
 Poszukując plików w tych katalogach, bambam \fBpodąża\fP za dowiązaniami
 symbolicznymi i wchodzi wgłąb katalogów. Dzięki temu można łatwo udostępnić
 grze pliki umieszczone gdzie indziej.
+.PP
+As of version 1.3.0 bambam has experimental support for extensions, which
+are a way of changing the program behaviour.  Bambam loads extensions from
+the following directories:
+.IP \(bu
+the \fBextensions\fP directory distributed with the game,
+.IP \(bu
+the \fBextensions\fP directory in bambam's \fB$XDG_DATA_HOME\fP subdirectory
+(typically ~/.local/share/bambam/extensions)
+.PP
+See the EXTENSIONS.md file for documentation on creating and modifying
+extensions.
 .SH AUTOR
 Spike Burch <spikeb@gmail.com> Marcin Owsiany
 <marcin@owsiany.pl>

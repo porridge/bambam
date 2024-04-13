@@ -3,7 +3,7 @@
 .\" This file was generated with po4a. Translate the source file.
 .\"
 .\"*******************************************************************
-.TH bambam 6 "2022년 9월 10일" "버전 1.2.1" 
+.TH bambam 6 "13 April 2024" "version 1.3.0" 
 .SH 이름
 bambam \- 영유아를 위한 키보드 매싱 및 낙서 게임
 .SH 개요
@@ -27,6 +27,9 @@ bambam \- 영유아를 위한 키보드 매싱 및 낙서 게임
 .TP 
 \fB\-\-image_blacklist\fP=\fIGLOB\fP
 절대 표시하지 않을 이미지 파일이름 패턴 목록입니다.
+.TP 
+\fB\-\-extension\fP=\fIEXTENSION\fP
+Use the specified extension.
 .TP 
 \fB\-\-wayland\-ok\fP
 Wayland에서 실행하는 것을 막지 마십시오. \fB참고\fP 섹션을 참조하십시오.
@@ -61,10 +64,23 @@ bambam은 다음 디렉터리에서 이미지(GIF, JPEG, PNG 및 TIFF 파일) �
 .IP \(bu
 게임과 함께 배포된 \fBdata\fP 디렉터리,
 .IP \(bu
-\fB$XDG_DATA_HOME\fP (보통 ~/.local/share/bambam/data)
+the \fBdata\fP directory in bambam's \fB$XDG_DATA_HOME\fP subdirectory (typically
+~/.local/share/bambam/data)
 .PP
 디렉터리에서 파일을 검색할 때 bambam \fBdoes\fP는 심볼릭 링크를 따라 디렉터리를 내려갑니다. 이렇게 하면 bambam이 다른
 곳에 있는 파일을 쉽게 사용할 수 있습니다.
+.PP
+As of version 1.3.0 bambam has experimental support for extensions, which
+are a way of changing the program behaviour.  Bambam loads extensions from
+the following directories:
+.IP \(bu
+the \fBextensions\fP directory distributed with the game,
+.IP \(bu
+the \fBextensions\fP directory in bambam's \fB$XDG_DATA_HOME\fP subdirectory
+(typically ~/.local/share/bambam/extensions)
+.PP
+See the EXTENSIONS.md file for documentation on creating and modifying
+extensions.
 .SH 작성자
 Spike Burch <spikeb@gmail.com> Marcin Owsiany
 <marcin@owsiany.pl>
