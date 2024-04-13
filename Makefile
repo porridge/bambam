@@ -1,4 +1,4 @@
-VERSION = 1.2.1
+VERSION = 1.3.0
 LINGUAS = $(shell awk '$$1=="[po4a_langs]"{$$1="";print}' po4a.conf)
 PREFIX ?=
 
@@ -40,7 +40,7 @@ bambam-py.pot: bambam.py Makefile
 	xgettext -d bambam --msgid-bugs-address=marcin@owsiany.pl --package-name bambam --package-version $(VERSION) -o $@ -c $<
 
 bambam-man.pot: bambam.6
-	po4a-gettextize -f man -m $< -p $@
+	po4a-updatepo -f man -m $< -p $@
 
 # Localized artifacts:
 

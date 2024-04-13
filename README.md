@@ -29,11 +29,11 @@ Before installing this application, ensure you have the following installed:
     [extensions](#extensions); any reasonably recent version should work
 
 If not, you can install it manually as follows:
-  1. [Download](https://github.com/porridge/bambam/releases) the `bambam-1.2.1.zip` or `bambam-1.2.1.tar.gz` file.
-  1. Unzip bambam-1.2.1.zip or `tar zxvf bambam-1.2.1.tar.gz` to create the `bambam-1.2.1` directory.
-  1. Change into the 'bambam-1.2.1' directory
+  1. [Download](https://github.com/porridge/bambam/releases) the `bambam-1.3.0.zip` or `bambam-1.3.0.tar.gz` file.
+  1. Unzip `bambam-1.3.0.zip or` `tar zxvf bambam-1.3.0.tar.gz` to create the `bambam-1.3.0` directory.
+  1. Change into the `bambam-1.3.0` directory
 ```
-cd bambam-1.2.1
+cd bambam-1.3.0
 ```
 
 If you would like to take advantage of the recommended way to start the game (see the next section) do the following:
