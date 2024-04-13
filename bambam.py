@@ -244,6 +244,7 @@ class Bambam:
             self.sequence = ''
 
     def _select_response(self, event):
+        logging.debug('Selecting response for event %s.', event)
         sound = _map_and_select(event, self._sound_mapper, self._sound_policies) if self._sound_enabled else None
         image = _map_and_select(event, self._image_mapper, self._image_policies)
         return sound, image
@@ -721,9 +722,9 @@ class DeclarativeMapper:
             if 'value' in u:
                 return event.unicode == u['value']
             elif 'isalpha' in u:
-                return str(event.unicode.isalpha()) == u['isalpha']
+                return str(event.unicode.isalpha()) == str(u['isalpha'])
             elif 'isdigit' in u:
-                return str(event.unicode.isdigit()) == u['isdigit']
+                return str(event.unicode.isdigit()) == str(u['isdigit'])
             else:
                 raise ValueError('unsupported key in unicode check: %s' % u.keys())
         else:
