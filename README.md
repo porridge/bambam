@@ -26,7 +26,7 @@ Before installing this application, ensure you have the following installed:
   * [Python](http://python.org) - versions 3.9, 3.10 and 3.11 are supported
   * [Pygame](http://www.pygame.org/) - version 2.x is supported, but version 1.9 might work too
   * [PyYAML](https://github.com/yaml/pyyaml) - only required for using
-    extensions; any reasonably recent version should work
+    [extensions](#extensions); any reasonably recent version should work
 
 If not, you can install it manually as follows:
   1. [Download](https://github.com/porridge/bambam/releases) the `bambam-1.2.1.zip` or `bambam-1.2.1.tar.gz` file.
@@ -64,11 +64,13 @@ Once installed, there are two ways to run the game:
    even if he or she somehow manages to quit the game.
 
    This way is safer, but more cumbersome.
-2. Directly from a terminal, or applications menu.
+2. **Alternative**: Directly from a terminal, or applications menu.
 
    Select the game from your applications menu, or to run the game from a
    terminal window, type `bambam` if you installed from a distribution package, or
    `./bambam.py` if you installed manually.
+
+   **Why this way is not recommended:**
 
    This way the program runs as part of a regular session. The game tries to
    grab the keyboard and mouse pointer focus in order to prevent a child from
@@ -85,7 +87,30 @@ To exit, just directly type the command mentioned in the upper left-hand corner 
 quit
 ```
 
-More information is in the man page. To view it, type:
+## Extensions
+
+Extensions are a way to change how Bambam behaves.
+They are supported since version 1.3.0, currently as an **experimental** feature.
+
+Extensions are directories containing media files as well as a file describing how the game should behave when a certain event happens. Anyone can [create an extension](EXTENSIONS.md), it _does not_ require programming skills.
+
+Currently there is only a single extension bundled with the game:
+- [`alphanumeric-en_US`](./extensions/alphanumeric-en_US/) - this extension makes the program play recordings of American English pronounciation of letters and digits when the corresponding keys are pressed.
+
+To use an extension:
+1. Make sure the extension directory is located in one of the extension base directories, that is:
+   - `extensions/` in the same directory as the bambam program,
+   - `$HOME/.local/share/bambam/extensions/`,
+   - `/usr/share/bambam/extensions/` - if the program is installed from your distribution's package.
+2. Pass the `--extension` option followed by the name of the extension on program invocation.
+
+   For example `./bambam.py --extension alphanumeric-en_US`.
+
+See [separate documentation on creating extensions](EXTENSIONS.md) if you would like to create your own extension or change an existing one.
+
+## More information
+
+More information is in the manual page. To view it, type:
 ```
 man ./bambam.6
 ```
