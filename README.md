@@ -30,7 +30,7 @@ Before installing this application, ensure you have the following installed:
 
 If not, you can install it manually as follows:
   1. [Download](https://github.com/porridge/bambam/releases) the `bambam-1.3.0.zip` or `bambam-1.3.0.tar.gz` file.
-  1. Unzip `bambam-1.3.0.zip or` `tar zxvf bambam-1.3.0.tar.gz` to create the `bambam-1.3.0` directory.
+  1. Unzip `bambam-1.3.0.zip` or `tar zxvf bambam-1.3.0.tar.gz` to create the `bambam-1.3.0` directory.
   1. Change into the `bambam-1.3.0` directory
 ```
 cd bambam-1.3.0
