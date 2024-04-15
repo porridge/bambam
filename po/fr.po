@@ -15,10 +15,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2024-04-13 15:17+0200\n"
-"PO-Revision-Date: 2024-03-25 01:34+0000\n"
+"PO-Revision-Date: 2024-04-15 11:01+0000\n"
 "Last-Translator: programutox <programutox@disroot.org>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/bambam/app-and-"
-"manpage/fr/>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/bambam/"
+"app-and-manpage/fr/>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,7 +51,7 @@ msgstr "unmute"
 #. it is relatively easy to type by an adult without making mistakes.
 #: bambam.py:62
 msgid "quit"
-msgstr "quit"
+msgstr "quitter"
 
 #: bambam.py:78
 #, python-format
@@ -81,9 +81,9 @@ msgstr "Commandes : %s"
 
 #. TRANSLATORS: placeholder is for the translated "quit" command.
 #: bambam.py:312
-#, fuzzy, python-format
+#, python-format
 msgid "Command: %s"
-msgstr "Commandes : %s"
+msgstr "Commande : %s"
 
 #: bambam.py:336
 msgid "Error: Wayland display detected."
@@ -112,23 +112,18 @@ msgstr ""
 
 #. TRANSLATORS: "this" means the word quit from the preceding message, in this context.
 #: bambam.py:394
-#, fuzzy
 msgid ""
 "This, and other available commands are mentioned in the upper left-hand "
 "corner of the window."
 msgstr ""
-"B<Pour quitter, tapez directement la commande mentionnée dans le coin "
-"supérieur gauche de la fenêtre. Dans les langues anglaises, c'est le mot : "
-"quit.>"
+"Cette dernière, ainsi que les autres commandes disponibles, sont mentionnées "
+"dans le coin supérieur gauche de la fenêtre."
 
 #. TRANSLATORS: "this" means the word quit from the preceding message, in this context.
 #: bambam.py:398
-#, fuzzy
 msgid "This command is mentioned in the upper left-hand corner of the window."
 msgstr ""
-"B<Pour quitter, tapez directement la commande mentionnée dans le coin "
-"supérieur gauche de la fenêtre. Dans les langues anglaises, c'est le mot : "
-"quit.>"
+"Cette commande est mentionnée dans le coin supérieur gauche de la fenêtre."
 
 #: bambam.py:401
 #, fuzzy
