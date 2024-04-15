@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2024-04-13 15:17+0200\n"
-"PO-Revision-Date: 2024-04-15 11:01+0000\n"
+"PO-Revision-Date: 2024-04-15 19:07+0000\n"
 "Last-Translator: programutox <programutox@disroot.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/bambam/"
 "app-and-manpage/fr/>\n"
@@ -116,7 +116,7 @@ msgid ""
 "This, and other available commands are mentioned in the upper left-hand "
 "corner of the window."
 msgstr ""
-"Cette dernière, ainsi que les autres commandes disponibles, sont mentionnées "
+"Cette commande, ainsi que les autres commandes disponibles, sont mentionnées "
 "dans le coin supérieur gauche de la fenêtre."
 
 #. TRANSLATORS: "this" means the word quit from the preceding message, in this context.
@@ -126,7 +126,6 @@ msgstr ""
 "Cette commande est mentionnée dans le coin supérieur gauche de la fenêtre."
 
 #: bambam.py:401
-#, fuzzy
 msgid ""
 "The game tries to grab the keyboard and mouse pointer focus, to keep your "
 "child from causing damage to your files."
@@ -135,7 +134,6 @@ msgstr ""
 "souris, pour empêcher votre enfant d'endommager vos fichiers."
 
 #: bambam.py:405
-#, fuzzy
 msgid ""
 "The game is now running in a dedicated login session, which provides some "
 "additional safety. However it may still be possible for the child to "
@@ -148,7 +146,6 @@ msgstr ""
 "virtuel (en utilisant par exemple CTRL+ALT+Fx)."
 
 #: bambam.py:410
-#, fuzzy
 msgid ""
 "Make sure other user sessions (if any) are locked with a password, if "
 "leaving your child unattended with the game."
@@ -158,7 +155,6 @@ msgstr ""
 "surveillance."
 
 #: bambam.py:414
-#, fuzzy
 msgid ""
 "However in some environments it may be possible for the child to exit or "
 "switch away from the game by using a special key combination. The exact "
@@ -166,13 +162,13 @@ msgid ""
 "Examples include the Super (also known as Windows) key, function key "
 "combinations (CTRL+ALT+Fx) or hot corners when using the mouse."
 msgstr ""
-"Cependant dans certains environnements il est possible pour l'enfant de "
+"Cependant, dans certains environnements, il est possible pour l'enfant de "
 "quitter le jeu ou de changer de programme en utilisant un combinaison "
 "spéciale de touches. Le mécanisme exact dépend de votre environnement "
 "graphique, votre gestionnaire de fenêtres, etc. On peut citer comme exemples "
-"la touche Super (aussi connu sous le nom de Windows), les combinaisons avec "
-"les touches de fonction (CTRL+ALT+Fx) ou les coins dynamiques lorsque vous "
-"utilisez la souris."
+"la touche Super (aussi connu sous le nom de touche Windows), les "
+"combinaisons avec les touches de fonction (CTRL+ALT+Fx) ou les coins "
+"dynamiques lorsque vous utilisez la souris."
 
 #: bambam.py:420
 msgid "We recommend to NOT LEAVE YOUR CHILD UNATTENDED with the game."
@@ -189,7 +185,6 @@ msgstr ""
 "l'icône d'engrenage lorsque vous vous connectez), qui est plus sûre."
 
 #: bambam.py:426
-#, fuzzy
 msgid "Press any key or mouse button to start the game now."
 msgstr ""
 "Appuyez sur n'importe quel touche du clavier ou bouton de la souris pour "
@@ -202,18 +197,17 @@ msgstr "Utilisation du répertoire de données %s"
 
 #. TRANSLATORS: An extension directory is a directory which contains extensions.
 #: bambam.py:451
-#, fuzzy, python-format
+#, python-format
 msgid "Using extension directory %s"
-msgstr "Utilisation du répertoire de données %s"
+msgstr "Utilisation du répertoire d'extensions %s"
 
 #: bambam.py:456
 msgid "Error: pygame fonts not available. Exiting."
-msgstr ""
+msgstr "Erreur : polices d'écriture de pygame non disponibles. Arrêt."
 
 #: bambam.py:459
-#, fuzzy
 msgid "Warning: Sound support not available."
-msgstr "Attention, son désactivé."
+msgstr "Attention : support audio non disponible."
 
 #: bambam.py:468
 msgid "All sounds failed to load."
@@ -224,29 +218,27 @@ msgid "All images failed to load."
 msgstr "Le chargement de toutes les images a échoué."
 
 #: bambam.py:488
-#, fuzzy
 msgid "All extension sounds failed to load."
-msgstr "Le chargement de tous les sons a échoué."
+msgstr "Tous les sons de l'extension ont échoué à charger."
 
 #: bambam.py:491
 #, python-format
 msgid "Using extension \"%s\"."
-msgstr ""
+msgstr "Utilisation de l'extension \"%s\"."
 
 #: bambam.py:526 bambam.en.desktop:4 bambam-session.en.desktop:4
-#, fuzzy
 msgid "Keyboard mashing and doodling game for babies and toddlers."
-msgstr "Un jeu de clavier pour bébés."
+msgstr "Un jeu de clavier et de gribouillages pour les bébés."
 
 #: bambam.py:528
 msgid "Warning: PyYAML not available, extension support disabled."
-msgstr ""
+msgstr "Attention : PyYAML non disponible, support d'extension désactivé."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
 #: bambam.py:530 bambam.6:29
 msgid "Use the specified extension."
-msgstr ""
+msgstr "Utilisez l'extension spécifiée."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
@@ -290,7 +282,7 @@ msgstr "Ne pas empêcher d'exécuter sous Wayland."
 
 #: bambam.py:548
 msgid "Print detailed messages about game internals."
-msgstr ""
+msgstr "Afficher des messages détaillés sur le fonctionnement interne du jeu."
 
 #. TRANSLATORS: Main game window name.
 #: bambam.py:557
@@ -307,13 +299,13 @@ msgstr "bambam"
 #: bambam.6:1
 #, no-wrap
 msgid "13 April 2024"
-msgstr ""
+msgstr "13 Avril 2024"
 
 #. type: TH
 #: bambam.6:1
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "version 1.3.0"
-msgstr "version 1.2.1"
+msgstr "version 1.3.0"
 
 #. type: SH
 #: bambam.6:2
@@ -323,9 +315,8 @@ msgstr "NOM"
 
 #. type: Plain text
 #: bambam.6:4
-#, fuzzy
 msgid "bambam - a keyboard mashing and doodling game for babies and toddlers"
-msgstr "Un jeu de clavier pour bébés."
+msgstr "bambam - un jeu de clavier et de gribouillage pour les bébés"
 
 #. type: SH
 #: bambam.6:4
@@ -384,7 +375,7 @@ msgstr "B<--image_blacklist>=I<GLOB>"
 #: bambam.6:26
 #, no-wrap
 msgid "B<--extension>=I<EXTENSION>"
-msgstr ""
+msgstr "B<--extension>=I<EXTENSION>"
 
 #. type: TP
 #: bambam.6:29
@@ -446,7 +437,6 @@ msgstr "\\(bu"
 
 #. type: Plain text
 #: bambam.6:54
-#, fuzzy
 msgid ""
 "when running under Wayland, it is not currently possible for bambam to grab "
 "all key presses.  A consequence of that is that if you use GNOME Shell, "
@@ -467,14 +457,12 @@ msgstr ""
 
 #. type: Plain text
 #: bambam.6:58
-#, fuzzy
 msgid ""
 "bambam does not block virtual terminal switching (e.g.  CTRL+ALT+F1). See "
 "the example 50-dont-vt-switch.conf file if you would like to block that."
 msgstr ""
-"bambam n'empêche pas de passer aux terminaux virtuels (par ex.  "
-"CTRL+ALT+F1). Voyez l'exemple 50-dont-vt-switch.conf si vous souhaitez "
-"bloquer cela."
+"bambam n'empêche pas de passer aux terminaux virtuels (par ex.  CTRL+ALT+F1)"
+". Voir l'exemple 50-dont-vt-switch.conf si vous souhaitez bloquer cela."
 
 #. type: Plain text
 #: bambam.6:60
@@ -533,15 +521,16 @@ msgstr ""
 #. type: Plain text
 #: bambam.6:77
 msgid "the B<data> directory distributed with the game,"
-msgstr "Le dossier B<data> fourni avec le jeu,"
+msgstr "le dossier B<data> fourni avec le jeu,"
 
 #. type: Plain text
 #: bambam.6:79
-#, fuzzy
 msgid ""
 "the B<data> directory in bambam's B<$XDG_DATA_HOME> subdirectory (typically "
 "~/.local/share/bambam/data)"
-msgstr "B<$XDG_DATA_HOME> (générallement ~/.local/share/bambam/data)"
+msgstr ""
+"le répertoire B<data> dans le sous-répertoire de bambam B<$XDG_DATA_HOME> ("
+"généralement ~/.local/share/bambam/data)"
 
 #. type: Plain text
 #: bambam.6:83
@@ -561,12 +550,14 @@ msgid ""
 "are a way of changing the program behaviour.  Bambam loads extensions from "
 "the following directories:"
 msgstr ""
+"À partir de la version 1.3.0, bambam supporte expérimentalement des "
+"extensions, qui sont une manière de modifier le comportement du programme.  "
+"Bambam charge les extensions depuis les répertoires suivants :"
 
 #. type: Plain text
 #: bambam.6:89
-#, fuzzy
 msgid "the B<extensions> directory distributed with the game,"
-msgstr "Le dossier B<data> fourni avec le jeu,"
+msgstr "le répertoire B<extensions> fourni avec le jeu,"
 
 #. type: Plain text
 #: bambam.6:91
@@ -574,6 +565,8 @@ msgid ""
 "the B<extensions> directory in bambam's B<$XDG_DATA_HOME> subdirectory "
 "(typically ~/.local/share/bambam/extensions)"
 msgstr ""
+"le répertoire B<extensions> dans le sous-répertoire B<$XDG_DATA_HOME> de "
+"bambam (en général ~/.local/share/bambam/extensions)"
 
 #. type: Plain text
 #: bambam.6:93
@@ -581,6 +574,8 @@ msgid ""
 "See the EXTENSIONS.md file for documentation on creating and modifying "
 "extensions."
 msgstr ""
+"Voir le fichier EXTENSIONS.md pour la documentation sur la création et la "
+"modification d'extensions."
 
 #. type: SH
 #: bambam.6:93
