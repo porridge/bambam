@@ -27,16 +27,16 @@ msgstr ""
 "Project-Id-Version: bambam 1.2.0\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2024-04-13 15:17+0200\n"
-"PO-Revision-Date: 2022-10-06 13:21+0000\n"
-"Last-Translator: 이정희 <daemul72@gmail.com>\n"
-"Language-Team: Korean <https://hosted.weblate.org/projects/bambam/app-and-"
-"manpage/ko/>\n"
+"PO-Revision-Date: 2024-04-17 08:03+0000\n"
+"Last-Translator: tabby <tabby4442@gmail.com>\n"
+"Language-Team: Korean <https://hosted.weblate.org/projects/bambam/"
+"app-and-manpage/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #. TRANSLATORS: command string to mute sounds.
 #. Must not contain spaces, and should be be at least 4 characters long,
@@ -92,7 +92,7 @@ msgstr "명령: %s"
 
 #. TRANSLATORS: placeholder is for the translated "quit" command.
 #: bambam.py:312
-#, fuzzy, python-format
+#, python-format
 msgid "Command: %s"
 msgstr "명령: %s"
 
@@ -129,10 +129,8 @@ msgstr ""
 
 #. TRANSLATORS: "this" means the word quit from the preceding message, in this context.
 #: bambam.py:398
-#, fuzzy
 msgid "This command is mentioned in the upper left-hand corner of the window."
-msgstr ""
-"이 명령과 기타 사용 가능한 명령은 창의 왼쪽 상단 모서리에 나와 있습니다."
+msgstr "이 명령은 창의 왼쪽 상단 모서리에 언급되어 있습니다."
 
 #: bambam.py:401
 msgid ""
@@ -197,18 +195,17 @@ msgstr "%s 데이터 디렉토리 사용"
 
 #. TRANSLATORS: An extension directory is a directory which contains extensions.
 #: bambam.py:451
-#, fuzzy, python-format
+#, python-format
 msgid "Using extension directory %s"
-msgstr "%s 데이터 디렉토리 사용"
+msgstr "확장 디렉토리 %s 사용"
 
 #: bambam.py:456
 msgid "Error: pygame fonts not available. Exiting."
-msgstr ""
+msgstr "오류: pygame 글꼴을 사용할 수 없습니다. 종료."
 
 #: bambam.py:459
-#, fuzzy
 msgid "Warning: Sound support not available."
-msgstr "경고, 소리가 비활성화되었습니다."
+msgstr "경고, 사운드가 비활성화되었습니다."
 
 #: bambam.py:468
 msgid "All sounds failed to load."
@@ -219,14 +216,13 @@ msgid "All images failed to load."
 msgstr "모든 이미지를 불러오지 못했습니다."
 
 #: bambam.py:488
-#, fuzzy
 msgid "All extension sounds failed to load."
-msgstr "모든 소리를 불러오지 못했습니다."
+msgstr "모든 확장 사운드를 로드하지 못했습니다."
 
 #: bambam.py:491
 #, python-format
 msgid "Using extension \"%s\"."
-msgstr ""
+msgstr "확장자 \"%s\"를 사용합니다."
 
 #: bambam.py:526 bambam.en.desktop:4 bambam-session.en.desktop:4
 msgid "Keyboard mashing and doodling game for babies and toddlers."
@@ -234,13 +230,13 @@ msgstr "영유아를 위한 키보드 매싱 및 낙서 게임."
 
 #: bambam.py:528
 msgid "Warning: PyYAML not available, extension support disabled."
-msgstr ""
+msgstr "경고: PyYAML을 사용할 수 없으며 확장 지원이 비활성화되었습니다."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
 #: bambam.py:530 bambam.6:29
 msgid "Use the specified extension."
-msgstr ""
+msgstr "지정한 확장자를 사용합니다."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
@@ -284,7 +280,7 @@ msgstr "Wayland에서 실행하는 것을 막지 않습니다."
 
 #: bambam.py:548
 msgid "Print detailed messages about game internals."
-msgstr ""
+msgstr "게임 내부에 대한 자세한 메시지를 인쇄합니다."
 
 #. TRANSLATORS: Main game window name.
 #: bambam.py:557
@@ -301,13 +297,13 @@ msgstr "bambam"
 #: bambam.6:1
 #, no-wrap
 msgid "13 April 2024"
-msgstr ""
+msgstr "2024년 4월 13일"
 
 #. type: TH
 #: bambam.6:1
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "version 1.3.0"
-msgstr "버전 1.2.1"
+msgstr "버전 1.3.0"
 
 #. type: SH
 #: bambam.6:2
@@ -377,7 +373,7 @@ msgstr "B<--image_blacklist>=I<GLOB>"
 #: bambam.6:26
 #, no-wrap
 msgid "B<--extension>=I<EXTENSION>"
-msgstr ""
+msgstr "B<--extension>=I<EXTENSION>"
 
 #. type: TP
 #: bambam.6:29
@@ -516,11 +512,12 @@ msgstr "게임과 함께 배포된 B<data> 디렉터리,"
 
 #. type: Plain text
 #: bambam.6:79
-#, fuzzy
 msgid ""
 "the B<data> directory in bambam's B<$XDG_DATA_HOME> subdirectory (typically "
 "~/.local/share/bambam/data)"
-msgstr "B<$XDG_DATA_HOME> (보통 ~/.local/share/bambam/data)"
+msgstr ""
+"bambam의 B<$XDG_DATA_HOME> 하위 디렉토리에 있는 B<data> 디렉토리(보통 ~/."
+"local/share/bambam/data)"
 
 #. type: Plain text
 #: bambam.6:83
@@ -540,12 +537,13 @@ msgid ""
 "are a way of changing the program behaviour.  Bambam loads extensions from "
 "the following directories:"
 msgstr ""
+"버전 1.3.0을 기준으로 bambam은 프로그램 동작을 변경하는 방식인 확장을 "
+"실험적으로 지원합니다. bambam은 다음 디렉터리에서 확장을 로드합니다:"
 
 #. type: Plain text
 #: bambam.6:89
-#, fuzzy
 msgid "the B<extensions> directory distributed with the game,"
-msgstr "게임과 함께 배포된 B<data> 디렉터리,"
+msgstr "게임과 함께 배포된 B<extensions> 디렉토리,"
 
 #. type: Plain text
 #: bambam.6:91
@@ -553,13 +551,15 @@ msgid ""
 "the B<extensions> directory in bambam's B<$XDG_DATA_HOME> subdirectory "
 "(typically ~/.local/share/bambam/extensions)"
 msgstr ""
+"bambam의 B<$XDG_DATA_HOME> 하위 디렉토리에 있는 B<extensions> 디렉토리(보통 "
+"~/.local/share/bambam/extensions)"
 
 #. type: Plain text
 #: bambam.6:93
 msgid ""
 "See the EXTENSIONS.md file for documentation on creating and modifying "
 "extensions."
-msgstr ""
+msgstr "확장자 생성 및 수정에 대한 문서는 EXTENSIONS.md 파일을 참조하십시오."
 
 #. type: SH
 #: bambam.6:93
