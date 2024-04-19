@@ -15,16 +15,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2024-04-13 15:17+0200\n"
-"PO-Revision-Date: 2023-01-01 18:50+0000\n"
+"PO-Revision-Date: 2024-04-18 22:03+0000\n"
 "Last-Translator: gallegonovato <fran-carro@hotmail.es>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/bambam/app-and-"
-"manpage/es/>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/bambam/"
+"app-and-manpage/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #. TRANSLATORS: command string to mute sounds.
 #. Must not contain spaces, and should be be at least 4 characters long,
@@ -81,9 +81,9 @@ msgstr "Comandos: %s"
 
 #. TRANSLATORS: placeholder is for the translated "quit" command.
 #: bambam.py:312
-#, fuzzy, python-format
+#, python-format
 msgid "Command: %s"
-msgstr "Comandos: %s"
+msgstr "Comando: %s"
 
 #: bambam.py:336
 msgid "Error: Wayland display detected."
@@ -121,11 +121,9 @@ msgstr ""
 
 #. TRANSLATORS: "this" means the word quit from the preceding message, in this context.
 #: bambam.py:398
-#, fuzzy
 msgid "This command is mentioned in the upper left-hand corner of the window."
 msgstr ""
-"Este y otros comandos disponibles se muestran en la esquina superior "
-"izquierda de la pantalla."
+"Este comando se menciona en la esquina superior izquierda de la ventana."
 
 #: bambam.py:401
 msgid ""
@@ -191,18 +189,17 @@ msgstr "Usando directorio de datos %s"
 
 #. TRANSLATORS: An extension directory is a directory which contains extensions.
 #: bambam.py:451
-#, fuzzy, python-format
+#, python-format
 msgid "Using extension directory %s"
-msgstr "Usando directorio de datos %s"
+msgstr "Utilizando el directorio de extensión %s"
 
 #: bambam.py:456
 msgid "Error: pygame fonts not available. Exiting."
-msgstr ""
+msgstr "Error: fuentes pygame no disponibles. Saliendo."
 
 #: bambam.py:459
-#, fuzzy
 msgid "Warning: Sound support not available."
-msgstr "Cuidado, sonido desactivado."
+msgstr "Advertencia: Soporte de sonido no disponible."
 
 #: bambam.py:468
 msgid "All sounds failed to load."
@@ -213,14 +210,13 @@ msgid "All images failed to load."
 msgstr "Todas las imágenes fallaron al cargar."
 
 #: bambam.py:488
-#, fuzzy
 msgid "All extension sounds failed to load."
-msgstr "Todos los sonidos fallaron al cargar."
+msgstr "No se han podido cargar todos los sonidos de la extensión."
 
 #: bambam.py:491
 #, python-format
 msgid "Using extension \"%s\"."
-msgstr ""
+msgstr "Usando la extensión \"%s\"."
 
 #: bambam.py:526 bambam.en.desktop:4 bambam-session.en.desktop:4
 msgid "Keyboard mashing and doodling game for babies and toddlers."
@@ -228,13 +224,13 @@ msgstr "Juego de teclado y garabatos para los bebés y los niños pequeños."
 
 #: bambam.py:528
 msgid "Warning: PyYAML not available, extension support disabled."
-msgstr ""
+msgstr "Advertencia: PyYAML no disponible, soporte de extensión deshabilitado."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
 #: bambam.py:530 bambam.6:29
 msgid "Use the specified extension."
-msgstr ""
+msgstr "Utiliza la extensión especificada."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
@@ -278,7 +274,7 @@ msgstr "No impida la ejecución bajo Wayland."
 
 #: bambam.py:548
 msgid "Print detailed messages about game internals."
-msgstr ""
+msgstr "Muestra mensajes detallados sobre el funcionamiento interno del juego."
 
 #. TRANSLATORS: Main game window name.
 #: bambam.py:557
@@ -295,13 +291,13 @@ msgstr "bambam"
 #: bambam.6:1
 #, no-wrap
 msgid "13 April 2024"
-msgstr ""
+msgstr "13 de abril de 2024"
 
 #. type: TH
 #: bambam.6:1
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "version 1.3.0"
-msgstr "Versión 1.2.1"
+msgstr "versión 1.3.0"
 
 #. type: SH
 #: bambam.6:2
@@ -373,7 +369,7 @@ msgstr "B<--image_blacklist>=I<GLOB>"
 #: bambam.6:26
 #, no-wrap
 msgid "B<--extension>=I<EXTENSION>"
-msgstr ""
+msgstr "B<--extensión>=I<EXTENSIÓN>"
 
 #. type: TP
 #: bambam.6:29
@@ -519,11 +515,12 @@ msgstr "El directorio B<data> distribuido con el juego,"
 
 #. type: Plain text
 #: bambam.6:79
-#, fuzzy
 msgid ""
 "the B<data> directory in bambam's B<$XDG_DATA_HOME> subdirectory (typically "
 "~/.local/share/bambam/data)"
-msgstr "B<$XDG_DATA_HOME> (generalmente ~/.local/share/bambam/data)"
+msgstr ""
+"el directorio B<data> en el subdirectorio B<XDG_DATA_HOME> de bambam ("
+"normalmente ~/.local/share/bambam/data)"
 
 #. type: Plain text
 #: bambam.6:83
@@ -543,12 +540,14 @@ msgid ""
 "are a way of changing the program behaviour.  Bambam loads extensions from "
 "the following directories:"
 msgstr ""
+"A partir de la versión 1.3.0 bambam tiene soporte experimental para "
+"extensiones, que son una forma de cambiar el comportamiento del programa.  "
+"Bambam carga extensiones desde los siguientes directorios:"
 
 #. type: Plain text
 #: bambam.6:89
-#, fuzzy
 msgid "the B<extensions> directory distributed with the game,"
-msgstr "El directorio B<data> distribuido con el juego,"
+msgstr "el directorio B<extensions> distribuido con el juego,"
 
 #. type: Plain text
 #: bambam.6:91
@@ -556,6 +555,8 @@ msgid ""
 "the B<extensions> directory in bambam's B<$XDG_DATA_HOME> subdirectory "
 "(typically ~/.local/share/bambam/extensions)"
 msgstr ""
+"el directorio B<extensions> en el subdirectorio B<XDG_DATA_HOME> de bambam ("
+"normalmente ~/.local/share/bambam/extensions)"
 
 #. type: Plain text
 #: bambam.6:93
@@ -563,6 +564,8 @@ msgid ""
 "See the EXTENSIONS.md file for documentation on creating and modifying "
 "extensions."
 msgstr ""
+"Consulte el archivo EXTENSIONS.md para obtener documentación sobre la "
+"creación y modificación de las extensiones."
 
 #. type: SH
 #: bambam.6:93
