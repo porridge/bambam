@@ -29,6 +29,7 @@ import pygame
 from pygame.locals import Color, QUIT, KEYDOWN, MOUSEMOTION, MOUSEBUTTONDOWN, MOUSEBUTTONUP
 import random
 import sys
+import time
 from textwrap import fill
 
 try:
@@ -452,11 +453,22 @@ class Bambam:
             print(_('Using extension directory %s') % extensions_subdir)
             self.extensions_dirs.append(extensions_subdir)
 
+    def _try_init_sound(self):
+        for _ in range(30):
+            if pygame.mixer and pygame.mixer.get_init():
+                return True
+            time.sleep(0.1)
+            try:
+                pygame.mixer.init()
+            except pygame.error:
+                pass
+        return pygame.mixer and pygame.mixer.get_init()
+
     def _load_resources(self, args):
         if not pygame.font:
             print(_('Error: pygame fonts not available. Exiting.'), file=sys.stderr)
             sys.exit(1)
-        if not pygame.mixer or not pygame.mixer.get_init():
+        if not self._try_init_sound():
             print(_('Warning: Sound support not available.'), file=sys.stderr)
             self._sound_enabled = False
         else:
