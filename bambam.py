@@ -571,6 +571,7 @@ class Bambam:
             self._prepare_welcome_message(dedicated_session=False)
         poll_for_any_key_press(clock)
         self.screen.blit(self.background, (0, 0))
+        _show_mouse()
         pygame.display.flip()
 
         init_joysticks()
@@ -615,6 +616,18 @@ def _map_and_select(event, mapper, policies):
     if not policy_args:
         policy_args = []
     return policy.select(event, *policy_args)
+
+
+def _show_mouse():
+    # In session mode, when display manager hides mouse cursor,
+    # pygame tends to get confused about its visibility.
+    # Changing it back and forth seems to help.
+    # Also set it to a little hand while at it.
+    # We also do this when not in session mode for consistency.
+    pygame.mouse.set_visible(True)
+    pygame.mouse.set_visible(False)
+    pygame.mouse.set_cursor(pygame.SYSTEM_CURSOR_HAND)
+    pygame.mouse.set_visible(True)
 
 
 class CollectionPolicyBase:
