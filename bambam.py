@@ -560,6 +560,10 @@ class Bambam:
         self._load_resources(args)
         self._prepare_screen(args)
 
+        pygame.event.set_grab(True)
+        if hasattr(pygame.event, 'set_keyboard_grab'):
+            pygame.event.set_keyboard_grab(True)
+
         clock = pygame.time.Clock()
         if args.in_dedicated_session:
             self._prepare_welcome_message(dedicated_session=True)
