@@ -1,0 +1,97 @@
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH bambam 6 "13 Nisan 2024" "sürüm 1.3.0" 
+.SH AD
+bambam \- bebekler ve küçük çocuklar için bir klavye ezme ve karalama oyunu
+.SH ÖZET
+\fBbambam\fP [\fISEÇENEKLER\fP]
+.SH AÇIKLAMA
+.TP 
+\fB\-u\fP, \fB\-\-uppercase\fP
+BÜYÜK HARFLERİ göster.
+.TP 
+\fB\-d\fP, \fB\-\-deterministic\-sounds\fP
+Aynı tuşa basıldığında aynı sesleri üret.
+.TP 
+\fB\-D\fP, \fB\-\-dark\fP
+Açık arka plan yerine koyu arka plan kullan.
+.TP 
+\fB\-m\fP, \fB\-\-mute\fP
+Herhangi bir ses çalma.
+.TP 
+\fB\-\-sound_blacklist\fP=\fIGLOB\fP
+Asla çalınmayacak ses dosya adı desenlerinin listesi.
+.TP 
+\fB\-\-image_blacklist\fP=\fIGLOB\fP
+Asla gösterilmeyecek görüntü dosya adı desenlerinin listesi.
+.TP 
+\fB\-\-extension\fP=\fIEXTENSION\fP
+Belirtilen uzantıyı kullan.
+.TP 
+\fB\-\-wayland\-ok\fP
+Wayland altında çalışmayı engelleme. \fBNOTLAR\fP bölümüne bakın.
+.PP
+bambam, Python ile yazılmış bebekler için bir klavye ve fare oyunudur.
+Harf tuşlarına basmak onları rastgele yerlere rastgele renklerle yazdırır.
+Diğer tuşlara basıldığında rastgele yerlere küçük resimler çizilir.   Fare
+düğmesine basılıyken fareyi sürüklemek rastgele değişen renklerde çizer.
+Ekran rastgele temizlenir.
+.SH NOTLAR
+\fBÇıkmak için doğrudan pencerenin sol üst köşesinde belirtilen komutu yazın. Türkçe için şu kelimeyi kullanın: çık\fP
+.PP
+Bambam'dan başka bir uygulamaya geçmenin yolları olduğunu \fBunutmayın\fP:
+.IP \(bu
+Wayland altında çalışırken, bambam'ın tüm tuş basışlarını yakalaması şu anda
+mümkün değildir.   Bunun bir sonucu olarak, GNOME Shell kullanıyorsanız,
+Windows (a.k.a. Super) tuşuna basmak etkinliklere genel bakışı
+etkinleştirecektir.   Lütfen ortamınızı kontrol edin.   Geçici bir çözüm
+olarak, 1.1.2 sürümünden başlayarak, bambam Wayland altında çalışıp
+çalışmadığını tespit etmeye çalışacaktır. Eğer durum böyleyse, bambam bir
+uyarı gösterecek ve çalışmayı reddedecektir.   Bu geçici çözümü
+\fB\-\-wayland\-ok\fP seçeneği ile devre dışı bırakabilirsiniz.
+.IP \(bu
+bambam sanal uçbirim geçişini engellemez (örneğin  CTRL+ALT+F1). Bunu
+engellemek istiyorsanız örnek 50\-dont\-vt\-switch.conf dosyasına bakın.
+.IP \(bu
+diğer ortamlarda ve pencere yöneticilerinde henüz bilinmeyen başka yollar da
+olabilir.
+.PP
+Yukarıdaki nedenlerden dolayı, 1.2.0 sürümünden başlayarak, \fBbambam'ı özel bir giriş oturumunda çalıştırmak mümkündür ve önerilir.\fP
+.IP \(bu
+Bunu yapmanın bir yolu, giriş yaparken ekran yöneticisi ayarlarınızdan
+BamBam oturum türünü seçmektir (dişli simgesine bakabilirsiniz).
+.IP \(bu
+Diğer bir yol ise metin uçbiriminden \fBexec startx bambam\fP gibi bir komut
+kullanmaktır.
+.PP
+Sesi kapatmak ve açmak için oyunda sesli ve sessiz komutlarını
+yazabilirsiniz.
+.PP
+bambam aşağıdaki dizinlerden görüntüleri (GIF, JPEG, PNG ve TIFF dosyaları)
+ve sesleri (WAV ve OGG dosyaları) yükler:
+.IP \(bu
+oyunla birlikte dağıtılan \fBdata\fP dizini,
+.IP \(bu
+bambam'ın \fB$XDG_DATA_HOME\fP altındaki \fBdata\fP alt dizini (genellikle
+~/.local/share/bambam/data)
+.PP
+Dizinleri, dosyalar için tararken, bambam \fBsembolik bağlantıları takip eder\fP ve alt dizinlere de giriş yapar. Bu, bambam'ın başka bir yerde bulunan
+dosyaları kullanmasını kolaylaştırır.
+.PP
+Sürüm 1.3.0'dan itibaren bambam, program davranışını değiştirmenin bir yolu
+olan uzantılar için deneysel desteğe sahiptir. Bambam aşağıdaki dizinlerden
+uzantıları yükler:
+.IP \(bu
+oyunla birlikte dağıtılan \fBextensions\fP dizini,
+.IP \(bu
+bambam'ın \fB$XDG_DATA_HOME\fP altındaki \fBextensions\fP alt dizini (genellikle
+~/.local/share/bambam/extensions)
+.PP
+Uzantı oluşturma ve değiştirmeyle ilgili belgeler için EXTENSIONS.md
+dosyasına bakın.
+.SH YAZAR
+Spike Burch <spikeb@gmail.com> Marcin Owsiany
+<marcin@owsiany.pl>

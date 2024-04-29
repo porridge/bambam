@@ -1,4 +1,4 @@
-VERSION = 1.2.1
+VERSION = 1.3.0
 LINGUAS = $(shell awk '$$1=="[po4a_langs]"{$$1="";print}' po4a.conf)
 PREFIX ?=
 
@@ -40,7 +40,7 @@ bambam-py.pot: bambam.py Makefile
 	xgettext -d bambam --msgid-bugs-address=marcin@owsiany.pl --package-name bambam --package-version $(VERSION) -o $@ -c $<
 
 bambam-man.pot: bambam.6
-	po4a-gettextize -f man -m $< -p $@
+	po4a-updatepo -f man -m $< -p $@
 
 # Localized artifacts:
 
@@ -53,3 +53,13 @@ bambam.%.6: po/%.po bambam.6
 .PHONY: clean
 clean:
 	rm -f $(LINGUAS:%=po/%.mo) po/LINGUAS
+
+# From https://docs.weblate.org/pl/latest/faq.html#merge
+.PHONY: resolve-conflicts-in-po-files
+resolve-conflicts-in-po-files:
+	for PO in `find . -name '*.po'` ; do \
+		lang=$${PO##*/}; lang=$${lang%.po}; \
+		msgcat --use-first ../app-and-manpage/$$PO $$PO -o $$PO.merge; \
+		msgmerge --previous --lang=$$lang $$PO.merge bambam.pot -o $$PO; \
+		rm $$PO.merge; \
+	done

@@ -1,6 +1,14 @@
 name: BamBam
 
-on: [push, pull_request]
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      golden:
+        default: false
+        description: "Update and/or check golden files."
+        type: boolean
 
 permissions:
   contents: read
@@ -10,8 +18,9 @@ jobs:
 
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
-        python-version: ["3.9", "3.10"]
+        python-version: ["3.9", "3.10", "3.11"]
 
     steps:
     - uses: actions/checkout@v3
@@ -34,24 +43,139 @@ jobs:
       run: |
         autopep8 -d *.py | awk 'BEGIN{had_data=0}{print;had_data=1}END{exit had_data}'
 
-    - name: Smoke test import
+    - name: Run unit tests
       run: |
-        python -c 'import bambam'
+        python -m unittest *_test.py
+
+  e2e:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.10", "3.11"]
+        extension: ["none", "alphanumeric-en_US"]
+    env:
+      AUTOPKGTEST_TMP: /tmp
+      AUTOPKGTEST_BAMBAM_PROGRAM: ./bambam.py
+      BAMBAM_RANDOM_SEED: 0
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements-dev.txt
 
     - name: Install GUI packages
       run: |
-        sudo apt-get install -y xvfb xauth imagemagick xdotool
+        sudo apt-get update
+        sudo apt-get install -y xvfb xauth imagemagick xdotool sox
+    
+    - name: Compute arguments
+      id: args
+      run: |
+        case ${{ matrix.extension }} in
+        none) echo extension_arg= >> $GITHUB_OUTPUT ;;
+        *) echo extension_arg=-e=${{ matrix.extension }} >> $GITHUB_OUTPUT ;;
+        esac
+        if [[ "${{ inputs.golden }}" == true ]]; then
+         echo golden_subdir_arg=--golden-subdir=${{ matrix.python-version }}/${{ matrix.extension }} >> $GITHUB_OUTPUT
+        else
+         echo golden_subdir_arg=--ignored= >> $GITHUB_OUTPUT
+        fi
 
-    - name: Run GUI tests
+    - name: Run regular GUI tests
+      run: ./run_e2e_test.sh regular ${{ steps.args.outputs.golden_subdir_arg }}/regular -- ${{ steps.args.outputs.extension_arg }}
+      if: always()
+
+    - name: Run GUI tests in dark mode
+      run: ./run_e2e_test.sh dark --no-expect-light-mode ${{ steps.args.outputs.golden_subdir_arg }}/dark -- --dark ${{ steps.args.outputs.extension_arg }}
+      if: always()
+
+    - name: Run GUI tests with deterministic sounds
+      run: ./run_e2e_test.sh deterministic ${{ steps.args.outputs.golden_subdir_arg }}/deterministic -- --deterministic-sounds ${{ steps.args.outputs.extension_arg }}
+      if: always()
+
+    - name: Run GUI tests muted
+      run: ./run_e2e_test.sh muted --no-expect-sounds ${{ steps.args.outputs.golden_subdir_arg }}/muted -- --mute ${{ steps.args.outputs.extension_arg }}
+      if: always()
+
+    - name: Run GUI tests muted just initially
+      run: ./run_e2e_test.sh start-muted ${{ steps.args.outputs.golden_subdir_arg }}/start-muted -- --mute ${{ steps.args.outputs.extension_arg }}
+      if: always()
+
+    - name: Run GUI tests without sound support
+      run: ./run_e2e_test.sh no-audio --no-expect-audio-output --sdl-audio-driver invalid ${{ steps.args.outputs.golden_subdir_arg }}/no-sound -- ${{ steps.args.outputs.extension_arg }}
+      if: always()
+
+    - name: Save artifacts
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: test-artifacts-${{ matrix.python-version }}-${{ matrix.extension }}
+        path: artifacts
+
+    - name: Save golden files
+      uses: actions/upload-artifact@v3
+      if: always() && inputs.golden == true
+      with:
+        name: test-golden-${{ matrix.python-version }}-${{ matrix.extension }}
+        path: test/golden
+
+  nofonts:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11"]  # Just latest to keep number of combinations down.
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements-dev.txt
+
+    - name: Install GUI packages
+      run: |
+        sudo apt-get install -y xvfb xauth
+
+    - name: Run test for font absence
       run: |
         export AUTOPKGTEST_ARTIFACTS=`pwd`/artifacts
         mkdir -p $AUTOPKGTEST_ARTIFACTS
         export AUTOPKGTEST_TMP=/tmp
-        export AUTOPKGTEST_BAMBAM_PROGRAM=./bambam.py
-        xvfb-run -e $AUTOPKGTEST_ARTIFACTS/xvfb-run.stderr -s "-screen 0 1024x768x24 -fbdir $AUTOPKGTEST_TMP" ./test-e2e.py
 
-    - name: Save artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        name: test-artifacts-${{ matrix.python-version }}
-        path: artifacts
+        # Prepare permissions for deleting freetype.
+        for lib in $(./test/find-freetype.sh echo); do
+          dir="$(dirname "${lib}")"
+          echo "Granting write permission on ${dir}" >&2
+          sudo chmod a+w "${dir}"
+        done
+
+        xvfb-run \
+          -e $AUTOPKGTEST_ARTIFACTS/xvfb-run.stderr \
+          -s "-screen 0 1024x768x24 -fbdir $AUTOPKGTEST_TMP" \
+          ./test/find-freetype.sh rm-and-run \
+          timeout -v -k 5 10 \
+          ./test/redirect-stderr-and-run.sh errors.txt ./bambam.py || echo Bambam under xvfb exited code $?
+
+        if grep -q 'Error: pygame fonts not available. Exiting.' errors.txt; then
+          echo "Expected font absence message found."
+          exit 0
+        fi
+        echo "Expected font absence message not found."
+        cat errors.txt
+        exit 1
