@@ -3,7 +3,7 @@
 .\" This file was generated with po4a. Translate the source file.
 .\"
 .\"*******************************************************************
-.TH bambam 6 "13 April 2024" "version 1.3.0" 
+.TH bambam 6 "13 kwietnia 2024" "wersja 1.3.0" 
 .SH NAZWA
 bambam \- gra w klawiaturę i bazgranie dla małych dzieci
 .SH SKŁADNIA
@@ -28,8 +28,8 @@ Lista wzorów nazw plików dźwięków, które nigdy nie mają być odtwarzane.
 \fB\-\-image_blacklist\fP=\fIGLOB\fP
 Lista wzorów nazw plików obrazów, które nigdy nie mają być wyświetlane.
 .TP 
-\fB\-\-extension\fP=\fIEXTENSION\fP
-Use the specified extension.
+\fB\-\-extension\fP=\fIROZSZERZENIE\fP
+Użyj podanego rozszerzenia.
 .TP 
 \fB\-\-wayland\-ok\fP
 Nie zapobiegaj działaniu pod Wayland. Patrz \fBUWAGI\fP.
@@ -76,24 +76,23 @@ OGG) z następujących katalogów:
 .IP \(bu
 katalog \fBdata\fP będący częścią gry,
 .IP \(bu
-the \fBdata\fP directory in bambam's \fB$XDG_DATA_HOME\fP subdirectory (typically
+katalog \fBdata\fP w podkatalogu \fB$XDG_DATA_HOME\fP programu bambam (zwykle
 ~/.local/share/bambam/data)
 .PP
 Poszukując plików w tych katalogach, bambam \fBpodąża\fP za dowiązaniami
 symbolicznymi i wchodzi wgłąb katalogów. Dzięki temu można łatwo udostępnić
 grze pliki umieszczone gdzie indziej.
 .PP
-As of version 1.3.0 bambam has experimental support for extensions, which
-are a way of changing the program behaviour.  Bambam loads extensions from
-the following directories:
+Od wersji 1.3.0 bambam posiada eksperymentalną obsługę rozszerzeń, czyli
+sposobu na zmianę działania programu.  Bambam ładuje rozszerzenia z
+następujących katalogów:
 .IP \(bu
-the \fBextensions\fP directory distributed with the game,
+katalog \fBextensions\fP będący częścią gry,
 .IP \(bu
-the \fBextensions\fP directory in bambam's \fB$XDG_DATA_HOME\fP subdirectory
-(typically ~/.local/share/bambam/extensions)
+katalog \fBextensions\fP w podkatalogu \fB$XDG_DATA_HOME\fP programu bambam
+(zwykle ~/.local/share/bambam/extensions)
 .PP
-See the EXTENSIONS.md file for documentation on creating and modifying
-extensions.
+Więcej na temat tworzenia i modyfikacji rozszerzeń w pliku EXTENSIONS.md.
 .SH AUTOR
 Spike Burch <spikeb@gmail.com> Marcin Owsiany
 <marcin@owsiany.pl>

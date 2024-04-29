@@ -1,0 +1,101 @@
+.\"*******************************************************************
+.\"
+.\" This file was generated with po4a. Translate the source file.
+.\"
+.\"*******************************************************************
+.TH bambam 6 "13 Avril 2024" "version 1.3.0" 
+.SH NOM
+bambam \- un jeu de clavier et de gribouillage pour les bébés
+.SH SYNOPSIS
+\fBbambam\fP [\fIOPTIONS\fP]
+.SH DESCRIPTION
+.TP 
+\fB\-u\fP, \fB\-\-uppercase\fP
+Afficher les lettres MAJUSCULES.
+.TP 
+\fB\-d\fP, \fB\-\-deterministic\-sounds\fP
+Produire les mêmes sons sur les mêmes touches.
+.TP 
+\fB\-D\fP, \fB\-\-dark\fP
+Utiliser un fond sombre au lieu d’un fond clair.
+.TP 
+\fB\-m\fP, \fB\-\-mute\fP
+Ne jouer aucun son.
+.TP 
+\fB\-\-sound_blacklist\fP=\fIGLOB\fP
+Liste des modèles de noms de fichiers sonores à ne jamais jouer.
+.TP 
+\fB\-\-image_blacklist\fP=\fIGLOB\fP
+Liste des modèles de noms de fichiers d’image à ne jamais afficher.
+.TP 
+\fB\-\-extension\fP=\fIEXTENSION\fP
+Utilisez l'extension spécifiée.
+.TP 
+\fB\-\-wayland\-ok\fP
+Ne pas empêcher d'exécuter sous Wayland. Voir la section \fBNOTES\fP.
+.PP
+bambam est un jeu de clavier et de souris pour bébés écrit en
+Python. Appuyer sur les touches alphabétiques les affiche dans des
+emplacements et des couleurs aléatoires. Appuyer sur n'importe quelle autre
+touche dessine de petites images dans des endroits aléatoires. Faire glisser
+la souris tout en appuyant sur le bouton de la souris dessine dans des
+couleurs changeantes de manière aléatoire. L'écran est effacé aléatoirement.
+.SH REMARQUES
+\fBPour quitter, tapez directement la commande mentionnée dans le coin supérieur gauche de la fenêtre. Dans les langues anglaises, c'est le mot : quit.\fP
+.PP
+\fBAttention\fP il existe des moyens de passer à une autre application depuis
+bambam\ :
+.IP \(bu
+lorsqu'il est exécuté sur Wayland, il n'est actuellement pas possible pour
+bambam de recevoir toutes les touches appuyées.  Une des conséquences est
+que si vous utilisez le Shell GNOME, appuyer sur la touche WIndows (alias
+Super) activera la vue d'ensemble des activités.  Veuillez vérifier votre
+environnement.  Comme solution de contournement, à partir de la version
+1.1.2, bambam détectera s'il est exécuté sur Wayland. Si c'est le cas,
+bambam affichera un avertissement et refusera de fonctionner.  Vous pouvez
+désactiver cette solution avec l'option \fB\-\-wayland\-ok\fP.
+.IP \(bu
+bambam n'empêche pas de passer aux terminaux virtuels (par ex.
+CTRL+ALT+F1). Voir l'exemple 50\-dont\-vt\-switch.conf si vous souhaitez
+bloquer cela.
+.IP \(bu
+il existe peut\-être d'autres moyens encore inconnus dans d'autres
+environnements et gestionnaires de fenêtres.
+.PP
+Pour les raisons ci\-dessus, à partir de la version 1.2.0, \fBil est possible et recommandé d'exécuter bambam dans une session de connexion dédiée.\fP
+.IP \(bu
+Une façon de procéder consiste à sélectionner le type de session BamBam dans
+les paramètres de votre gestionnaire de fenêtres lorsque vous vous connectez
+(cherche l'icône d'engrenage).
+.IP \(bu
+Une autre façon de faire est d'utiliser une commande comme \fBexec startx bambam\fP depuis une console textuelle.
+.PP
+Pour activer et désactiver le son, tapez respectivement activer le son et
+désactiver le son dans le jeu.
+.PP
+bambam charge les images (fichiers GIF, JPEG, PNG et TIFF) et les sons
+(fichiers WAV et OGG) à partir des répertoires suivants\ :
+.IP \(bu
+le dossier \fBdata\fP fourni avec le jeu,
+.IP \(bu
+le répertoire \fBdata\fP dans le sous\-répertoire de bambam \fB$XDG_DATA_HOME\fP
+(généralement ~/.local/share/bambam/data)
+.PP
+Lors de la recherche de fichiers dans les dossiers, bambam \fBsuit\fP les liens
+symboliques et descend les répertoires. Cela rend facile le placement des
+fichiers d'utilisation de bambam ailleurs.
+.PP
+À partir de la version 1.3.0, bambam supporte expérimentalement des
+extensions, qui sont une manière de modifier le comportement du programme.
+Bambam charge les extensions depuis les répertoires suivants :
+.IP \(bu
+le répertoire \fBextensions\fP fourni avec le jeu,
+.IP \(bu
+le répertoire \fBextensions\fP dans le sous\-répertoire \fB$XDG_DATA_HOME\fP de
+bambam (en général ~/.local/share/bambam/extensions)
+.PP
+Voir le fichier EXTENSIONS.md pour la documentation sur la création et la
+modification d'extensions.
+.SH AUTEUR
+Spike Burch <spikeb@gmail.com> Marcin Owsiany
+<marcin@owsiany.pl>
