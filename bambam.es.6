@@ -3,7 +3,7 @@
 .\" This file was generated with po4a. Translate the source file.
 .\"
 .\"*******************************************************************
-.TH bambam 6 "10 de septiembre de 2022" "Versión 1.2.1" 
+.TH bambam 6 "13 de abril de 2024" "versión 1.3.0" 
 .SH NOMBRE
 bambam: un juego para machacar y garabatear con el teclado para bebés y
 niños pequeños
@@ -29,6 +29,9 @@ Lista de patrones de archivos de sonido para no reproducir nunca.
 \fB\-\-image_blacklist\fP=\fIGLOB\fP
 Lista de patrones de imágenes para no mostrar nunca.
 .TP 
+\fB\-\-extensión\fP=\fIEXTENSIÓN\fP
+Utiliza la extensión especificada.
+.TP 
 \fB\-\-wayland\-ok\fP
 No impida la ejecución bajo Wayland. Ver apartado \fBNOTAS\fP.
 .PP
@@ -39,8 +42,7 @@ aleatorios. Arrastrando el ratón mientras el botón del ratón está presionado
 dibuja en colores aleatorios cambiantes. La pantalla es borrada de manera
 aleatoria.
 .SH NOTAS
-\fBPara salir, escribe directamente el comando mencionado en la esquina
-derecha de la ventana. Para españoles, la palabra es: salir.\fP
+\fBPara salir, escribe directamente el comando mencionado en la esquina derecha de la ventana. Para españoles, la palabra es: salir.\fP
 .PP
 \fBTenga en cuenta\fP que hay formas de cambiar a otra aplicación desde bambam:
 .IP \(bu
@@ -59,8 +61,7 @@ bloquear esto.
 Puede haber otras formas, hasta ahora desconocidas, de hacer esto en
 entornos y administradores de ventanas.
 .PP
-Por las razones anteriores, a partir de la versión 1.2.0, \fBes posible y
-recomendable ejecutar bambam en una sesión de inicio de sesión dedicada.\fP
+Por las razones anteriores, a partir de la versión 1.2.0, \fBes posible y recomendable ejecutar bambam en una sesión de inicio de sesión dedicada.\fP
 .IP \(bu
 Una forma de hacer esto es seleccionar el tipo de sesión de BamBam en la
 configuración del administrador de pantalla al iniciar sesión (busque el
@@ -77,11 +78,24 @@ sonidos (archivos WAV y OGG) de los siguientes directorios:
 .IP \(bu
 El directorio \fBdata\fP distribuido con el juego,
 .IP \(bu
-\fB$XDG_DATA_HOME\fP (generalmente ~/.local/share/bambam/data)
+el directorio \fBdata\fP en el subdirectorio \fBXDG_DATA_HOME\fP de bambam
+(normalmente ~/.local/share/bambam/data)
 .PP
 Al buscar archivos en un directorio, bambam \fBdoes\fP desciende del directorio
 siguiendo enlaces simbólicos. Esto facilita que bambam use archivos en otros
 lugares.
+.PP
+A partir de la versión 1.3.0 bambam tiene soporte experimental para
+extensiones, que son una forma de cambiar el comportamiento del programa.
+Bambam carga extensiones desde los siguientes directorios:
+.IP \(bu
+el directorio \fBextensions\fP distribuido con el juego,
+.IP \(bu
+el directorio \fBextensions\fP en el subdirectorio \fBXDG_DATA_HOME\fP de bambam
+(normalmente ~/.local/share/bambam/extensions)
+.PP
+Consulte el archivo EXTENSIONS.md para obtener documentación sobre la
+creación y modificación de las extensiones.
 .SH AUTOR
 Spike Burch <spikeb@gmail.com> Marcin Owsiany
 <marcin@owsiany.pl>
