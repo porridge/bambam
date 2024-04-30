@@ -4,18 +4,19 @@ Upstream-Contact: Marcin Owsiany <marcin@owsiany.pl>
 Source:
  Current location https://github.com/porridge/bambam
  Past locations include https://code.google.com/p/bambam/ and https://launchpad.net/bambam
+ .
  This version has been repacked to remove some sound files for which there was
  no clear free licence.  Some other sound files have been added, see below.
 
 Files: *
 Copyright: 2007-2008, Don Brown
            2010, Spike Burch <spikeb@gmail.com>
-           2014-2023, Marcin Owsiany <marcin@owsiany.pl>
+           2014-2024, Marcin Owsiany <marcin@owsiany.pl>
 License: GPL-3+
 
 Files: debian/*
 Copyright: 2011-2012, Bojana Borkovic <bojana.borkovic@ulk.rs.ba>
-           2014-2023, Marcin Owsiany <marcin@owsiany.pl>
+           2014-2024, Marcin Owsiany <marcin@owsiany.pl>
 License: GPL-3+
 
 Files: data/bear.gif
@@ -59,9 +60,9 @@ License: GPL-3+
  .
  You should have received a copy of the GNU General Public License
  along with this program.  If not, see <http://www.gnu.org/licenses/>.
- .
- On Debian GNU/Linux systems, the complete text of the GNU General
- Public License can be found in '/usr/share/common-licenses/GPL-3'.
+Comment:
+ On Debian systems, the complete text of the GNU General Public License
+ version 3 can be found in '/usr/share/common-licenses/GPL-3'.
 
 License: GPL-2+
  This package is free software; you can redistribute it and/or
@@ -76,9 +77,9 @@ License: GPL-2+
  .
  You should have received a copy of the GNU General Public License
  along with this program. If not, see <http://www.gnu.org/licenses/>.
- .
- On Debian systems, the complete text of the GNU Lesser General
- Public License can be found in "/usr/share/common-licenses/LGPL-2".
+Comment:
+ On Debian systems, the complete text of the GNU General Public License
+ version 2 can be found in '/usr/share/common-licenses/GPL-2'.
 
 License: Tux
  Permission to use and/or modify this image is granted provided you acknowledge
