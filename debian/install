@@ -4,3 +4,4 @@ debian/bambam.xpm usr/share/pixmaps/
 debian/bambam.png usr/share/icons/hicolor/64x64/apps/
 data usr/share/bambam/
 extrasounds/* usr/share/bambam/data/
+extensions/* usr/share/bambam/extensions/
