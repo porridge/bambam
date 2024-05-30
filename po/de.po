@@ -15,16 +15,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2024-04-29 17:30+0200\n"
-"PO-Revision-Date: 2023-12-09 13:06+0000\n"
-"Last-Translator: Lisa Scheier <lisascheier08@gmail.com>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/bambam/app-and-"
-"manpage/de/>\n"
+"PO-Revision-Date: 2024-05-31 06:30+0000\n"
+"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/bambam/"
+"app-and-manpage/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #. TRANSLATORS: command string to mute sounds.
 #. Must not contain spaces, and should be be at least 4 characters long,
@@ -81,9 +81,9 @@ msgstr "Befehle: %s"
 
 #. TRANSLATORS: placeholder is for the translated "quit" command.
 #: bambam.py:314
-#, fuzzy, python-format
+#, python-format
 msgid "Command: %s"
-msgstr "Befehle: %s"
+msgstr "Befehl: %s"
 
 #: bambam.py:338
 msgid "Error: Wayland display detected."
@@ -195,18 +195,17 @@ msgstr "Nutze Daten-Verzeichnis %s"
 
 #. TRANSLATORS: An extension directory is a directory which contains extensions.
 #: bambam.py:453
-#, fuzzy, python-format
+#, python-format
 msgid "Using extension directory %s"
-msgstr "Nutze Daten-Verzeichnis %s"
+msgstr ""
 
 #: bambam.py:469
 msgid "Error: pygame fonts not available. Exiting."
 msgstr ""
 
 #: bambam.py:472
-#, fuzzy
 msgid "Warning: Sound support not available."
-msgstr "Achtung, Ton deaktiviert."
+msgstr ""
 
 #: bambam.py:481
 msgid "All sounds failed to load."
@@ -217,9 +216,8 @@ msgid "All images failed to load."
 msgstr "Bilder konnten nicht geladen werden."
 
 #: bambam.py:501
-#, fuzzy
 msgid "All extension sounds failed to load."
-msgstr "Es konnten keine Töne geladen werden."
+msgstr ""
 
 #: bambam.py:504
 #, python-format
@@ -300,13 +298,13 @@ msgstr "bambam"
 #: bambam.6:1
 #, no-wrap
 msgid "13 April 2024"
-msgstr ""
+msgstr "13. April 2024"
 
 #. type: TH
 #: bambam.6:1
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "version 1.3.0"
-msgstr "Version 1.2.1"
+msgstr "Version 1.3.0"
 
 #. type: SH
 #: bambam.6:2
@@ -526,11 +524,10 @@ msgstr "das mit dem Spiel ausgelieferte B<Daten>verzeichnis"
 
 #. type: Plain text
 #: bambam.6:79
-#, fuzzy
 msgid ""
 "the B<data> directory in bambam's B<$XDG_DATA_HOME> subdirectory (typically "
 "~/.local/share/bambam/data)"
-msgstr "B<$XDG_DATA_HOME> (normalerweise ~/.local/share/bambam/data)"
+msgstr ""
 
 #. type: Plain text
 #: bambam.6:83
