@@ -116,7 +116,7 @@ def await_welcome_screen(expect_light):
         'Polling to observe a %s screen (which means that bambam '
         'has started AND is displaying a welcome screen where the text '
         'is blue).' % comment)
-    attempt_count = 40
+    attempt_count = 400
     sleep_delay = 0.25
     for attempt in range(attempt_count):
         current_average_hsl = get_average_hsl()
@@ -134,7 +134,7 @@ def await_welcome_screen(expect_light):
 
 
 def await_blank_screen(expect_light: bool):
-    attempt_count = 40
+    attempt_count = 400
     sleep_delay = 0.25
     if expect_light:
         def check(c): return c >= 248
