@@ -22,13 +22,15 @@ man bambam
 
 ### Manual installation
 
+If not, you can install it manually as follows.
+
 Before installing this application, ensure you have the following installed:
   * [Python](http://python.org) - versions 3.9, 3.10 and 3.11 are supported
-  * [Pygame](http://www.pygame.org/) - version 2.x is supported, but version 1.9 might work too
+  * [Pygame](http://www.pygame.org/) - version 2.x is supported, but version 1.9 might work too. See [install instructions](https://www.pygame.org/wiki/GettingStarted).
   * [PyYAML](https://github.com/yaml/pyyaml) - only required for using
     [extensions](#extensions); any reasonably recent version should work
 
-If not, you can install it manually as follows:
+Then:
   1. [Download](https://github.com/porridge/bambam/releases) the `bambam-1.3.0.zip` or `bambam-1.3.0.tar.gz` file.
   1. Unzip `bambam-1.3.0.zip` or `tar zxvf bambam-1.3.0.tar.gz` to create the `bambam-1.3.0` directory.
   1. Change into the `bambam-1.3.0` directory
