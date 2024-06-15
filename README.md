@@ -38,6 +38,11 @@ Then:
 cd bambam-1.3.0
 ```
 
+Then you can read the documentation with:
+```
+man ./bambam.6
+```
+
 If you would like to take advantage of the recommended way to start the game (see the next section) do the following:
 
 ```
