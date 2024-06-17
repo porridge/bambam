@@ -1,5 +1,5 @@
 autopep8==2.2.0
-flake8==7.0.0
+flake8==7.1.0
 mccabe==0.7.0
 pre-commit==3.7.1
 pycodestyle==2.11.1
