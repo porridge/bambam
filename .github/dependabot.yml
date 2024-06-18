@@ -10,6 +10,8 @@ updates:
     schedule:
       interval: "weekly"
     groups:
-      flake:
+      style:
         patterns:
         - "*flake*"
+        - "autopep*"
+        - "pycodestyle"
