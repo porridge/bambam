@@ -1,4 +1,4 @@
-Test-Command: xvfb-run -e $AUTOPKGTEST_ARTIFACTS/xvfb-run.stderr -s "-screen 0 1024x768x24 -fbdir $AUTOPKGTEST_TMP" ./test-e2e.py
+Test-Command: xvfb-run -e $AUTOPKGTEST_ARTIFACTS/xvfb-run.stderr -s "-screen 0 1024x768x24 -fbdir $AUTOPKGTEST_TMP" ./test_e2e.py
 Depends: @, python3, xvfb, xauth, imagemagick, xdotool
 Features: test-name=smoke
 Restrictions: allow-stderr  # SDL complains about missing sound card to stderr
