@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2024-04-13 14:19+0200\n"
+"POT-Creation-Date: 2024-08-24 17:17+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,13 +25,13 @@ msgstr ""
 #. type: TH
 #: bambam.6:1
 #, no-wrap
-msgid "13 April 2024"
+msgid "24 August 2024"
 msgstr ""
 
 #. type: TH
 #: bambam.6:1
 #, no-wrap
-msgid "version 1.3.0"
+msgid "version 1.4.0"
 msgstr ""
 
 #. type: SH
@@ -103,55 +103,66 @@ msgstr ""
 
 #. type: Plain text
 #: bambam.6:20
-msgid "Do not play any sounds."
+msgid "Start muted."
 msgstr ""
 
 #. type: TP
 #: bambam.6:20
 #, no-wrap
-msgid "B<--sound_blacklist>=I<GLOB>"
+msgid "B<--sticky-mouse>"
 msgstr ""
 
 #. type: Plain text
 #: bambam.6:23
-msgid "List of sound filename patterns to never play."
+msgid "Start with sticky mouse buttons enabled."
 msgstr ""
 
 #. type: TP
 #: bambam.6:23
+#, no-wrap
+msgid "B<--sound_blacklist>=I<GLOB>"
+msgstr ""
+
+#. type: Plain text
+#: bambam.6:26
+msgid "List of sound filename patterns to never play."
+msgstr ""
+
+#. type: TP
+#: bambam.6:26
 #, no-wrap
 msgid "B<--image_blacklist>=I<GLOB>"
 msgstr ""
 
 #. type: Plain text
-#: bambam.6:26
+#: bambam.6:29
 msgid "List of image filename patterns to never show."
 msgstr ""
 
 #. type: TP
-#: bambam.6:26
+#: bambam.6:29
 #, no-wrap
 msgid "B<--extension>=I<EXTENSION>"
 msgstr ""
 
 #. type: Plain text
-#: bambam.6:29
+#: bambam.6:32
 msgid "Use the specified extension."
 msgstr ""
 
 #. type: TP
-#: bambam.6:29
+#: bambam.6:32
 #, no-wrap
 msgid "B<--wayland-ok>"
 msgstr ""
 
 #. type: Plain text
-#: bambam.6:32
+#: bambam.6:35
 msgid "Do not prevent running under Wayland. See the B<NOTES> section."
 msgstr ""
 
 #. type: Plain text
-#: bambam.6:39
+#: bambam.6:42
 msgid ""
 "bambam is a keyboard and mouse game for babies written in Python.  Pressing "
 "letter keys prints them in random locations and colours.  Pressing any other "
@@ -161,33 +172,33 @@ msgid ""
 msgstr ""
 
 #. type: SH
-#: bambam.6:39
+#: bambam.6:42
 #, no-wrap
 msgid "NOTES"
 msgstr ""
 
 #. type: Plain text
-#: bambam.6:42
+#: bambam.6:45
 msgid ""
 "B<To quit, directly type the command mentioned in the upper left-hand corner "
 "of the window. In the English locales, this is the word: quit.>"
 msgstr ""
 
 #. type: Plain text
-#: bambam.6:44
+#: bambam.6:47
 msgid ""
 "B<Be aware> that there are ways to switch to another application from bambam:"
 msgstr ""
 
 #. type: IP
-#: bambam.6:44 bambam.6:54 bambam.6:58 bambam.6:64 bambam.6:67 bambam.6:75
-#: bambam.6:77 bambam.6:87 bambam.6:89
+#: bambam.6:47 bambam.6:57 bambam.6:61 bambam.6:67 bambam.6:70 bambam.6:83
+#: bambam.6:85 bambam.6:95 bambam.6:97
 #, no-wrap
 msgid "\\(bu"
 msgstr ""
 
 #. type: Plain text
-#: bambam.6:54
+#: bambam.6:57
 msgid ""
 "when running under Wayland, it is not currently possible for bambam to grab "
 "all key presses.  A consequence of that is that if you use GNOME Shell, "
@@ -199,67 +210,75 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: bambam.6:58
+#: bambam.6:61
 msgid ""
 "bambam does not block virtual terminal switching (e.g.  CTRL+ALT+F1). See "
 "the example 50-dont-vt-switch.conf file if you would like to block that."
 msgstr ""
 
 #. type: Plain text
-#: bambam.6:60
+#: bambam.6:63
 msgid ""
 "there may be other yet unknown ways in other environments and window "
 "managers."
 msgstr ""
 
 #. type: Plain text
-#: bambam.6:64
+#: bambam.6:67
 msgid ""
 "For the above reasons, starting with version 1.2.0, B<it is possible and "
 "recommended to run bambam in a dedicated login session.>"
 msgstr ""
 
 #. type: Plain text
-#: bambam.6:67
+#: bambam.6:70
 msgid ""
 "One way to do this is to select BamBam session type from your display "
 "manager settings when logging in (look for a gear icon)."
 msgstr ""
 
 #. type: Plain text
-#: bambam.6:70
+#: bambam.6:73
 msgid ""
 "Another way is use command such as B<exec startx bambam> from a text console."
 msgstr ""
 
 #. type: Plain text
-#: bambam.6:72
+#: bambam.6:77
 msgid ""
-"To turn the sound off and on, type mute and unmute, respectively, in the "
-"game."
+"To turn the sound off and on, type B<sound> in the game.  The legacy B<mute> "
+"and B<unmute> commands are also supported for now, they will be removed in a "
+"future version."
 msgstr ""
 
 #. type: Plain text
-#: bambam.6:75
+#: bambam.6:80
+msgid ""
+"To toggle sticky mouse buttons, type B<mouse> in the game.  In this mode, "
+"the mouse button only needs to be pressed once to start or stop drawing."
+msgstr ""
+
+#. type: Plain text
+#: bambam.6:83
 msgid ""
 "bambam loads images (GIF, JPEG, PNG and TIFF files) and sounds (WAV and OGG "
 "files) from the following directories:"
 msgstr ""
 
 #. type: Plain text
-#: bambam.6:77
+#: bambam.6:85
 msgid "the B<data> directory distributed with the game,"
 msgstr ""
 
 #. type: Plain text
-#: bambam.6:79
+#: bambam.6:87
 msgid ""
 "the B<data> directory in bambam's B<$XDG_DATA_HOME> subdirectory (typically "
 "~/.local/share/bambam/data)"
 msgstr ""
 
 #. type: Plain text
-#: bambam.6:83
+#: bambam.6:91
 msgid ""
 "When scanning directories for files, bambam B<does> follow symbolic links "
 "and descend directories. This makes is easy to have bambam use files located "
@@ -267,7 +286,7 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: bambam.6:87
+#: bambam.6:95
 msgid ""
 "As of version 1.3.0 bambam has experimental support for extensions, which "
 "are a way of changing the program behaviour.  Bambam loads extensions from "
@@ -275,32 +294,32 @@ msgid ""
 msgstr ""
 
 #. type: Plain text
-#: bambam.6:89
+#: bambam.6:97
 msgid "the B<extensions> directory distributed with the game,"
 msgstr ""
 
 #. type: Plain text
-#: bambam.6:91
+#: bambam.6:99
 msgid ""
 "the B<extensions> directory in bambam's B<$XDG_DATA_HOME> subdirectory "
 "(typically ~/.local/share/bambam/extensions)"
 msgstr ""
 
 #. type: Plain text
-#: bambam.6:93
+#: bambam.6:101
 msgid ""
 "See the EXTENSIONS.md file for documentation on creating and modifying "
 "extensions."
 msgstr ""
 
 #. type: SH
-#: bambam.6:93
+#: bambam.6:101
 #, no-wrap
 msgid "AUTHOR"
 msgstr ""
 
 #. type: Plain text
-#: bambam.6:96
+#: bambam.6:104
 msgid ""
 "Spike Burch E<lt>spikeb@gmail.comE<gt> Marcin Owsiany E<lt>marcin@owsiany."
 "plE<gt>"

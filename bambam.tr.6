@@ -3,7 +3,7 @@
 .\" This file was generated with po4a. Translate the source file.
 .\"
 .\"*******************************************************************
-.TH bambam 6 "13 Nisan 2024" "sürüm 1.3.0" 
+.TH bambam 6 "24 August 2024" "version 1.4.0" 
 .SH AD
 bambam \- bebekler ve küçük çocuklar için bir klavye ezme ve karalama oyunu
 .SH ÖZET
@@ -20,7 +20,10 @@ Aynı tuşa basıldığında aynı sesleri üret.
 Açık arka plan yerine koyu arka plan kullan.
 .TP 
 \fB\-m\fP, \fB\-\-mute\fP
-Herhangi bir ses çalma.
+Start muted.
+.TP 
+\fB\-\-sticky\-mouse\fP
+Start with sticky mouse buttons enabled.
 .TP 
 \fB\-\-sound_blacklist\fP=\fIGLOB\fP
 Asla çalınmayacak ses dosya adı desenlerinin listesi.
@@ -67,8 +70,12 @@ BamBam oturum türünü seçmektir (dişli simgesine bakabilirsiniz).
 Diğer bir yol ise metin uçbiriminden \fBexec startx bambam\fP gibi bir komut
 kullanmaktır.
 .PP
-Sesi kapatmak ve açmak için oyunda sesli ve sessiz komutlarını
-yazabilirsiniz.
+To turn the sound off and on, type \fBsound\fP in the game.  The legacy \fBmute\fP
+and \fBunmute\fP commands are also supported for now, they will be removed in a
+future version.
+.PP
+To toggle sticky mouse buttons, type \fBmouse\fP in the game.  In this mode,
+the mouse button only needs to be pressed once to start or stop drawing.
 .PP
 bambam aşağıdaki dizinlerden görüntüleri (GIF, JPEG, PNG ve TIFF dosyaları)
 ve sesleri (WAV ve OGG dosyaları) yükler:
