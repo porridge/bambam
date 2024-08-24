@@ -31,11 +31,11 @@ Before installing this application, ensure you have the following installed:
     [extensions](#extensions); any reasonably recent version should work
 
 Then:
-  1. [Download](https://github.com/porridge/bambam/releases) the `bambam-1.3.0.zip` or `bambam-1.3.0.tar.gz` file.
-  1. Unzip `bambam-1.3.0.zip` or `tar zxvf bambam-1.3.0.tar.gz` to create the `bambam-1.3.0` directory.
-  1. Change into the `bambam-1.3.0` directory
+  1. [Download](https://github.com/porridge/bambam/releases) the `bambam-1.4.0.zip` or `bambam-1.4.0.tar.gz` file.
+  1. Unzip `bambam-1.4.0.zip` or `tar zxvf bambam-1.4.0.tar.gz` to create the `bambam-1.4.0` directory.
+  1. Change into the `bambam-1.4.0` directory
 ```
-cd bambam-1.3.0
+cd bambam-1.4.0
 ```
 
 Then you can read the documentation with:
