@@ -3,7 +3,7 @@
 .\" This file was generated with po4a. Translate the source file.
 .\"
 .\"*******************************************************************
-.TH bambam 6 "13 kwietnia 2024" "wersja 1.3.0" 
+.TH bambam 6 "24 August 2024" "version 1.4.0" 
 .SH NAZWA
 bambam \- gra w klawiaturę i bazgranie dla małych dzieci
 .SH SKŁADNIA
@@ -20,7 +20,10 @@ Wydawaj te same dźwięki przy tych samych klawiszach.
 Używaj ciemnego tła zamiast jasnego.
 .TP 
 \fB\-m\fP, \fB\-\-mute\fP
-Nie wydawaj żadnych dźwięków.
+Start muted.
+.TP 
+\fB\-\-sticky\-mouse\fP
+Start with sticky mouse buttons enabled.
 .TP 
 \fB\-\-sound_blacklist\fP=\fIGLOB\fP
 Lista wzorów nazw plików dźwięków, które nigdy nie mają być odtwarzane.
@@ -68,8 +71,12 @@ wyświetlania podczas logowania się (szukaj ikony koła zębatego).
 Innym jest użycie komendy takiej jak \fBexec startx bambam\fP z konsoli
 tekstowej.
 .PP
-Aby wyłączyć lub włączyć dźwięk, wpisz w trakcie gry odpowiednio słowo:
-wycisz i zglosnij.
+To turn the sound off and on, type \fBsound\fP in the game.  The legacy \fBmute\fP
+and \fBunmute\fP commands are also supported for now, they will be removed in a
+future version.
+.PP
+To toggle sticky mouse buttons, type \fBmouse\fP in the game.  In this mode,
+the mouse button only needs to be pressed once to start or stop drawing.
 .PP
 bambam ładuje obrazy (pliki GIF, JPEG, PNG i TIFF) oraz dźwięki (pliki WAV i
 OGG) z następujących katalogów:

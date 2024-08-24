@@ -3,7 +3,7 @@
 .\" This file was generated with po4a. Translate the source file.
 .\"
 .\"*******************************************************************
-.TH bambam 6 "13 Avril 2024" "version 1.3.0" 
+.TH bambam 6 "24 August 2024" "version 1.4.0" 
 .SH NOM
 bambam \- un jeu de clavier et de gribouillage pour les bébés
 .SH SYNOPSIS
@@ -20,7 +20,10 @@ Produire les mêmes sons sur les mêmes touches.
 Utiliser un fond sombre au lieu d’un fond clair.
 .TP 
 \fB\-m\fP, \fB\-\-mute\fP
-Ne jouer aucun son.
+Start muted.
+.TP 
+\fB\-\-sticky\-mouse\fP
+Start with sticky mouse buttons enabled.
 .TP 
 \fB\-\-sound_blacklist\fP=\fIGLOB\fP
 Liste des modèles de noms de fichiers sonores à ne jamais jouer.
@@ -70,8 +73,12 @@ les paramètres de votre gestionnaire de fenêtres lorsque vous vous connectez
 .IP \(bu
 Une autre façon de faire est d'utiliser une commande comme \fBexec startx bambam\fP depuis une console textuelle.
 .PP
-Pour activer et désactiver le son, tapez respectivement activer le son et
-désactiver le son dans le jeu.
+To turn the sound off and on, type \fBsound\fP in the game.  The legacy \fBmute\fP
+and \fBunmute\fP commands are also supported for now, they will be removed in a
+future version.
+.PP
+To toggle sticky mouse buttons, type \fBmouse\fP in the game.  In this mode,
+the mouse button only needs to be pressed once to start or stop drawing.
 .PP
 bambam charge les images (fichiers GIF, JPEG, PNG et TIFF) et les sons
 (fichiers WAV et OGG) à partir des répertoires suivants\ :
