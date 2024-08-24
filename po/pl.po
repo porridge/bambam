@@ -26,7 +26,7 @@ msgstr ""
 #. it is relatively easy to type by an adult without making mistakes.
 #: bambam.py:51
 msgid "sound"
-msgstr ""
+msgstr "dzwiek"
 
 #. TRANSLATORS: command string to toggle sticky mouse button.
 #. Must not contain spaces, and should be be at least 4 characters long,
@@ -35,7 +35,7 @@ msgstr ""
 #. it is relatively easy to type by an adult without making mistakes.
 #: bambam.py:57
 msgid "mouse"
-msgstr ""
+msgstr "mysz"
 
 #. TRANSLATORS: command string to mute sounds.
 #. Must not contain spaces, and should be be at least 4 characters long,
@@ -278,13 +278,13 @@ msgstr "Używaj ciemnego tła zamiast jasnego."
 #. type: Plain text
 #: bambam.py:573 bambam.6:20
 msgid "Start muted."
-msgstr ""
+msgstr "Rozpocznij w trybie wyciszonym."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
 #: bambam.py:575 bambam.6:23
 msgid "Start with sticky mouse buttons enabled."
-msgstr ""
+msgstr "Rozpocznij w trybie lepkich przycisków myszy."
 
 #: bambam.py:577
 msgid "Do not prevent running under Wayland."
@@ -309,13 +309,13 @@ msgstr "bambam"
 #: bambam.6:1
 #, no-wrap
 msgid "24 August 2024"
-msgstr ""
+msgstr "24 sierpnia 2024"
 
 #. type: TH
 #: bambam.6:1
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "version 1.4.0"
-msgstr "wersja 1.3.0"
+msgstr "wersja 1.4.0"
 
 #. type: SH
 #: bambam.6:2
@@ -373,7 +373,7 @@ msgstr "B<-m>, B<--mute>"
 #: bambam.6:20
 #, no-wrap
 msgid "B<--sticky-mouse>"
-msgstr ""
+msgstr "B<--sticky-mouse>"
 
 #. type: TP
 #: bambam.6:23
@@ -520,6 +520,9 @@ msgid ""
 "and B<unmute> commands are also supported for now, they will be removed in a "
 "future version."
 msgstr ""
+"Aby wyłączyć lub włączyć dźwięk, wpisz w trakcie gry słowo B<dzwiek>. "
+"Stare komendy B<wycisz> i B<zglosnij> także są nadal są obsługiwane, "
+"zostaną one usunięte w przyszłej wersji."
 
 #. type: Plain text
 #: bambam.6:80
@@ -527,6 +530,8 @@ msgid ""
 "To toggle sticky mouse buttons, type B<mouse> in the game.  In this mode, "
 "the mouse button only needs to be pressed once to start or stop drawing."
 msgstr ""
+"Aby włączyć lub wyłączyć lepkie przyciskie myszy, wpisz w trakcie gry słowo B<mysz>. "
+"W tym trybie wystarczy przycisnąć przycisk myszy raz by zacząć lub skończyć rysować."
 
 #. type: Plain text
 #: bambam.6:83
@@ -618,34 +623,3 @@ msgstr "BamBam"
 #: bambam.en.desktop:11
 msgid "bambam;baby;child;toddler;game;keyboard mashing;mouse;doodling;"
 msgstr "bambam;dziecko;niemowle;gra;klawiatura;mysz;bazgranie;rysowanie;"
-
-#, python-format
-#~ msgid "Command: %s"
-#~ msgstr "Polecenie: %s"
-
-#~ msgid "Do not play any sounds."
-#~ msgstr "Nie wydawaj żadnych dźwięków."
-
-#, no-wrap
-#~ msgid "13 April 2024"
-#~ msgstr "13 kwietnia 2024"
-
-#~ msgid ""
-#~ "To turn the sound off and on, type mute and unmute, respectively, in the "
-#~ "game."
-#~ msgstr ""
-#~ "Aby wyłączyć lub włączyć dźwięk, wpisz w trakcie gry odpowiednio słowo: "
-#~ "wycisz i zglosnij."
-
-#~ msgid "Warning, fonts disabled."
-#~ msgstr "Uwaga, znaki wyłączone."
-
-#, no-wrap
-#~ msgid "10 September 2022"
-#~ msgstr "10 września 2022"
-
-#~ msgid "A keyboard mashing game for babies."
-#~ msgstr "Gra w klawiaturę dla małych dzieci."
-
-#~ msgid "bambam - a keyboard mashing and doodling game for babies"
-#~ msgstr "bambam - gra w klawiaturę i doodling dla małych dzieci"
