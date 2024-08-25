@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2024-08-24 17:17+0200\n"
-"PO-Revision-Date: 2022-09-11 19:16+0000\n"
+"PO-Revision-Date: 2024-08-25 16:09+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/bambam/"
 "app-and-manpage/nb_NO/>\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1-dev\n"
+"X-Generator: Weblate 5.7.1-dev\n"
 
 #. TRANSLATORS: command string to toggle sound.
 #. Must not contain spaces, and should be be at least 4 characters long,
@@ -33,7 +33,7 @@ msgstr ""
 #. it is relatively easy to type by an adult without making mistakes.
 #: bambam.py:51
 msgid "sound"
-msgstr ""
+msgstr "lyd"
 
 #. TRANSLATORS: command string to toggle sticky mouse button.
 #. Must not contain spaces, and should be be at least 4 characters long,
@@ -42,7 +42,7 @@ msgstr ""
 #. it is relatively easy to type by an adult without making mistakes.
 #: bambam.py:57
 msgid "mouse"
-msgstr ""
+msgstr "mus"
 
 #. TRANSLATORS: command string to mute sounds.
 #. Must not contain spaces, and should be be at least 4 characters long,
@@ -213,7 +213,7 @@ msgstr "Bruker datamappe %s"
 
 #: bambam.py:486
 msgid "Error: pygame fonts not available. Exiting."
-msgstr ""
+msgstr "Feil: pygame-skrifter er ikke tilgjengelige. Avslutter …"
 
 #: bambam.py:490
 #, fuzzy
@@ -237,7 +237,7 @@ msgstr "Klarte ikke å laste inn lyder."
 #: bambam.py:522
 #, python-format
 msgid "Using extension \"%s\"."
-msgstr ""
+msgstr "Bruker «%s»-utvidelsen."
 
 #: bambam.py:557 bambam.en.desktop:4 bambam-session.en.desktop:4
 #, fuzzy
@@ -403,7 +403,7 @@ msgstr "B<--image_blacklist>=I<GLOB>"
 #: bambam.6:29
 #, no-wrap
 msgid "B<--extension>=I<EXTENSION>"
-msgstr ""
+msgstr "B<--utvidelse>=I<UTVIDELSE>"
 
 #. type: TP
 #: bambam.6:32
