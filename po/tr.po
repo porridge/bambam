@@ -28,7 +28,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2024-08-24 17:17+0200\n"
 "PO-Revision-Date: 2024-08-25 16:09+0000\n"
-"Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
+"Last-Translator: \"B.SITKI EVRENKAYA\" <bekirsitkievrenkaya@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/bambam/"
 "app-and-manpage/tr/>\n"
 "Language: tr\n"
@@ -530,6 +530,9 @@ msgid ""
 "and B<unmute> commands are also supported for now, they will be removed in a "
 "future version."
 msgstr ""
+"Sesi kapatıp açmak için oyunda B<sound> yazın.  Eski B<mute> ve B<unmute> "
+"komutları da şimdilik desteklenmektedir; bunlar gelecekteki bir sürümde "
+"kaldırılacaktır."
 
 #. type: Plain text
 #: bambam.6:80
@@ -537,6 +540,9 @@ msgid ""
 "To toggle sticky mouse buttons, type B<mouse> in the game.  In this mode, "
 "the mouse button only needs to be pressed once to start or stop drawing."
 msgstr ""
+"Yapışkan fare düğmelerini değiştirmek için oyunda B<mouse> yazın.  Bu modda, "
+"çizimi başlatmak veya durdurmak için fare düğmesine yalnızca bir kez "
+"basılması yeterlidir."
 
 #. type: Plain text
 #: bambam.6:83
