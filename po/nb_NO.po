@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2024-08-24 17:17+0200\n"
-"PO-Revision-Date: 2024-08-25 16:09+0000\n"
+"PO-Revision-Date: 2024-08-27 11:09+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/bambam/"
 "app-and-manpage/nb_NO/>\n"
@@ -246,13 +246,13 @@ msgstr "Et tastaturtrykkespill for babyer."
 
 #: bambam.py:559
 msgid "Warning: PyYAML not available, extension support disabled."
-msgstr ""
+msgstr "Advarsel: Finner ikke PyYAML. Støtte for utvidelser avskrudd."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
 #: bambam.py:561 bambam.6:32
 msgid "Use the specified extension."
-msgstr ""
+msgstr "Bruk angitt utvidelse."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
@@ -289,7 +289,7 @@ msgstr "Mørk bakgrunn."
 #. type: Plain text
 #: bambam.py:573 bambam.6:20
 msgid "Start muted."
-msgstr ""
+msgstr "Start forstummet."
 
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
@@ -303,7 +303,7 @@ msgstr "Ikke forhindre kjøring i Wayland."
 
 #: bambam.py:581
 msgid "Print detailed messages about game internals."
-msgstr ""
+msgstr "Detaljert instruks om kontroll av spillet."
 
 #. TRANSLATORS: Main game window name.
 #: bambam.py:590
@@ -320,7 +320,7 @@ msgstr "bambam"
 #: bambam.6:1
 #, no-wrap
 msgid "24 August 2024"
-msgstr ""
+msgstr "24. august 2004"
 
 #. type: TH
 #: bambam.6:1
