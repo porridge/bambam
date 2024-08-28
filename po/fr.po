@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2024-08-24 17:17+0200\n"
-"PO-Revision-Date: 2024-08-25 16:09+0000\n"
+"PO-Revision-Date: 2024-08-29 14:09+0000\n"
 "Last-Translator: programutox <programutox@disroot.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/bambam/"
 "app-and-manpage/fr/>\n"
@@ -51,7 +51,7 @@ msgstr "souris"
 #. it is relatively easy to type by an adult without making mistakes.
 #: bambam.py:63
 msgid "mute"
-msgstr "mute"
+msgstr "muet"
 
 #. TRANSLATORS: command string to unmute sounds.
 #. Must not contain spaces, and should be be at least 4 characters long,
@@ -60,7 +60,7 @@ msgstr "mute"
 #. it is relatively easy to type by an adult without making mistakes.
 #: bambam.py:69
 msgid "unmute"
-msgstr "unmute"
+msgstr "demuter"
 
 #. TRANSLATORS: command string to quit the game.
 #. Must not contain spaces, and should be be at least 4 characters long,
@@ -285,7 +285,6 @@ msgstr "Utiliser un fond sombre au lieu d’un fond clair."
 #. #-#-#-#-#  bambam-man.pot (PACKAGE VERSION)  #-#-#-#-#
 #. type: Plain text
 #: bambam.py:573 bambam.6:20
-#, fuzzy
 msgid "Start muted."
 msgstr "Commencer en muet."
 
@@ -293,7 +292,7 @@ msgstr "Commencer en muet."
 #. type: Plain text
 #: bambam.py:575 bambam.6:23
 msgid "Start with sticky mouse buttons enabled."
-msgstr ""
+msgstr "Démarrer avec les boutons de souris bloqués."
 
 #: bambam.py:577
 msgid "Do not prevent running under Wayland."
@@ -380,7 +379,7 @@ msgstr "B<-m>, B<--mute>"
 
 #. type: TP
 #: bambam.6:20
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "B<--sticky-mouse>"
 msgstr "B<--sticky-mouse>"
 
@@ -533,6 +532,9 @@ msgid ""
 "and B<unmute> commands are also supported for now, they will be removed in a "
 "future version."
 msgstr ""
+"Pour activer ou désactiver l'audio, écrivez B<audio> dans le jeu.  Les "
+"anciennes commandes B<muet> et B<demuter> sont également prises en charge "
+"pour le moment, elles seront retirées dans une version future."
 
 #. type: Plain text
 #: bambam.6:80
@@ -540,6 +542,9 @@ msgid ""
 "To toggle sticky mouse buttons, type B<mouse> in the game.  In this mode, "
 "the mouse button only needs to be pressed once to start or stop drawing."
 msgstr ""
+"Pour activer les boutons de souris bloqués, écrivez B<souris> dans le jeu.  "
+"Dans ce mode, le bouton de la souris n'a besoin d'être appuyé qu'une fois "
+"pour commencer ou arrêter de dessiner."
 
 #. type: Plain text
 #: bambam.6:83
