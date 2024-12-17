@@ -27,7 +27,7 @@ msgstr ""
 "Project-Id-Version: bambam 1.4.0\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2024-08-24 17:17+0200\n"
-"PO-Revision-Date: 2024-12-17 05:14+0000\n"
+"PO-Revision-Date: 2024-12-17 12:41+0000\n"
 "Last-Translator: Marcin Owsiany <marcin@owsiany.pl>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/bambam/"
 "app-and-manpage/ta/>\n"
@@ -390,7 +390,7 @@ msgstr "B<--sticky-mouse>"
 #: bambam.6:23
 #, no-wrap
 msgid "B<--sound_blacklist>=I<GLOB>"
-msgstr "B<--sound_blacklist>=I<GLOB>"
+msgstr "B<--sound_blacklist>=I<குளோப்>"
 
 #. type: TP
 #: bambam.6:26
@@ -553,7 +553,7 @@ msgstr ""
 #. type: Plain text
 #: bambam.6:85
 msgid "the B<data> directory distributed with the game,"
-msgstr "பி <தரவு> அடைவு விளையாட்டுடன் விநியோகிக்கப்படுகிறது,"
+msgstr "பி B<தரவு> அடைவு விளையாட்டுடன் விநியோகிக்கப்படுகிறது,"
 
 #. type: Plain text
 #: bambam.6:87
@@ -561,7 +561,7 @@ msgid ""
 "the B<data> directory in bambam's B<$XDG_DATA_HOME> subdirectory (typically "
 "~/.local/share/bambam/data)"
 msgstr ""
-"பாம்பமின் பி <$ xdg_data_home> துணை அடைவு (பொதுவாக ~/.local/share/Bambam/data)"
+"பாம்பமின் பி B<$XDG_DATA_HOME> துணை அடைவு (பொதுவாக ~/.local/share/Bambam/data)"
 
 #. type: Plain text
 #: bambam.6:91
@@ -570,8 +570,9 @@ msgid ""
 "and descend directories. This makes is easy to have bambam use files located "
 "elsewhere."
 msgstr ""
-"கோப்புகளுக்கான கோப்பகங்களை ச்கேன் செய்யும் போது, பாம்பம் பி <செய்கிறார்> குறியீட்டு இணைப்புகள் மற்றும் சந்திப்பு கோப்பகங்களைப்"
-" பின்பற்றுங்கள். பாம்பம் வேறு இடங்களில் அமைந்துள்ள கோப்புகளைப் பயன்படுத்துவது எளிது."
+"கோப்புகளுக்கான கோப்பகங்களை ச்கேன் செய்யும் போது, பாம்பம் பி B<செய்கிறார்> குறியீட்டு "
+"இணைப்புகள் மற்றும் சந்திப்பு கோப்பகங்களைப் பின்பற்றுங்கள். பாம்பம் வேறு இடங்களில் அமைந்துள்ள "
+"கோப்புகளைப் பயன்படுத்துவது எளிது."
 
 #. type: Plain text
 #: bambam.6:95
@@ -586,7 +587,7 @@ msgstr ""
 #. type: Plain text
 #: bambam.6:97
 msgid "the B<extensions> directory distributed with the game,"
-msgstr "பி <நீட்டிப்புகள்> அடைவு விளையாட்டுடன் விநியோகிக்கப்படுகிறது,"
+msgstr "பி B<நீட்டிப்புகள்> அடைவு விளையாட்டுடன் விநியோகிக்கப்படுகிறது,"
 
 #. type: Plain text
 #: bambam.6:99
@@ -594,7 +595,8 @@ msgid ""
 "the B<extensions> directory in bambam's B<$XDG_DATA_HOME> subdirectory "
 "(typically ~/.local/share/bambam/extensions)"
 msgstr ""
-"பி <நீட்டிப்புகள்> பாம்பமின் பி <$ xdg_data_home> துணை அடைவு (பொதுவாக ~/.லோகல்/சேர்/பாம்பம்/நீட்டிப்புகள்)"
+"பி B<நீட்டிப்புகள்> பாம்பமின் பி B<$XDG_DATA_HOME> துணை அடைவு (பொதுவாக ~/."
+"லோகல்/சேர்/பாம்பம்/நீட்டிப்புகள்)"
 
 #. type: Plain text
 #: bambam.6:101
@@ -616,7 +618,8 @@ msgid ""
 "Spike Burch E<lt>spikeb@gmail.comE<gt> Marcin Owsiany E<lt>marcin@owsiany."
 "plE<gt>"
 msgstr ""
-"ச்பைக் பர்க் இ <lt> spikeb@gmail.me <gt> மார்கின் ஓவ்சியானி இ <lt> marcin@owsiany.ple <gt>"
+"ச்பைக் பர்க் இ E<lt>spikeb@gmail.comE<gt> மார்கின் ஓவ்சியானி இ E<lt>marcin@owsiany."
+"plE<gt>"
 
 #: bambam.en.desktop:3 bambam-session.en.desktop:3
 msgid "BamBam"
