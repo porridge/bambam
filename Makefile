@@ -16,7 +16,7 @@ install-mo: $(LINGUAS:%=install-mo-%)
 
 .PHONY: install-mo-%
 install-mo-%: po/%.mo
-	install -o root -g root -m 0644 -D $< $(PREFIX)/usr/share/locale/$*/LC_MESSAGES/bambam.mo
+	install -m 0644 -D $< $(PREFIX)/usr/share/locale/$*/LC_MESSAGES/bambam.mo
 
 po/%.po: bambam.pot
 	msgmerge -U $@ $<
