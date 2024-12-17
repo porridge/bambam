@@ -27,8 +27,8 @@ msgstr ""
 "Project-Id-Version: bambam 1.4.0\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2024-08-24 17:17+0200\n"
-"PO-Revision-Date: 2024-12-08 07:06+0000\n"
-"Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
+"PO-Revision-Date: 2024-12-17 05:14+0000\n"
+"Last-Translator: Marcin Owsiany <marcin@owsiany.pl>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/bambam/"
 "app-and-manpage/ta/>\n"
 "Language: ta\n"
@@ -36,7 +36,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.9-dev\n"
+"X-Generator: Weblate 5.9\n"
 
 #. TRANSLATORS: command string to toggle sound.
 #. Must not contain spaces, and should be be at least 4 characters long,
@@ -348,7 +348,7 @@ msgstr "சுருக்கம்"
 #. type: Plain text
 #: bambam.6:7
 msgid "B<bambam> [I<OPTIONS>]"
-msgstr "பி <பாம்பம்> [நான் <விருப்பங்கள்>]"
+msgstr "B<பாம்பம்> [I<விருப்பங்கள்>]"
 
 #. type: SH
 #: bambam.6:7
@@ -360,61 +360,61 @@ msgstr "விவரம்"
 #: bambam.6:8
 #, no-wrap
 msgid "B<-u>, B<--uppercase>"
-msgstr "B <-u>, b <-borpercase>"
+msgstr "B<-u>, B<--uppercase>"
 
 #. type: TP
 #: bambam.6:11
 #, no-wrap
 msgid "B<-d>, B<--deterministic-sounds>"
-msgstr "B <-d>, b <-நிர்ணயிக்கும்-ஒலி>"
+msgstr "B<-d>, B<--deterministic-sounds>"
 
 #. type: TP
 #: bambam.6:14
 #, no-wrap
 msgid "B<-D>, B<--dark>"
-msgstr "பி <-d>, பி <-இருண்ட>"
+msgstr "B<-d>, B<-dark>"
 
 #. type: TP
 #: bambam.6:17
 #, no-wrap
 msgid "B<-m>, B<--mute>"
-msgstr "B <-m>, b <-mute>"
+msgstr "B<-m>, B<--mute>"
 
 #. type: TP
 #: bambam.6:20
 #, no-wrap
 msgid "B<--sticky-mouse>"
-msgstr "பி <-ச்டிக்கி-மவுச்>"
+msgstr "B<--sticky-mouse>"
 
 #. type: TP
 #: bambam.6:23
 #, no-wrap
 msgid "B<--sound_blacklist>=I<GLOB>"
-msgstr "பி <-ஒலி தடுப்புப்பட்டியல்> = <குளோப்> இல்"
+msgstr "B<--sound_blacklist>=I<GLOB>"
 
 #. type: TP
 #: bambam.6:26
 #, no-wrap
 msgid "B<--image_blacklist>=I<GLOB>"
-msgstr "B <-image_blacklist> = i <குளோப்>"
+msgstr "B<-image_blacklist>=I<குளோப்>"
 
 #. type: TP
 #: bambam.6:29
 #, no-wrap
 msgid "B<--extension>=I<EXTENSION>"
-msgstr "பி <-நீட்டிப்பு> = நான் <நீட்டிப்பு>"
+msgstr "B<--extension>=I<நீட்டிப்பு>"
 
 #. type: TP
 #: bambam.6:32
 #, no-wrap
 msgid "B<--wayland-ok>"
-msgstr "பி <-வேலண்ட்-ஓக்>"
+msgstr "B<--wayland-ok>"
 
 #. type: Plain text
 #: bambam.6:35
 msgid "Do not prevent running under Wayland. See the B<NOTES> section."
 msgstr ""
-"வேல்லேண்டின் கீழ் ஓடுவதைத் தடுக்க வேண்டாம். பி <குறிப்புகள்> பகுதியைக் காண்க."
+"வேல்லேண்டின் கீழ் ஓடுவதைத் தடுக்க வேண்டாம். பி B<குறிப்புகள்> பகுதியைக் காண்க."
 
 #. type: Plain text
 #: bambam.6:42
@@ -442,22 +442,23 @@ msgid ""
 "B<To quit, directly type the command mentioned in the upper left-hand corner "
 "of the window. In the English locales, this is the word: quit.>"
 msgstr ""
-"B <வெளியேற, சாளரத்தின் மேல் இடது கை மூலையில் குறிப்பிடப்பட்டுள்ள கட்டளையை நேரடியாக தட்டச்சு செய்க. ஆங்கில இடங்களில்"
-", இது சொல்: வெளியேறு.>"
+"B<வெளியேற, சாளரத்தின் மேல் இடது கை மூலையில் குறிப்பிடப்பட்டுள்ள கட்டளையை நேரடியாக "
+"தட்டச்சு செய்க. ஆங்கில இடங்களில், இது சொல்: வெளியேறு.>"
 
 #. type: Plain text
 #: bambam.6:47
 msgid ""
 "B<Be aware> that there are ways to switch to another application from bambam:"
 msgstr ""
-"பி <விழிப்புடன் இருங்கள்> பாம்பாமிலிருந்து மற்றொரு பயன்பாட்டிற்கு மாற வழிகள் உள்ளன என்பதை:"
+"பி B<விழிப்புடன் இருங்கள்> பாம்பாமிலிருந்து மற்றொரு பயன்பாட்டிற்கு மாற வழிகள் உள்ளன "
+"என்பதை:"
 
 #. type: IP
 #: bambam.6:47 bambam.6:57 bambam.6:61 bambam.6:67 bambam.6:70 bambam.6:83
 #: bambam.6:85 bambam.6:95 bambam.6:97
 #, no-wrap
 msgid "\\(bu"
-msgstr "\\ (அது தான்"
+msgstr "\\(bu"
 
 #. type: Plain text
 #: bambam.6:57
@@ -470,11 +471,13 @@ msgid ""
 "this is the case, bambam will display a warning and refuse to work.  You can "
 "disable this workaround, with the B<--wayland-ok> option."
 msgstr ""
-"வேலேண்டின் கீழ் ஓடும்போது, பாம்பம் அனைத்து முக்கிய அச்சகங்களையும் கைப்பற்ற தற்போது சாத்தியமில்லை. இதன் விளைவாக, நீங்கள் "
-"க்னோம் செல்லைப் பயன்படுத்தினால், விண்டோசை (a.k.a. சூப்பர்) விசையை அழுத்தினால் செயல்பாடுகள் கண்ணோட்டத்தை செயல்படுத்தும். "
-"உங்கள் சூழலை சரிபார்க்கவும். பதிப்பு 1.1.2 உடன் தொடங்கி ஒரு பணித்தொகுப்பாக, பாம்பம் அது வேலண்டின் கீழ் இயங்குகிறதா "
-"என்பதைக் கண்டறிய முயற்சிக்கும். இதுபோன்றால், பாம்பம் ஒரு எச்சரிக்கையைக் காண்பிக்கும் மற்றும் வேலை செய்ய மறுக்கும். B "
-"<-wayand-ok> விருப்பத்துடன் இந்த பணித்தொகையை நீங்கள் முடக்கலாம்."
+"வேலேண்டின் கீழ் ஓடும்போது, பாம்பம் அனைத்து முக்கிய அச்சகங்களையும் கைப்பற்ற தற்போது "
+"சாத்தியமில்லை. இதன் விளைவாக, நீங்கள் க்னோம் செல்லைப் பயன்படுத்தினால், விண்டோசை (a.k.a. "
+"சூப்பர்) விசையை அழுத்தினால் செயல்பாடுகள் கண்ணோட்டத்தை செயல்படுத்தும். உங்கள் சூழலை "
+"சரிபார்க்கவும். பதிப்பு 1.1.2 உடன் தொடங்கி ஒரு பணித்தொகுப்பாக, பாம்பம் அது வேலண்டின் கீழ் "
+"இயங்குகிறதா என்பதைக் கண்டறிய முயற்சிக்கும். இதுபோன்றால், பாம்பம் ஒரு எச்சரிக்கையைக் "
+"காண்பிக்கும் மற்றும் வேலை செய்ய மறுக்கும். B<-wayand-ok> விருப்பத்துடன் இந்த பணித்தொகையை "
+"நீங்கள் முடக்கலாம்."
 
 #. type: Plain text
 #: bambam.6:61
@@ -499,8 +502,8 @@ msgid ""
 "For the above reasons, starting with version 1.2.0, B<it is possible and "
 "recommended to run bambam in a dedicated login session.>"
 msgstr ""
-"மேற்கண்ட காரணங்களுக்காக, பதிப்பு 1.2.0 உடன் தொடங்கி, பி <இது சாத்தியமானது மற்றும் பிரத்யேக உள்நுழைவு அமர்வில் "
-"பாம்பமை இயக்க பரிந்துரைக்கப்படுகிறது.>"
+"மேற்கண்ட காரணங்களுக்காக, பதிப்பு 1.2.0 உடன் தொடங்கி, பி B<இது சாத்தியமானது மற்றும் "
+"பிரத்யேக உள்நுழைவு அமர்வில் பாம்பமை இயக்க பரிந்துரைக்கப்படுகிறது.>"
 
 #. type: Plain text
 #: bambam.6:70
@@ -516,7 +519,8 @@ msgstr ""
 msgid ""
 "Another way is use command such as B<exec startx bambam> from a text console."
 msgstr ""
-"மற்றொரு வழி உரை கன்சோலில் இருந்து b <exec startx Bambam> போன்ற கட்டளையைப் பயன்படுத்தவும்."
+"மற்றொரு வழி உரை கன்சோலில் இருந்து B<exec startx bambam> போன்ற கட்டளையைப் "
+"பயன்படுத்தவும்."
 
 #. type: Plain text
 #: bambam.6:77
@@ -525,8 +529,8 @@ msgid ""
 "and B<unmute> commands are also supported for now, they will be removed in a "
 "future version."
 msgstr ""
-"ஒலியை அணைக்க, இயக்கத்தில், விளையாட்டில் b <ound> என தட்டச்சு செய்க. மரபு B <Mute> மற்றும் b "
-"<sumnute> கட்டளைகளும் இப்போது ஆதரிக்கப்படுகின்றன, அவை எதிர்கால பதிப்பில் அகற்றப்படும்."
+"ஒலியை அணைக்க, இயக்கத்தில், விளையாட்டில் B<ஒலி> என தட்டச்சு செய்க. மரபு B<முடக்கு> மற்றும்"
+" B<ஊன்> கட்டளைகளும் இப்போது ஆதரிக்கப்படுகின்றன, அவை எதிர்கால பதிப்பில் அகற்றப்படும்."
 
 #. type: Plain text
 #: bambam.6:80
@@ -534,8 +538,8 @@ msgid ""
 "To toggle sticky mouse buttons, type B<mouse> in the game.  In this mode, "
 "the mouse button only needs to be pressed once to start or stop drawing."
 msgstr ""
-"ஒட்டும் சுட்டி பொத்தான்களை மாற்ற, விளையாட்டில் B <Mouse> என தட்டச்சு செய்க. இந்த பயன்முறையில், மவுச் பொத்தானை ஒரு "
-"முறை மட்டுமே அழுத்த வேண்டும்."
+"ஒட்டும் சுட்டி பொத்தான்களை மாற்ற, விளையாட்டில் B<சுட்டி> என தட்டச்சு செய்க. இந்த "
+"பயன்முறையில், மவுச் பொத்தானை ஒரு முறை மட்டுமே அழுத்த வேண்டும்."
 
 #. type: Plain text
 #: bambam.6:83
