@@ -1,3 +1,10 @@
+bambam (1.4.1+dfsg-1) sid; urgency=medium
+
+  * New upstream release. Includes fix for install command.
+    Closes: #1089289.
+
+ -- Marcin Owsiany <porridge@debian.org>  Tue, 17 Dec 2024 13:53:34 +0100
+
 bambam (1.4.0+dfsg-1) sid; urgency=low
 
   * New upstream release.
