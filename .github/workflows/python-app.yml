@@ -20,7 +20,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.9", "3.10", "3.11"]
+        python-version: ["3.9", "3.11", "3.13"]
 
     steps:
     - uses: actions/checkout@v4
@@ -52,7 +52,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.9", "3.10", "3.11"]
+        python-version: ["3.9", "3.11", "3.13"]
         extension: ["none", "alphanumeric-en_US"]
     env:
       AUTOPKGTEST_TMP: /tmp
@@ -133,7 +133,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.11"]  # Just latest to keep number of combinations down.
+        python-version: ["3.13"]  # Just latest to keep number of combinations down.
 
     steps:
     - uses: actions/checkout@v4
