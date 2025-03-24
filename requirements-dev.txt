@@ -1,7 +1,7 @@
 autopep8==2.3.2
 flake8==7.1.2
 mccabe==0.7.0
-pre-commit==4.1.0
+pre-commit==4.2.0
 pycodestyle==2.12.1
 pyflakes==3.2.0
 pygame==2.6.1
