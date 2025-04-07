@@ -3,7 +3,7 @@ flake8==7.2.0
 mccabe==0.7.0
 pre-commit==4.2.0
 pycodestyle==2.13.0
-pyflakes==3.3.1
+pyflakes==3.3.2
 pygame==2.6.1
 pyyaml==6.0.2
 tomli==2.2.1
