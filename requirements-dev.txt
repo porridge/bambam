@@ -1,9 +1,9 @@
 autopep8==2.3.2
-flake8==7.2.0
+flake8==7.3.0
 mccabe==0.7.0
 pre-commit==4.2.0
-pycodestyle==2.13.0
-pyflakes==3.3.2
+pycodestyle==2.14.0
+pyflakes==3.4.0
 pygame==2.6.1
 pyyaml==6.0.2
 tomli==2.2.1
