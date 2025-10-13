@@ -6,4 +6,4 @@ pycodestyle==2.14.0
 pyflakes==3.4.0
 pygame==2.6.1
 pyyaml==6.0.3
-tomli==2.2.1
+tomli==2.3.0
