@@ -115,14 +115,14 @@ jobs:
       if: always()
 
     - name: Save artifacts
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       if: always()
       with:
         name: test-artifacts-${{ matrix.python-version }}-${{ matrix.extension }}
         path: artifacts
 
     - name: Save golden files
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       if: always() && inputs.golden == true
       with:
         name: test-golden-${{ matrix.python-version }}-${{ matrix.extension }}
