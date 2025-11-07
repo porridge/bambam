@@ -27,14 +27,16 @@ msgstr ""
 "Project-Id-Version: bambam 1.4.0\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2024-08-24 17:17+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-11-05 22:51+0000\n"
+"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/bambam/"
+"app-and-manpage/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
+"X-Generator: Weblate 5.15-dev\n"
 
 #. TRANSLATORS: command string to toggle sound.
 #. Must not contain spaces, and should be be at least 4 characters long,
@@ -43,7 +45,7 @@ msgstr ""
 #. it is relatively easy to type by an adult without making mistakes.
 #: bambam.py:51
 msgid "sound"
-msgstr ""
+msgstr "zvuk"
 
 #. TRANSLATORS: command string to toggle sticky mouse button.
 #. Must not contain spaces, and should be be at least 4 characters long,
@@ -52,7 +54,7 @@ msgstr ""
 #. it is relatively easy to type by an adult without making mistakes.
 #: bambam.py:57
 msgid "mouse"
-msgstr ""
+msgstr "myš"
 
 #. TRANSLATORS: command string to mute sounds.
 #. Must not contain spaces, and should be be at least 4 characters long,
@@ -61,7 +63,7 @@ msgstr ""
 #. it is relatively easy to type by an adult without making mistakes.
 #: bambam.py:63
 msgid "mute"
-msgstr ""
+msgstr "ztlumit"
 
 #. TRANSLATORS: command string to unmute sounds.
 #. Must not contain spaces, and should be be at least 4 characters long,
@@ -70,7 +72,7 @@ msgstr ""
 #. it is relatively easy to type by an adult without making mistakes.
 #: bambam.py:69
 msgid "unmute"
-msgstr ""
+msgstr "zrušit ztlumení"
 
 #. TRANSLATORS: command string to quit the game.
 #. Must not contain spaces, and should be be at least 4 characters long,
@@ -79,12 +81,12 @@ msgstr ""
 #. it is relatively easy to type by an adult without making mistakes.
 #: bambam.py:75
 msgid "quit"
-msgstr ""
+msgstr "ukončit"
 
 #: bambam.py:91
 #, python-format
 msgid "Failed to load file \"%(file)s\": %(message)s"
-msgstr ""
+msgstr "Nepodařilo se načíst soubor „%(file)s“: %(message)s"
 
 #: bambam.py:143
 #, python-format
@@ -92,34 +94,36 @@ msgid ""
 "image has height of 0 after resizing to fit within %(width)dx%(height)d "
 "pixels"
 msgstr ""
+"po změně rozlišení, aby se vešel do %(width)dx%(height)d pixelů, má obrázek "
+"výšku 0"
 
 #. TRANSLATORS: "item" can refer to an image or sound file path
 #: bambam.py:174
 #, python-format
 msgid "Skipping blacklisted item %s"
-msgstr ""
+msgstr "Přeskočit položku %s ze seznamu vyloučených"
 
 #. TRANSLATORS: placeholder is for a space-separated list of supported command strings (more than one).
 #: bambam.py:328
 #, python-format
 msgid "Commands: %s"
-msgstr ""
+msgstr "Příkazy: %s"
 
 #: bambam.py:355
 msgid "Error: Wayland display detected."
-msgstr ""
+msgstr "Chyba: zjištěno Wayland zobrazení."
 
 #: bambam.py:356
 msgid "Cannot lock the keyboard safely."
-msgstr ""
+msgstr "Nebylo možné bezpečně uzamknout klávesnici."
 
 #: bambam.py:358
 msgid "Press any key to quit."
-msgstr ""
+msgstr "Ukončíte stiskem libovolné klávesy."
 
 #: bambam.py:373
 msgid "Please read the following important information!"
-msgstr ""
+msgstr "Prosím přečtěte si následující důležité informace!"
 
 #. TRANSLATORS: the substituted word will be the translated command for quitting the game.
 #: bambam.py:409
@@ -127,6 +131,8 @@ msgstr ""
 msgid ""
 "To quit the game after it starts, directly type the word %s on the keyboard."
 msgstr ""
+"Pokud chcete hru ukončit hned po jejím spuštění, napište přímo na klávesnici "
+"slovo %s."
 
 #. TRANSLATORS: "this" means the word quit from the preceding message, in this context.
 #: bambam.py:413
