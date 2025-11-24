@@ -23,7 +23,7 @@ jobs:
         python-version: ["3.9", "3.11", "3.13"]
 
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
 
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v6
@@ -60,7 +60,7 @@ jobs:
       BAMBAM_RANDOM_SEED: 0
 
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
 
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v6
@@ -136,7 +136,7 @@ jobs:
         python-version: ["3.13"]  # Just latest to keep number of combinations down.
 
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
 
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v6
