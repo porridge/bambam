@@ -15,16 +15,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2024-08-24 17:17+0200\n"
-"PO-Revision-Date: 2024-11-30 17:00+0000\n"
-"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/bambam/"
-"app-and-manpage/de/>\n"
+"PO-Revision-Date: 2025-12-17 17:00+0000\n"
+"Last-Translator: Oliver <oliver.puff@gmx.de>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/bambam/app-and-"
+"manpage/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.9-dev\n"
+"X-Generator: Weblate 5.15.1-dev\n"
 
 #. TRANSLATORS: command string to toggle sound.
 #. Must not contain spaces, and should be be at least 4 characters long,
@@ -133,11 +133,8 @@ msgstr ""
 
 #. TRANSLATORS: "this" means the word quit from the preceding message, in this context.
 #: bambam.py:417
-#, fuzzy
 msgid "This command is mentioned in the upper left-hand corner of the window."
-msgstr ""
-"Dies und andere verfügbare Befehle werden in der oberen linken "
-"Bildschirmecke angezeigt."
+msgstr "Dieser Befehl wird in der oberen linken Bildschirmecke angezeigt."
 
 #: bambam.py:420
 msgid ""
@@ -216,8 +213,9 @@ msgid "Error: pygame fonts not available. Exiting."
 msgstr ""
 
 #: bambam.py:490
+#, fuzzy
 msgid "Warning: Sound support not available."
-msgstr ""
+msgstr "Achtung: Ton Unterstützung ist nicht verfügbar."
 
 #: bambam.py:499
 msgid "All sounds failed to load."
