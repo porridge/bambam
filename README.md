@@ -33,6 +33,7 @@ Before installing this application, ensure you have the following installed:
 Then:
   1. [Download](https://github.com/porridge/bambam/releases) the `bambam-1.4.1.zip` or `bambam-1.4.1.tar.gz` file.
   1. Unzip `bambam-1.4.1.zip` or `tar zxvf bambam-1.4.1.tar.gz` to create the `bambam-1.4.1` directory.
+  1. Recommended: Move the directory somewhere that will be readable (but not writable) to all users (eg `/opt/`) particularly if intending to launch BamBam as a session.
   1. Change into the `bambam-1.4.1` directory
 ```
 cd bambam-1.4.1
@@ -46,16 +47,19 @@ man ./bambam.6
 If you would like to take advantage of the recommended way to start the game (see the next section) do the following:
 
 ```
-sed -i -e "s,/usr/games/bambam,`pwd`/bambam.py," bambam-session.desktop
 sudo mkdir -p /etc/X11/sessions
 sudo cp bambam-session.desktop /etc/X11/sessions/
+sudo sed -i -e "s,/usr/games/bambam,`pwd`/bambam.py," /etc/X11/sessions/bambam-session.desktop
 ```
+
+The path shown above as `/etc/X11/sessions/` may vary, depending on your Linux distribution. For example, it may be `/usr/share/xsessions/` on Debian.
+One of the valid directories will have at least one `*.desktop` file already, for your existing session launcher/s.
 
 For an alternative way to start the game from your applications menu, do the following:
 ```
-sed -i -e "s,/usr/games/bambam,`pwd`/bambam.py," bambam.desktop
 mkdir -p ~/.local/share/applications
 cp bambam.desktop ~/.local/share/applications/
+sed -i -e "s,/usr/games/bambam,`pwd`/bambam.py," ~/.local/share/applications/bambam.desktop
 ```
 
 ## Usage
