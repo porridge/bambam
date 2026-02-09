@@ -27,15 +27,17 @@ msgstr ""
 "Project-Id-Version: bambam 1.4.0\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
 "POT-Creation-Date: 2024-08-24 17:17+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2026-02-10 13:09+0000\n"
+"Last-Translator: Paul <snide-slum-partake@duck.com>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/bambam/app-and-"
+"manpage/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.16-dev\n"
 
 #. TRANSLATORS: command string to toggle sound.
 #. Must not contain spaces, and should be be at least 4 characters long,
@@ -44,7 +46,7 @@ msgstr ""
 #. it is relatively easy to type by an adult without making mistakes.
 #: bambam.py:51
 msgid "sound"
-msgstr ""
+msgstr "звук"
 
 #. TRANSLATORS: command string to toggle sticky mouse button.
 #. Must not contain spaces, and should be be at least 4 characters long,
@@ -53,7 +55,7 @@ msgstr ""
 #. it is relatively easy to type by an adult without making mistakes.
 #: bambam.py:57
 msgid "mouse"
-msgstr ""
+msgstr "мышь"
 
 #. TRANSLATORS: command string to mute sounds.
 #. Must not contain spaces, and should be be at least 4 characters long,
@@ -62,7 +64,7 @@ msgstr ""
 #. it is relatively easy to type by an adult without making mistakes.
 #: bambam.py:63
 msgid "mute"
-msgstr ""
+msgstr "беззвучный"
 
 #. TRANSLATORS: command string to unmute sounds.
 #. Must not contain spaces, and should be be at least 4 characters long,
@@ -80,12 +82,12 @@ msgstr ""
 #. it is relatively easy to type by an adult without making mistakes.
 #: bambam.py:75
 msgid "quit"
-msgstr ""
+msgstr "выход"
 
 #: bambam.py:91
 #, python-format
 msgid "Failed to load file \"%(file)s\": %(message)s"
-msgstr ""
+msgstr "Не удалось загрузить файл \"%(file)s\": %(message)s"
 
 #: bambam.py:143
 #, python-format
@@ -93,59 +95,63 @@ msgid ""
 "image has height of 0 after resizing to fit within %(width)dx%(height)d "
 "pixels"
 msgstr ""
+"изображение имеет высоту 0 после изменения размера, чтобы поместиться в %"
+"(width)dx%(height)d пикселей"
 
 #. TRANSLATORS: "item" can refer to an image or sound file path
 #: bambam.py:174
 #, python-format
 msgid "Skipping blacklisted item %s"
-msgstr ""
+msgstr "Пропустить элемент из черного списка %s"
 
 #. TRANSLATORS: placeholder is for a space-separated list of supported command strings (more than one).
 #: bambam.py:328
 #, python-format
 msgid "Commands: %s"
-msgstr ""
+msgstr "Команды: %s"
 
 #: bambam.py:355
 msgid "Error: Wayland display detected."
-msgstr ""
+msgstr "Ошибка: обнаружен дисплей Wayland."
 
 #: bambam.py:356
 msgid "Cannot lock the keyboard safely."
-msgstr ""
+msgstr "Невозможно надежно заблокировать клавиатуру."
 
 #: bambam.py:358
 msgid "Press any key to quit."
-msgstr ""
+msgstr "Нажмите любую клавишу, чтобы выйти."
 
 #: bambam.py:373
 msgid "Please read the following important information!"
-msgstr ""
+msgstr "Пожалуйста, прочтите следующую важную информацию!"
 
 #. TRANSLATORS: the substituted word will be the translated command for quitting the game.
 #: bambam.py:409
 #, python-format
 msgid ""
 "To quit the game after it starts, directly type the word %s on the keyboard."
-msgstr ""
+msgstr "Чтобы выйти из игры после ее запуска, введите слово %s на клавиатуре."
 
 #. TRANSLATORS: "this" means the word quit from the preceding message, in this context.
 #: bambam.py:413
 msgid ""
 "This, and other available commands are mentioned in the upper left-hand "
 "corner of the window."
-msgstr ""
+msgstr "Эта и другие доступные команды указаны в левом верхнем углу окна."
 
 #. TRANSLATORS: "this" means the word quit from the preceding message, in this context.
 #: bambam.py:417
 msgid "This command is mentioned in the upper left-hand corner of the window."
-msgstr ""
+msgstr "Эта команда указана в верхнем левом углу окна."
 
 #: bambam.py:420
 msgid ""
 "The game tries to grab the keyboard and mouse pointer focus, to keep your "
 "child from causing damage to your files."
 msgstr ""
+"Игра пытается захватить фокус клавиатуры и указателя мыши, чтобы ваш ребенок "
+"не повредил ваши файлы."
 
 #: bambam.py:424
 msgid ""
