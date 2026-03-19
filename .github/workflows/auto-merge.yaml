@@ -1,0 +1,29 @@
+name: auto-merge
+
+on:
+  schedule:
+    - cron: '13 */6 * * *'  # Every 6 hours
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: auto-merge
+  cancel-in-progress: false
+
+jobs:
+  auto-merge:
+    name: Enable auto-merge for eligible PRs
+    runs-on: ubuntu-latest
+    if: github.repository_owner == 'porridge'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Run auto-merge action
+        uses: stackrox/actions/automerge@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
