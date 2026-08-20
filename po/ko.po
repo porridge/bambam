@@ -26,7 +26,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bambam 1.2.0\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
-"POT-Creation-Date: 2024-08-24 17:17+0200\n"
+"POT-Creation-Date: 2026-08-20 16:06+0200\n"
 "PO-Revision-Date: 2024-04-17 08:03+0000\n"
 "Last-Translator: tabby <tabby4442@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/bambam/app-and-"
@@ -236,7 +236,7 @@ msgstr "모든 확장 사운드를 로드하지 못했습니다."
 msgid "Using extension \"%s\"."
 msgstr "확장자 \"%s\"를 사용합니다."
 
-#: bambam.py:557 bambam.en.desktop:4 bambam-session.en.desktop:4
+#: bambam.py:557 bambam.en.desktop:3 bambam-session.en.desktop:3
 msgid "Keyboard mashing and doodling game for babies and toddlers."
 msgstr "영유아를 위한 키보드 매싱 및 낙서 게임."
 
@@ -548,8 +548,8 @@ msgid ""
 "the B<data> directory in bambam's B<$XDG_DATA_HOME> subdirectory (typically "
 "~/.local/share/bambam/data)"
 msgstr ""
-"bambam의 B<$XDG_DATA_HOME> 하위 디렉토리에 있는 B<data> 디렉토리(보통 ~/."
-"local/share/bambam/data)"
+"bambam의 B<$XDG_DATA_HOME> 하위 디렉토리에 있는 B<data> 디렉토리(보통 "
+"~/.local/share/bambam/data)"
 
 #. type: Plain text
 #: bambam.6:91
@@ -602,18 +602,18 @@ msgstr "작성자"
 #. type: Plain text
 #: bambam.6:104
 msgid ""
-"Spike Burch E<lt>spikeb@gmail.comE<gt> Marcin Owsiany E<lt>marcin@owsiany."
-"plE<gt>"
+"Spike Burch E<lt>spikeb@gmail.comE<gt> Marcin Owsiany "
+"E<lt>marcin@owsiany.plE<gt>"
 msgstr ""
-"Spike Burch E<lt>spikeb@gmail.comE<gt> Marcin Owsiany E<lt>marcin@owsiany."
-"plE<gt>"
+"Spike Burch E<lt>spikeb@gmail.comE<gt> Marcin Owsiany "
+"E<lt>marcin@owsiany.plE<gt>"
 
-#: bambam.en.desktop:3 bambam-session.en.desktop:3
+#: bambam.en.desktop:2 bambam-session.en.desktop:2
 msgid "BamBam"
 msgstr "BamBam"
 
 #. TRANSLATORS: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon! Do NOT translate or remove the application name from the list! It is used for search.
-#: bambam.en.desktop:11
+#: bambam.en.desktop:10
 msgid "bambam;baby;child;toddler;game;keyboard mashing;mouse;doodling;"
 msgstr ""
 "bambam;baby;child;toddler;game;keyboard mashing;mouse;doodling;뱀뱀;아기;어린"

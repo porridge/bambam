@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
-"POT-Creation-Date: 2024-08-24 17:17+0200\n"
+"POT-Creation-Date: 2026-08-20 16:06+0200\n"
 "PO-Revision-Date: 2024-08-27 11:09+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/bambam/"
@@ -239,7 +239,7 @@ msgstr "Klarte ikke å laste inn lyder."
 msgid "Using extension \"%s\"."
 msgstr "Bruker «%s»-utvidelsen."
 
-#: bambam.py:557 bambam.en.desktop:4 bambam-session.en.desktop:4
+#: bambam.py:557 bambam.en.desktop:3 bambam-session.en.desktop:3
 #, fuzzy
 msgid "Keyboard mashing and doodling game for babies and toddlers."
 msgstr "Et tastaturtrykkespill for babyer."
@@ -614,18 +614,18 @@ msgstr "Utvikler"
 #. type: Plain text
 #: bambam.6:104
 msgid ""
-"Spike Burch E<lt>spikeb@gmail.comE<gt> Marcin Owsiany E<lt>marcin@owsiany."
-"plE<gt>"
+"Spike Burch E<lt>spikeb@gmail.comE<gt> Marcin Owsiany "
+"E<lt>marcin@owsiany.plE<gt>"
 msgstr ""
-"Spike Burch E<lt>spikeb@gmail.comE<gt> Marcin Owsiany E<lt>marcin@owsiany."
-"plE<gt>"
+"Spike Burch E<lt>spikeb@gmail.comE<gt> Marcin Owsiany "
+"E<lt>marcin@owsiany.plE<gt>"
 
-#: bambam.en.desktop:3 bambam-session.en.desktop:3
+#: bambam.en.desktop:2 bambam-session.en.desktop:2
 msgid "BamBam"
 msgstr "BamBam"
 
 #. TRANSLATORS: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon! Do NOT translate or remove the application name from the list! It is used for search.
-#: bambam.en.desktop:11
+#: bambam.en.desktop:10
 msgid "bambam;baby;child;toddler;game;keyboard mashing;mouse;doodling;"
 msgstr "bambam;baby;barn;spedbarn;spill;tastaturtrykking;mus;dodling;"
 

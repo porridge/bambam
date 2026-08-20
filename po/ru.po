@@ -26,7 +26,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bambam 1.4.0\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
-"POT-Creation-Date: 2024-08-24 17:17+0200\n"
+"POT-Creation-Date: 2026-08-20 16:06+0200\n"
 "PO-Revision-Date: 2026-07-15 22:01+0000\n"
 "Last-Translator: DatVex <kinorealme241@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/bambam/app-and-"
@@ -95,8 +95,8 @@ msgid ""
 "image has height of 0 after resizing to fit within %(width)dx%(height)d "
 "pixels"
 msgstr ""
-"изображение имеет высоту 0 после изменения размера, чтобы поместиться в %"
-"(width)dx%(height)d пикселей"
+"изображение имеет высоту 0 после изменения размера, чтобы поместиться в "
+"%(width)dx%(height)d пикселей"
 
 #. TRANSLATORS: "item" can refer to an image or sound file path
 #: bambam.py:174
@@ -189,7 +189,8 @@ msgstr ""
 
 #: bambam.py:439
 msgid "We recommend to NOT LEAVE YOUR CHILD UNATTENDED with the game."
-msgstr "Мы рекомендуем НЕ ОСТАВЛЯТЬ ВАШЕГО РЕБЕНКА БЕЗ ПРИСМОТРА во время игры."
+msgstr ""
+"Мы рекомендуем НЕ ОСТАВЛЯТЬ ВАШЕГО РЕБЕНКА БЕЗ ПРИСМОТРА во время игры."
 
 #: bambam.py:441
 msgid ""
@@ -240,7 +241,7 @@ msgstr "Не удалось загрузить звуки расширений."
 msgid "Using extension \"%s\"."
 msgstr "Используется расширение \"%s\"."
 
-#: bambam.py:557 bambam.en.desktop:4 bambam-session.en.desktop:4
+#: bambam.py:557 bambam.en.desktop:3 bambam-session.en.desktop:3
 msgid "Keyboard mashing and doodling game for babies and toddlers."
 msgstr "Игра с барабаньем по клавиатуре и рисованием для младенцев и малышей."
 
@@ -570,8 +571,8 @@ msgid ""
 "the B<data> directory in bambam's B<$XDG_DATA_HOME> subdirectory (typically "
 "~/.local/share/bambam/data)"
 msgstr ""
-"каталог B<data> в подкаталоге B<$XDG_DATA_HOME> программы bambam (обычно ~/"
-".local/share/bambam/data)"
+"каталог B<data> в подкаталоге B<$XDG_DATA_HOME> программы bambam (обычно "
+"~/.local/share/bambam/data)"
 
 #. type: Plain text
 #: bambam.6:91
@@ -627,18 +628,18 @@ msgstr "АВТОР"
 #. type: Plain text
 #: bambam.6:104
 msgid ""
-"Spike Burch E<lt>spikeb@gmail.comE<gt> Marcin Owsiany E<lt>marcin@owsiany."
-"plE<gt>"
+"Spike Burch E<lt>spikeb@gmail.comE<gt> Marcin Owsiany "
+"E<lt>marcin@owsiany.plE<gt>"
 msgstr ""
-"Spike Burch E<lt>spikeb@gmail.comE<gt> Marcin Owsiany E<lt>"
-"marcin@owsiany.plE<gt>"
+"Spike Burch E<lt>spikeb@gmail.comE<gt> Marcin Owsiany "
+"E<lt>marcin@owsiany.plE<gt>"
 
-#: bambam.en.desktop:3 bambam-session.en.desktop:3
+#: bambam.en.desktop:2 bambam-session.en.desktop:2
 msgid "BamBam"
 msgstr "BamBam"
 
 #. TRANSLATORS: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon! Do NOT translate or remove the application name from the list! It is used for search.
-#: bambam.en.desktop:11
+#: bambam.en.desktop:10
 msgid "bambam;baby;child;toddler;game;keyboard mashing;mouse;doodling;"
 msgstr ""
 "bambam;малыш;ребенок;игра;барабанить по клавиатуре;клавиатура;мышь;рисование;"
