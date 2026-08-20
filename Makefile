@@ -1,4 +1,4 @@
-VERSION = 1.4.1
+VERSION = 1.4.2
 LINGUAS = $(shell awk '$$1=="[po4a_langs]"{$$1="";print}' po4a.conf)
 PREFIX ?=
 

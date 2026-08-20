@@ -3,7 +3,7 @@
 .\" This file was generated with po4a. Translate the source file.
 .\"
 .\"*******************************************************************
-.TH bambam 6 "24 August 2024" "version 1.4.0" 
+.TH bambam 6 "24 août 2024" "version 1.4.0" 
 .SH NOM
 bambam \- un jeu de clavier et de gribouillage pour les bébés
 .SH SYNOPSIS
@@ -20,10 +20,10 @@ Produire les mêmes sons sur les mêmes touches.
 Utiliser un fond sombre au lieu d’un fond clair.
 .TP 
 \fB\-m\fP, \fB\-\-mute\fP
-Start muted.
+Commencer en muet.
 .TP 
 \fB\-\-sticky\-mouse\fP
-Start with sticky mouse buttons enabled.
+Démarrer avec les boutons de souris bloqués.
 .TP 
 \fB\-\-sound_blacklist\fP=\fIGLOB\fP
 Liste des modèles de noms de fichiers sonores à ne jamais jouer.
@@ -47,7 +47,7 @@ couleurs changeantes de manière aléatoire. L'écran est effacé aléatoirement
 \fBPour quitter, tapez directement la commande mentionnée dans le coin supérieur gauche de la fenêtre. Dans les langues anglaises, c'est le mot : quit.\fP
 .PP
 \fBAttention\fP il existe des moyens de passer à une autre application depuis
-bambam\ :
+bambam :
 .IP \(bu
 lorsqu'il est exécuté sur Wayland, il n'est actuellement pas possible pour
 bambam de recevoir toutes les touches appuyées.  Une des conséquences est
@@ -73,15 +73,16 @@ les paramètres de votre gestionnaire de fenêtres lorsque vous vous connectez
 .IP \(bu
 Une autre façon de faire est d'utiliser une commande comme \fBexec startx bambam\fP depuis une console textuelle.
 .PP
-To turn the sound off and on, type \fBsound\fP in the game.  The legacy \fBmute\fP
-and \fBunmute\fP commands are also supported for now, they will be removed in a
-future version.
+Pour activer ou désactiver l'audio, écrivez \fBaudio\fP dans le jeu.  Les
+anciennes commandes \fBmuet\fP et \fBdemuter\fP sont également prises en charge
+pour le moment, elles seront retirées dans une version future.
 .PP
-To toggle sticky mouse buttons, type \fBmouse\fP in the game.  In this mode,
-the mouse button only needs to be pressed once to start or stop drawing.
+Pour activer les boutons de souris bloqués, écrivez \fBsouris\fP dans le jeu.
+Dans ce mode, le bouton de la souris n'a besoin d'être appuyé qu'une fois
+pour commencer ou arrêter de dessiner.
 .PP
 bambam charge les images (fichiers GIF, JPEG, PNG et TIFF) et les sons
-(fichiers WAV et OGG) à partir des répertoires suivants\ :
+(fichiers WAV et OGG) à partir des répertoires suivants :
 .IP \(bu
 le dossier \fBdata\fP fourni avec le jeu,
 .IP \(bu

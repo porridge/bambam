@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bambam 1.0.2\n"
 "Report-Msgid-Bugs-To: marcin@owsiany.pl\n"
-"POT-Creation-Date: 2024-08-24 17:17+0200\n"
+"POT-Creation-Date: 2026-08-20 16:06+0200\n"
 "PO-Revision-Date: 2024-04-13 14:15+0000\n"
 "Last-Translator: Marcin Owsiany <marcin@owsiany.pl>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/bambam/app-and-"
@@ -228,7 +228,7 @@ msgstr "Nie udało się załadować żadnego dźwięku z rozszerzenia."
 msgid "Using extension \"%s\"."
 msgstr "Używanie rozszerzenia \"%s\"."
 
-#: bambam.py:557 bambam.en.desktop:4 bambam-session.en.desktop:4
+#: bambam.py:557 bambam.en.desktop:3 bambam-session.en.desktop:3
 msgid "Keyboard mashing and doodling game for babies and toddlers."
 msgstr "Gra w klawiaturę i bazgranie dla małych dzieci."
 
@@ -520,9 +520,9 @@ msgid ""
 "and B<unmute> commands are also supported for now, they will be removed in a "
 "future version."
 msgstr ""
-"Aby wyłączyć lub włączyć dźwięk, wpisz w trakcie gry słowo B<dzwiek>. "
-"Stare komendy B<wycisz> i B<zglosnij> także są nadal są obsługiwane, "
-"zostaną one usunięte w przyszłej wersji."
+"Aby wyłączyć lub włączyć dźwięk, wpisz w trakcie gry słowo B<dzwiek>. Stare "
+"komendy B<wycisz> i B<zglosnij> także są nadal są obsługiwane, zostaną one "
+"usunięte w przyszłej wersji."
 
 #. type: Plain text
 #: bambam.6:80
@@ -530,8 +530,9 @@ msgid ""
 "To toggle sticky mouse buttons, type B<mouse> in the game.  In this mode, "
 "the mouse button only needs to be pressed once to start or stop drawing."
 msgstr ""
-"Aby włączyć lub wyłączyć lepkie przyciskie myszy, wpisz w trakcie gry słowo B<mysz>. "
-"W tym trybie wystarczy przycisnąć przycisk myszy raz by zacząć lub skończyć rysować."
+"Aby włączyć lub wyłączyć lepkie przyciskie myszy, wpisz w trakcie gry słowo "
+"B<mysz>. W tym trybie wystarczy przycisnąć przycisk myszy raz by zacząć lub "
+"skończyć rysować."
 
 #. type: Plain text
 #: bambam.6:83
@@ -553,8 +554,8 @@ msgid ""
 "the B<data> directory in bambam's B<$XDG_DATA_HOME> subdirectory (typically "
 "~/.local/share/bambam/data)"
 msgstr ""
-"katalog B<data> w podkatalogu B<$XDG_DATA_HOME> programu bambam (zwykle ~/."
-"local/share/bambam/data)"
+"katalog B<data> w podkatalogu B<$XDG_DATA_HOME> programu bambam (zwykle "
+"~/.local/share/bambam/data)"
 
 #. type: Plain text
 #: bambam.6:91
@@ -609,17 +610,17 @@ msgstr "AUTOR"
 #. type: Plain text
 #: bambam.6:104
 msgid ""
-"Spike Burch E<lt>spikeb@gmail.comE<gt> Marcin Owsiany E<lt>marcin@owsiany."
-"plE<gt>"
+"Spike Burch E<lt>spikeb@gmail.comE<gt> Marcin Owsiany "
+"E<lt>marcin@owsiany.plE<gt>"
 msgstr ""
-"Spike Burch E<lt>spikeb@gmail.comE<gt> Marcin Owsiany E<lt>marcin@owsiany."
-"plE<gt>"
+"Spike Burch E<lt>spikeb@gmail.comE<gt> Marcin Owsiany "
+"E<lt>marcin@owsiany.plE<gt>"
 
-#: bambam.en.desktop:3 bambam-session.en.desktop:3
+#: bambam.en.desktop:2 bambam-session.en.desktop:2
 msgid "BamBam"
 msgstr "BamBam"
 
 #. TRANSLATORS: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon! Do NOT translate or remove the application name from the list! It is used for search.
-#: bambam.en.desktop:11
+#: bambam.en.desktop:10
 msgid "bambam;baby;child;toddler;game;keyboard mashing;mouse;doodling;"
 msgstr "bambam;dziecko;niemowle;gra;klawiatura;mysz;bazgranie;rysowanie;"
