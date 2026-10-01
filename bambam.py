@@ -199,6 +199,8 @@ class Bambam:
 
         self._event_count = self._random.randint(0, 2 * self._HUE_SPACE - 1)
 
+        self._draw_on_move = False
+
     def _add_image_policy(self, name, policy):
         self._image_policies[name] = policy
 
@@ -486,6 +488,7 @@ class Bambam:
             print(_('Error: pygame fonts not available. Exiting.'), file=sys.stderr)
             sys.exit(1)
         self._sticky_mouse = args.sticky_mouse
+        self._draw_on_move = args.draw_on_move
         if not self._try_init_sound():
             print(_('Warning: Sound support not available.'), file=sys.stderr)
             self._sound_enabled = False
@@ -573,6 +576,8 @@ class Bambam:
                             help=_('Start muted.'))
         parser.add_argument('--sticky-mouse', action='store_true',
                             help=_('Start with sticky mouse buttons enabled.'))
+        parser.add_argument('--draw-on-move', action='store_true',
+                            help=_('Draw when the mouse moves, even without pressing a button.'))
         parser.add_argument('--wayland-ok', action='store_true',
                             help=_('Do not prevent running under Wayland.'))
         parser.add_argument('--in-dedicated-session', action='store_true',
@@ -625,7 +630,7 @@ class Bambam:
 
                 elif event.type == MOUSEMOTION:
                     self._bump_event_count()
-                    if mouse_pressed:
+                    if mouse_pressed or self._draw_on_move:
                         self.draw_dot()
                         pygame.display.flip()
 
