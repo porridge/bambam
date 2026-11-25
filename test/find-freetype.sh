@@ -16,7 +16,7 @@
 set -euo pipefail
 mode="$1"
 shift
-pygame_file="$(env python3 -c "import pygame; print(pygame.__file__)" | grep -Ev "^(Hello from the |pygame [0-9]+)")"
+pygame_file="$(env python3 -c "import pygame; print(pygame.__file__)" | grep -Ev "^(Hello from the |pygame(-ce)? [0-9]+)")"
 pygame_dir="$(dirname "${pygame_file}")"
 base_dir="$(dirname "${pygame_dir}")"
 echo "Looking for freetype shared library under ${base_dir}..." >&2
